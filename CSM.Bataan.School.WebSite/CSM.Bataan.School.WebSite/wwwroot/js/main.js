@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function () {
+    $('#facilities-slider').bxSlider();
 	$('.bxslider').bxSlider();
 	
 	$(".menu-trigger").click(function() {

@@ -27,3 +27,5 @@ C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\C
 C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Debug\netcoreapp2.1\CSM.Bataan.School.WebSite.dll
 C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Debug\netcoreapp2.1\CSM.Bataan.School.WebSite.pdb
 C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Debug\netcoreapp2.1\CSM.Bataan.School.WebSite.csproj.CopyComplete
+C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Header.g.cshtml.cs
+C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Footer.g.cshtml.cs

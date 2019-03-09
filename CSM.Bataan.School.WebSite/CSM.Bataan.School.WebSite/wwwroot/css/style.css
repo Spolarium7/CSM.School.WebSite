@@ -153,7 +153,7 @@ input, textarea, select, button {
 
 a, a:visited, a:focus, a:active {
 	text-decoration: none;
-	color: #008bc4;
+	color: #c05151;
 }
 
 a:hover {
@@ -219,7 +219,7 @@ a:hover {
 
 #menu a:hover,
 #menu .current a {
-	color: #008bc4;
+	color: #c05151;
 	text-decoration: underline;
 }
 
@@ -239,7 +239,7 @@ a:hover {
 }
 
 .divider {
-	background: #2c4167 url(../images/bg_white_arrow.png) no-repeat 50% 0;
+	background: #681818 url(../images/bg_white_arrow.png) no-repeat 50% 0;
 	height: 80px;
 	position: relative;
 	margin-top: 3px;
@@ -401,15 +401,15 @@ h1.single{
 
 #sidebar .sidemenu .current a,
 #sidebar .sidemenu a:hover {
-	border: 1px solid #008bc4;
+	border: 1px solid #c05151;
 	color: #fff;
-	background: #008bc4;
+	background: #c05151;
 	text-decoration: none;
 }
 
 #sidebar .sidemenu .current a .nr,
 #sidebar .sidemenu a:hover .nr {
-	background: #2c4167;
+	background: #681818;
 }
 
 #sidebar .sidemenu a .nr {
@@ -502,14 +502,14 @@ h1.single{
 }
 
 #sidebar .calendar td.upcoming>div {
-	background: #008bc4;
+	background: #c05151;
 	color: #fff;
-	border: 1px solid #008bc4;
+	border: 1px solid #c05151;
 }
 
 #sidebar .calendar td.upcoming>div.hover {
-	background: #2c4167;
-	border: 1px solid #2c4167;
+	background: #681818;
+	border: 1px solid #681818;
 }
 
 #sidebar .calendar td>div {
@@ -534,7 +534,7 @@ h1.single{
 	top: -72px;
 	left: -382px;
 	border-radius: 4px;
-	background: #2b4167;
+	background: #Project;
 	text-align: left;
 	font-size: 14px;
 	line-height: 24px;
@@ -554,7 +554,7 @@ h1.single{
 	height: 0;
 	border-style: solid;
 	border-width: 4px 0 4px 4px;
-	border-color: transparent transparent transparent #2c4167;
+	border-color: transparent transparent transparent #681818;
 }
 
 #sidebar .calendar .tooltip h4 {
@@ -563,7 +563,7 @@ h1.single{
 }
 
 #sidebar .calendar .tooltip .info-line {
-	color: #899ec4;
+	color: #da7373;
 	padding-bottom: 9px;
 }
 
@@ -592,7 +592,7 @@ h1.single{
 
 #sidebar .calendar .note p:after {
 	position: absolute;
-	background: #008bc4;
+	background: #c05151;
 	content: "";
 	height: 22px;
 	width: 22px;
@@ -667,7 +667,7 @@ h1.single{
 	font-size: 84px;
 	line-height: 101px;
 	border-radius: 4px;
-	background: #008bc4;
+	background: #c05151;
 	padding: 1px 23px 5px 23px;
 	display: inline-block;
 }
@@ -740,47 +740,177 @@ h1.single{
 	background-position: -12px 0;
 }
 
-/* posts
+/* mission-vision
 ------------------------------------------------------------------------------*/
 
-.posts {
-	overflow: hidden;
-	padding-bottom: 91px;
+.mission-vision {
+    overflow: hidden;
+    padding-bottom: 91px;
 }
 
-.posts article {
+.mission-vision article {
 	width: 50%;
 	float: left;
 	padding: 0 15px;
 }
 
-.posts .pic {
+.mission-vision .pic {
 	float: left;
 	margin-right: 30px;
 	margin-top: 6px;
 }
 
-.posts .info {
+.mission-vision .info {
 	overflow: hidden;
 	padding-right: 10px;
 }
 
-.posts .info h3 {
+.mission-vision .info h3 {
 	overflow: hidden;
-	color: #008bc3;
+	color: #ea3d3d;
 	font-family: 'BebasNeue';
 	font-size: 30px;
 	line-height: 34px;
 	padding-bottom: 11px;
 }
 
+
+/* facilities
+------------------------------------------------------------------------------*/
+
+.facilities {
+        overflow: hidden;
+        padding-bottom: 91px;
+        padding-top: 91px;
+    }
+
+    .facilities article {
+        width: 50%;
+        float: left;
+        padding: 0 15px 60px;
+    }
+
+    .facilities .pic {
+        float: left;
+        margin-right: 30px;
+        margin-top: 6px;
+    }
+
+    .facilities .info {
+        overflow: hidden;
+        padding-right: 10px;
+        width:40%;
+    }
+
+    .facilities .info h3 {
+        overflow: hidden;
+        color: #ea3d3d;
+        font-family: 'BebasNeue';
+        font-size: 30px;
+        line-height: 34px;
+        padding-bottom: 11px;
+    }
+
+    .facilities .bx-controls-direction {
+	    display: none;
+    }
+
+    .facilities .bx-pager {
+	    position: absolute;
+	    bottom: 8px;
+	    left: 0;
+	    right: 0;
+	    text-align: center;
+	    z-index: 999;
+        padding-top:20px;
+    }
+
+    .facilities .bx-pager-item {
+	    display: inline-block;
+	    padding: 0 2px;
+    }
+
+    .facilities .bx-pager-item a {
+	    display: block;
+	    background: url(../images/bg_slider_nav_dark.png) no-repeat;
+	    height: 13px;
+	    width: 12px;
+	    text-indent: -999em;
+    }
+
+    .facilities .bx-pager-item a.active,
+    .facilities .bx-pager-item a:hover {
+	    background-position: -12px 0;
+    }
+
+/* montessorians
+------------------------------------------------------------------------------*/
+
+.montessorians {
+    overflow: hidden;
+    background: #681818;
+    padding: 57px 0 70px 0;
+}
+
+    .montessorians h2 {
+        color: #fff;
+    }
+
+    .montessorians article {
+        width: 50%;
+        float: left;
+        padding: 0 15px;
+    }
+
+    .montessorians .pic {
+        float: left;
+        margin-right: 25px;
+        margin-top: 4px;
+    }
+
+        .montessorians .pic img {
+            border-radius: 5px;
+        }
+
+    .montessorians .info {
+        overflow: hidden;
+        color: #fff;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .montessorians .info h4 {
+        color: #e89595;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: bold;
+    }
+
+    .montessorians .info .date {
+        color: #da7373;
+        font-size: 12px;
+        line-height: 20px;
+        padding-bottom: 10px;
+    }
+
+    .montessorians .info p {
+        padding-bottom: 11px;
+    }
+
+.montessorians .more {
+    padding-right: 23px;
+    background: url(../images/bg_arrow_red.png) no-repeat 100% 50%;
+    color: #e89595;
+}
+
+
 /* news
 ------------------------------------------------------------------------------*/
 
 .news {
-	overflow: hidden;
-	background: #2c4167;
-	padding: 57px 0 70px 0;
+    overflow: hidden;
+    background: #681818;
+    padding: 57px 0 70px 0;
 }
 
 h1,
@@ -827,14 +957,14 @@ h1 {
 }
 
 .news .info h4 {
-	color: #8ed3ef;
+	color: #e89595;
 	font-size: 14px;
 	line-height: 20px;
 	font-weight: bold;
 }
 
 .news .info .date {
-	color: #899ec4;
+	color: #da7373;
 	font-size: 12px;
 	line-height: 20px;
 	padding-bottom: 10px;
@@ -846,14 +976,14 @@ h1 {
 
 .news .more {
 	padding-right: 23px;
-	background: url(../images/bg_arrow_blue.png) no-repeat 100% 50%;
-	color: #8ed3ef;
+	background: url(../images/bg_arrow_red.png) no-repeat 100% 50%;
+	color: #e89595;
 }
 
 .more {
 	padding-right: 23px;
-	background: url(../images/bg_arrow_blue_dark.png) no-repeat 100% 50%;
-	color: #008bc4;
+	background: url(../images/bg_arrow_red_dark.png) no-repeat 100% 50%;
+	color: #c05151;
 }
 
 .btn-holder {
@@ -875,9 +1005,9 @@ a.btn,
 	border: none;
 }
 
-a.btn.blue,
-.btn.blue {
-	background: #008bc4;
+a.btn.red,
+.btn.red {
+	background: #c05151;
 	color: #fff;
 }
 
@@ -900,7 +1030,7 @@ a.btn.blue,
 	width: 70px;
 	float: left;
 	border-radius: 4px;
-	background-color: #008bc3;
+	background-color: #ea3d3d;
 	margin-right: 30px;
 	margin-top: 4px;
 	text-align: center;
@@ -913,7 +1043,7 @@ a.btn.blue,
 
 .current-date .date {
 	background-color: #fff;
-	color: #008bc3;
+	color: #ea3d3d;
 	font-size: 40px;
 	border-radius: 4px;
 	line-height: 49px;
@@ -935,7 +1065,7 @@ a.btn.blue,
 
 .info-request {
 	border-radius: 4px;
-	background: #2b4167 url(../images/ico_information.png) no-repeat 35px 35px;
+	background: #731f1f url(../images/ico_information.png) no-repeat 35px 35px;
 	display: block;
 	padding: 0 0 0 138px;
 	margin: 0 15px 100px 15px;
@@ -958,7 +1088,7 @@ a.btn.blue,
 	display: block;
 	float: right;
 	height: 100%;
-	background: #008bc4 url(../images/bg_arrow_information.png) no-repeat 50% 50%;
+	background: #c05151 url(../images/bg_arrow_information.png) no-repeat 50% 50%;
 }
 
 .info-request .title {
@@ -972,13 +1102,72 @@ a.btn.blue,
 }
 
 .info-request .text {
-	color: #899ec4;
+	color: #da7373;
 	font-size: 14px;
 	line-height: 20px;
 	margin: -2px 0 0 0;
 	display: block;
 	text-transform: uppercase;
 }
+
+/* events
+------------------------------------------------------------------------------*/
+
+.trainings-assessments {
+    padding: 57px 0 100px 0;
+}
+
+    .trainings-assessments article {
+        width: 25%;
+        float: left;
+        padding: 0 15px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .trainings-assessments .info h3 {
+        overflow: hidden;
+        color: #ea3d3d;
+        font-family: 'BebasNeue';
+        font-size: 30px;
+        line-height: 34px;
+        padding-bottom: 11px;
+    }
+
+.current-date {
+    width: 70px;
+    float: left;
+    border-radius: 4px;
+    background-color: #ea3d3d;
+    margin-right: 30px;
+    margin-top: 4px;
+    text-align: center;
+    font-family: 'BebasNeue';
+    color: #fff;
+    font-size: 16px;
+    padding: 3px;
+    line-height: 20px;
+}
+
+    .current-date .date {
+        background-color: #fff;
+        color: #ea3d3d;
+        font-size: 40px;
+        border-radius: 4px;
+        line-height: 49px;
+        margin-top: 3px;
+        font-weight: bold;
+    }
+
+.trainings-assessments .info {
+    overflow: hidden;
+}
+
+    .trainings-assessments .info p {
+        padding-bottom: 13px;
+        min-height: 153px;
+    }
+
 
 /* Content
 ------------------------------------------------------------------------------*/
@@ -994,7 +1183,7 @@ a.btn.blue,
 
 #footer {
 	clear: both;
-	background: #2c4167 url(../images/bg_white_arrow.png) no-repeat 50% 0;
+	background: #681818 url(../images/bg_white_arrow.png) no-repeat 50% 0;
 	overflow: hidden;
 	padding: 91px 0 0 0;
 	font-size: 14px;
@@ -1023,7 +1212,7 @@ a.btn.blue,
 }
 
 #footer .col-1 li {
-	border-bottom: 1px solid #3c5177;
+	border-bottom: 1px solid #912121;
 	padding-top: 1px;
 	padding-bottom: 16px;
 	margin-bottom: 20px;
@@ -1067,14 +1256,14 @@ a.btn.blue,
 }
 
 #footer .col-2 li {
-	border-bottom: 1px solid #3c5177;
+	border-bottom: 1px solid #912121;
 	padding-bottom: 9px;
 	margin-bottom: 9px;
 }
 
 #footer .col-2 li a {
 	padding-left: 20px;
-	background: url(../images/bg_arrow_blue.png) no-repeat 0 50%;
+	background: url(../images/bg_arrow_red.png) no-repeat 0 50%;
 }
 
 #footer .col-2 li.last{
@@ -1091,12 +1280,12 @@ a.btn.blue,
 }
 
 #footer .col-3 li a {
-	background: #8ed3ef;
+	background: #e89595;
 	display: block;
 	width: 119px;
 	height: 35px;
 	line-height: 35px;
-	color: #46788d;
+	color: #834f5e;
 	font-size: 14px;
 	border-radius: 4px;
 	padding-left: 35px;
@@ -1106,7 +1295,7 @@ a.btn.blue,
 }
 
 #footer .col-3 li a:after {
-	background: #81c6e2 url(../images/ico_social.png) no-repeat 9px 8px;
+	background: #e67e7e;
 	position: absolute;
 	content: "";
 	top: 0;
@@ -1129,7 +1318,7 @@ a.btn.blue,
 
 #footer input {
 	border-radius: 4px;
-	background-color: #1e2d49;
+	background-color: #561111;
 	height: 52px;
 	padding: 16px 20px;
 	width: 100%;
@@ -1163,7 +1352,7 @@ a.btn.blue,
 	display: block;
 	text-align: center;
 	clear: both;
-	color: #899ec4;
+	color: #da7373;
 	padding: 34px 0 26px 0;
 }
 
@@ -1274,7 +1463,7 @@ a.btn.blue,
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url(../images/bg_blue.png);
+	background: url(../images/bg_red.png);
 }
 
 .fancybox-overlay-fixed {
@@ -1514,31 +1703,31 @@ a.btn.blue,
 		font-size: 36px;
 		line-height: 40px;
 	}
+
+    .mission-vision {
+        padding-bottom: 50px;
+    }
 	
-	.posts {
-		padding-bottom: 50px;
-	}
-	
-	.posts article {
+	.mission-vision article {
 		padding: 0 15px;
 	}
 	
-	.posts .pic {
+	.mission-vision .pic {
 		margin-right: 15px;
 		width: 90px;
 	}
 	
-	.posts .pic img {
+	.mission-vision .pic img {
 		width: 100%;
 	}
 	
-	.posts .info {
+	.mission-vision .info {
 		padding-right: 0;
 		font-size: 16px;
 		line-height: 22px;
 	}
 	
-	.posts .info h3 {
+	.mission-vision .info h3 {
 		font-size: 26px;
 		line-height: 30px;
 		padding-bottom: 7px;
@@ -1700,12 +1889,12 @@ a.btn.blue,
 	}
 
 	.news .more {
-		background-image: url(../images/bg_arrow_blue@2x.png);
+		background-image: url(../images/bg_arrow_red@2x.png);
 		background-size: 10px 7px;
 	}
 
 	.more {
-		background-image: url(../images/bg_arrow_blue_dark@2x.png);
+		background-image: url(../images/bg_arrow_red_dark@2x.png);
 		background-size: 10px 7px;
 	}
 
@@ -1727,7 +1916,7 @@ a.btn.blue,
 	}
 
 	#footer .col-2 li a {
-		background-image: url(../images/bg_arrow_blue_dark@2x.png);
+		background-image: url(../images/bg_arrow_red_dark@2x.png);
 		background-size: 10px 7px;
 	}
 
@@ -1912,12 +2101,12 @@ a.btn.blue,
 		line-height: 30px;
 		padding-right: 50px;
 	}
+
+    .mission-vision {
+        padding-bottom: 40px;
+    }
 	
-	.posts {
-		padding-bottom: 40px;
-	}
-	
-	.posts article {
+	.mission-vision article {
 		width: 100%;
 		padding-bottom: 30px;
 	}
