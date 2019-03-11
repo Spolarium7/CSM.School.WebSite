@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "BCrypt-Core/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/BCrypt-Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/BCrypt-Core.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4655,6 +4664,17 @@
     }
   },
   "libraries": {
+    "BCrypt-Core/2.0.0": {
+      "sha512": "g6CJ6ixfOjyLkyuQIQn61Isb4ee+0Q0eqsNn0fHB+s5kbChNU9zETXafDD83SN+1eU/QWPSL5f2lTM0PG9mGVg==",
+      "type": "package",
+      "path": "bcrypt-core/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "bcrypt-core.2.0.0.nupkg.sha512",
+        "bcrypt-core.nuspec",
+        "lib/netcoreapp2.0/BCrypt-Core.dll"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "91JMnE9zdIDphG00qgRvl8ZwKEjqAbNlJdfXUoMiIWPfpYyH7fyCsTSj6/aynRdw/Qr/K70xC7QC6MOJ1vFBJQ==",
       "type": "package",
@@ -12602,6 +12622,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BCrypt-Core >= 2.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -12650,6 +12671,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "BCrypt-Core": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",

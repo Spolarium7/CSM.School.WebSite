@@ -21,6 +21,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Models
             }
         }
 
+        public Gender Gender { get; set; }
+
         public string EmailAddress { get; set; }
 
         public string PhoneNumber { get; set; }

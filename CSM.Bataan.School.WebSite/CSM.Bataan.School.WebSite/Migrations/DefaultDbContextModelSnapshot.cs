@@ -42,6 +42,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
 
                     b.Property<string>("FirstName");
 
+                    b.Property<int>("Gender");
+
                     b.Property<string>("LastName");
 
                     b.Property<int>("LoginStatus");
