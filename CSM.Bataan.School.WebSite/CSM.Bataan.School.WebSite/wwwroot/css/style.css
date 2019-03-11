@@ -223,6 +223,22 @@ a:hover {
 	text-decoration: underline;
 }
 
+.navbar {
+    height: 51px;
+    background-color: #fbc7c7;
+    font-size: 14px;
+    line-height: 28px;
+    color: #731f1f;
+    display: block;
+    font-weight: bold;
+}
+
+.navbar .dropdown-menu {
+    font-size: 14px;
+    background-color: #fbc7c7;
+    color: #731f1f;
+    right:-12px;
+}
 
 /* main-content
 ------------------------------------------------------------------------------*/
@@ -242,7 +258,6 @@ a:hover {
 	background: #681818 url(../images/bg_white_arrow.png) no-repeat 50% 0;
 	height: 80px;
 	position: relative;
-	margin-top: 3px;
 	margin-bottom: 37px;
 }
 
@@ -255,6 +270,8 @@ a:hover {
 	right: 0;
 	bottom: 0;
 }
+
+
 
 .posts-con article {
 	border-bottom: 1px solid #d8dbe1;
@@ -784,7 +801,7 @@ h1.single{
         padding-top: 91px;
     }
 
-    .facilities article {
+    .facilities .col-sm {
         width: 50%;
         float: left;
         padding: 0 15px 60px;
@@ -796,13 +813,13 @@ h1.single{
         margin-top: 6px;
     }
 
-    .facilities .info {
+    .facilities p {
         overflow: hidden;
-        padding-right: 10px;
-        width:40%;
+        font-size: 14px;
+        line-height: 20px;
     }
 
-    .facilities .info h3 {
+    .facilities h3 {
         overflow: hidden;
         color: #ea3d3d;
         font-family: 'BebasNeue';
@@ -811,18 +828,22 @@ h1.single{
         padding-bottom: 11px;
     }
 
+    .facilities .bx-wrapper .bx-viewport {
+        border: 0px;
+        background: #fff;
+        min-height: 260px;
+    }
+
     .facilities .bx-controls-direction {
 	    display: none;
     }
 
     .facilities .bx-pager {
-	    position: absolute;
-	    bottom: 8px;
+	    margin-top: 40px;
 	    left: 0;
 	    right: 0;
 	    text-align: center;
 	    z-index: 999;
-        padding-top:20px;
     }
 
     .facilities .bx-pager-item {
@@ -852,32 +873,32 @@ h1.single{
     padding: 57px 0 70px 0;
 }
 
-    .montessorians h2 {
-        color: #fff;
-    }
+.montessorians h2 {
+    color: #fff;
+}
 
-    .montessorians article {
-        width: 50%;
-        float: left;
-        padding: 0 15px;
-    }
+.montessorians article {
+    width: 50%;
+    float: left;
+    padding: 0 15px;
+}
 
-    .montessorians .pic {
-        float: left;
-        margin-right: 25px;
-        margin-top: 4px;
-    }
+.montessorians .pic {
+    float: left;
+    margin-right: 25px;
+    margin-top: 4px;
+}
 
-        .montessorians .pic img {
-            border-radius: 5px;
-        }
+.montessorians .pic img {
+    border-radius: 5px;
+}
 
-    .montessorians .info {
-        overflow: hidden;
-        color: #fff;
-        font-size: 14px;
-        line-height: 20px;
-    }
+.montessorians .info {
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
 
     .montessorians .info h4 {
         color: #e89595;
@@ -1018,7 +1039,7 @@ a.btn.red,
 	padding: 57px 0 100px 0;
 }
 
-.events article {
+.events events-column {
 	width: 25%;
 	float: left;
 	padding: 0 15px;
@@ -1053,6 +1074,8 @@ a.btn.red,
 
 .events .info {
 	overflow: hidden;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 .events .info p {
@@ -1161,12 +1184,15 @@ a.btn.red,
 
 .trainings-assessments .info {
     overflow: hidden;
+    font-size: 14px;
+    line-height: 20px;
 }
 
-    .trainings-assessments .info p {
-        padding-bottom: 13px;
-        min-height: 153px;
-    }
+
+.trainings-assessments .info p {
+    padding-bottom: 13px;
+    min-height: 153px;
+}
 
 
 /* Content
@@ -1191,11 +1217,6 @@ a.btn.red,
 	line-height: 20px;
 }
 
-#footer article {
-	float: left;
-	width: 25%;
-	padding: 0 15px;
-}
 
 #footer h3 {
 	color: #fff;
@@ -1211,20 +1232,29 @@ a.btn.red,
 	color: #fff;
 }
 
-#footer .col-1 li {
+#footer .footer-contact h4 {
+	color: #fff;
+	font-size: 24px;
+	font-family: 'BebasNeue';
+	line-height: 52px;
+	display: block;
+	font-weight: 300;
+}
+
+#footer .footer-contact li {
 	border-bottom: 1px solid #912121;
 	padding-top: 1px;
 	padding-bottom: 16px;
 	margin-bottom: 20px;
 }
 
-#footer .col-1 li a {
+#footer .footer-contact li a {
 	padding-left: 52px;
 	display: block;
 	position: relative;
 }
 
-#footer .col-1 li a:after {
+#footer .footer-contact li a:after {
 	background: url(../images/ico_contacts.png) no-repeat;
 	width: 32px;
 	height: 32px;
@@ -1234,18 +1264,18 @@ a.btn.red,
 	content: "";
 }
 
-#footer .col-1 .mail {
+#footer .footer-contact .mail {
 	padding-bottom: 21px;
 	margin-bottom: 25px;
 }
 
-#footer .col-1 .mail a:after {
+#footer .footer-contact .mail a:after {
 	background: url(../images/ico_contacts.png) no-repeat 0 -32px;
 	height: 22px;
 	top: -1px;
 }
 
-#footer .col-1 .phone a:after {
+#footer .footer-contact .phone a:after {
 	background: url(../images/ico_contacts.png) no-repeat 0 -54px;
 	height: 32px;
 	top: -6px;
@@ -1255,34 +1285,49 @@ a.btn.red,
 	border: none !important;
 }
 
-#footer .col-2 li {
+#footer .footer-faqs li {
 	border-bottom: 1px solid #912121;
 	padding-bottom: 9px;
 	margin-bottom: 9px;
 }
 
-#footer .col-2 li a {
+#footer .footer-faqs li a {
 	padding-left: 20px;
 	background: url(../images/bg_arrow_red.png) no-repeat 0 50%;
 }
 
-#footer .col-2 li.last{
+#footer .footer-faqs li.last{
 	margin-bottom: 0;
 }
 
-#footer article p {
+#footer p {
 	padding-bottom: 17px;
 }
 
-#footer .col-3 li {
+#footer .footer-promotions li {
+	border-bottom: 1px solid #912121;
+	padding-bottom: 9px;
+	margin-bottom: 9px;
+}
+
+#footer .footer-promotions li a {
+	padding-left: 20px;
+	background: url(../images/bg_arrow_red.png) no-repeat 0 50%;
+}
+
+#footer .footer-promotions li.last{
+	margin-bottom: 0;
+}
+
+#footer .footer-courses li {
 	padding: 0 10px 10px 0;
 	float: left;
 }
 
-#footer .col-3 li a {
+#footer .footer-courses li a {
 	background: #e89595;
 	display: block;
-	width: 119px;
+	width: 240px;
 	height: 35px;
 	line-height: 35px;
 	color: #834f5e;
@@ -1294,7 +1339,7 @@ a.btn.red,
 	overflow: hidden;
 }
 
-#footer .col-3 li a:after {
+#footer .footer-courses li a:after {
 	background: #e67e7e;
 	position: absolute;
 	content: "";
@@ -1304,15 +1349,15 @@ a.btn.red,
 	width: 35px;
 }
 
-#footer .col-3 .google-plus a:after {
+#footer .footer-courses .google-plus a:after {
 	background-position: -26px 8px;
 }
 
-#footer .col-3 .twitter a:after {
+#footer .footer-courses .twitter a:after {
 	background-position: 9px -27px;
 }
 
-#footer .col-3 .pinterest a:after {
+#footer .footer-courses .pinterest a:after {
 	background-position: -26px -27px;
 }
 
@@ -1657,7 +1702,7 @@ a.btn.red,
 
 	#header {
 		overflow: hidden;
-		padding-bottom: 60px;
+		padding-bottom: 30px;
 		margin-bottom: -40px;
 	}
 	
@@ -1767,16 +1812,16 @@ a.btn.red,
 		padding: 40px 0 50px 0;
 	}
 	
-	.events article {
+	.events events-column {
 		width: 50%;
 		padding-bottom: 30px;
 	}
 		
-	.events article:nth-child(2n+2) {
+	.events events-column:nth-child(2n+2) {
 		clear: left;
 	}
 		
-	.events .info p {
+	.events events-column .info p {
 		min-height: 0;
 	}
 	
@@ -2135,7 +2180,7 @@ a.btn.red,
 		padding: 30px 0 40px 0;
 	}
 	
-	.events article {
+	.events events-column {
 		width: 100%;
 		padding-bottom: 30px;
 	}

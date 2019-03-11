@@ -1,42 +1,23 @@
-﻿<!DOCTYPE html>
-<!--[if IE 8]> <html class="ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <title>College of Subic Montessori</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <link href="~/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" media="all" href="~/css/style.css">
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+﻿@{ 
+    Layout = "~/views/shared/_layout.cshtml";
+}
 
+<div class="divider">
+</div>
+
+
+<div class="container">
+    @RenderSection("tableHead", false)
+
+    @RenderBody()
+
+    @RenderSection("extras", false);
+</div>
+
+@section pageStyles{
     @RenderSection("pageStyles", false)
-</head>
-<body>
+}
 
-    @Html.Partial("~/views/shared/_header.cshtml")
-    <div class="divider"></div>
-
-    <div class="container">
-        @RenderSection("tableHead", false)
-
-        @RenderBody()
-
-        @RenderSection("extras", false);
-    </div>
-
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
-    <script src="~/js/plugins.js"></script>
-    <script src="~/js/main.js"></script>
+@section pageScripts{
     @RenderSection("pageScripts", false)
-</body>
-</html>
+}

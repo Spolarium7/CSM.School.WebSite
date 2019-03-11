@@ -1,4 +1,8 @@
-﻿<div class="slider">
+﻿@{
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+<div class="slider">
     <ul class="bxslider">
         <li>
             <div class="container">
@@ -80,60 +84,64 @@
     <!-- / container -->
 </section>
 
-<section class="facilities">
+<section class="events">
     <div class="container">
-        <h2>Facilities @@Shayne</h2>
+        <h2>Upcoming events @@Jake</h2>
 
-        <ul class="" id="facilities-slider">
-            <li>
-                <div class="container">
-                    <article>
-                        <div class="pic"><img width="300" src="images/comlab.png" alt=""></div>
-                        <div class="info">
-                            <h3>CSS Laboratory</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
-                        </div>
-                    </article>
+        <div class="row">
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">15</p>
                 </div>
-                <div class="container">
-                    <article>
-                        <div class="pic"><img width="300" src="images/comlab.png" alt=""></div>
-                        <div class="info">
-                            <h3>VGD Laboratory</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
-                        </div>
-                    </article>
+                <div class="info">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a class="more" href="#">Read more</a>
                 </div>
-            </li>
-            <li>
-                <div class="container">
-                    <article>
-                        <div class="pic"><img width="300" src="images/comlab.png" alt=""></div>
-                        <div class="info">
-                            <h3>CSS Laboratory</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
-                        </div>
-                    </article>
+            </div>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">17</p>
                 </div>
-                <div class="container">
-                    <article>
-                        <div class="pic"><img width="300" src="images/comlab.png" alt=""></div>
-                        <div class="info">
-                            <h3>VGD Laboratory</h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
-                        </div>
-                    </article>
+                <div class="info">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a class="more" href="#">Read more</a>
                 </div>
-            </li>
-        </ul>
-
+            </div>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">25</p>
+                </div>
+                <div class="info">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a class="more" href="#">Read more</a>
+                </div>
+            </div>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">29</p>
+                </div>
+                <div class="info">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
+                    <a class="more" href="#">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="btn-holder">
+            <a class="btn red" href="#">See all upcoming events</a>
+        </div>
+        <!-- / container -->
     </div>
-    <!-- / container -->
 </section>
+
+
 
 <section class="montessorians">
     <div class="container">
-        <h2>Montessorians</h2>
+        <h2>Montessorians @@Larich and @@Hayna</h2>
         <article>
             <div class="pic"><img src="images/1.png" alt=""></div>
             <div class="info">
@@ -159,55 +167,42 @@
     <!-- / container -->
 </section>
 
-<section class="events">
+<section class="facilities">
     <div class="container">
-        <h2>Upcoming events @@Jake</h2>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">15</p>
+        <h2>Facilities @@Shayne</h2>
+        <div id="facilities-slider">
+            <div>
+                <div class="row">
+                    <div class="col-6"><img width="500" src="images/comlab.png" alt=""></div>
+                    <div class="col-6">
+                        <h3>CSS Laboratory</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                    </div>
+                </div>
             </div>
-            <div class="info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <a class="more" href="#">Read more</a>
+            <div>
+                <div class="row">
+                    <div class="col-6"><img width="500" src="images/comlab.png" alt=""></div>
+                    <div class="col-6">
+                        <h3>CSS Laboratory</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                    </div>
+                </div>
             </div>
-        </article>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">17</p>
+            <div>
+                <div class="row">
+                    <div class="col-6"><img width="500" src="images/comlab.png" alt=""></div>
+                    <div class="col-6">
+                        <h3>CSS Laboratory</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                    </div>
+                </div>
             </div>
-            <div class="info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <a class="more" href="#">Read more</a>
-            </div>
-        </article>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">25</p>
-            </div>
-            <div class="info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <a class="more" href="#">Read more</a>
-            </div>
-        </article>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">29</p>
-            </div>
-            <div class="info">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
-                <a class="more" href="#">Read more</a>
-            </div>
-        </article>
-        <div class="btn-holder">
-            <a class="btn blue" href="#">See all upcoming events</a>
         </div>
     </div>
     <!-- / container -->
 </section>
+
 <div class="container">
     <a href="#fancy" class="info-request">
         <span class="holder">
@@ -217,56 +212,61 @@
         <span class="arrow"></span>
     </a>
 </div>
+
 <section class="trainings-assessments">
     <div class="container">
         <h2>Training and Assessments</h2>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">15</p>
+        <div class="row">
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">15</p>
+                </div>
+                <div class="info">
+                    <h3>ABC-VGD Assessment</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a class="more" href="#">Register</a>
+                </div>
             </div>
-            <div class="info">
-                <h3>ABC-VGD Assessment</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <a class="more" href="#">Register</a>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">17</p>
+                </div>
+                <div class="info">
+                    <h3>ABC-VGD Assessment</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a class="more" href="#">Register</a>
+                </div>
             </div>
-        </article>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">17</p>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">25</p>
+                </div>
+                <div class="info">
+                    <h3>ABC-VGD Assessment</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <a class="more" href="#">Register</a>
+                </div>
             </div>
-            <div class="info">
-                <h3>ABC-VGD Assessment</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <a class="more" href="#">Register</a>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">29</p>
+                </div>
+                <div class="info">
+                    <h3>ABC-VGD Assessment</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
+                    <a class="more" href="#">Register</a>
+                </div>
             </div>
-        </article>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">25</p>
-            </div>
-            <div class="info">
-                <h3>ABC-VGD Assessment</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                <a class="more" href="#">Register</a>
-            </div>
-        </article>
-        <article>
-            <div class="current-date">
-                <p>April</p>
-                <p class="date">29</p>
-            </div>
-            <div class="info">
-                <h3>ABC-VGD Assessment</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
-                <a class="more" href="#">Register</a>
-            </div>
-        </article>
+        </div>
         <div class="btn-holder">
-            <a class="btn blue" href="#">See all Trainings and Assessments</a>
+            <a class="btn red" href="#">See all Trainings and Assessments</a>
         </div>
     </div>
-    <!-- / container -->
+            <!-- / container -->
 </section>
+
+@Html.Partial("~/views/shared/_footer.cshtml")

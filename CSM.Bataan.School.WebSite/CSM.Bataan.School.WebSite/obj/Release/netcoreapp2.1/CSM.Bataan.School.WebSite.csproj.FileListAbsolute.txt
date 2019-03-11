@@ -32,3 +32,5 @@ C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\C
 C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\CSM.Bataan.School.WebSite.csproj.CopyComplete
 C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Shared\_forms.g.cshtml.cs
 C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Users\UpdateProfile.g.cshtml.cs
+C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\CSM.Bataan.School.WebSite.csprojAssemblyReference.cache
+C:\Users\goshe\Documents\Personal\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Shared\_navbar.g.cshtml.cs
