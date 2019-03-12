@@ -55,13 +55,23 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item"><span class="form-control-plaintext">Page&nbsp;&nbsp;&nbsp;</span></li>
-                        <li class="page-item"><input type="number" value="@Model.Groups.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/home/index?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val()));" /></li>
+                        <li class="page-item"><input type="number" value="@Model.Groups.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/manage/users/index?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val())) + '&keyword=@(Model.Groups.Keyword)" /></li>
                         <li class="page-item"><span class="form-control-plaintext">&nbsp;&nbsp;&nbsp;of @Model.Groups.PageCount&nbsp;&nbsp;&nbsp;</span></li>
-                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                        @{
+                            var prev = Model.Groups.PageIndex - 1;
+                            if (prev > 0)
+                            {
+                                <li class="page-item"><a class="page-link" href="~/manage/users?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@prev"><span aria-hidden="true">&laquo;</span></a></li>
+                            }
+                        }
+                        <li class="page-item"><a class="page-link" href="#">@(Model.Groups.PageIndex)</a></li>
+                        @{
+                            var next = Model.Groups.PageIndex + 1;
+                            if (next <= Model.Groups.PageCount)
+                            {
+                                <li class="page-item"><a class="page-link" href="~/manage/users?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@next"><span aria-hidden="true">&raquo;</span></a></li>
+                            }
+                        }
                     </ul>
                 </nav>
             </td>
@@ -97,26 +107,6 @@ else {
 
 @section pageScripts{
     <script type="text/javascript">
-        function confirmResetPassword(groupId, groupName) {
-            $("#modal-reset-password-groupname").html(groupName);
-            $("#modal-reset-password-confirm").attr("href", "/home/reset-password/" + groupId);
-            $("#modal-reset-password").modal("show");
-        }
-
-        function confirmActivateAccount(groupId, groupName) {
-            $("#modal-account-status-groupname").html(groupName);
-            $(".modal-account-status-label").html("Activate");
-            $("#modal-account-status-confirm").attr("href", "/manage/groups/change-status/Active/" + groupId);
-            $("#modal-account-status").modal("show");
-        }
-
-        function confirmDeactivateAccount(groupId, groupName) {
-            $("#modal-account-status-groupname").html(groupName);
-            $(".modal-account-status-label").html("Deactivate");
-            $("#modal-account-status-confirm").attr("href", "/manage/groups/change-status/Locked/" + groupId);
-            $("#modal-account-status").modal("show");
-        }
-
         function confirmDeleteGroup(groupId, groupName) {
             $("#modal-delete-group-groupname").html(groupName);
             $("#modal-delete-group-confirm").attr("href", "/manage/groups/delete/" + groupId);

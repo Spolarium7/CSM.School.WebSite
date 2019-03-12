@@ -9,6 +9,9 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Groups
     public class UpdateViewModel
     {
         [Required]
+        public Guid? Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
         public string Description { get; set; }

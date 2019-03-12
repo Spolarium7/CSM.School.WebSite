@@ -63,5 +63,74 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Groups = result
             });
         }
+
+        [HttpGet, Route("manage/groups/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("manage/groups/create")]
+        public IActionResult Create(CreateViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return RedirectToAction("index");
+
+            var group = this._context.Groups.FirstOrDefault(u => u.Name.ToLower() == model.Name.ToLower());
+
+            if (group == null)
+            {
+                group = new Group()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = model.Name,
+                    Description = model.Description
+                };
+                this._context.Groups.Add(group);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("index");
+        }
+
+        [HttpGet, Route("manage/groups/update/{groupId}")]
+        public IActionResult Update(Guid? groupId)
+        {
+            var group = this._context.Groups.FirstOrDefault(u => u.Id == groupId);
+
+            if (group != null)
+            {
+                return View(
+                    new UpdateViewModel()
+                    {
+                        Id = groupId,
+                        Name = group.Name,
+                        Description = group.Description,
+                    }
+                );
+            }
+
+            return RedirectToAction("create");
+        }
+
+        [HttpPost, Route("manage/groups/update")]
+        public IActionResult UpdateProfile(UpdateViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var group = this._context.Groups.FirstOrDefault(u => u.Id == model.Id);
+
+            if (group != null)
+            {
+                group.Name = model.Name;
+                group.Description = model.Description;
+                this._context.Groups.Update(group);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("index");
+        }
     }
 }
