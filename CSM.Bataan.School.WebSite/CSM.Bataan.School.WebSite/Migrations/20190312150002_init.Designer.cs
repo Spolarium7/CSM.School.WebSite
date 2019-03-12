@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSM.Bataan.School.WebSite.Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    [Migration("20190311092043_init")]
+    [Migration("20190312150002_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("Status");
+
                     b.Property<DateTime>("Timestamp");
 
                     b.HasKey("Id");
@@ -41,6 +43,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("EmailAddress");
+
+                    b.Property<int>("EnrollStatus");
 
                     b.Property<string>("FirstName");
 

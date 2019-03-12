@@ -29,7 +29,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     {
                         Id = Guid.Parse("bcc412a8-9169-489b-b579-301186947a19"),
                         Description = "Everyone including anonymous users.",
-                        Name = "Public"
+                        Name = "Public",
+                        Status = Status.Active
                     }
                 );
             }
@@ -48,7 +49,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                         LoginStatus = LoginStatus.Active,
                         PhoneNumber = "1234567890",
                         RegistrationCode = "ABCDEF",
-                        LoginTrials = 0
+                        LoginTrials = 0,
+                        EnrollStatus = Status.Active
                     }
                 );
             }

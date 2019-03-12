@@ -1,4 +1,5 @@
-﻿using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+﻿using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,7 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public Status Status { get; set; }
     }
 }

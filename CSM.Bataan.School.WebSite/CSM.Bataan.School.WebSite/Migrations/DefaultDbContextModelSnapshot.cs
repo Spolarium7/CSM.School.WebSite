@@ -26,6 +26,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("Status");
+
                     b.Property<DateTime>("Timestamp");
 
                     b.HasKey("Id");
@@ -39,6 +41,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("EmailAddress");
+
+                    b.Property<int>("EnrollStatus");
 
                     b.Property<string>("FirstName");
 

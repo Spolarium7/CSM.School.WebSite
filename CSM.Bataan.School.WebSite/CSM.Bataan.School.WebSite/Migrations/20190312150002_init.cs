@@ -14,7 +14,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Timestamp = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,7 +64,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     Password = table.Column<string>(nullable: true),
                     LoginStatus = table.Column<int>(nullable: false),
                     RegistrationCode = table.Column<string>(nullable: true),
-                    LoginTrials = table.Column<int>(nullable: false)
+                    LoginTrials = table.Column<int>(nullable: false),
+                    EnrollStatus = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

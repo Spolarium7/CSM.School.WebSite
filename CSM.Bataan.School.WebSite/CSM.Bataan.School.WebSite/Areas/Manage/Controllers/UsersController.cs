@@ -14,7 +14,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
-    [Area("Manage")]
+    [Area("manage")]
     public class UsersController : Controller
     {
         private readonly DefaultDbContext _context;
@@ -39,8 +39,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
         [HttpGet, Route("manage/users")]
         [HttpGet, Route("manage/users/index")]
-        public IActionResult Index(int pageSize = 5, int pageIndex = 1, string keyword = "")
+        public IActionResult Index(int pageSize = 5, int pageIndex = 1, string keyword = "", string status = "Active")
         {
+            Enum.TryParse(status, out LoginStatus loginStatus); ;
+
             Page<User> result = new Page<User>();
 
             if (pageSize < 1)
@@ -48,7 +50,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 pageSize = 1;
             }
 
-            IQueryable<User> userQuery = (IQueryable<User>)this._context.Users;
+            IQueryable<User> userQuery = (IQueryable<User>)this._context.Users.Where(u => u.LoginStatus == loginStatus);
 
             if (string.IsNullOrEmpty(keyword) == false)
             {
@@ -79,7 +81,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             return View(new IndexViewModel()
             {
-                Users = result
+                Users = result,
+                Status = loginStatus
             });
         }
 
