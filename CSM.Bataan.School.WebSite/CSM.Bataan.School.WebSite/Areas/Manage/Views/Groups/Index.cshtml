@@ -1,0 +1,136 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Groups.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+@section tableHead{
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="input-group mb-3">
+                <input type="text" id="searchKeyword" placeholder="search groups" class="form-control" aria-label="search groups" aria-describedby="basic-addon2" value="@Model.Groups.Keyword">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><a href="#" onclick="searchTrigger()"><i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="table-responsive table--no-card m-b-30">
+                <a href="~/manage/groups/create" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>Create Group</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Groups.Items.Count > 0)
+{
+<table class="table table-borderless table-striped table-earning">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Group group in Model.Groups.Items)
+            {
+            <tr>
+                <td>@group.Name</td>
+                <td>
+                    <a href="~/manage/groups/update/@group.Id" title="Update Group"><button type="button" class="btn"><i class="fas fa-pen-square"></i></button></a>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><span class="form-control-plaintext">Page&nbsp;&nbsp;&nbsp;</span></li>
+                        <li class="page-item"><input type="number" value="@Model.Groups.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/home/index?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val()));" /></li>
+                        <li class="page-item"><span class="form-control-plaintext">&nbsp;&nbsp;&nbsp;of @Model.Groups.PageCount&nbsp;&nbsp;&nbsp;</span></li>
+                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+}
+else {
+<p>0 search results.</p>
+}
+
+@section extras{
+    <div class="modal" tabindex="-1" role="dialog" id="modal-delete-group">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Group</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete <span id="modal-delete-group-groupname"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" id="modal-delete-group-confirm"><button type="button" class="btn btn-primary">Delete Group</button></a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section pageScripts{
+    <script type="text/javascript">
+        function confirmResetPassword(groupId, groupName) {
+            $("#modal-reset-password-groupname").html(groupName);
+            $("#modal-reset-password-confirm").attr("href", "/home/reset-password/" + groupId);
+            $("#modal-reset-password").modal("show");
+        }
+
+        function confirmActivateAccount(groupId, groupName) {
+            $("#modal-account-status-groupname").html(groupName);
+            $(".modal-account-status-label").html("Activate");
+            $("#modal-account-status-confirm").attr("href", "/manage/groups/change-status/Active/" + groupId);
+            $("#modal-account-status").modal("show");
+        }
+
+        function confirmDeactivateAccount(groupId, groupName) {
+            $("#modal-account-status-groupname").html(groupName);
+            $(".modal-account-status-label").html("Deactivate");
+            $("#modal-account-status-confirm").attr("href", "/manage/groups/change-status/Locked/" + groupId);
+            $("#modal-account-status").modal("show");
+        }
+
+        function confirmDeleteGroup(groupId, groupName) {
+            $("#modal-delete-group-groupname").html(groupName);
+            $("#modal-delete-group-confirm").attr("href", "/manage/groups/delete/" + groupId);
+            $("#modal-delete-group").modal("show");
+        }
+
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+
+        function searchTrigger() {
+            window.location = "/manage/groups?pageIndex=1&keyword=" + $("#searchKeyword").val();
+        }
+    </script>
+}
