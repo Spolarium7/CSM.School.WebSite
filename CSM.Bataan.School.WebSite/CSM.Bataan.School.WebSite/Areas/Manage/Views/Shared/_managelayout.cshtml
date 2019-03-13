@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     Layout = "~/views/shared/_layout.cshtml";
 }
 
@@ -15,9 +15,11 @@
 </div>
 
 @section pageStyles{
+    <link href="~/vendor/selectize/dist/css/selectize.css" rel="stylesheet" type="text/css" />
     @RenderSection("pageStyles", false)
 }
 
 @section pageScripts{
+    <script src="~/vendor/selectize/dist/js/selectize.js"></script>
     @RenderSection("pageScripts", false)
 }
