@@ -6,10 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt-Core" Version="2.0.0" />
+    <PackageReference Include="CodeKicker.BBCode-NETStandard" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.2" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0005" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\schoolfacilities\" />
   </ItemGroup>
 
 </Project>
