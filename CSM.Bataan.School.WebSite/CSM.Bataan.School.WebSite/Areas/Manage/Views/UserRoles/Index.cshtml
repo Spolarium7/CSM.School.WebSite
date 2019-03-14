@@ -1,0 +1,205 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.UserRoles.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+@section tableHead{
+    <div class="row">
+        <h3><strong>@Model.UserName</strong> has the roles below.</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="input-group mb-3">
+                <input type="text" id="searchKeyword" placeholder="search roles" class="form-control" aria-label="search roles" aria-describedby="basic-addon2" value="@Model.Roles.Keyword">
+                <div class="input-role-append">
+                    <span class="input-role-text" id="basic-addon2"><a href="#" onclick="searchTrigger()"><i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="table-responsive table--no-card m-b-30">
+                <a href="#" class="btn btn-lg btn-info btn-block" onclick="showAdd()" id="add-role-to-user-button">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>Add role to @Model.UserName</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Roles.Items.Count > 0)
+{
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Role role in Model.Roles.Items)
+                {
+                    <tr>
+                        <td>@role.ToString()</td>
+                        <td>
+                            <a href="#" title="Remove role from @Model.UserName" onclick="confirmRemoveRole('@role','@role.ToString()')"><button type="button" class="btn"><i class="fas fa-times"></i></button></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><span class="form-control-plaintext">Page&nbsp;&nbsp;&nbsp;</span></li>
+                            <li class="page-item"><input type="number" value="@Model.Roles.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/manage/user-roles/@Model.UserId?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val())) + '&keyword=@(Model.Roles.Keyword)" /></li>
+                            <li class="page-item"><span class="form-control-plaintext">&nbsp;&nbsp;&nbsp;of @Model.Roles.PageCount&nbsp;&nbsp;&nbsp;</span></li>
+                            @{
+                                var prev = Model.Roles.PageIndex - 1;
+                                if (prev > 0)
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/manage/user-roles/@Model.UserId?keyword=@Model.Roles.Keyword&pageSize=@Model.Roles.PageSize&pageIndex=@prev"><span aria-hidden="true">&laquo;</span></a></li>
+                                }
+                            }
+                            <li class="page-item"><a class="page-link" href="#">@(Model.Roles.PageIndex)</a></li>
+                            @{
+                                var next = Model.Roles.PageIndex + 1;
+                                if (next <= Model.Roles.PageCount)
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/manage/user-roles/@Model.UserId?keyword=@Model.Roles.Keyword&pageSize=@Model.Roles.PageSize&pageIndex=@next"><span aria-hidden="true">&raquo;</span></a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <p>0 search results.</p>
+}
+
+@section extras{
+    <div class="modal" tabindex="-1" role="dialog" id="modal-add">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Role to @Model.UserName</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/user-roles/add-role-to-user" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" value="@Model.UserId" name="UserId" />
+                        <select id="modal-add-select-role" name="Role"></select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-remove-from-role">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Remove role <span class="modal-remove-from-role-roleName"></span> from @Model.UserName</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/user-roles/remove-role-from-user" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" name="UserId" value="@Model.UserId" />
+                        <input type="hidden" name="Role" value="" id="modal-remove-from-role-roleId" />
+                        <input type="hidden" value="user-roles/@Model.UserId" name="Redirect" />
+                        <p>Are you sure you want to remove role <span class="modal-remove-from-role-roleName"></span> from @Model.UserName?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@section pageScripts{
+    <script type="text/javascript">
+        $(function () {
+            initSelect();
+        });
+
+        function destroySelect() {
+            try {
+                var selectAddRole, $selectAddRole;
+                $selectAddRole = $('#modal-add-select-role').selectize();
+                selectAddRole = $selectAddRole[0];
+                selectAddRole.selectize.destroy();
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+
+        function initSelect() {
+            destroySelect();
+            var selectAddRole, $selectAddRole;
+
+            $selectAddRole = $('#modal-add-select-role').selectize({
+                maxItems: 1,
+                preload: true,
+                load: function (query, callback) {
+                    $.ajax({
+                        url: '/roles/add-role-to-user-look-up?keyword=' + encodeURIComponent(query) + "&userId=@Model.UserId",
+                        success: function (response) {
+                            if (response.length < 1) {
+                                $("#add-role-to-user-button").hide();
+                            } else {
+                                $("#add-role-to-user-button").show();
+                            }
+
+                            callback(response.slice(0, 10));
+                        }
+                    });
+                }
+            });
+
+            selectAddRole = $selectAddRole.selectize;
+        }
+
+        function showAdd() {
+            $("#modal-add").modal("show");
+        }
+
+
+        function confirmRemoveRole(roleId, roleName) {
+            $(".modal-remove-from-role-roleName").html(roleName);
+            $("#modal-remove-from-role-roleId").val(roleId);
+            $("#modal-remove-from-role").modal("show");
+        }
+
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+
+        function searchTrigger() {
+            window.location = "/manage/user-roles/@Model.UserId?pageIndex=1&keyword=" + $("#searchKeyword").val();
+        }
+    </script>
+}
