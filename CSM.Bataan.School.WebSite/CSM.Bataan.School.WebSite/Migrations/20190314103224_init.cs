@@ -14,11 +14,30 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Timestamp = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Groups", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SchoolFacilities",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Timestamp = table.Column<DateTime>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    TemplateName = table.Column<string>(nullable: true),
+                    IsPublished = table.Column<bool>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    PostExpiry = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SchoolFacilities", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,7 +82,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     Password = table.Column<string>(nullable: true),
                     LoginStatus = table.Column<int>(nullable: false),
                     RegistrationCode = table.Column<string>(nullable: true),
-                    LoginTrials = table.Column<int>(nullable: false)
+                    LoginTrials = table.Column<int>(nullable: false),
+                    EnrollStatus = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,6 +95,9 @@ namespace CSM.Bataan.School.WebSite.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Groups");
+
+            migrationBuilder.DropTable(
+                name: "SchoolFacilities");
 
             migrationBuilder.DropTable(
                 name: "UserGroups");

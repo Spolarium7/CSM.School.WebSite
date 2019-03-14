@@ -26,11 +26,37 @@ namespace CSM.Bataan.School.WebSite.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("Status");
+
                     b.Property<DateTime>("Timestamp");
 
                     b.HasKey("Id");
 
                     b.ToTable("Groups");
+                });
+
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.SchoolFacility", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("PostExpiry");
+
+                    b.Property<string>("TemplateName");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SchoolFacilities");
                 });
 
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.User", b =>
@@ -39,6 +65,8 @@ namespace CSM.Bataan.School.WebSite.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("EmailAddress");
+
+                    b.Property<int>("EnrollStatus");
 
                     b.Property<string>("FirstName");
 

@@ -1,0 +1,211 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.UserGroups.GroupsIndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+@section tableHead{
+    <div class="row">
+        <h3><strong>@Model.UserName</strong> is a member of the groups below.</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="input-group mb-3">
+                <input type="text" id="searchKeyword" placeholder="search groups" class="form-control" aria-label="search groups" aria-describedby="basic-addon2" value="@Model.Groups.Keyword">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><a href="#" onclick="searchTrigger()"><i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="table-responsive table--no-card m-b-30">
+                <a href="#" class="btn btn-lg btn-info btn-block" onclick="showAdd()" id="add-user-to-group-button">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>Add @Model.UserName to Group</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Groups.Items.Count > 0)
+{
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Group group in Model.Groups.Items)
+                {
+                    <tr>
+                        <td>@group.Name</td>
+                        <td>
+                            @{
+                                if (group.Name.ToLower() != "public")
+                                {
+                                    <a href="#" title="Remove @Model.UserName from Group" onclick="confirmRemoveFromGroup('@group.Id','@group.Name')"><button type="button" class="btn"><i class="fas fa-times"></i></button></a>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><span class="form-control-plaintext">Page&nbsp;&nbsp;&nbsp;</span></li>
+                            <li class="page-item"><input type="number" value="@Model.Groups.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/manage/user-groups/@Model.UserId?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val())) + '&keyword=@(Model.Groups.Keyword)" /></li>
+                            <li class="page-item"><span class="form-control-plaintext">&nbsp;&nbsp;&nbsp;of @Model.Groups.PageCount&nbsp;&nbsp;&nbsp;</span></li>
+                            @{
+                                var prev = Model.Groups.PageIndex - 1;
+                                if (prev > 0)
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/manage/user-groups/@Model.UserId?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@prev"><span aria-hidden="true">&laquo;</span></a></li>
+                                }
+                            }
+                            <li class="page-item"><a class="page-link" href="#">@(Model.Groups.PageIndex)</a></li>
+                            @{
+                                var next = Model.Groups.PageIndex + 1;
+                                if (next <= Model.Groups.PageCount)
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/manage/user-groups/@Model.UserId?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@next"><span aria-hidden="true">&raquo;</span></a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <p>0 search results.</p>
+}
+
+@section extras{
+    <div class="modal" tabindex="-1" role="dialog" id="modal-add">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add @Model.UserName to Group</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/user-groups/add-user-to-group" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" value="@Model.UserId" name="UserId" />
+                        <input type="hidden" value="user-groups/@Model.UserId" name="Redirect" />
+                        <select id="modal-add-select-group" name="GroupId"></select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-remove-from-group">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Remove @Model.UserName from Group <span class="modal-remove-from-group-groupName"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/user-groups/remove-user-from-group" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" name="UserId" value="@Model.UserId" />
+                        <input type="hidden" name="GroupId" value="" id="modal-remove-from-group-groupId" />
+                        <input type="hidden" value="user-groups/@Model.UserId" name="Redirect" />
+                        <p>Are you sure you want to remove @Model.UserName from Group <span class="modal-remove-from-group-groupName"></span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@section pageScripts{
+    <script type="text/javascript">
+        $(function () {
+            initSelect();
+        });
+
+        function destroySelect() {
+            try {
+                var selectAddGroup, $selectAddGroup;
+                $selectAddGroup = $('#modal-add-select-group').selectize();
+                selectAddGroup = $selectAddGroup[0];
+                selectAddGroup.selectize.destroy();
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+
+        function initSelect() {
+            destroySelect();
+            var selectAddGroup, $selectAddGroup;
+
+            $selectAddGroup = $('#modal-add-select-group').selectize({
+                maxItems: 1,
+                preload: true,
+                load: function (query, callback) {
+                    $.ajax({
+                        url: '/groups/add-user-to-group-look-up?keyword=' + encodeURIComponent(query) + "&userId=@Model.UserId",
+                        success: function (response) {
+                            if (response.length < 1) {
+                                $("#add-user-to-group-button").hide();
+                            } else {
+                                $("#add-user-to-group-button").show();
+                            }
+
+                            callback(response.slice(0, 10));
+                        }
+                    });
+                }
+            });
+
+            selectAddGroup = $selectAddGroup.selectize;
+        }
+
+        function showAdd() {
+            $("#modal-add").modal("show");
+        }
+
+
+        function confirmRemoveFromGroup(groupId, groupName) {
+            $(".modal-remove-from-group-groupName").html(groupName);
+            $("#modal-remove-from-group-groupId").val(groupId);
+            $("#modal-remove-from-group").modal("show");
+        }
+
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+
+        function searchTrigger() {
+            window.location = "/manage/user-groups/@Model.UserId?pageIndex=1&keyword=" + $("#searchKeyword").val();
+        }
+    </script>
+}

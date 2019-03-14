@@ -34,5 +34,7 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Models
         public string RegistrationCode { get; set; }
 
         public int LoginTrials { get; set; }
+
+        public Status EnrollStatus { get; set; }
     }
 }

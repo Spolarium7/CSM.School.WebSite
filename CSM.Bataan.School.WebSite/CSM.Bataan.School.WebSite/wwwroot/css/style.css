@@ -945,6 +945,17 @@ h2 {
 	padding-bottom: 53px;
 }
 
+h3
+{
+    color: #7e8798;
+    font-size: 30px;
+    font-family: 'BebasNeue';
+    line-height: 68px;
+    font-weight: 300;
+    text-align: center;
+    padding-bottom: 23px;
+}
+
 h1 {
 	text-align: left;
 	padding-bottom: 18px;
