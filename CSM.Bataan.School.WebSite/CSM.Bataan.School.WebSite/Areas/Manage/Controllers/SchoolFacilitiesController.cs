@@ -308,5 +308,43 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Thumbnail", new { SchoolFacilityId = model.SchoolFacilityId });
         }
 
+
+        [HttpGet, Route("/manage/schoolfacilities/update-banner/{schoolfacilityId}")]
+        public IActionResult Banner(Guid? schoolfacilityId)
+        {
+            return View(new BannerViewModel() { SchoolFacilityId = schoolfacilityId });
+        }
+        [HttpPost, Route("/manage/schoolfacilities/update-banner")]
+        public async Task<IActionResult> Banner(BannerViewModel model)
+        {
+            var fileSize = model.Banner.Length;
+            if ((fileSize / 1048576.0) > 5)
+            {
+                ModelState.AddModelError("", "The file you uploaded is too large. Filesize limit is 5mb.");
+                return View(model);
+            }
+            if (model.Banner.ContentType != "image/jpeg" && model.Banner.ContentType != "image/png")
+            {
+                ModelState.AddModelError("", "Please upload a jpeg or png file for the banner.");
+                return View(model);
+            }
+            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+            var filePath = dirPath + "/banner.png";
+            if (model.Banner.Length > 0)
+            {
+                byte[] bytes = await FileBytes(model.Banner.OpenReadStream());
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+                    image.Mutate(x => x.Resize(750, 300));
+                    image.Save(filePath);
+                }
+            }
+            return RedirectToAction("Banner", new { SchoolFacilityId = model.SchoolFacilityId });
+        }
+
     }
 }
