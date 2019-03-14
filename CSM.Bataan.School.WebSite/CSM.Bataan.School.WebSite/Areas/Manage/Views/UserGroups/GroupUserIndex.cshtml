@@ -8,19 +8,22 @@
 
 @section tableHead{
     <div class="row">
-        <div class="col-lg-9">
+        <h3>Group Members of <strong>@Model.GroupName</strong></h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
             <div class="input-group mb-3">
-                <input type="text" id="searchKeyword" placeholder="search groups" class="form-control" aria-label="search groups" aria-describedby="basic-addon2" value="@Model.Users.Keyword">
+                <input type="text" id="searchKeyword" placeholder="search member" class="form-control" aria-label="search groups" aria-describedby="basic-addon2" value="@Model.Users.Keyword">
                 <div class="input-group-append">
                     <span class="input-group-text" id="basic-addon2"><a href="#" onclick="searchTrigger()"><i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></a></span>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="table-responsive table--no-card m-b-30">
                 <a href="#" class="btn btn-lg btn-info btn-block" onclick="showAdd()" id="add-user-to-group-button">
                     <i class="fa fa-plus"></i>&nbsp;
-                    <span>Add a user to Group @Model.GroupName</span>
+                    <span>Add a user to group @Model.GroupName&nbsp;&nbsp;&nbsp;</span>
                 </a>
             </div>
         </div>
@@ -176,7 +179,6 @@ else
                             } else {
                                 $("#add-user-to-group-button").show();
                             }
-
                             callback(response.slice(0, 10));
                         }
                     });

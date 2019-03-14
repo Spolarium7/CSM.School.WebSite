@@ -72,7 +72,7 @@
                         <td>
                             <a href="#" onclick="confirmResetPassword('@user.Id', '@user.FullName')" title="Reset Password"><button type="button" class="btn"><i class="fas fa-key"></i></button></a>
                             <a href="~/manage/users/update-profile/@user.Id" title="Update Profile"><button type="button" class="btn"><i class="fas fa-pen-square"></i></button></a>
-                            <a href="~/manage/users/user-groups/@user.Id" title="User Groups"><button type="button" class="btn"><i class="fas fa-users"></i></button></a>
+                            <a href="~/manage/user-groups/@user.Id" title="User Groups"><button type="button" class="btn"><i class="fas fa-users"></i></button></a>
                             <a href="~/manage/users/user-roles/@user.Id" title="User Roles"><button type="button" class="btn"><i class="fas fa-user-secret"></i></button></a>
                             @{
                                 if (user.LoginStatus == CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.LoginStatus.Active)

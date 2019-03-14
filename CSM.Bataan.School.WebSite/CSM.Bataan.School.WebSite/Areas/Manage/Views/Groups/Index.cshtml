@@ -44,6 +44,7 @@
                 <td>@group.Name</td>
                 <td>
                     <a href="~/manage/groups/update/@group.Id" title="Update Group"><button type="button" class="btn"><i class="fas fa-pen-square"></i></button></a>
+                    <a href="~/manage/group-users/@group.Id" title="Group Members"><button type="button" class="btn"><i class="fas fa-users"></i></button></a>
                 </td>
             </tr>
             }
@@ -55,13 +56,13 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li class="page-item"><span class="form-control-plaintext">Page&nbsp;&nbsp;&nbsp;</span></li>
-                        <li class="page-item"><input type="number" value="@Model.Groups.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/manage/users/index?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val())) + '&keyword=@(Model.Groups.Keyword)" /></li>
+                        <li class="page-item"><input type="number" value="@Model.Groups.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/manage/groups/index?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val())) + '&keyword=@(Model.Groups.Keyword)" /></li>
                         <li class="page-item"><span class="form-control-plaintext">&nbsp;&nbsp;&nbsp;of @Model.Groups.PageCount&nbsp;&nbsp;&nbsp;</span></li>
                         @{
                             var prev = Model.Groups.PageIndex - 1;
                             if (prev > 0)
                             {
-                                <li class="page-item"><a class="page-link" href="~/manage/users?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@prev"><span aria-hidden="true">&laquo;</span></a></li>
+                                <li class="page-item"><a class="page-link" href="~/manage/groups?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@prev"><span aria-hidden="true">&laquo;</span></a></li>
                             }
                         }
                         <li class="page-item"><a class="page-link" href="#">@(Model.Groups.PageIndex)</a></li>
@@ -69,7 +70,7 @@
                             var next = Model.Groups.PageIndex + 1;
                             if (next <= Model.Groups.PageCount)
                             {
-                                <li class="page-item"><a class="page-link" href="~/manage/users?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@next"><span aria-hidden="true">&raquo;</span></a></li>
+                                <li class="page-item"><a class="page-link" href="~/manage/groups?keyword=@Model.Groups.Keyword&pageSize=@Model.Groups.PageSize&pageIndex=@next"><span aria-hidden="true">&raquo;</span></a></li>
                             }
                         }
                     </ul>
