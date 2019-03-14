@@ -20,6 +20,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers
         public DbSet<User> Users { get; set; }
         public DbSet<UserGroup> UserGroups { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
+
+        public DbSet<SchoolFacility> SchoolFacilities { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
