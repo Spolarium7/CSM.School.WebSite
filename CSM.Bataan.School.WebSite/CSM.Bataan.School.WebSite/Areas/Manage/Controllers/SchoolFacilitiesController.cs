@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.SchoolFacilities;
@@ -7,6 +8,9 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
@@ -202,6 +206,145 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+        [HttpPost, Route("/manage/schoolfacilities/attach-image")]
+        public async Task<string> AttachImage(AttachImageViewModel model)
+        {
+            var fileSize = model.Image.Length;
+            if ((fileSize / 1048576.0) > 5)
+            {
+                return "Error:The file you uploaded is too large. Filesize limit is 5mb.";
+            }
+            if (model.Image.ContentType != "image/jpeg" && model.Image.ContentType != "image/png")
+            {
+                return "Error:Please upload a jpeg or png file for the attachment.";
+            }
+            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+            var imgUrl = "/content_" + Guid.NewGuid().ToString() + ".png";
+            var filePath = dirPath + imgUrl;
+            if (model.Image.Length > 0)
+            {
+                byte[] bytes = await FileBytes(model.Image.OpenReadStream());
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+                    //if image wider than 800 px scale to its aspect ratio
+                    if (image.Width > 800)
+                    {
+                        var ratio = 800 / image.Width;
+                        image.Mutate(x => x.Resize(800, Convert.ToInt32(image.Height * ratio)));
+                    }
+                    image.Save(filePath);
+                }
+            }
+            return "OK:/schoolfacilities/" + model.SchoolFacilityId.ToString() + "/" + imgUrl;
+        }
+
+
+
+        //this method is used to load the file stream into 
+        //a byte array
+        public async Task<byte[]> FileBytes(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
+
+        [HttpGet, Route("/manage/schoolfacilities/update-thumbnail/{schoolfacilityId}")]
+        public IActionResult Thumbnail(Guid? schoolfacilityId)
+        {
+            return View(new ThumbnailViewModel() { SchoolFacilityId = schoolfacilityId });
+        }
+        [HttpPost, Route("/manage/schoolfacilities/update-thumbnail")]
+        public async Task<IActionResult> Thumbnail(ThumbnailViewModel model)
+        {
+            //Check file size of the uploaded thumbnail
+            //reject if the file is greater than 2mb
+            var fileSize = model.Thumbnail.Length;
+            if ((fileSize / 1048576.0) > 2)
+            {
+                ModelState.AddModelError("", "The file you uploaded is too large. Filesize limit is 2mb.");
+                return View(model);
+            }
+            //Check file type of the uploaded thumbnail
+            //reject if the file is not a jpeg or png
+            if (model.Thumbnail.ContentType != "image/jpeg" && model.Thumbnail.ContentType != "image/png")
+            {
+                ModelState.AddModelError("", "Please upload a jpeg or png file for the thumbnail.");
+                return View(model);
+            }
+            //Formulate the directory where the file will be saved
+            //create the directory if it does not exist
+            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+            //always name the file thumbnail.png
+            var filePath = dirPath + "/thumbnail.png";
+            if (model.Thumbnail.Length > 0)
+            {
+                //Open a file stream to read all the file data into a byte array
+                byte[] bytes = await FileBytes(model.Thumbnail.OpenReadStream());
+                //load the file into the third party (ImageSharp) Nuget Plugin                
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+                    //use the Mutate method to resize the image 150px wide by 150px long
+                    image.Mutate(x => x.Resize(150, 150));
+                    //save the image into the path formulated earlier
+                    image.Save(filePath);
+                }
+            }
+            return RedirectToAction("Thumbnail", new { SchoolFacilityId = model.SchoolFacilityId });
+        }
+
+
+        [HttpGet, Route("/manage/schoolfacilities/update-banner/{schoolfacilityId}")]
+        public IActionResult Banner(Guid? schoolfacilityId)
+        {
+            return View(new BannerViewModel() { SchoolFacilityId = schoolfacilityId });
+        }
+        [HttpPost, Route("/manage/schoolfacilities/update-banner")]
+        public async Task<IActionResult> Banner(BannerViewModel model)
+        {
+            var fileSize = model.Banner.Length;
+            if ((fileSize / 1048576.0) > 5)
+            {
+                ModelState.AddModelError("", "The file you uploaded is too large. Filesize limit is 5mb.");
+                return View(model);
+            }
+            if (model.Banner.ContentType != "image/jpeg" && model.Banner.ContentType != "image/png")
+            {
+                ModelState.AddModelError("", "Please upload a jpeg or png file for the banner.");
+                return View(model);
+            }
+            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+            var filePath = dirPath + "/banner.png";
+            if (model.Banner.Length > 0)
+            {
+                byte[] bytes = await FileBytes(model.Banner.OpenReadStream());
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+                    image.Mutate(x => x.Resize(750, 300));
+                    image.Save(filePath);
+                }
+            }
+            return RedirectToAction("Banner", new { SchoolFacilityId = model.SchoolFacilityId });
+        }
 
     }
 }

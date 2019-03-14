@@ -11,6 +11,23 @@
           "lib/netcoreapp2.0/BCrypt-Core.dll": {}
         }
       },
+      "CodeKicker.BBCode-NETStandard/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CodeKicker.BBCode.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CodeKicker.BBCode.dll": {}
+        },
+        "resource": {
+          "lib/netstandard2.0/de-DE/CodeKicker.BBCode.resources.dll": {
+            "locale": "de-DE"
+          },
+          "lib/netstandard2.0/it-IT/CodeKicker.BBCode.resources.dll": {
+            "locale": "it-IT"
+          }
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -3058,6 +3075,33 @@
           }
         }
       },
+      "SixLabors.Core/1.0.0-beta0006": {
+        "type": "package",
+        "dependencies": {
+          "System.Buffers": "4.5.0",
+          "System.Memory": "4.5.1",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.1"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/SixLabors.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/SixLabors.Core.dll": {}
+        }
+      },
+      "SixLabors.ImageSharp/1.0.0-beta0005": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.Core": "1.0.0-beta0006",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.1"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/SixLabors.ImageSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/SixLabors.ImageSharp.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4673,6 +4717,29 @@
         "bcrypt-core.2.0.0.nupkg.sha512",
         "bcrypt-core.nuspec",
         "lib/netcoreapp2.0/BCrypt-Core.dll"
+      ]
+    },
+    "CodeKicker.BBCode-NETStandard/5.0.0": {
+      "sha512": "kuovooOVCbQ3MR1AGQOKG3+R0XA+d0hffet3vpxymAxPqdWYRYlmQkMvMLz5RGrV2l6ddufRi0dKlaEIWgl4YQ==",
+      "type": "package",
+      "path": "codekicker.bbcode-netstandard/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "codekicker.bbcode-netstandard.5.0.0.nupkg.sha512",
+        "codekicker.bbcode-netstandard.nuspec",
+        "lib/net40/CodeKicker.BBCode.dll",
+        "lib/net40/de-DE/CodeKicker.BBCode.resources.dll",
+        "lib/net40/it-IT/CodeKicker.BBCode.resources.dll",
+        "lib/net45/CodeKicker.BBCode.dll",
+        "lib/net45/de-DE/CodeKicker.BBCode.resources.dll",
+        "lib/net45/it-IT/CodeKicker.BBCode.resources.dll",
+        "lib/net46/CodeKicker.BBCode.dll",
+        "lib/net46/de-DE/CodeKicker.BBCode.resources.dll",
+        "lib/net46/it-IT/CodeKicker.BBCode.resources.dll",
+        "lib/netstandard2.0/CodeKicker.BBCode.dll",
+        "lib/netstandard2.0/de-DE/CodeKicker.BBCode.resources.dll",
+        "lib/netstandard2.0/it-IT/CodeKicker.BBCode.resources.dll"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -8092,6 +8159,38 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "SixLabors.Core/1.0.0-beta0006": {
+      "sha512": "Xv2bOML08se0GWIQJVaIpVV168KQHLYQyESdk5Kv5Sgw0iuZShq6orBXY5AGRwQAyPubGXUVPj/AHK12DI+DxQ==",
+      "type": "package",
+      "path": "sixlabors.core/1.0.0-beta0006",
+      "files": [
+        ".nupkg.metadata",
+        "lib/netcoreapp2.0/SixLabors.Core.dll",
+        "lib/netcoreapp2.0/SixLabors.Core.xml",
+        "lib/netstandard1.1/SixLabors.Core.dll",
+        "lib/netstandard1.1/SixLabors.Core.xml",
+        "sixlabors.core.1.0.0-beta0006.nupkg.sha512",
+        "sixlabors.core.nuspec"
+      ]
+    },
+    "SixLabors.ImageSharp/1.0.0-beta0005": {
+      "sha512": "mhB3ulgr51tKuLRLC/xBgNSDv6qsAsehfwt/aj1OuKlLWu4oXUl2V6HdLKxqQftigkQthQVujI0gMLH6/o7zNg==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/1.0.0-beta0005",
+      "files": [
+        ".nupkg.metadata",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.dll",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard1.1/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard1.3/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.3/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.1.0.0-beta0005.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -12621,11 +12720,13 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "BCrypt-Core >= 2.0.0",
+      "CodeKicker.BBCode-NETStandard >= 5.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
-      "Pomelo.EntityFrameworkCore.MySql >= 2.1.2"
+      "Pomelo.EntityFrameworkCore.MySql >= 2.1.2",
+      "SixLabors.ImageSharp >= 1.0.0-beta0005"
     ]
   },
   "packageFolders": {
@@ -12673,6 +12774,10 @@
             "target": "Package",
             "version": "[2.0.0, )"
           },
+          "CodeKicker.BBCode-NETStandard": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -12696,6 +12801,10 @@
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "[2.1.2, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[1.0.0-beta0005, )"
           }
         },
         "imports": [
