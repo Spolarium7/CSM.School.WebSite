@@ -1,0 +1,219 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.SchoolFacilities.IndexViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manage Index</title>
+</head>
+<body>
+
+
+    <div class="card-container col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <input id="searchKeyword" type="text" class="form-control" value="@Model.SchoolFacilities.Keyword" placeholder="Search by title" aria-label="Search title" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" onclick="searchTrigger()">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @{
+            if (Model.SchoolFacilities != null)
+            {
+                if (Model.SchoolFacilities.Items.Count > 0)
+                {
+                    foreach (SchoolFacility schoolfacilities in Model.SchoolFacilities.Items)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="~/schoolfacilities/@schoolfacilities.Id/Shane3.png.jpg" style="width:150px;height:150px;" />
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <h4>@schoolfacilities.Title</h4>
+                                        <p>@schoolfacilities.Description</p>
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><a href="~/manage/schoolfacilities/update-banner/@schoolfacilities.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                            <li class="list-inline-item"><a href="~/manage/schoolfacilities/update-thumbnail/@schoolfacilities.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-file-image"></i></button></a></li>
+                                            <li class="list-inline-item"><a href="~/manage/schoolfacilities/update-content/@schoolfacilities.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                            <li class="list-inline-item"><a href="~/manage/schoolfacilities/update-title/@schoolfacilities.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                            @{
+                                                if (schoolfacilities.IsPublished)
+                                                {
+                                                    <li class="list-inline-item"><a href="#" title="Unpublish" onclick="confirmUnpublish('@schoolfacilities.Id','@schoolfacilities.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a></li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="list-inline-item"><a href="#" title="Publish" onclick="confirmPublish('@schoolfacilities.Id','@schoolfacilities.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a></li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="~/manage/schoolfacilities?pageIndex=1">First</a></li>
+                        @{ if (Model.SchoolFacilities.PageIndex > 1)
+                            {
+                                <li class="page-item"><a class="page-link" href="~/manage/schoolfacilities?pageIndex=@(Model.SchoolFacilities.PageIndex - 1)">@(Model.SchoolFacilities.PageIndex - 1)</a></li>
+                            }
+                        }
+                        <li class="page-item"><a class="page-link active" href="#">@(Model.SchoolFacilities.PageIndex)</a></li>
+                        @{ if ((Model.SchoolFacilities.PageIndex + 1) <= Model.SchoolFacilities.PageCount)
+                            {
+                                <li class="page-item"><a class="page-link" href="~/manage/schoolfacilities?pageIndex=@(Model.SchoolFacilities.PageIndex + 1)">@(Model.SchoolFacilities.PageIndex + 1)</a></li>
+                            }
+                        }
+                        <li class="page-item"><a class="page-link" href="~/manage/schoolfacilities?pageIndex=@Model.SchoolFacilities.PageCount">Last</a></li>
+                    </ul>
+                }
+            }
+        }
+
+    </div>
+
+    <!--MODAL-->
+    <div class="modal" tabindex="-1" role="dialog" id="modal-unpublish">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Unpublish Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL-->
+    <div class="modal" tabindex="-1" role="dialog" id="modal-publish">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Publish Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="modal-publish-button">Yes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section pageStyles{
+        <style>
+            h2 {
+                margin-top: 30px;
+            }
+
+            .card-container {
+                margin-bottom: 30px;
+            }
+
+            .card {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        </style>
+    }
+
+
+    @section pageScripts{
+        <script>
+
+            //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+            function searchTrigger() {
+                window.location = "/manage/schoolfacilities?pageIndex=1&keyword=" + $("#searchKeyword").val();
+            }
+
+            $("#searchKeyword").keyup(function (event) {
+                if (event.keyCode === 13) {
+                    searchTrigger();
+                }
+            });
+
+
+            ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+            function confirmUnpublish(id, title) {
+                $("#modal-unpublish-title").html(title);
+                $("#modal-unpublish-button").attr("onclick", "unPublishSchoolFacility('" + id + "')");
+                $("#modal-unpublish").modal("show");
+            }
+
+            function unPublishSchoolFacility(id) {
+                $.ajax({
+                    type: "POST",
+                    url: "/manage/schoolfacilities/unpublish",
+                    data: { id: id },
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (xhr) {
+                        var response = JSON.parse(xhr.responseText);
+                        alert("Error Occured : " + response.errors[0]);
+                        location.reload();
+                    }
+                });
+            }
+
+            //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+            function confirmPublish(id, title) {
+                $("#modal-publish-title").html(title);
+                $("#modal-publish-button").attr("onclick", "publishSchoolFacility('" + id + "')");
+                $("#modal-publish").modal("show");
+            }
+
+            function publishSchoolFacility(id) {
+                $.ajax({
+                    type: "POST",
+                    url: "/manage/schoolfacilities/publish",
+                    data: { id: id },
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (xhr) {
+                        var response = JSON.parse(xhr.responseText);
+                        alert("Error Occured : " + response.errors[0]);
+                        location.reload();
+                    }
+                });
+            }
+        </script>
+    }
+
+
+
+
+
+
+</body>
+</html>
