@@ -5,13 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Users
+namespace CSM.Bataan.School.WebSite.ViewModels.Account
 {
-    public class CreateViewModel
+    public class RegisterViewModel
     {
-        [Required]
-        public string EmailAddress { get; set; }
-
         [Required]
         public string FirstName { get; set; }
 
@@ -19,12 +16,17 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Users
         public string LastName { get; set; }
 
         [Required]
-        public string PhoneNumber { get; set; }
-
-        [Required]
         public Gender Gender { get; set; }
 
         [Required]
+        public string EmailAddress { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
+        [Required]
+        public string ConfirmPassword { get; set; }
+
         public Role Role { get; set; }
     }
 }

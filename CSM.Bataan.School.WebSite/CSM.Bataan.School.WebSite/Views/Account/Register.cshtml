@@ -1,0 +1,72 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Register User";
+    Layout = "~/areas/manage/views/shared/_forms.cshtml";
+}
+<div class="card-header"><a href="~/home"><span class="fa fa-arrow-left"></span> back</a></div>
+<div class="card-body">
+    <div class="card-title">
+        <h3 class="text-center title-2">Register as a User</h3>
+    </div>
+    <hr>
+    <form action="~/account/register" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <label for="emailAddress" class="control-label mb-1">Email Address</label>
+            <input type="email" class="form-control" id="emailAddress" name="EmailAddress" aria-describedby="emailAddressHelp" placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" asp-for="Password" aria-describedby="passwordHelp" placeholder="Enter password">
+            <small id="passwordHelp" class="form-text text-muted">Password is required.</small>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" asp-for="ConfirmPassword" aria-describedby="confirmPasswordHelp" placeholder="Enter password confirmation">
+            <small id="confirmPasswordHelp" class="form-text text-muted">Password Confirmation is required.</small>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label for="phonenumber" class="control-label mb-1">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" aria-describedby="phoneNumberHelp" placeholder="Enter phone Number">
+        </div>
+        <div class="form-group">
+            <label for="firstName" class="control-label mb-1">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="FirstName" aria-describedby="firstNameHelp" placeholder="Enter first name">
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="control-label mb-1">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="LastName" aria-describedby="lastNameHelp" placeholder="Enter last name">
+        </div>
+        <div class="form-group">
+            <label for="gender" class="control-label mb-1">Gender</label>
+            <select class="form-control" id="gender" name="Gender">
+                @{
+                    var genderOptions = Enum.GetValues(typeof(CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Gender)).Cast<CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Gender>();
+
+                    foreach (CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Gender genderOption in genderOptions)
+                    {
+                        <option value="@genderOption">@genderOption.ToString()</option>
+                    }
+                }
+            </select>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label for="gender" class="control-label mb-1">Role</label>
+            <select class="form-control" id="role" name="Role">
+                @{
+                    var roleOptions = Enum.GetValues(typeof(CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Role)).Cast<CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Role>();
+
+                    foreach (CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Role roleOption in roleOptions)
+                    {
+                        <option value="@roleOption">@roleOption.ToString()</option>
+                    }
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="~/manage/users" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

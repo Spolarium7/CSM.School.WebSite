@@ -116,6 +116,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     LoginStatus = Infrastructure.Data.Enums.LoginStatus.NeedsToChangePassword,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    Gender = model.Gender
                 };
                 this._context.Users.Add(user);
 
@@ -323,8 +324,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                         <td>
                             <p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0 30px 20px;text-align:center;'>
                                 You have been invited as " + (role.ToLower() == "admin" ? "an <strong>" + role : "a <strong>" + role) + @"</strong>.<br />.
-                            </p>
-                            <p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0 30px 20px;text-align:center;'>You may need to be in the premises to login depending on your role. </p>
+                            </p>                           
                         </td>
                     </tr>
                     <tr>
