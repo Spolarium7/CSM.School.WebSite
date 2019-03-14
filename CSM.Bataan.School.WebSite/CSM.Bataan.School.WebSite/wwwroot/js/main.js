@@ -8,10 +8,7 @@ $(document).ready(function () {
 	});
 	
 	$('.info-request, .get-contact').fancybox();
-	
-	$("select").crfs(); 
-	
-	
+		
 	$(".table td").mouseenter(function(){    
         $(this).find(".holder").stop(true, true).fadeIn(600);
         $(this).find(">div").addClass('hover');
