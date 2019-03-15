@@ -144,7 +144,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
                         WebUser.SetUser(user, roles, groups);
                         await this.SignIn();
-                        return RedirectToAction("change-password");
+                        return RedirectPermanent("~/account/change-password");
                     }
                     else if (user.LoginStatus == Infrastructure.Data.Enums.LoginStatus.Active)
                     {
@@ -201,6 +201,41 @@ namespace CSM.Bataan.School.WebSite.Controllers
         {
             return View();
         }
+
+        [HttpGet, Route("account/forgot-password")]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("account/forgot-password")]
+        public IActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            var user = this._context.Users.FirstOrDefault(u =>
+                    u.EmailAddress.ToLower() == model.EmailAddress.ToLower());
+
+            if (user != null)
+            {
+                var newPassword = RandomString(6);
+                user.Password = BCryptHelper.HashPassword(newPassword, BCryptHelper.GenerateSalt(9));
+                user.LoginStatus = Infrastructure.Data.Enums.LoginStatus.NeedsToChangePassword;
+
+                this._context.Users.Update(user);
+                this._context.SaveChanges();
+
+                this.EmailSendNow(
+                            ForgotPasswordEmailTemplate(newPassword, user.FullName),
+                            user.EmailAddress,
+                            user.FullName,
+                            "CSM Bataan WebSite - Forgot Password"
+                );
+
+                return RedirectPermanent("~/account/login");
+            }
+
+            return View();
+        }
+
 
         private async Task SignIn()
         {
@@ -276,22 +311,22 @@ namespace CSM.Bataan.School.WebSite.Controllers
             });
         }
 
-        private string ResetPasswordEmailTemplate(string password, string recepientName)
+        private string ForgotPasswordEmailTemplate(string password, string recepientName)
         {
             return EmailTemplateLayout(@"<tr>
-                        <td><h3 style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:30px;'>Welcome to CSM Bataan Website!</h3></td>
+                        <td><h3 style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:30px;'>Greetings from CSM Bataan Website!</h3></td>
                     </tr>
                     <tr>
                         <td>
                             <p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0 30px 20px;text-align:center;'>
-                                Your password has been reset by an Admin.<br />.
+                                You asked us to reset your password.<br />.
                             </p>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:20px 30px 0; text-align:center;'>
-                                <strong>Your one-time password is:</strong>
+                                <strong>Use this one-time password so you can login:</strong>
                             </p>
                             <p style='font-family:Segoe, Segoe UI, Arial, sans-serif;color:#FF9046; font-weight:700; font-size:32px; text-align:center; margin:0;'>
                                 " + password + @"
@@ -357,7 +392,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0; font-size:12px; color:#999; text-align:center;'>&copy; " + @DateTime.Now.Year + @" GOSHEN JIMENEZ | All Rights Reserved</p></td>         
+                                    <td><p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0; font-size:12px; color:#999; text-align:center;'>&copy; " + @DateTime.Now.Year + @" COLLEGE OF SUBIC MONTESSORI - DINALUPIHAN AND LINCOLN HEIGHTS | All Rights Reserved</p></td>         
                                 </tr>
                         </table>
                     </body>

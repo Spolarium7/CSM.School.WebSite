@@ -177,7 +177,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             {
                 var password = RandomString(8);
 
-                user.Password = password;
+                user.Password = BCryptHelper.HashPassword(password, BCryptHelper.GenerateSalt(9));
                 user.LoginStatus = Infrastructure.Data.Enums.LoginStatus.NeedsToChangePassword;
                 this._context.Users.Update(user);
                 this._context.SaveChanges();
@@ -378,7 +378,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0; font-size:12px; color:#999; text-align:center;'>&copy; " + @DateTime.Now.Year + @" GOSHEN JIMENEZ | All Rights Reserved</p></td>         
+                                    <td><p style='font-family:Segoe, Segoe UI, Arial, sans-serif; margin:0; font-size:12px; color:#999; text-align:center;'>&copy; " + @DateTime.Now.Year + @" COLLEGE OF SUBIC MONTESSORI - DINALUPIHAN AND LINCOLN HEIGHTS | All Rights Reserved</p></td>         
                                 </tr>
                         </table>
                     </body>
