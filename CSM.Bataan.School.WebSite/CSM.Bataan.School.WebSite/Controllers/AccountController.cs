@@ -6,12 +6,14 @@ using System.Net.Mail;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BCrypt;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using CSM.Bataan.School.WebSite.Infrastructure.Security;
 using CSM.Bataan.School.WebSite.ViewModels.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
@@ -136,7 +138,11 @@ namespace CSM.Bataan.School.WebSite.Controllers
                         this._context.SaveChanges();
 
                         //SignIn
-                        WebUser.SetUser(user);
+                        var roles = this._context.UserRoles.Where(ur => ur.UserId == user.Id).Select(ur => ur.Role).ToList();
+                        var groupIds = this._context.UserGroups.Where(ug => ug.UserId == user.Id).Select(ug => ug.GroupId).ToList();
+                        var groups = this._context.Groups.Where(g => groupIds.Contains(g.Id.Value)).ToList();
+
+                        WebUser.SetUser(user, roles, groups);
                         await this.SignIn();
                         return RedirectToAction("change-password");
                     }
@@ -148,7 +154,12 @@ namespace CSM.Bataan.School.WebSite.Controllers
                         this._context.SaveChanges();
 
                         //SignIn
-                        WebUser.SetUser(user);
+
+                        var roles = this._context.UserRoles.Where(ur => ur.UserId == user.Id).Select(ur => ur.Role).ToList();
+                        var groupIds = this._context.UserGroups.Where(ug => ug.UserId == user.Id).Select(ug => ug.GroupId).ToList();
+                        var groups = this._context.Groups.Where(g => groupIds.Contains(g.Id.Value)).ToList();
+
+                        WebUser.SetUser(user, roles, groups);
                         await this.SignIn();
                         return RedirectPermanent("/account/landing");
                     }
@@ -176,6 +187,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
         }
 
+        [Authorize(Policy = "SignedIn")]
         [HttpGet, Route("account/logout")]
         public async Task<IActionResult> Logout()
         {
@@ -183,6 +195,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return RedirectToAction("login");
         }
 
+        [Authorize(Policy = "SignedIn")]
         [HttpGet, Route("account/landing")]
         public IActionResult Landing()
         {
@@ -219,6 +232,8 @@ namespace CSM.Bataan.School.WebSite.Controllers
             WebUser.FirstName = string.Empty;
             WebUser.LastName = string.Empty;
             WebUser.UserId = null;
+            WebUser.Roles = new List<Role>();
+            WebUser.Groups = new List<Group>();
 
             HttpContext.Session.Clear();
         }

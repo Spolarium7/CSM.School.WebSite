@@ -1,4 +1,5 @@
-﻿using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+﻿using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,14 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Security
             get => Current.User.Identity.IsAuthenticated && UserId.HasValue;
         }
 
-        public static void SetUser(User user)
+        public static void SetUser(User user, List<Role> roles, List<Group> groups)
         {
             EmailAddress = user.EmailAddress;
             FirstName = user.FirstName;
             LastName = user.LastName;
             UserId = user.Id;
+            Roles = roles;
+            Groups = groups;
         }
 
         public static IServiceProvider Services
@@ -76,9 +79,41 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Security
             set => Current.Session.SetString("EmailAddress", value);
         }
 
+        public static List<Role> Roles
+        {
+            get => Current.Session.GetObjectFromJson<List<Role>>("Roles");
+            set => Current.Session.SetObjectAsJson("Roles", value);
+        }
+
+        public static List<Group> Groups
+        {
+            get => Current.Session.GetObjectFromJson<List<Group>>("Groups");
+            set => Current.Session.SetObjectAsJson("Groups", value);
+        }
+
         public static string FullName
         {
             get => string.Format("{0} {1}", FirstName, LastName);
+        }
+
+        public static bool IsInRole(Role role)
+        {
+            if(WebUser.Roles == null)
+            {
+                return false;
+            }
+
+            return WebUser.Roles.Contains(role); 
+        }
+
+        public static bool IsInGroup(Guid groupId)
+        {
+            if (WebUser.Groups == null)
+            {
+                return false;
+            }
+
+            return WebUser.Groups.FirstOrDefault(g => g.Id == groupId) != null;
         }
     }
 }

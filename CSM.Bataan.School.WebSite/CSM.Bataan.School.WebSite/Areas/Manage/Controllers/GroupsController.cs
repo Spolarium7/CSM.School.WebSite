@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Groups;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
@@ -19,6 +20,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _context = context;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/groups")]
         [HttpGet, Route("manage/groups/index")]
         public IActionResult Index(int pageSize = 5, int pageIndex = 1, string keyword = "")
@@ -64,12 +66,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/groups/create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/groups/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -94,6 +98,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/groups/update/{groupId}")]
         public IActionResult Update(Guid? groupId)
         {
@@ -114,6 +119,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("create");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/groups/update")]
         public IActionResult UpdateProfile(UpdateViewModel model)
         {

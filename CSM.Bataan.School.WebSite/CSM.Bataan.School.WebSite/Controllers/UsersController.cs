@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSM.Bataan.School.WebSite.Controllers
@@ -17,6 +18,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             _context = context;
         }
 
+        [Authorize(Policy = "SignedIn")]
         [HttpGet, Route("users")]
         [HttpGet, Route("users/look-up")]
         public List<TextValuePair> Lookup(string keyword, int count)
@@ -30,7 +32,8 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return users;
         }
 
-        [HttpGet, Route("groups")]
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("users/add-user-to-group-look-up")]
         public List<TextValuePair> AddUserToGroupLookup(string keyword, int count = 5, Guid? groupId = null)
         {

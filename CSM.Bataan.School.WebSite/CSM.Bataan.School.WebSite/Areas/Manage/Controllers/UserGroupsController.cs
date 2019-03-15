@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.UserGroups;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
@@ -19,6 +20,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _context = context;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/user-groups/{userId}")]
         [HttpGet, Route("manage/user-groups/index/{userId}")]
         public IActionResult UserGroupIndex(Guid? userId, int pageSize = 5, int pageIndex = 1, string keyword = "")
@@ -73,6 +75,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/group-users/add-user-to-group")]
         [HttpPost, Route("manage/user-groups/add-user-to-group")]
         public IActionResult Add(AddRemoveUserGroupViewModel model)
@@ -95,6 +98,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent(redirect);
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/group-users/remove-user-from-group")]
         [HttpPost, Route("manage/user-groups/remove-user-from-group")]
         public IActionResult Remove(AddRemoveUserGroupViewModel model)
@@ -113,6 +117,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent(redirect);
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/group-users/{groupId}")]
         [HttpGet, Route("manage/group-users/index/{groupId}")]
         public IActionResult GroupUserIndex(Guid? groupId, int pageSize = 5, int pageIndex = 1, string keyword = "")

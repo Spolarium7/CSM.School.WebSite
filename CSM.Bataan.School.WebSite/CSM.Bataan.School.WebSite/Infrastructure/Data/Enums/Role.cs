@@ -9,11 +9,6 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Enums
     {
         Admin=0,
         ContentAdmin=1,
-        CoreGroup=2,
-        Faculty=3,
-        Staff=4,
-        Student=5,
-        Trainee=6,
-        Guardian=7
+        User=2
     }
 }

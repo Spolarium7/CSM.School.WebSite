@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSM.Bataan.School.WebSite.Controllers
@@ -17,6 +18,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             _context = context;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("roles/add-role-to-user-look-up")]
         public List<TextObjectPair<Role>> AddRoleToUserLookup(string keyword, int count = 5, Guid? userId = null)
         {

@@ -6,6 +6,7 @@ using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.UserRoles;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
@@ -20,6 +21,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _context = context;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/user-roles/{userId}")]
         [HttpGet, Route("manage/user-roles/index/{userId}")]
         public IActionResult Index(Guid? userId, int pageSize = 5, int pageIndex = 1, string keyword = "")
@@ -68,6 +70,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/user-roles/add-role-to-user")]
         public IActionResult Add(AddRemoveUserRoleViewModel model)
         {
@@ -91,6 +94,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent(redirect);
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/user-roles/remove-role-from-user")]
         public IActionResult Remove(AddRemoveUserRoleViewModel model)
         {

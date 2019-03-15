@@ -9,6 +9,7 @@ using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Users;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -37,6 +38,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             smsApiKey = (smsConfig["ApiKey"]).ToString();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/users")]
         [HttpGet, Route("manage/users/index")]
         public IActionResult Index(int pageSize = 5, int pageIndex = 1, string keyword = "", string status = "Active")
@@ -86,13 +88,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/users/invite")]
         public IActionResult Invite()
         {
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/users/invite")]
         public IActionResult Invite(CreateViewModel model)
         {
@@ -147,7 +150,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/users/change-status/{status}/{userId}")]
         public IActionResult ChangeStatus(string status, Guid? userId)
         {
@@ -164,7 +167,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/users/reset-password/{userId}")]
         public IActionResult ResetPassword(Guid? userId)
         {
@@ -200,6 +203,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/users/delete/{userId}")]
         public IActionResult Delete(Guid? userId)
         {
@@ -214,6 +218,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/users/update-profile/{userId}")]
         public IActionResult UpdateProfile(Guid? userId)
         {
@@ -235,6 +240,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("create");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/users/update-profile")]
         public IActionResult UpdateProfile(UpdateProfileViewModel model)
         {

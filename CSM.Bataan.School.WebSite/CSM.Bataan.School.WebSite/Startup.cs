@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+using CSM.Bataan.School.WebSite.Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -51,6 +53,16 @@ namespace CSM.Bataan.School.WebSite
 
             services.AddDbContext<DefaultDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultDbContextMySQL"), m => m.MigrationsAssembly("CSM.Bataan.School.WebSite")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped<IAuthorizationHandler, AuthorizeAdminRequirementHandler>();
+            services.AddScoped<IAuthorizationHandler, AuthorizeContentAdminRequirementHandler>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("SignedIn", policy => policy.RequireAuthenticatedUser());
+                options.AddPolicy("AuthorizeAdmin", policy => policy.Requirements.Add(new AuthorizeAdminRequirement()));
+                options.AddPolicy("AuthorizeContentAdmin", policy => policy.Requirements.Add(new AuthorizeContentAdminRequirement()));
+            });
 
             services.AddSession(options =>
             {
