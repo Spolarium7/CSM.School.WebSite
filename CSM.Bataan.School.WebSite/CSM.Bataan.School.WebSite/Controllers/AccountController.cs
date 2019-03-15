@@ -176,6 +176,13 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
         }
 
+        [HttpGet, Route("account/logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await this.SignOut();
+            return RedirectToAction("login");
+        }
+
         [HttpGet, Route("account/landing")]
         public IActionResult Landing()
         {
@@ -202,6 +209,18 @@ namespace CSM.Bataan.School.WebSite.Controllers
             };
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
+        }
+
+        private async Task SignOut()
+        {
+            await HttpContext.SignOutAsync();
+
+            WebUser.EmailAddress = string.Empty;
+            WebUser.FirstName = string.Empty;
+            WebUser.LastName = string.Empty;
+            WebUser.UserId = null;
+
+            HttpContext.Session.Clear();
         }
 
         private Random random = new Random();
