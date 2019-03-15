@@ -1,0 +1,39 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Account.LoginViewModel
+@{
+    ViewData["Title"] = "Register User";
+    Layout = "~/areas/manage/views/shared/_forms.cshtml";
+}
+<div class="card-header"><a href="~/home"><span class="fa fa-arrow-left"></span> back to home</a></div>
+<div class="card-body">
+    <div class="card-title">
+        <h3 class="text-center title-2">Login</h3>
+    </div>
+    <hr>
+    <form action="~/account/login" method="post">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="form-group">
+            <label for="emailAddress" class="control-label mb-1">Email Address</label>
+            <input type="email" class="form-control" id="emailAddress" name="EmailAddress" aria-describedby="emailAddressHelp" placeholder="Enter email address">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" asp-for="Password" aria-describedby="passwordHelp" placeholder="Enter password">
+            <small id="passwordHelp" class="form-text text-muted">Password is required.</small>
+        </div>
+        <hr />
+        <div class="form-group">
+            <recaptcha />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="~/home/index" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
+
+
+@section pageScripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <recaptcha-script />
+}

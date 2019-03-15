@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BCrypt;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using Microsoft.AspNetCore.Mvc;
@@ -45,7 +46,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                         LastName = "Beleren",
                         Gender = Gender.Male,
                         EmailAddress = "jbeleren@mailinator.com",
-                        Password = "Accord605",
+                        Password = BCryptHelper.HashPassword("Accord605", BCryptHelper.GenerateSalt(9)),
                         LoginStatus = LoginStatus.Active,
                         PhoneNumber = "1234567890",
                         RegistrationCode = "ABCDEF",

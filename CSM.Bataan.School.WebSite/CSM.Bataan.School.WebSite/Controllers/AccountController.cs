@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BCrypt;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using CSM.Bataan.School.WebSite.Infrastructure.Security;
 using CSM.Bataan.School.WebSite.ViewModels.Account;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
@@ -78,6 +82,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
                 Role = model.Role
             });
 
+            //add to public group
             this._context.UserGroups.Add(new UserGroup()
             {
                 UserId = user.Id.Value,
@@ -97,6 +102,107 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return RedirectToAction("verify");
         }
 
+        [HttpGet, Route("account/login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("account/login")]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            var user = this._context.Users.FirstOrDefault(u =>
+                u.EmailAddress.ToLower() == model.EmailAddress.ToLower());
+
+            if (user != null)
+            {
+                if (BCrypt.BCryptHelper.CheckPassword(model.Password, user.Password))
+                {
+                    if (user.LoginStatus == Infrastructure.Data.Enums.LoginStatus.Locked)
+                    {
+                        ModelState.AddModelError("", "Your account has been locked please contact an Administrator.");
+                        return View();
+                    }
+                    else if (user.LoginStatus == Infrastructure.Data.Enums.LoginStatus.Unverified)
+                    {
+                        ModelState.AddModelError("", "Please verify your account first.");
+                        return View();
+                    }
+                    else if (user.LoginStatus == Infrastructure.Data.Enums.LoginStatus.NeedsToChangePassword)
+                    {
+                        user.LoginTrials = 0;
+                        user.LoginStatus = Infrastructure.Data.Enums.LoginStatus.Active;
+                        this._context.Users.Update(user);
+                        this._context.SaveChanges();
+
+                        //SignIn
+                        WebUser.SetUser(user);
+                        await this.SignIn();
+                        return RedirectToAction("change-password");
+                    }
+                    else if (user.LoginStatus == Infrastructure.Data.Enums.LoginStatus.Active)
+                    {
+                        user.LoginTrials = 0;
+                        user.LoginStatus = Infrastructure.Data.Enums.LoginStatus.Active;
+                        this._context.Users.Update(user);
+                        this._context.SaveChanges();
+
+                        //SignIn
+                        WebUser.SetUser(user);
+                        await this.SignIn();
+                        return RedirectPermanent("/account/landing");
+                    }
+                }
+                else
+                {
+                    user.LoginTrials = user.LoginTrials + 1;
+
+                    if (user.LoginTrials >= 3)
+                    {
+                        ModelState.AddModelError("", "Your account has been locked please contact an Administrator.");
+                        user.LoginStatus = Infrastructure.Data.Enums.LoginStatus.Locked;
+                    }
+
+                    this._context.Users.Update(user);
+                    this._context.SaveChanges();
+
+                    ModelState.AddModelError("", "Invalid Login.");
+                    return View();
+                }
+            }
+
+            ModelState.AddModelError("", "Invalid Login.");
+            return View();
+
+        }
+
+        [HttpGet, Route("account/landing")]
+        public IActionResult Landing()
+        {
+            return View();
+        }
+
+        private async Task SignIn()
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, WebUser.UserId.ToString())
+            };
+
+            ClaimsIdentity identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+            var authProperties = new AuthenticationProperties
+            {
+                AllowRefresh = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
+                IsPersistent = true,
+                IssuedUtc = DateTimeOffset.UtcNow
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProperties);
+        }
 
         private Random random = new Random();
         private string RandomString(int length)
