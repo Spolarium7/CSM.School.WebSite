@@ -236,6 +236,49 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
+        [Authorize(Policy = "SignedIn")]
+        [HttpGet, Route("account/change-password")]
+        public IActionResult ChangePassword()
+        {
+            var userId = WebUser.UserId;
+            return View();
+        }
+
+        [Authorize(Policy = "SignedIn")]
+        [HttpPost, Route("account/change-password")]
+        public IActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            if (model.NewPassword != model.ConfirmNewPassword)
+            {
+                ModelState.AddModelError("", "New Password does not match Confirm New Password");
+                return View();
+            }
+
+
+            var user = this._context.Users.FirstOrDefault(u =>
+                    u.Id == WebUser.UserId);
+
+            if (user != null)
+            {
+                if (BCryptHelper.CheckPassword(model.OldPassword, user.Password) == false)
+                {
+                    ModelState.AddModelError("", "Incorrect old Password.");
+                    return View();
+                }
+
+                user.Password = BCryptHelper.HashPassword(model.NewPassword, BCryptHelper.GenerateSalt(8));
+                user.LoginStatus = Infrastructure.Data.Enums.LoginStatus.Active;
+
+                this._context.Users.Update(user);
+                this._context.SaveChanges();
+
+                return RedirectPermanent("/home/index");
+            }
+
+            return View();
+        }
+
+
 
         private async Task SignIn()
         {
