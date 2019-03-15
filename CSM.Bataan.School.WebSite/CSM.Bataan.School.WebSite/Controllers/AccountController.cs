@@ -10,6 +10,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using CSM.Bataan.School.WebSite.ViewModels.Account;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 
 namespace CSM.Bataan.School.WebSite.Controllers
 {
@@ -35,6 +36,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
+        [ValidateRecaptcha]
         [HttpPost]
         public IActionResult Register(RegisterViewModel model)
         {
