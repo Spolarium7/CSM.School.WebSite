@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\users\" />
     <Folder Include="wwwroot\schoolfacilities\" />
   </ItemGroup>
 

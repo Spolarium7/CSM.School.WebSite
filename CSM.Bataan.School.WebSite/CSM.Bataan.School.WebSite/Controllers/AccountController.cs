@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -14,9 +15,13 @@ using CSM.Bataan.School.WebSite.ViewModels.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 
 namespace CSM.Bataan.School.WebSite.Controllers
 {
@@ -24,16 +29,18 @@ namespace CSM.Bataan.School.WebSite.Controllers
     {
         private readonly DefaultDbContext _context;
         protected readonly IConfiguration _config;
+        private IHostingEnvironment _env;
         private string emailUserName;
         private string emailPassword;
 
-        public AccountController(DefaultDbContext context, IConfiguration config)
+        public AccountController(DefaultDbContext context, IConfiguration config, IHostingEnvironment env)
         {
             _context = context;
             _config = config;
             var emailConfig = this._config.GetSection("Email");
             emailUserName = (emailConfig["Username"]).ToString();
             emailPassword = (emailConfig["Password"]).ToString();
+            _env = env;
         }
 
         [HttpGet]
@@ -333,6 +340,66 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
+        [HttpGet, Route("/account/profile-image/{dateTime}/{userId}.png")]
+        public IActionResult ProfilePicture(string dateTime, string userId)
+        {
+            var fullFilePath = this.GetFullFilePath(userId + ".png");
+
+            var image = System.IO.File.OpenRead(fullFilePath);
+
+            return File(image, "image/jpeg");
+        }
+
+        private string GetFullFilePath(string filename)
+        {
+            var dirPath = _env.WebRootPath + "/users/" + filename;
+            if (!System.IO.File.Exists(dirPath))
+            {
+                return _env.WebRootPath + "/users/default.png";
+            }
+
+            return dirPath;
+        }
+
+
+        [HttpPost, Route("/account/update-profile-image")]
+        public async Task<IActionResult> UpdateProfileImage(UpdateProfileImageViewModel model)
+        {
+            var fileSize = model.ImageFile.Length;
+            if ((fileSize / 1048576.0) > 2)
+            {
+                ModelState.AddModelError("", "The file you uploaded is too large. Filesize limit is 2mb.");
+                return View(model);
+            }
+
+            if (model.ImageFile.ContentType != "image/jpeg" && model.ImageFile.ContentType != "image/png")
+            {
+                ModelState.AddModelError("", "Please upload a jpeg or png file for the profile pictures.");
+                return View(model);
+            }
+
+            var dirPath = _env.WebRootPath + "/users/";
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+            var filePath = dirPath + "/" + WebUser.UserId + ".png";
+            if (model.ImageFile.Length > 0)
+            {
+
+                byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());             
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+                    image.Mutate(x => x.Resize(150, 150));
+                    image.Save(filePath);
+                }
+            }
+
+            return RedirectPermanent("~/account/update-profile");
+        }
+
+
         private async Task SignIn()
         {
             var claims = new List<Claim>
@@ -369,6 +436,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             HttpContext.Session.Clear();
         }
 
+        #region Helpers
         private Random random = new Random();
         private string RandomString(int length)
         {
@@ -376,6 +444,21 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        public async Task<byte[]> FileBytes(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
+        #endregion
 
         #region Notifications
         #region Email

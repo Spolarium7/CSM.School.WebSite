@@ -10,11 +10,11 @@
             <div class="card-title">
                 <h3 class="text-center title-2">Update Profile</h3>
             </div>
-            <hr>
+            <hr />
             <form action="~/account/update-profile" method="post">
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary()
-                <input type="hidden" name="UserId" value="@Model.UserId"/>
+                <input type="hidden" name="UserId" value="@Model.UserId" />
                 <div class="form-group">
                     <label for="phonenumber" class="control-label mb-1">Phone Number</label>
                     <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" aria-describedby="phoneNumberHelp" placeholder="Enter phone Number" value="@Model.PhoneNumber">
@@ -54,6 +54,87 @@
         </div>
     </div>
     <div class="col-4">
-
+        <div class="card-body">
+            <div class="card-title">
+                <h3 class="text-center title-2">Update Profile Picture</h3>
+            </div>            
+            <div class="profile-image-container">
+                <img class="img-thumbnail rounded mx-auto d-block" src="~/account/profile-image/@(Guid.NewGuid())/@(Model.UserId).png" alt="@(Model.UserId) - profile image" />
+                <button class="btn" onclick="updateProfileImage()">Change</button>
+            </div>
+        </div>
     </div>
 </div>
+
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-update-profile-image">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Profile Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" action="~/account/update-profile-image" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="file" class="form-control" name="ImageFile" />
+                    @Html.ValidationSummary()
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section pageScripts{
+    <script>
+        function updateProfileImage() {
+            $("#modal-update-profile-image").modal("show");
+        }
+    </script>
+}
+
+@section pageStyles{ 
+    <style>
+        /* Container needed to position the button. Adjust the width as needed */
+        .profile-image-container {
+            position: relative;
+        }
+
+            /* Make the image responsive */
+            .profile-image-container img {
+                height: auto;
+            }
+
+            .profile-image-container img:hover{
+
+            }
+
+            /* Style the button and place it in the middle of the container/image */
+            .profile-image-container .btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #555;
+                color: white;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                opacity: 0.3;
+                transition: 0.3s;
+                background-color: #f4511e;
+            }
+
+            .profile-image-container .btn:hover {
+                opacity: 1
+            }
+    </style>
+
+}
