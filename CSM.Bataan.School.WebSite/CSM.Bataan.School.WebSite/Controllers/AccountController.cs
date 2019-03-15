@@ -81,7 +81,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
             this._context.UserRoles.Add(new UserRole() {
                 UserId = user.Id.Value,
-                Role = model.Role
+                Role = Role.User
             });
 
             //add to public group
@@ -110,9 +110,15 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
+        [ValidateRecaptcha]
         [HttpPost, Route("account/login")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             var user = this._context.Users.FirstOrDefault(u =>
                 u.EmailAddress.ToLower() == model.EmailAddress.ToLower());
 
@@ -208,9 +214,15 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
+        [ValidateRecaptcha]
         [HttpPost, Route("account/forgot-password")]
         public IActionResult ForgotPassword(ForgotPasswordViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             var user = this._context.Users.FirstOrDefault(u =>
                     u.EmailAddress.ToLower() == model.EmailAddress.ToLower());
 
@@ -278,7 +290,48 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
+        [Authorize(Policy = "SignedIn")]
+        [HttpGet, Route("account/update-profile")]
+        public IActionResult UpdateProfile()
+        {
+            return View(new UpdateProfileViewModel()
+            {
+                FirstName = WebUser.FirstName,
+                LastName = WebUser.LastName,
+                UserId = WebUser.UserId.Value,
+                PhoneNumber = WebUser.PhoneNumber,
+                Gender = WebUser.Gender
+            });
+        }
 
+        [Authorize(Policy = "SignedIn")]
+        [HttpPost, Route("account/update-profile")]
+        public IActionResult UpdateProfile(UpdateProfileViewModel model)
+        {
+            var user = this._context.Users.FirstOrDefault(u =>
+                    u.Id == WebUser.UserId);
+
+            if (user != null)
+            {
+                user.PhoneNumber = model.PhoneNumber;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.Gender = model.Gender;
+
+                this._context.Users.Update(user);
+                this._context.SaveChanges();
+
+                var roles = this._context.UserRoles.Where(ur => ur.UserId == user.Id).Select(ur => ur.Role).ToList();
+                var groupIds = this._context.UserGroups.Where(ug => ug.UserId == user.Id).Select(ug => ug.GroupId).ToList();
+                var groups = this._context.Groups.Where(g => groupIds.Contains(g.Id.Value)).ToList();
+
+                WebUser.SetUser(user, roles, groups);
+
+                return RedirectPermanent("/account/update-profile");
+            }
+
+            return View();
+        }
 
         private async Task SignIn()
         {

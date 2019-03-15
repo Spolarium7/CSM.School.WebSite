@@ -1,0 +1,59 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Account.UpdateProfileViewModel
+@{
+    ViewData["Title"] = "Update Profile";
+    Layout = "~/areas/manage/views/shared/_forms.cshtml";
+}
+<div class="card-header"><a href="~/home"><span class="fa fa-arrow-left"></span> back</a></div>
+<div class="row">
+    <div class="col-8">
+        <div class="card-body">
+            <div class="card-title">
+                <h3 class="text-center title-2">Update Profile</h3>
+            </div>
+            <hr>
+            <form action="~/account/update-profile" method="post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <input type="hidden" name="UserId" value="@Model.UserId"/>
+                <div class="form-group">
+                    <label for="phonenumber" class="control-label mb-1">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="PhoneNumber" aria-describedby="phoneNumberHelp" placeholder="Enter phone Number" value="@Model.PhoneNumber">
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label for="firstName" class="control-label mb-1">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="FirstName" aria-describedby="firstNameHelp" placeholder="Enter first name" value="@Model.FirstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="control-label mb-1">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="LastName" aria-describedby="lastNameHelp" placeholder="Enter last name" value="@Model.LastName">
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="control-label mb-1">Gender</label>
+                    <select class="form-control" id="gender" name="Gender">
+                        @{
+                            var genderOptions = Enum.GetValues(typeof(CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Gender)).Cast<CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Gender>();
+
+                            foreach (CSM.Bataan.School.WebSite.Infrastructure.Data.Enums.Gender genderOption in genderOptions)
+                            {
+                                if (Model.Gender == genderOption)
+                                {
+                                    <option value="@genderOption" selected>@genderOption.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@genderOption">@genderOption.ToString()</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="~/home/index" class="btn btn-danger">Cancel</a>
+            </form>
+        </div>
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>

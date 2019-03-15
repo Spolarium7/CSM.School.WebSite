@@ -23,6 +23,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Security
             FirstName = user.FirstName;
             LastName = user.LastName;
             UserId = user.Id;
+            Gender = user.Gender;
+            PhoneNumber = user.PhoneNumber;
             Roles = roles;
             Groups = groups;
         }
@@ -77,6 +79,18 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Security
         {
             get => Current.Session.GetString("EmailAddress");
             set => Current.Session.SetString("EmailAddress", value);
+        }
+
+        public static Gender Gender
+        {
+            get => Current.Session.GetObjectFromJson<Gender>("Gender");
+            set => Current.Session.SetObjectAsJson("Gender", value);
+        }
+
+        public static string PhoneNumber
+        {
+            get => Current.Session.GetString("PhoneNumber");
+            set => Current.Session.SetString("PhoneNumber", value);
         }
 
         public static List<Role> Roles
