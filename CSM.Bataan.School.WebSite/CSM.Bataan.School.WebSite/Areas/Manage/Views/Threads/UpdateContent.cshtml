@@ -1,0 +1,24 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Threads.UpdateContentViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<h3>Update Thread "@Model.Title"</h3>
+<div class="row">
+    <div class="col-md-6">
+        <form action="~/manage/threads/update-content" method="post">
+            @Html.ValidationSummary()
+            <input type="hidden" name="ThreadId" value="@Model.ThreadId" />
+            <div class="form-group">
+                <label for="Content">Content</label>
+                <textarea id="content" name="Content" style="height:800px;width:700px;">@Model.Content</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/threads/Index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+
+
+
+

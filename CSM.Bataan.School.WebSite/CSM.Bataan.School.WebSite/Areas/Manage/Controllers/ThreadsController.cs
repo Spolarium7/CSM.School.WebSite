@@ -166,5 +166,36 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet, Route("/manage/threads/update-content/{threadId}")]
+        public IActionResult UpdateContent(Guid? threadId)
+        {
+            var thread = this._context.Threads.FirstOrDefault(t => t.Id == threadId);
+            if (thread != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    ThreadId = thread.Id,
+                    Title = thread.Title,
+                    Content = thread.Content
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("/manage/threads/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var thread = this._context.Threads.FirstOrDefault(t => t.Id == model.ThreadId);
+            if (thread != null)
+            {
+
+                thread.Content = model.Content;
+                thread.Timestamp = DateTime.UtcNow;
+                this._context.Threads.Update(thread);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
