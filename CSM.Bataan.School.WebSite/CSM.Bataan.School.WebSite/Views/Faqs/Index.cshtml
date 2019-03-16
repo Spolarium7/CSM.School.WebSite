@@ -1,0 +1,54 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.FAQ.IndexViewModel
+@using CSM.Bataan.School.WebSite.Infrastructure.Security;
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+Welcome @WebUser.FullName
+<!--end: Accordion -->
+<h2>FAQS</h2>
+<section>
+    <div id="post-container">
+
+
+        <div class="row">
+            <div class="span12">
+
+
+                @{
+
+                    foreach (Faq faq in Model.Faqs)
+                    {
+
+                        <div class="accordion" id="accordion_@faq.Id">
+                            <div class="accordion-group">
+                                <div class="accordion-heading">
+                                    <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion_@faq.Id" href="#collapse_@faq.Id">
+                                        <i class="icon-minus"></i> @faq.Question
+                                    </a>
+                                </div>
+                                <div id="collapse_@faq.Id" class="accordion-body collapse in">
+                                    <div class="accordion-inner">
+                                        @Html.Raw(@faq.Answer)
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+                }
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    
