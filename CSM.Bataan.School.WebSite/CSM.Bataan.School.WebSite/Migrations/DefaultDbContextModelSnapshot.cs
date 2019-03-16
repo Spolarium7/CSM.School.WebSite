@@ -123,6 +123,32 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     b.ToTable("SchoolFacilities");
                 });
 
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Thread", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<string>("TemplateName");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("UpdatedAt");
+
+                    b.Property<Guid?>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Threads");
+                });
+
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.User", b =>
                 {
                     b.Property<Guid?>("Id")

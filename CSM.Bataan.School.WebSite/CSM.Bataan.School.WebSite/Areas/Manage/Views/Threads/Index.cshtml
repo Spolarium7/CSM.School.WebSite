@@ -1,0 +1,41 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Threads.IndexViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<div class="card-container col-md-8">
+ 
+
+    @{
+        if (Model.Threads != null)
+        {
+            if (Model.Threads.Items.Count > 0)
+            {
+                foreach (Thread threads in Model.Threads.Items)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/threads/@threads.Id/thumnail.png" style="width:150px;height:150px;" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>@threads.Title</h4>
+                                    <p>@threads.Description</p>
+                                    <ul class="list-inline">
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                
+            }
+        }
+    }
+
+</div>
