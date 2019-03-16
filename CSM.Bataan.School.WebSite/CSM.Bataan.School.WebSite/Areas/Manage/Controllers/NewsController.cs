@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.News;
@@ -8,6 +9,9 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
@@ -82,6 +86,55 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             {
                 News = result
             });
+        }
+
+        [HttpPost, Route("manage/news/update-thumbnail")]
+        public async Task<IActionResult> UpdateThumbnail(UpdateThumbnailViewModel model)
+        {
+            var fileSize = model.ImageFile.Length;
+            if ((fileSize / 1048576.0) > 2)
+            {
+                ModelState.AddModelError("", "The file you uploaded is too large. Filesize limit is 2mb.");
+                return View(model);
+            }
+
+            if (model.ImageFile.ContentType != "image/jpeg" && model.ImageFile.ContentType != "image/png")
+            {
+                ModelState.AddModelError("", "Please upload a jpeg or png file for the thumbnail.");
+                return View(model);
+            }
+
+            var dirPath = _env.WebRootPath + "/news/" + model.NewsId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+            var filePath = dirPath + "/thumbnail.png";
+            if (model.ImageFile.Length > 0)
+            {
+                byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());             
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+                    image.Mutate(x => x.Resize(75, 75));
+                    image.Save(filePath);
+                }
+            }
+            return RedirectPermanent("~/manage/news?" + model.Filters);
+        }
+
+        public async Task<byte[]> FileBytes(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
         }
     }
 }

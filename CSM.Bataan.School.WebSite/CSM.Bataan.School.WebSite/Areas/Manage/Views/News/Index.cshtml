@@ -47,6 +47,7 @@
                         <td>@news.Title</td>
                         <td>@news.UserName</td>
                         <td>
+                            <a href="#" title="Update Thumbnail Image" onclick="showUpdateThumbnailModal('@news.Id','@news.Title')"><button type="button" class="btn"><i class="fas fa-file-image"></i></button></a>
                             <a href="~/manage/news/update/@news.Id" title="Update News"><button type="button" class="btn"><i class="fas fa-pen-square"></i></button></a>
                             <a href="~/manage/news-groups/@news.Id" title="News Groups"><button type="button" class="btn"><i class="fas fa-users"></i></button></a>
                         </td>
@@ -109,14 +110,44 @@ else
             </div>
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-update-news-thumbnail">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update News Thumbnail Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/news/update-thumbnail" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="NewsId" id="modal-update-news-thumbnail-news-id" />
+                        <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
+                        <p>Thumbnail for <strong><span id="modal-update-news-thumbnail-title"></span></strong></p>
+                        <div class="profile-image-container" style="margin-bottom:30px;">
+                            <img src="" class="img-thumbnail rounded mx-auto d-block" id="modal-update-news-thumbnail-image" style="width:100px;height:100px;" />
+                        </div>
+
+                        <input type="file" class="form-control" name="ImageFile" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 }
 
 @section pageScripts{
     <script type="text/javascript">
-        function confirmDeleteNews(newsId, newsTitle) {
-            $("#modal-delete-news-groupname").html(newsTitle);
-            $("#modal-delete-news-confirm").attr("href", "/manage/news/delete/" + newsId);
-            $("#modal-delete-news").modal("show");
+        function showUpdateThumbnailModal(newsId, newsTitle) {
+            $("#modal-update-news-thumbnail-news-id").val(newsId);
+            $("#modal-update-news-thumbnail-title").html(newsTitle);
+            $("#modal-update-news-thumbnail-image").attr("src", "/images/news/"+ newsId+"/@Guid.NewGuid()/thumbnail.png");
+            $("#modal-update-news-thumbnail").modal("show");
         }
 
         $("#searchKeyword").keyup(function (event) {

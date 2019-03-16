@@ -28,7 +28,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
         private string GetFullFilePath(string contentType, string type, string contentId)
         {
-            var dirPath = _env.WebRootPath + contentType.ToLower() + "/" + contentId + "/" + type + ".png";
+            var dirPath = _env.WebRootPath + "/" + contentType.ToLower() + "/" + contentId + "/" + type + ".png";
             if (!System.IO.File.Exists(dirPath))
             {
                 return _env.WebRootPath + "/" + contentType + "/" + type + "_default.png";
