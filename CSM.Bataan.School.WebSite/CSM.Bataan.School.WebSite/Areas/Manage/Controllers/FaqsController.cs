@@ -129,5 +129,36 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+        [HttpGet, Route("manage/faqs/update-question/{faqId}")]
+        public IActionResult UpdateQuestion(Guid? faqId)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == faqId);
+            if (faq != null)
+            {
+                return View(new UpdateQuestionViewModel()
+                {
+                    Id = faq.Id,
+                    Question = faq.Question,
+                    TemplateName = faq.TemplateName,
+                    PostExpiry = faq.PostExpiry
+
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("manage/faqs/update-question")]
+        public IActionResult UpdateQuestion(UpdateQuestionViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.Id);
+            if (faq != null)
+            {
+                faq.Question = model.Question;
+                faq.PostExpiry = model.PostExpiry;
+                faq.Timestamp = DateTime.UtcNow;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
