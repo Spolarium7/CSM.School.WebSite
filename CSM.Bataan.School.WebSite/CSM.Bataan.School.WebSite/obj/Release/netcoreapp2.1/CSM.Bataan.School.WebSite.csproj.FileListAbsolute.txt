@@ -91,3 +91,4 @@ C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.We
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Account\ForgotPassword.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Account\UpdateProfile.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\SchoolFacilities\Index.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\SchoolFacilities\SchoolFacility.g.cshtml.cs
