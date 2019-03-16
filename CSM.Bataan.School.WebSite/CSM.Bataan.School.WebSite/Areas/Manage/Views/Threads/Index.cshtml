@@ -42,11 +42,11 @@
                                         @{
                                             if (threads.IsPublished)
                                             {
-                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@threads.Id','@threads.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                <li class="list-inline-item"><a href="#" title="Unpublish" onclick="confirmUnpublish('@threads.Id','@threads.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="#" title="Publish" onclick="confirmPublish('@threads.Id','@threads.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                <li class="list-inline-item"><a href="#" title="Publish" onclick="confirmPublish('@threads.Id','@threads.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a></li>
                                             }
                                         }
                                     </ul>

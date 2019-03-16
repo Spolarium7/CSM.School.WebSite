@@ -1,0 +1,108 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Thread.IndexViewModel
+@using CSM.Bataan.School.WebSite.Infrastructure.Security;
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<section id="thread-container">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <!-- start article 1 -->
+                <article class="blog-post">
+                    <div class="post-heading">
+                        <h3><a href="#">Threads</a></h3>
+
+                        @{
+
+                            foreach (Thread thread in Model.Threads)
+                            {
+
+                                <div class="row">
+                                   
+                                    <div class="span6">
+                                        <div class="post-image">
+                                            <a href="#"><img src="~/threads/@thread.Id/thumbnail.png" style="height:450px; width:600px" alt="" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="span6">
+                                        <h3>@thread.Title</h3>
+                                        <div class="clearfix">
+                                        </div>
+
+                                        <dl>
+
+                                            <dt>Description</dt>
+                                            <dd> @thread.Description</dd>
+
+                                            <dt>Update At</dt>
+                                            <dd class="info-line"><span class="time">@thread.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></dd>
+
+
+
+
+                                        </dl>
+                                        <a href="~/threads/@thread.Id"><button class="btn btn-primary">Read More </button></a>
+
+                                    </div>
+                                </div>
+
+                                <!-- end article 1 -->
+                            }
+
+
+                        }
+
+                    </div>
+                </article>
+
+            </div>
+            <div class="span4">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section pageScripts{`
+    <script src="~/js/date_format.js"></script>
+    <script>
+    var page = @("1");
+    var calling = false;
+    $(window).scroll(function () {
+        if (($(window).height() + $(window).scrollTop()) + 1
+            >= $(document).height()) {
+
+            if (calling == false) {
+                calling = true;
+                $.ajax({
+                    type: "GET",
+                    url: "/threads/feed?pageIndex=" + (page + 1),
+                    success: function (rsp) {
+                        page = page + 1;
+                        calling = false;
+                        $.each(rsp, function (index, item) {
+                            var itemTimestamp = new Date(Date.parse(item.timestamp));
+                            var markup = "<article>";
+                            markup = markup + "<div class='info'>";
+                            markup = markup + "<img class='card-img-top' src='../threads/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
+                            markup = markup + "<h3>" + item.title +  "</h3>";
+                            markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
+                            markup = markup + "<p>" + item.description + "</p>";
+                            markup = markup + "<p><a href='~/threads/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";
+                            markup = markup + "</div>";
+                            markup = markup + "</article>";
+
+                            $("#thread-container").append(markup);
+                        });
+                    }
+                });
+            }
+        }
+    });
+    </script>
+}
