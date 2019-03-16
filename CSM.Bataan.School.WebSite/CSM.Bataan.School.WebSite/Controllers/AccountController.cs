@@ -340,8 +340,8 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return View();
         }
 
-        [HttpGet, Route("/account/profile-image/{dateTime}/{userId}.png")]
-        public IActionResult ProfilePicture(string dateTime, string userId)
+        [HttpGet, Route("/account/profile-image/{guid}/{userId}.png")]
+        public IActionResult ProfilePicture(string guid, string userId)
         {
             var fullFilePath = this.GetFullFilePath(userId + ".png");
 

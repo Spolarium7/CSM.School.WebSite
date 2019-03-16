@@ -19,8 +19,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         {
             _context = context;
         }
-
-
+        
         [HttpGet, Route("manage/data-init/execute")]
         public string DataInit()
         {
@@ -368,6 +367,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     {
                         UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f26"),
                         Role = Role.User
+                    }
+                );
+
+                this._context.UserRoles.Add(
+                    new Infrastructure.Data.Models.UserRole()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f26"),
+                        Role = Role.ContentAdmin
                     }
                 );
 
@@ -788,6 +795,144 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 #endregion
             }
             #endregion
+
+            //Initialize News
+            if(this._context.News.Count() < 1)
+            {
+                //public news
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf210"),
+                        Description = "CSM Bataan launches its official website.",
+                        Title = "CSM Bataan WebSite Launched",
+                        Content = "<h2>CSM Bataan has recentyle launched its official website.<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f21")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a19"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf210")
+                    }
+                );
+
+                //Faculty news
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf211"),
+                        Description = "Boys and Girls, this is your new website",
+                        Title = "Welcome Faculty members to the CSM Bataan WebSite ",
+                        Content = "<h2>Welcome Faculty members to the CSM Bataan WebSite.<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f22")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a22"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf211")
+                    }
+                );
+
+                //Active Student news
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf212"),
+                        Description = "Boys and Girls, this is your new website",
+                        Title = "Welcome Active Students to the CSM Bataan WebSite ",
+                        Content = "<h2>Welcome Active Students to the CSM Bataan WebSite.<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f26")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a21"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf212")
+                    }
+                );
+
+                //Student news
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf213"),
+                        Description = "Boys and Girls, this is your new website",
+                        Title = "Welcome students to the CSM Bataan WebSite ",
+                        Content = "<h2>Welcome students to the CSM Bataan WebSite.<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f24")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a20"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf213")
+                    }
+                );
+
+                //CoreGroup news
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf214"),
+                        Description = "Boys and Girls, this is your new website",
+                        Title = "Welcome CoreGroup Members to the CSM Bataan WebSite ",
+                        Content = "<h2>Welcome CoreGroup Members to the CSM Bataan WebSite.<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f30")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a23"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf214")
+                    }
+                );
+
+                //DSA news
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf215"),
+                        Description = "Boys and Girls, this is your new website",
+                        Title = "Welcome DSAs to the CSM Bataan WebSite ",
+                        Content = "<h2>Welcome DSAs Members to the CSM Bataan WebSite.<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f26")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a27"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf215")
+                    }
+                );
+            }
+
+
 
             this._context.SaveChanges();
             return "OK";
