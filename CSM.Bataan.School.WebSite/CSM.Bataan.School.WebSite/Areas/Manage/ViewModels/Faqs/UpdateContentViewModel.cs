@@ -5,16 +5,13 @@ using System.Threading.Tasks;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Faqs
 {
-    public class UpdateQuestionViewModel
+    public class UpdateContentViewModel
     {
-        public Guid? Id { get; set; }
+        public Guid? FaqId { get; set; }
 
         public string Question { get; set; }
 
-        public string Description { get; set; }
+        public string Answer { get; set; }
 
-        public string TemplateName { get; set; }
-
-        public DateTime PostExpiry { get; set; }
     }
 }

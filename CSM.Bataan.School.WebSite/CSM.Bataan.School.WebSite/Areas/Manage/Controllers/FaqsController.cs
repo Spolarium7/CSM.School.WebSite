@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Faqs;
@@ -7,6 +8,9 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
@@ -128,6 +132,19 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
+        [HttpGet, Route("/manage/faqs/delete/{faqId}")]
+        public IActionResult Delete(Guid? faqId)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == faqId);
+            if (faq != null)
+            {
+
+                this._context.Faqs.Remove(faq);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("index");
+        }
+
 
         [HttpGet, Route("manage/faqs/update-question/{faqId}")]
         public IActionResult UpdateQuestion(Guid? faqId)
@@ -139,6 +156,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 {
                     Id = faq.Id,
                     Question = faq.Question,
+                    Description = faq.Description,
                     TemplateName = faq.TemplateName,
                     PostExpiry = faq.PostExpiry
 
@@ -153,6 +171,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             if (faq != null)
             {
                 faq.Question = model.Question;
+                faq.Description = model.Description;
                 faq.PostExpiry = model.PostExpiry;
                 faq.Timestamp = DateTime.UtcNow;
                 this._context.Faqs.Update(faq);
@@ -160,5 +179,102 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet, Route("manage/faqs/update-content/{faqId}")]
+        public IActionResult UpdateContent(Guid? faqId)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == faqId);
+            if (faq != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    FaqId = faq.Id,
+                    Answer = faq.Answer,
+                    Question = faq.Question
+
+
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("manage/faqs/update-content")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.FaqId);
+            if (faq != null)
+            {
+
+                faq.Answer = model.Answer;
+                faq.Timestamp = DateTime.UtcNow;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost, Route("/manage/faqs/attach-image")]
+        public async Task<string> AttachImage(AttachImageViewModel model)
+        {
+            var fileSize = model.Image.Length;
+            if ((fileSize / 1048576.0) > 5)
+            {
+                return "Error:The file you uploaded is too large. Filesize limit is 5mb.";
+            }
+
+            if (model.Image.ContentType != "image/jpeg" && model.Image.ContentType != "image/png")
+            {
+                return "Error:Please upload a jpeg or png file for the attachment.";
+            }
+
+            var dirPath = _env.WebRootPath + "/faqs/" + model.FaqId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+
+            var imgUrl = "/answer_" + Guid.NewGuid().ToString() + ".png";
+            var filePath = dirPath + imgUrl;
+
+            if (model.Image.Length > 0)
+            {
+
+
+                byte[] bytes = await FileBytes(model.Image.OpenReadStream());
+
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+
+                    //if image wider than 800 px scale to its aspect ratio
+                    if (image.Width > 800)
+                    {
+                        var ratio = 800 / image.Width;
+                        image.Mutate(x => x.Resize(800, Convert.ToInt32(image.Height * ratio)));
+                    }
+
+                    image.Save(filePath);
+                }
+            }
+
+            return "OK:/faqs/" + model.FaqId.ToString() + "/" + imgUrl;
+        }
+
+        //this method is used to load the file stream into 
+        //a byte array
+        public async Task<byte[]> FileBytes(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
+
     }
 }
