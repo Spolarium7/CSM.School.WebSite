@@ -87,7 +87,7 @@ WriteAttributeValue("", 510, Model.Groups.Keyword, 510, 21, false);
                 ");
                 EndContext();
                 BeginContext(938, 194, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2b9c99310aa143739d48a4684c805069", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7f8aaea5b2434cc6a0c9d9eb3623ff6f", async() => {
                     BeginContext(1009, 119, true);
                     WriteLiteral("\r\n                    <i class=\"fa fa-plus\"></i>&nbsp;\r\n                    <span>Create Group</span>\r\n                ");
                     EndContext();
@@ -143,7 +143,7 @@ WriteAttributeValue("", 510, Model.Groups.Keyword, 510, 21, false);
             WriteLiteral("</td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1595, 144, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a6ac5c8c2a4445e79d562a00f8fb7426", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34d1fdfdc8304d7fb2a5a596e4cac007", async() => {
                 BeginContext(1659, 76, true);
                 WriteLiteral("<button type=\"button\" class=\"btn\"><i class=\"fas fa-pen-square\"></i></button>");
                 EndContext();
@@ -172,7 +172,7 @@ AddHtmlAttributeValue("", 1627, group.Id, 1627, 9, false);
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1761, 138, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "54de3875b06c421ca80e3dee21b369a7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d2d8c6576384081a53295b55f1d4fbe", async() => {
                 BeginContext(1824, 71, true);
                 WriteLiteral("<button type=\"button\" class=\"btn\"><i class=\"fas fa-users\"></i></button>");
                 EndContext();
@@ -273,7 +273,7 @@ WriteAttributeValue("", 2619, Model.Groups.Keyword, 2619, 23, false);
             WriteLiteral("                                <li class=\"page-item\">");
             EndContext();
             BeginContext(3036, 165, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b45f452dfc374b96bd46bd4ef04cb32c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d82aa2b605f847e0ac782b7a01d5def6", async() => {
                 BeginContext(3158, 39, true);
                 WriteLiteral("<span aria-hidden=\"true\">&laquo;</span>");
                 EndContext();
@@ -344,7 +344,7 @@ AddHtmlAttributeValue("", 3151, prev, 3151, 5, false);
             WriteLiteral("                                <li class=\"page-item\">");
             EndContext();
             BeginContext(3624, 165, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e3ff15cf7c7546f1b7bf0b28c6caef25", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "070adc551e4e4690bea46bbc72db79b1", async() => {
                 BeginContext(3746, 39, true);
                 WriteLiteral("<span aria-hidden=\"true\">&raquo;</span>");
                 EndContext();

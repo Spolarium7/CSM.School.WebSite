@@ -64,5 +64,35 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Threads = result
             });
         }
+
+        [HttpGet, Route("manage/threads/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("manage/threads/create")]
+        public IActionResult Create(CreateViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            Thread thread = new Thread()
+            {
+                Id = Guid.NewGuid(),
+                Title = model.Title,
+                Description = model.Description,
+                Content = model.Content,
+                UpdatedAt = model.UpdatedAt,
+                IsPublished = true,
+                TemplateName = "thread1"
+
+
+
+
+            };
+            this._context.Threads.Add(thread);
+            this._context.SaveChanges();
+            return View();
+        }
     }
 }

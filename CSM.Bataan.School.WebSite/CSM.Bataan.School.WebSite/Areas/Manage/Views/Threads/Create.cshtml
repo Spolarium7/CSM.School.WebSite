@@ -1,0 +1,42 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Threads.CreateViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="~/manage/threads/create" method="post">
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label for="Title">Title:</label>
+                <input type="text" class="form-control" name="Title" />
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" rows="8" name="Description">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="Content">Content</label>
+                <textarea class="form-control" rows="8" name="Content">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="Updated At">Post Expiry:</label>
+                <input type="text" class="form-control" name="UpdateAt" id="updateAt" />
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/threads/Index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+@section pageScripts{
+    <script>
+        $(function () {
+            $("#UpdatedAt").datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+    </script>
+}
