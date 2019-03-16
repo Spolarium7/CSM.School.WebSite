@@ -17,6 +17,30 @@ namespace CSM.Bataan.School.WebSite.Migrations
                 .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Faq", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Answer");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("PostExpiry");
+
+                    b.Property<string>("Question");
+
+                    b.Property<string>("TemplateName");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Faqs");
+                });
+
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Group", b =>
                 {
                     b.Property<Guid?>("Id")

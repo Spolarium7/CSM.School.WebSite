@@ -1,0 +1,146 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Faqs.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                <form class="form-search">
+                    <input id="searchKeyword" placeholder="Type Something.." value="@Model.Faqs.Keyword" type="text" class="input-medium search-query " />
+                    <button type="submit" class="btn btn-flat btn-primary">Search</button>
+                </form>
+                <h3><a href="#">FAQ View</a></h3>
+
+                <div class="container">
+                    @{
+                        if (Model.Faqs != null)
+                        {
+                            if (Model.Faqs.Items.Count > 0)
+                            {
+                                foreach (Faq faq in Model.Faqs.Items)
+                                {
+                                    <article class="blog-post">
+                                        <div class="post-heading">
+                                            <div class="row">
+                                                <div class="span5">
+                                                    <div id="@faq.Id">
+                                                        <h3>@faq.Question</h3>
+                                                        <div class="clearfix">
+                                                        </div>
+
+                                                        <dl>
+                                                            <dt>Description</dt>
+                                                            <dd> @faq.Description</dd>
+                                                            <dt>Content</dt>
+                                                            <dd> @faq.Answer</dd>
+                                                            <dt>Post Expiry </dt>
+                                                            <dd> @faq.PostExpiry</dd>
+
+
+
+                                                        </dl>
+
+
+
+                                                        <div class="widget">
+                                                            <h4></h4>
+                                                            <ul class="social-links">
+                                                                <li><a href="~/manage/faqs/update-question/@faq.Id" title="Update Title"><i class="icon-rounded icon-32 icon-file"></i></a></li>
+                                                                <li><a href="~/manage/faqs/update-description/@faq.Id" title="Update Description"><i class="icon-rounded icon-32 icon-file-alt"></i></a></li>
+                                                                <li><a href="~/manage/faqs/update-content/@faq.Id" title="Update Content"><i class="icon-rounded icon-32 icon-file-alt"></i></a></li>
+                                                                <li>
+                                                                    <a href="~/manage/faqs/delete" onclick="confirmDeleteFaq('@faq.Id','@faq.Question,@faq.Answer,@faq.Description')" title="Delete"><i class="icon-rounded icon-32 icon-trash"></i></a>
+                                                                </li>
+                                                                @{
+                                                                    if (faq.IsPublished)
+                                                                    {
+                                                                        <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@faq.Id','@faq.Question')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li><a href="#" title="Publish" onclick="confirmPublish('@faq.Id','@faq.Question')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </article>
+
+
+
+
+
+
+
+                                }
+
+
+                                <div class="pagination">
+                                    <ul>
+                                        <li class="page-item"><a class="page-link" href="~/manage/faqs?pageIndex=1">First</a></li>
+                                        @{ if (Model.Faqs.PageIndex > 1)
+                                            {
+                                                <li class="page-item"><a class="page-link" href="~/manage/faqs?pageIndex=@(Model.Faqs.PageIndex - 1)">@(Model.Faqs.PageIndex - 1)</a></li>
+                                            }
+                                        }
+                                        <li class="page-item"><a class="page-link active" href="#">@(Model.Faqs.PageIndex)</a></li>
+                                        @{ if ((Model.Faqs.PageIndex + 1) <= Model.Faqs.PageCount)
+                                            {
+                                                <li class="page-item"><a class="page-link" href="~/manage/faqs?pageIndex=@(Model.Faqs.PageIndex + 1)">@(Model.Faqs.PageIndex + 1)</a></li>
+                                            }
+                                        }
+                                        <li class="page-item"><a class="page-link" href="~/manage/faqs?pageIndex=@Model.Faqs.PageCount">Last</a></li>
+                                    </ul>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="span4">
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+@section pageScripts{
+    <script>
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "~/manage/faqs?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+     
+    </script>
+}

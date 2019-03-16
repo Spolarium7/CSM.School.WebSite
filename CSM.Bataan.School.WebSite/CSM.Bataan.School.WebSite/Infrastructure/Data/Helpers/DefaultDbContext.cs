@@ -22,6 +22,7 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers
         public DbSet<UserRole> UserRoles { get; set; }
 
         public DbSet<SchoolFacility> SchoolFacilities { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
 
         public DbSet<NewsItem> News { get; set; }
         public DbSet<NewsGroup> NewsGroups { get; set; }
