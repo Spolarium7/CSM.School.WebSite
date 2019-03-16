@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.News
+namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Shared
 {
-    public class UpdateThumbnailViewModel
+    public class UpdateImageViewModel
     {
-        public Guid? NewsId { get; set; }
+        public Guid? Id { get; set; }
 
         public IFormFile ImageFile { get; set; }
 

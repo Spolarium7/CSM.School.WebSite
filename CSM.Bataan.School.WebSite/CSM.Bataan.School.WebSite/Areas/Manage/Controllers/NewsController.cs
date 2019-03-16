@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.News;
+using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Shared;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
@@ -88,8 +89,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-        [HttpPost, Route("manage/news/update-thumbnail")]
-        public async Task<IActionResult> UpdateThumbnail(UpdateThumbnailViewModel model)
+        [HttpPost, Route("manage/news/update-{type}")]
+        public async Task<IActionResult> UpdateImage(UpdateImageViewModel model, string type)
         {
             var fileSize = model.ImageFile.Length;
             if ((fileSize / 1048576.0) > 2)
@@ -104,19 +105,35 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 return View(model);
             }
 
-            var dirPath = _env.WebRootPath + "/news/" + model.NewsId.ToString();
+            var dirPath = _env.WebRootPath + "/news/" + model.Id.ToString();
             if (!Directory.Exists(dirPath))
             {
                 Directory.CreateDirectory(dirPath);
             }
 
-            var filePath = dirPath + "/thumbnail.png";
+            var filePath = dirPath + "/" + type + ".png";
+
+            var width = 75;
+            var height = 75;
+
+            switch (type.ToLower())
+            {
+                case "thumbnail":
+                    width = 75;
+                    height = 75;
+                    break;
+                case "banner":
+                    width = 500;
+                    height = 150;
+                    break;
+            }
+            
             if (model.ImageFile.Length > 0)
             {
                 byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());             
                 using (Image<Rgba32> image = Image.Load(bytes))
                 {
-                    image.Mutate(x => x.Resize(75, 75));
+                    image.Mutate(x => x.Resize(width, height));
                     image.Save(filePath);
                 }
             }
