@@ -346,5 +346,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Banner", new { SchoolFacilityId = model.SchoolFacilityId });
         }
 
+
+
     }
 }

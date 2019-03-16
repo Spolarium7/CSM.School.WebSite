@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "dec4666e71de350a252c42ff313b47f87e83c0bc"
+    "signature": "9c450b6e2a7f138a8bf48f71ffba78f8fabfca5e"
   },
   "compilationOptions": {
     "defines": [
@@ -30,6 +30,7 @@
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
+          "PaulMiami.AspNetCore.Mvc.Recaptcha": "1.2.1",
           "Pomelo.EntityFrameworkCore.MySql": "2.1.2",
           "SixLabors.ImageSharp": "1.0.0-beta0005"
         },
@@ -469,6 +470,26 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "PaulMiami.AspNetCore.Mvc.Recaptcha/1.2.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Localization": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.Core": "2.1.1",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.1.1",
+          "Microsoft.AspNetCore.Razor.Runtime": "2.1.1",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.6/PaulMiami.AspNetCore.Mvc.Recaptcha.dll": {
+            "assemblyVersion": "1.2.1.0",
+            "fileVersion": "1.2.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.6/PaulMiami.AspNetCore.Mvc.Recaptcha.dll": {}
         }
       },
       "Pomelo.EntityFrameworkCore.MySql/2.1.2": {
@@ -3770,6 +3791,13 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "PaulMiami.AspNetCore.Mvc.Recaptcha/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VymvFmPnyBHUq7+/xr+6C9rG4ZiBMyIJBjboUQgYzvRYRsx7rScje7k88Nm6pNZUJ2/N3cr/14YYTmpIUe/mjQ==",
+      "path": "paulmiami.aspnetcore.mvc.recaptcha/1.2.1",
+      "hashPath": "paulmiami.aspnetcore.mvc.recaptcha.1.2.1.nupkg.sha512"
     },
     "Pomelo.EntityFrameworkCore.MySql/2.1.2": {
       "type": "package",

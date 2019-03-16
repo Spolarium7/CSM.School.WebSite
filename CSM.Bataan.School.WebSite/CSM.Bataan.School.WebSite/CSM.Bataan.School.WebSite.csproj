@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\users\" />
     <Folder Include="wwwroot\schoolfacilities\" />
+    <Folder Include="wwwroot\vendor\NewFolder\" />
   </ItemGroup>
 
 </Project>
