@@ -64,7 +64,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Description = n.Description,
                 Timestamp = n.Timestamp,
                 Title = n.Title,
-                UserId = n.UserId
+                UserId = n.UserId,
+                IsPublished = n.IsPublished
             }).OrderByDescending(n => n.Timestamp).ToList();
             result.PageCount = pageCount;
             result.PageSize = pageSize;
@@ -152,6 +153,23 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 }
                 return ms.ToArray();
             }
+        }
+
+        [HttpPost, Route("manage/news/update-publish-status")]
+        public IActionResult UpdatePublishStatus(PublishUnpublishViewModel model)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == model.Id);
+
+            if (newsItem != null)
+            {
+                newsItem.IsPublished = model.IsPublished;
+
+                this._context.News.Update(newsItem);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news?" + model.Filters);
         }
     }
 }

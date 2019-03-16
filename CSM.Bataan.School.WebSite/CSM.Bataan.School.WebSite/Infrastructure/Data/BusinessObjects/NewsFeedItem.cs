@@ -13,6 +13,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects
 
         public string Description { get; set; }
 
+        public bool IsPublished { get; set; }
+
         public Guid? UserId { get; set; }
 
         public string UserName { get; set; }

@@ -47,10 +47,21 @@
                         <td>@news.Title</td>
                         <td>@news.UserName</td>
                         <td>
+                            @{
+                                if (news.IsPublished)
+                                {
+                                    <a href="#" title="Unpublish" onclick="confirmUnpublish('@news.Id','@news.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a>
+                                }
+                                else
+                                {
+                                    <a href="#" title="Publish" onclick="confirmPublish('@news.Id','@news.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a>
+                                }
+                            }
                             <a href="#" title="Update Banner Image" onclick="showUpdateBannerModal('@news.Id','@news.Title')"><button type="button" class="btn"><i class="fas fa-image"></i></button></a>
                             <a href="#" title="Update Thumbnail Image" onclick="showUpdateThumbnailModal('@news.Id','@news.Title')"><button type="button" class="btn"><i class="fas fa-file-image"></i></button></a>
                             <a href="~/manage/news/update/@news.Id" title="Update News"><button type="button" class="btn"><i class="fas fa-pen-square"></i></button></a>
                             <a href="~/manage/news-groups/@news.Id" title="News Groups"><button type="button" class="btn"><i class="fas fa-users"></i></button></a>
+
                         </td>
                     </tr>
                 }
@@ -92,22 +103,27 @@ else
 }
 
 @section extras{
-    <div class="modal" tabindex="-1" role="dialog" id="modal-delete-group">
+    <div class="modal" tabindex="-1" role="dialog" id="modal-change-publish-status">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete News</h5>
+                    <h5 class="modal-title"><span class="modal-change-publish-status-verb"></span> News</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete <span id="modal-delete-group-groupname"></span>?</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" id="modal-delete-group-confirm"><button type="button" class="btn btn-primary">Delete News</button></a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+                <form action="~/manage/news/update-publish-status" method="post">
+                    <input type="hidden" name="Id" id="modal-change-publish-status-id" />
+                    <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
+                    <input type="hidden" name="IsPublished" id="modal-change-publish-status-ispublished" />
+                    <div class="modal-body">
+                        <p>Are you sure you want to <span class="modal-change-publish-status-verb"></span> <span id="modal-change-publish-status-title"></span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -185,6 +201,22 @@ else
             $("#modal-update-news-banner-title").html(newsTitle);
             $("#modal-update-news-banner-image").attr("src", "/images/news/"+ newsId+"/@Guid.NewGuid()/banner.png");
             $("#modal-update-news-banner").modal("show");
+        }
+
+        function confirmUnpublish(newsId, newsTitle) {
+            $("#modal-change-publish-status-id").val(newsId);
+            $("#modal-change-publish-status-title").html(newsTitle);
+            $(".modal-change-publish-status-verb").html("unpublish");
+            $("#modal-change-publish-status-ispublished").val(false);
+            $("#modal-change-publish-status").modal("show");
+        }
+
+        function confirmPublish(newsId, newsTitle) {
+            $("#modal-change-publish-status-id").val(newsId);
+            $("#modal-change-publish-status-title").html(newsTitle);
+            $(".modal-change-publish-status-verb").html("publish");
+            $("#modal-change-publish-status-ispublished").val(true);
+            $("#modal-change-publish-status").modal("show");
         }
 
         $("#searchKeyword").keyup(function (event) {
