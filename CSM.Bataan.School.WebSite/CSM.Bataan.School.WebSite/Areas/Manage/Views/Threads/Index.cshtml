@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <img src="~/threads/@threads.Id/thumnail.png" style="width:150px;height:150px;" />
+                                    <img src="~/threads/@threads.Id/thumbnail.png" style="width:150px;height:150px;" />
                                 </div>
                                 <div class="col-sm-9">
                                     <h4>@threads.Title</h4>
@@ -37,6 +37,7 @@
 
                                         <li class="list-inline-item"><a href="~/manage/threads/update-title/@threads.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
                                         <li class="list-inline-item"><a href="~/manage/threads/update-content/@threads.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/threads/update-thumbnail/@threads.Id" title="Update Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
                                         @{
                                             if (threads.IsPublished)
                                             {

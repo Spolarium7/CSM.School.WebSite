@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\faqs\" />
+    <Folder Include="wwwroot\threads\" />
     <Folder Include="wwwroot\users\" />
     <Folder Include="wwwroot\schoolfacilities\" />
     <Folder Include="wwwroot\vendor\NewFolder\" />
