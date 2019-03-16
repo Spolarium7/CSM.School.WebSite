@@ -1,0 +1,46 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Faqs.CreateViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="~/manage/faqs/create" method="post">
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label for="Question">Title:</label>
+                <input type="text" class="form-control" name="Question" />
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" rows="8" name="description">
+                </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="Answer">Content:</label>
+                <textarea class="form-control" rows="8" name="answer">
+                </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="Post Expiry">Post Expiry:</label>
+                <input type="text" class="form-control" name="PostExpiry" id="Post Expiry" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/faqs/Index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section pageScripts{
+    <script>
+        $(function () {
+            $("#PostExpiry").datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+    </script>
+}
+

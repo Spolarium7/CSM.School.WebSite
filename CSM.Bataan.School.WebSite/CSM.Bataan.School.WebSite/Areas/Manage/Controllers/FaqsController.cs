@@ -66,5 +66,36 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Faqs = result
             });
         }
+
+
+        [HttpGet, Route("manage/faqs/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("manage/faqs/create")]
+        public IActionResult Create(CreateViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            Faq faq = new Faq()
+            {
+                Id = Guid.NewGuid(),
+                Question = model.Question,
+                Description = model.Description,
+                Answer = model.Answer,
+                PostExpiry = model.PostExpiry,
+                IsPublished = true,
+                TemplateName = "faq1"
+
+
+
+
+            };
+            this._context.Faqs.Add(faq);
+            this._context.SaveChanges();
+            return View();
+        }
     }
 }
