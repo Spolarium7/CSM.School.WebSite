@@ -94,5 +94,34 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             this._context.SaveChanges();
             return View();
         }
+
+        [HttpPost, Route("manage/threads/unpublish")]
+        public IActionResult Unpublish(ThreadIdViewModel model)
+        {
+            var thread = this._context.Threads.FirstOrDefault(t => t.Id == model.Id);
+            if (thread != null)
+            {
+                thread.IsPublished = false;
+                this._context.Threads.Update(thread);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+        [HttpPost, Route("manage/threads/publish")]
+        public IActionResult Publish(ThreadIdViewModel model)
+        {
+            var thread = this._context.Threads.FirstOrDefault(t => t.Id == model.Id);
+
+            if (thread != null)
+            {
+                thread.IsPublished = true;
+                this._context.Threads.Update(thread);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
     }
 }
