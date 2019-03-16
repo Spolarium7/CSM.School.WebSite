@@ -1,0 +1,50 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Threads.UpdateTitleViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="~/manage/threads/update-title" method="post">
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <label for="Title">Title:</label>
+                <input type="text" class="form-control" name="Title" id="title" value="@Model.Title" />
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" id="description" rows="4" name="Description">
+                    @Model.Description
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="Update At">Post Expiry:</label>
+                <input type="text" class="form-control" name="UpdatedAt" id="Updated At" value="@Model.UpdatedAt" />
+            </div>
+            <div class="form-group">
+                <label for="TemplateName" id="templatename">Template:</label>
+                <select name="TemplateName">
+
+                    <option value="post 1" @(Model.TemplateName == "post 1" ? "selected" : "")>post 1</option>
+                    <option value="post 2" @(Model.TemplateName == "post 2" ? "selected" : "")>post 2</option>
+                    <option value="post 3" @(Model.TemplateName == "post 3" ? "selected" : "")>post 3</option>
+                </select>
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/threads/Index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section pageScripts{
+    <script>
+        $(function () {
+            $("#UpdatedAt").datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+    </script>
+}

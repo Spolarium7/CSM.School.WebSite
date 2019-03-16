@@ -123,5 +123,48 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return null;
         }
+
+
+        [HttpGet, Route("/manage/threads/update-title/{threadId}")]
+        public IActionResult UpdateTitle(Guid? threadId)
+        {
+            var thread = this._context.Threads.FirstOrDefault(p => p.Id == threadId);
+            if (thread != null)
+            {
+                var model = new UpdateTitleViewModel()
+                {
+                    Id = thread.Id,
+                    Description = thread.Description,
+                    Title = thread.Title,
+                    UpdatedAt = thread.UpdatedAt,
+                    TemplateName = thread.TemplateName
+
+                };
+                return View(model);
+            }
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost, Route("/manage/threads/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var thread = this._context.Threads.FirstOrDefault(p => p.Id == model.Id);
+
+            if (thread != null)
+            {
+                thread.UpdatedAt = model.UpdatedAt;
+                thread.Title = model.Title;
+                thread.Description = model.Description;
+                thread.TemplateName = model.TemplateName;
+
+                this._context.Threads.Update(thread);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
