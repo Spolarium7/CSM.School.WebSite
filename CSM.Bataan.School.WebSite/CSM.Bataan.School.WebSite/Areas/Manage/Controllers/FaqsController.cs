@@ -97,5 +97,37 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             this._context.SaveChanges();
             return View();
         }
+
+        [HttpPost, Route("manage/faqs/unpublish")]
+        public IActionResult Unpublish(FaqsIdViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.Id);
+            if (faq != null)
+            {
+                faq.IsPublished = false;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+
+        [HttpPost, Route("manage/faqs/publish")]
+        public IActionResult Publish(FaqsIdViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.Id);
+
+            if (faq != null)
+            {
+                faq.IsPublished = true;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+
     }
 }

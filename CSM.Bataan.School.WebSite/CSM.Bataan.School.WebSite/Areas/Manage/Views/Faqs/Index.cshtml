@@ -127,6 +127,53 @@
 
 
 
+<!--MODAL UNPUBLISH-->
+<div class="modal hide fade" id="modal-unpublish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Unpublish FAQS</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+<!--MODAL PUBLISH-->
+<div class="modal hide fade " id="modal-publish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Publish FAQS</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="modal-publish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+<!--MODAL DELETE-->
+<div class="modal hide fade " id="modal-delete-faq">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Delete FAQ</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to delete <span id="modal-delete-faq"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" id="modal-delete-faq-confirm"><button type="button" class="btn btn-primary">Delete Faq</button></a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+</div>
+
+
 
 
 @section pageScripts{
@@ -141,6 +188,54 @@
                 searchTrigger();
             }
         });
-     
+        ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+        function confirmUnpublish(id, question) {
+            $("#modal-unpublish-title").html(question);
+            $("#modal-unpublish-button").attr("onclick", "UnPublishFaq('" + id + "')");
+            $("#modal-unpublish").modal("show");
+        }
+        function UnPublishFaq(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/faqs/unpublish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+        //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+        function confirmPublish(id, question) {
+            $("#modal-publish-title").html(question);
+            $("#modal-publish-button").attr("onclick", "PublishFaq('" + id + "')");
+            $("#modal-publish").modal("show");
+        }
+        function PublishFaq(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/faqs/publish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+        //////////////////DELETE///////////////////////////////////////////////////////////////////////
+        function confirmDeleteFaq(faqId, question) {
+            $("#modal-delete-faq-faqs").html(question);
+            $("#modal-delete-faq-confirm").attr("href", "deleteFaq" + faqId);
+            $("#modal-delete-faq").modal("show");
+        }
     </script>
-}
+}   
