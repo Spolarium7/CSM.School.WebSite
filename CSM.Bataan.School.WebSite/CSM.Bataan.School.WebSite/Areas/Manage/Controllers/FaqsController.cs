@@ -66,5 +66,99 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Faqs = result
             });
         }
+
+
+        [HttpGet, Route("manage/faqs/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("manage/faqs/create")]
+        public IActionResult Create(CreateViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            Faq faq = new Faq()
+            {
+                Id = Guid.NewGuid(),
+                Question = model.Question,
+                Description = model.Description,
+                Answer = model.Answer,
+                PostExpiry = model.PostExpiry,
+                IsPublished = true,
+                TemplateName = "faq1"
+
+
+
+
+            };
+            this._context.Faqs.Add(faq);
+            this._context.SaveChanges();
+            return View();
+        }
+
+        [HttpPost, Route("manage/faqs/unpublish")]
+        public IActionResult Unpublish(FaqsIdViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.Id);
+            if (faq != null)
+            {
+                faq.IsPublished = false;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+
+        [HttpPost, Route("manage/faqs/publish")]
+        public IActionResult Publish(FaqsIdViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.Id);
+
+            if (faq != null)
+            {
+                faq.IsPublished = true;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+
+        [HttpGet, Route("manage/faqs/update-question/{faqId}")]
+        public IActionResult UpdateQuestion(Guid? faqId)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == faqId);
+            if (faq != null)
+            {
+                return View(new UpdateQuestionViewModel()
+                {
+                    Id = faq.Id,
+                    Question = faq.Question,
+                    TemplateName = faq.TemplateName,
+                    PostExpiry = faq.PostExpiry
+
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("manage/faqs/update-question")]
+        public IActionResult UpdateQuestion(UpdateQuestionViewModel model)
+        {
+            var faq = this._context.Faqs.FirstOrDefault(f => f.Id == model.Id);
+            if (faq != null)
+            {
+                faq.Question = model.Question;
+                faq.PostExpiry = model.PostExpiry;
+                faq.Timestamp = DateTime.UtcNow;
+                this._context.Faqs.Update(faq);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
