@@ -58,10 +58,9 @@
                                 }
                             }
                             <a href="~/manage/news/update-content/@news.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a>
-                            <a href="~/manage/news/update-title/@news.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-bookmark"></i></button></a>
+                            <a href="#" title="Update Title" onclick="showUpdateTitle('@news.Id','@news.Title','@news.Description')"><button class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
                             <a href="#" title="Update Banner Image" onclick="showUpdateBannerModal('@news.Id','@news.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a>
                             <a href="#" title="Update Thumbnail Image" onclick="showUpdateThumbnailModal('@news.Id','@news.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-file-image"></i></button></a>
-                            <a href="~/manage/news/update/@news.Id" title="Update News"><button type="button" class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
                             <a href="~/manage/news-groups/@news.Id" title="News Groups"><button type="button" class="btn-success form-control-sm"><i class="fas fa-users"></i></button></a>
 
                         </td>
@@ -124,6 +123,41 @@ else
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Yes</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-update-title">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update News Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/news/update-title" method="post">
+                    <input type="hidden" name="Id" id="modal-update-title-id" />
+                    <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
+                    <div class="modal-body mx-3">
+                        <input type="hidden" name="Id" id="modal-update-title-id" />
+                        <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
+                        <label>Title</label>
+                        <div class="md-form mb-5">
+                            <input type="text" id="modal-update-title-title" name="Title" class="form-control">
+                        </div>
+                        <label>Description</label>
+                        <div class="md-form mb-4">
+                            <textarea id="modal-update-title-desc" class="form-control" name="Description">
+                            </textarea>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -219,6 +253,13 @@ else
             $(".modal-change-publish-status-verb").html("publish");
             $("#modal-change-publish-status-ispublished").val(true);
             $("#modal-change-publish-status").modal("show");
+        }
+
+        function showUpdateTitle(newsId, newsTitle, newsDesc) {
+            $("#modal-update-title-id").val(newsId);
+            $("#modal-update-title-title").val(newsTitle);
+            $("#modal-update-title-desc").html(newsDesc);
+            $("#modal-update-title").modal("show");
         }
 
         $("#searchKeyword").keyup(function (event) {

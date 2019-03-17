@@ -59,6 +59,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             int skip = (int)(pageSize * (pageIndex - 1));
             List<NewsItem> news = newsQuery.ToList();
 
+
             result.Items = news.Skip(skip).Take((int)pageSize).Select(n => new NewsFeedItem() {
                 Id = n.Id,
                 Description = n.Description,
@@ -163,6 +164,24 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             if (newsItem != null)
             {
                 newsItem.IsPublished = model.IsPublished;
+
+                this._context.News.Update(newsItem);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news?" + model.Filters);
+        }
+
+        [HttpPost, Route("manage/news/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == model.Id);
+
+            if (newsItem != null)
+            {
+                newsItem.Title = model.Title;
+                newsItem.Description = model.Description;
 
                 this._context.News.Update(newsItem);
 
