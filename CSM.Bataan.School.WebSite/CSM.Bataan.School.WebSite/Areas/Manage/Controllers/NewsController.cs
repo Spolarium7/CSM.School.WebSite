@@ -75,7 +75,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             result.Keyword = keyword;
 
             //Get User Names
-            foreach(NewsFeedItem item in result.Items)
+            foreach (NewsFeedItem item in result.Items)
             {
                 var user = this._context.Users.FirstOrDefault(u => u.Id == item.UserId);
 
@@ -129,10 +129,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     height = 150;
                     break;
             }
-            
+
             if (model.ImageFile.Length > 0)
             {
-                byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());             
+                byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());
                 using (Image<Rgba32> image = Image.Load(bytes))
                 {
                     image.Mutate(x => x.Resize(width, height));
@@ -189,6 +189,65 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
 
             return RedirectPermanent("~/manage/news?" + model.Filters);
+        }
+
+        [HttpGet, Route("manage/news/news-groups/{newsId}")]
+        public IActionResult NewsGroups(Guid? newsId)
+        {
+            IQueryable<Group> groupQuery = (IQueryable<Group>)this._context.Groups;
+
+            var groupIds = this._context.NewsGroups.Where(ng => ng.NewsItemId == newsId).Select(ng => ng.GroupId).ToList();
+
+            groupQuery = groupQuery.Where(g => groupIds.Contains(g.Id.Value));
+
+            long queryCount = groupQuery.Count();
+
+            List<Group> groups = groupQuery.ToList();
+
+            NewsItem news = this._context.News.FirstOrDefault(u => u.Id == newsId);
+
+            return View(new NewGroupsIndexViewModel()
+            {
+                NewsId = newsId,
+                NewsTitle = (news != null ? news.Title : ""),
+                Groups = groups
+            });
+        }
+
+        [HttpPost, Route("manage/news/news-groups/add")]
+        public IActionResult AddNewsGroups(AddRemoveGroupViewModel model)
+        {
+            var duplicate = this._context.NewsGroups.FirstOrDefault(ng => ng.GroupId == model.GroupId && ng.NewsItemId == model.Id);
+
+            if (duplicate == null)
+            {
+                var newsGroup = new NewsGroup()
+                {
+                    NewsItemId = model.Id,
+                    GroupId = model.GroupId
+                };
+
+                this._context.NewsGroups.Add(newsGroup);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
+        }
+
+        [HttpPost, Route("manage/news/news-groups/remove")]
+        public IActionResult RemoveNewsGroups(AddRemoveGroupViewModel model)
+        {
+            var newsGroup = this._context.NewsGroups.FirstOrDefault(ng => ng.GroupId == model.GroupId && ng.NewsItemId == model.Id);
+
+            if (newsGroup != null)
+            {
+                this._context.NewsGroups.Remove(newsGroup);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
         }
     }
 }

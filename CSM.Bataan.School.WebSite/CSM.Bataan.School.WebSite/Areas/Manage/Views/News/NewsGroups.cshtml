@@ -1,0 +1,161 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.News.NewGroupsIndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+@section tableHead{
+    <div class="row">
+        <h3><strong>@Model.NewsTitle</strong> 
+        is visible to the groups below.</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="table-responsive table--no-card m-b-30">
+                <a href="#" class="btn btn-lg btn-info btn-block" onclick="showAdd()" id="add-group-to-news-button">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>Add Group</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Groups.Count > 0)
+{
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Group group in Model.Groups)
+                {
+                    <tr>
+                        <td>@group.Name</td>
+                        <td>
+                            <a href="#" title="Remov Group" onclick="confirmRemoveGroup('@group.Id','@group.Name')"><button type="button" class="btn"><i class="fas fa-times"></i></button></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>0 search results.</p>
+}
+
+@section extras{
+    <div class="modal" tabindex="-1" role="dialog" id="modal-add">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Group</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/news/news-groups/add" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" value="@Model.NewsId" name="Id" />
+                        <select id="modal-add-select-group" name="GroupId"></select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-remove-group">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Remove Group <span class="modal-remove-group-groupName"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/news/news-groups/remove" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" name="Id" value="@Model.NewsId" />
+                        <input type="hidden" name="GroupId" value="" id="modal-remove-group-groupId" />
+                        <p>Are you sure you want to remove <span class="modal-remove-group-groupName"></span>?</p>
+                        <p>If you remove this group, members of this group will no longer see this news.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@section pageScripts{
+    <script type="text/javascript">
+        $(function () {
+            initSelect();
+        });
+
+        function destroySelect() {
+            try {
+                var selectAddGroup, $selectAddGroup;
+                $selectAddGroup = $('#modal-add-select-group').selectize();
+                selectAddGroup = $selectAddGroup[0];
+                selectAddGroup.selectize.destroy();
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+
+        function initSelect() {
+            destroySelect();
+            var selectAddGroup, $selectAddGroup;
+
+            $selectAddGroup = $('#modal-add-select-group').selectize({
+                maxItems: 1,
+                preload: true,
+                load: function (query, callback) {
+                    $.ajax({
+                        url: '/groups/add-group-to-news-look-up?keyword=' + encodeURIComponent(query) + "&newsId=@Model.NewsId",
+                        success: function (response) {
+                            if (response.length < 1) {
+                                $("#add-group-to-news-button").hide();
+                            } else {
+                                $("#add-group-to-news-button").show();
+                            }
+
+                            callback(response.slice(0, 10));
+                        }
+                    });
+                }
+            });
+
+            selectAddGroup = $selectAddGroup.selectize;
+        }
+
+        function showAdd() {
+            $("#modal-add").modal("show");
+        }
+
+
+        function confirmRemoveGroup(groupId, groupName) {
+            $(".modal-remove-group-groupName").html(groupName);
+            $("#modal-remove-group-groupId").val(groupId);
+            $("#modal-remove-group").modal("show");
+        }
+    </script>
+}
