@@ -20,7 +20,11 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
         public IActionResult Index()
         {
-            var users = this._context.Users.ToList();
+            return View();
+        }
+
+        public IActionResult News()
+        {
             return View();
         }
     }

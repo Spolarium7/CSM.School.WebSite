@@ -803,6 +803,27 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.News.Add(
                     new Infrastructure.Data.Models.NewsItem()
                     {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf209"),
+                        Description = "CSM Bataan - School Feature",
+                        Title = "CSM Bataan at a Glance",
+                        Content = "<h2>Feature article for CSM Bataan school<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f24")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a19"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf209")
+                    }
+                );
+
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
                         Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf210"),
                         Description = "CSM Bataan launches its official website.",
                         Title = "CSM Bataan WebSite Launched",

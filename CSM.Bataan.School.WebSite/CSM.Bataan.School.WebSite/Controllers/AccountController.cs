@@ -247,7 +247,16 @@ namespace CSM.Bataan.School.WebSite.Controllers
                             newsItem.UserName = user.FullName;
                         }
 
+                        List<string> groups = new List<string>();
+
+                        foreach (var newsGroup in newsGroups)
+                        {
+                            groups.Add(WebUser.Groups.FirstOrDefault(g => g.Id == newsGroup.GroupId).Name);
+                        }
+
+                        newsItem.Groups = groups;
                         newsList.Add(newsItem);
+
                     }
                 }
             }

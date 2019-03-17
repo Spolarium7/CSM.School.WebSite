@@ -26,6 +26,7 @@
                                     </div>
                                     <div class="info">
                                         <h4><strong>@item.Title</strong></h4>
+                                        <p class="info-group-line pull-right"><span class="fa fa-users"></span> @String.Join(" | ", item.Groups.ToArray())</p>
                                         <p class="info-line">@item.UserName</p>
                                         <p>@item.Description</p>
                                     </div>
@@ -180,3 +181,12 @@
     </div>
     <!-- / container -->
 </div>
+
+@section pageStyles{
+    <style>
+        .info-group-line{
+            font-size:small;
+            font-weight:bold;
+        }
+    </style>
+}

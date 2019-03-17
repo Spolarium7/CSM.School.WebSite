@@ -19,6 +19,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects
 
         public string UserName { get; set; }
 
+        public List<string> Groups { get; set; }
+
         public DateTime PostExpiry { get; set; }
     }
 }
