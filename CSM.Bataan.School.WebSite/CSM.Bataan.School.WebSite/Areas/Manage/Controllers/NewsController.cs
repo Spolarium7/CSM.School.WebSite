@@ -282,5 +282,35 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("index");
         }
+
+        [HttpGet, Route("manage/news/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("manage/news/create")]
+        public IActionResult Create(CreateContentViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            NewsItem newsItem = new NewsItem()
+            {
+                Id = Guid.NewGuid(),
+                Content = model.Content,
+                Description = model.Description,
+                IsPublished = false,
+                PostExpiry = model.PostExpiry,
+                Title = model.Title
+            };
+
+            this._context.News.Add(newsItem);
+            this._context.SaveChanges();
+
+            return View();
+        }
+
+
     }
 }
