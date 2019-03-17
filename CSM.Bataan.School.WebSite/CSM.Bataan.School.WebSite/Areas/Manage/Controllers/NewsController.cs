@@ -249,5 +249,36 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
         }
+
+
+        [HttpGet, Route("/manage/news/update-content/{newsId}")]
+        public IActionResult UpdateContent(Guid? newsId)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == newsId);
+            if (newsItem != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    Id = newsItem.Id,
+                    Title = newsItem.Title,
+                    Content = newsItem.Content
+                });
+            }
+            return RedirectToAction("index");
+        }
+
+        [HttpPost, Route("/manage/news/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == model.Id);
+            if (newsItem != null)
+            {
+                newsItem.Content = model.Content;
+                newsItem.Timestamp = DateTime.UtcNow;
+                this._context.News.Update(newsItem);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("index");
+        }
     }
 }

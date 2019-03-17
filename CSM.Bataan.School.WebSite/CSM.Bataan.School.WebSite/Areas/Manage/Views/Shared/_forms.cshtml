@@ -14,6 +14,10 @@
     @RenderSection("extras", false);
 </div>
 
+@section pageScriptsTop{
+    @RenderSection("pageScriptsTop", false)
+}
+
 @section pageStyles{
     <link href="~/vendor/selectize/dist/css/selectize.css" rel="stylesheet" type="text/css" />
     @RenderSection("pageStyles", false)
