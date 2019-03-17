@@ -20,10 +20,27 @@
 
 @section pageStyles{
     <link href="~/vendor/selectize/dist/css/selectize.css" rel="stylesheet" type="text/css" />
+    <link href="~/vendor/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
     @RenderSection("pageStyles", false)
+    <style>
+        .datepicker table tr td.today,
+        .datepicker table tr td.today.disabled,
+        .datepicker table tr td.today.disabled:hover,
+        .datepicker table tr td.today:hover {
+            background: #009efb;
+            color: #ffffff;
+        }
+
+        .datepicker td,
+        .datepicker th {
+            padding: 3px 10px;
+            font-size:small;
+        }
+    </style>
 }
 
 @section pageScripts{
     <script src="~/vendor/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="~/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     @RenderSection("pageScripts", false)
 }

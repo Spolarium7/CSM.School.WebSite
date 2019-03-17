@@ -66,7 +66,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Timestamp = n.Timestamp,
                 Title = n.Title,
                 UserId = n.UserId,
-                IsPublished = n.IsPublished
+                IsPublished = n.IsPublished,
+                PostExpiry = n.PostExpiry
             }).OrderByDescending(n => n.Timestamp).ToList();
             result.PageCount = pageCount;
             result.PageSize = pageSize;
@@ -182,6 +183,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             {
                 newsItem.Title = model.Title;
                 newsItem.Description = model.Description;
+                newsItem.PostExpiry = model.PostExpiry;
 
                 this._context.News.Update(newsItem);
 

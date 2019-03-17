@@ -18,5 +18,7 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects
         public Guid? UserId { get; set; }
 
         public string UserName { get; set; }
+
+        public DateTime PostExpiry { get; set; }
     }
 }

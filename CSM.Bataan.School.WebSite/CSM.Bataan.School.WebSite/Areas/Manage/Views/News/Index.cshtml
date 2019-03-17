@@ -35,6 +35,7 @@
                 <th></th>
                 <th>Title</th>
                 <th>Author</th>
+                <th>Expires</th>
                 <th></th>
             </tr>
         </thead>
@@ -46,6 +47,7 @@
                         <td><img src="/images/news/@news.Id/@Guid.NewGuid()/thumbnail.png" style="width:75px;height:75px;" /></td>
                         <td>@news.Title</td>
                         <td>@news.UserName</td>
+                        <td>@news.PostExpiry.ToString("MMM dd yyyy")</td>
                         <td>
                             @{
                                 if (news.IsPublished)
@@ -138,22 +140,22 @@ else
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="~/manage/news/update-title" method="post">
+                <form action="~/manage/news/update-title" method="post" style="padding:15px;">
                     <input type="hidden" name="Id" id="modal-update-title-id" />
                     <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
-                    <div class="modal-body mx-3">
-                        <input type="hidden" name="Id" id="modal-update-title-id" />
-                        <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
-                        <label>Title</label>
-                        <div class="md-form mb-5">
-                            <input type="text" id="modal-update-title-title" name="Title" class="form-control">
-                        </div>
-                        <label>Description</label>
-                        <div class="md-form mb-4">
+                    <div class="form-group">
+                        <label for="">Title</label>
+                        <input type="text" id="modal-update-title-title" name="Title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Desscription</label>
                             <textarea id="modal-update-title-desc" class="form-control" name="Description">
                             </textarea>
                         </div>
-
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="modal-update-title-postExpiry" name="PostExpiry" class="form-control">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -225,6 +227,12 @@ else
 
 @section pageScripts{
     <script type="text/javascript">
+        $(function () {
+            $('#modal-update-title-postExpiry').datepicker({
+                format: "MM/dd/yyyy"
+            });
+        });
+
         function showUpdateThumbnailModal(newsId, newsTitle) {
             $("#modal-update-news-thumbnail-news-id").val(newsId);
             $("#modal-update-news-thumbnail-title").html(newsTitle);
