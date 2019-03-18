@@ -22,6 +22,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("/manage/{type}/attach-image")]
         public async Task<string> AttachImage(AttachImageViewModel model, string type)
         {

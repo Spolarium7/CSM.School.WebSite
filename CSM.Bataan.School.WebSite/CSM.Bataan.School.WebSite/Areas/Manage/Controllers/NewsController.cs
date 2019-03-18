@@ -8,6 +8,7 @@ using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Shared;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
@@ -28,6 +29,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpGet, Route("manage/news/index")]
         [HttpGet, Route("manage/news")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 2, string keyword = "")
@@ -92,6 +94,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/update-{type}")]
         public async Task<IActionResult> UpdateImage(UpdateImageViewModel model, string type)
         {
@@ -157,6 +160,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/update-publish-status")]
         public IActionResult UpdatePublishStatus(PublishUnpublishViewModel model)
         {
@@ -174,6 +178,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent("~/manage/news?" + model.Filters);
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/update-title")]
         public IActionResult UpdateTitle(UpdateTitleViewModel model)
         {
@@ -193,6 +198,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent("~/manage/news?" + model.Filters);
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpGet, Route("manage/news/news-groups/{newsId}")]
         public IActionResult NewsGroups(Guid? newsId)
         {
@@ -216,6 +222,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/news-groups/add")]
         public IActionResult AddNewsGroups(AddRemoveGroupViewModel model)
         {
@@ -237,6 +244,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/news-groups/remove")]
         public IActionResult RemoveNewsGroups(AddRemoveGroupViewModel model)
         {
@@ -252,7 +260,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
         }
 
-
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpGet, Route("/manage/news/update-content/{newsId}")]
         public IActionResult UpdateContent(Guid? newsId)
         {
@@ -269,6 +277,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("/manage/news/update-content/")]
         public IActionResult UpdateContent(UpdateContentViewModel model)
         {
@@ -283,12 +292,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpGet, Route("manage/news/create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/create")]
         public IActionResult Create(CreateContentViewModel model)
         {
