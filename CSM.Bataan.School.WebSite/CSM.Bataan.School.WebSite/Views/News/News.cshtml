@@ -1,6 +1,4 @@
-﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
-@using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
-@model CSM.Bataan.School.WebSite.ViewModels.Landing.LandingViewModel
+﻿@model CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects.NewsViewItem;
 @{
     Layout = "~/views/shared/_layout.cshtml";
 }
@@ -11,56 +9,21 @@
     <div class="container">
 
         <div class="main-content">
-            <h1>News Feed</h1>
+            <img src="~/images/news/@Model.Id/@Guid.NewGuid()/banner.png" alt="@Model.Title" style="width:617px;"/>
+            <h1>@Model.Title</h1>
             <section class="posts-con">
-                @{
-                    if (Model.Items != null)
-                    {
-                        if (Model.Items.Count > 0)
-                        {
-                            foreach (NewsFeedItem item in Model.Items)
-                            {
-                                <article>
-                                    <div class="current-date">
-                                        <p>@item.Timestamp.ToString("MMMM")</p>
-                                        <p class="date">@item.Timestamp.Day</p>
-                                    </div>
-                                    <div class="info">
-                                        @{
-                                            if (item.Type == ContentType.News)
-                                            {
-                                                <img src="~/images/news/@item.Id/@Guid.NewGuid()/banner.png" alt="@item.Title" />
-                                            }
-                                        }
-
-                                        <h4><strong>@item.Title</strong></h4>
-                                        <p class="info-group-line pull-right"><span class="fa fa-users"></span> @String.Join(" | ", item.Groups.ToArray())</p>
-                                        <p class="info-line">@item.UserName</p>
-                                        <p>@item.Description</p>
-                                        @{
-                                            if (item.Type == ContentType.News)
-                                            {
-                                                <a class="more" href="~/news/@item.Id">Read more</a>
-                                            }
-                                        }
-                                    </div>
-                                </article>
-                            }
-                        }
-                    }
-                    else
-                    {
-                        <article>
-                            <div class="current-date">
-                                <p>@DateTime.UtcNow.Month</p>
-                                <p class="date">@DateTime.UtcNow.Day</p>
-                            </div>
-                            <div class="info">
-                                <h3>No Results Yet</h3>
-                            </div>
-                        </article>
-                    }
-                }
+                <article>
+                    <div class="current-date">
+                        <p>@Model.Timestamp.Month</p>
+                        <p class="date">@Model.Timestamp.Day</p>
+                    </div>
+                    <div class="info">
+                        <p class="info-group-line pull-right"><span class="fa fa-users"></span> @String.Join(" | ", Model.Groups.ToArray())</p>
+                        <p class="info-line">@Model.UserName</p>
+                        <hr />
+                        @Html.Raw(Model.Content)
+                    </div>
+                </article>
             </section>
         </div>
 
@@ -198,10 +161,10 @@
 
 @section pageStyles{
     <style>
-        .info-group-line{
-            font-size:small;
-            font-weight:bold;
-            margin-right:17px;
+        .info-group-line {
+            font-size: small;
+            font-weight: bold;
+            margin-right: 17px;
         }
     </style>
 }

@@ -1,6 +1,6 @@
 ﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
 @using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
-@model CSM.Bataan.School.WebSite.ViewModels.Landing.LandingViewModel
+@model CSM.Bataan.School.WebSite.ViewModels.News.IndexViewModel
 @{
     Layout = "~/views/shared/_layout.cshtml";
 }
@@ -12,13 +12,13 @@
 
         <div class="main-content">
             <h1>News Feed</h1>
-            <section class="posts-con">
+            <section class="posts-con" id="news">
                 @{
-                    if (Model.Items != null)
+                    if (Model.News != null)
                     {
-                        if (Model.Items.Count > 0)
+                        if (Model.News.Count > 0)
                         {
-                            foreach (NewsFeedItem item in Model.Items)
+                            foreach (NewsFeedItem item in Model.News)
                             {
                                 <article>
                                     <div class="current-date">
@@ -26,23 +26,11 @@
                                         <p class="date">@item.Timestamp.Day</p>
                                     </div>
                                     <div class="info">
-                                        @{
-                                            if (item.Type == ContentType.News)
-                                            {
-                                                <img src="~/images/news/@item.Id/@Guid.NewGuid()/banner.png" alt="@item.Title" />
-                                            }
-                                        }
-
+                                        <img src="~/images/news/@item.Id/@Guid.NewGuid()/banner.png" alt="@item.Title" />
                                         <h4><strong>@item.Title</strong></h4>
-                                        <p class="info-group-line pull-right"><span class="fa fa-users"></span> @String.Join(" | ", item.Groups.ToArray())</p>
                                         <p class="info-line">@item.UserName</p>
                                         <p>@item.Description</p>
-                                        @{
-                                            if (item.Type == ContentType.News)
-                                            {
-                                                <a class="more" href="~/news/@item.Id">Read more</a>
-                                            }
-                                        }
+                                        <a class="more" href="~/news/@item.Id">Read more</a>
                                     </div>
                                 </article>
                             }
@@ -62,6 +50,14 @@
                     }
                 }
             </section>
+            <div class="col-lg-12">
+                <div class="table-responsive table--no-card m-b-30">
+                    <a href="#" onclick="return getFeed();" class="btn btn-lg btn-info btn-block">
+                        <i class="fa fa-plus"></i>&nbsp;
+                        <span>More</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <aside id="sidebar">
@@ -198,10 +194,45 @@
 
 @section pageStyles{
     <style>
-        .info-group-line{
-            font-size:small;
-            font-weight:bold;
-            margin-right:17px;
+        .info-group-line {
+            font-size: small;
+            font-weight: bold;
+            margin-right: 17px;
         }
     </style>
+}
+
+@section pageScripts{
+    <script src="~/js/date_format.js"></script>
+    <script>
+    var page = @("1");
+    var calling = false;
+    function getFeed() {
+        $.ajax({
+            type: "GET",
+            url: "/news/feed/" + (page + 1),
+            success: function (rsp) {
+                page = page + 1;
+                $.each(rsp, function (index, item) {
+                    var itemTimestamp = new Date(Date.parse(item.timestamp));
+                    var markup = "<article>";
+                    markup = markup + "<div class='current-date'>";
+                    markup = markup + "<p>" + itemTimestamp.format("mmmm") + "</p>";
+                    markup = markup + "<p class='date'>" + itemTimestamp.format("d") + "</p>";
+                    markup = markup + "</div>";
+                    markup = markup + "<div class='info'>";
+                    markup = markup + "<img src='/images/news/" + item.id +"/@Guid.NewGuid()/banner.png' alt='" + item.title + "' />";
+                    markup = markup + "<h4><strong>" + item.title + "</strong></h4>";
+                    markup = markup + "<p class='info-line'>" + item.userName + "</p>";
+                    markup = markup + "<p>" + item.description + "</p>";
+                    markup = markup + "<a class='more' href='~/news/" + item.id + "'>Read more</a>";
+                    markup = markup + "</div>";
+                    markup = markup + "</article>";
+                    $("#news").append(markup);
+                });
+            }
+        });
+        return false;
+    };
+    </script>
 }

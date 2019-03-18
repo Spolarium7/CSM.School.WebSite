@@ -25,6 +25,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
         {
             var publicGroup = this._context.Groups.FirstOrDefault(g => g.Name.ToLower() == "public");
 
+
             //Take top 10 news according to Time posted
             var newsList10 = this._context.News
                 .Where(n => n.IsPublished == true && n.PostExpiry >= DateTime.UtcNow)
