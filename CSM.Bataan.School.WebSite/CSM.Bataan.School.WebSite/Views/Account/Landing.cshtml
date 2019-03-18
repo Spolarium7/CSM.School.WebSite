@@ -1,4 +1,5 @@
 ﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 @model CSM.Bataan.School.WebSite.ViewModels.Landing.LandingViewModel
 @{
     Layout = "~/views/shared/_layout.cshtml";
@@ -25,7 +26,14 @@
                                         <p class="date">@item.Timestamp.Day</p>
                                     </div>
                                     <div class="info">
-                                        <h4><strong>@item.Title</strong></h4>
+                                        @{
+                                            if (item.Type == ContentType.News)
+                                            {
+                                                <img src="~/images/news/@item.Id/@Guid.NewGuid()/banner.png" alt="@item.Title"/>
+                                            }
+                                         }
+
+                                         <h4><strong>@item.Title</strong></h4>
                                         <p class="info-group-line pull-right"><span class="fa fa-users"></span> @String.Join(" | ", item.Groups.ToArray())</p>
                                         <p class="info-line">@item.UserName</p>
                                         <p>@item.Description</p>
@@ -187,6 +195,7 @@
         .info-group-line{
             font-size:small;
             font-weight:bold;
+            margin-right:17px;
         }
     </style>
 }

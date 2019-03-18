@@ -254,6 +254,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
                             groups.Add(WebUser.Groups.FirstOrDefault(g => g.Id == newsGroup.GroupId).Name);
                         }
 
+                        newsItem.Type = ContentType.News;
                         newsItem.Groups = groups;
                         newsList.Add(newsItem);
 

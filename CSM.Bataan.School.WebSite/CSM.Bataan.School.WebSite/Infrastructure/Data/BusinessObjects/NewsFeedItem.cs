@@ -1,4 +1,5 @@
-﻿using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+﻿using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,7 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects
         public List<string> Groups { get; set; }
 
         public DateTime PostExpiry { get; set; }
+
+        public ContentType Type { get; set; }
     }
 }
