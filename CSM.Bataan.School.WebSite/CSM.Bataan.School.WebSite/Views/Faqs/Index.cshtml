@@ -7,48 +7,162 @@
 
 
 
-Welcome @WebUser.FullName
 <!--end: Accordion -->
-<h2>FAQS</h2>
+<h2>Frequently Asked Questions</h2>
 <section>
-    <div id="post-container">
-
+    <div class="container">
+        Welcome @WebUser.FullName
 
         <div class="row">
-            <div class="span12">
 
+            @{
 
-                @{
+                foreach (Faq faq in Model.Faqs)
+                {
 
-                    foreach (Faq faq in Model.Faqs)
-                    {
+                    <div class="accordion" id="accordion_@faq.Id">
+                        <div class="accordion-item_@faq.Id">
+                            <a>@faq.Question</a>
 
-                        <div class="accordion" id="accordion_@faq.Id">
-                            <div class="accordion-group">
-                                <div class="accordion-heading">
-                                    <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion_@faq.Id" href="#collapse_@faq.Id">
-                                        <i class="icon-minus"></i> @faq.Question
-                                    </a>
-                                </div>
-                                <div id="collapse_@faq.Id" class="accordion-body collapse in">
-                                    <div class="accordion-inner">
-                                        @Html.Raw(@faq.Answer)
-
-
-                                    </div>
-                                </div>
+                            <div class="content">
+                                <p>@faq.Description</p>
                             </div>
-
                         </div>
 
-                    }
+                    </div>
+
                 }
+            }
 
 
-            </div>
         </div>
-
     </div>
+
 </section>
 
-    
+<style>
+
+
+    *, *:before, *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+
+
+    .container {
+        margin: 0 auto;
+        padding: 4rem;
+        width: 90%;
+    }
+
+    h3 {
+        font-size: 1.75rem;
+        color: #373d51;
+        padding: 1.3rem;
+        margin: 0;
+    }
+
+    .accordion a {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 3rem 1rem 1rem;
+        color: #7288a2;
+        font-size: 1.15rem;
+        font-weight: 400;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+        .accordion a:hover,
+        .accordion a:hover::after {
+            cursor: pointer;
+            color: #03b5d2;
+        }
+
+            .accordion a:hover::after {
+                border: 1px solid #03b5d2;
+            }
+
+        .accordion a.active {
+            color: #03b5d2;
+            border-bottom: 1px solid #03b5d2;
+        }
+
+        .accordion a::after {
+            font-family: 'Ionicons';
+            content: '\f218';
+            position: absolute;
+            float: right;
+            right: 1rem;
+            font-size: 1rem;
+            color: #7288a2;
+            padding: 5px;
+            width: 30px;
+            height: 30px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            border: 1px solid #7288a2;
+            text-align: center;
+        }
+
+        .accordion a.active::after {
+            font-family: 'Ionicons';
+            content: '\f209';
+            color: #03b5d2;
+            border: 1px solid #03b5d2;
+        }
+
+    .accordion .content {
+        opacity: 0;
+        padding: 0 1rem;
+        max-height: 0;
+        border-bottom: 1px solid #e5e5e5;
+        overflow: hidden;
+        clear: both;
+        -webkit-transition: all 0.2s ease 0.15s;
+        -o-transition: all 0.2s ease 0.15s;
+        transition: all 0.2s ease 0.15s;
+    }
+
+        .accordion .content p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .accordion .content.active {
+            opacity: 1;
+            padding: 1rem;
+            max-height: 100%;
+            -webkit-transition: all 0.35s ease 0.15s;
+            -o-transition: all 0.35s ease 0.15s;
+            transition: all 0.35s ease 0.15s;
+        }
+</style>
+
+
+@section pageScripts{
+    <script>
+        const items = document.querySelectorAll(".accordion a");
+
+        function toggleAccordion() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+        }
+
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+
+
+    </script>
+
+}

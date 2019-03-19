@@ -42,8 +42,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
                                 .Take(10)
                                 .ToList();
         }
-
-    
+        
 
 
     }

@@ -6271,7 +6271,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/2.1.2": {
-      "sha512": "D3LftTZACLD0ziUxKbOOnlFOHya8iHAUC0X+LQzRA33SqhTfoDa8D+fMm+R8T9r4+52+/NKBLR24eCEO2xqp+g==",
+      "sha512": "53DDdxpnYKeB0PQErgGQ0YtRetRdK6VCkNdeFVsKDtnFUS9WINb+I32JwC4TijH/n80tB6XM3Q/aale6IegLrQ==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.relational/2.1.2",
       "files": [
@@ -7664,7 +7664,7 @@
       ]
     },
     "MySqlConnector/0.44.1": {
-      "sha512": "spCdGqeV0WvyoTmMAhoMc9hj7dZanFzHvQiyrGN2w+jaMDI1Ohzz65PmZ5sARESvLSQ+KmdE5lbexVPwQg8+hw==",
+      "sha512": "AdVMqv8KVA878+AF8EkXqjac3ih1tsOzBchYHasoW69vn2Ldez0ucbzB43dmLVkmTa1sQtLtoDbk3n9S34tZyg==",
       "type": "package",
       "path": "mysqlconnector/0.44.1",
       "files": [
@@ -7881,7 +7881,7 @@
       ]
     },
     "Pomelo.EntityFrameworkCore.MySql/2.1.2": {
-      "sha512": "D5Iv9z/HykfSl7F2EmmqCCcvi55WnB8v5CS+oPzMh09rFnOaFZYhxBP8Nj6fKtgG5g6CeFdP4617uNQq1f89Ww==",
+      "sha512": "LyM3NFH3Tj1ppHZ9QdGoMxA8Ga+kouC7r7QwgPFxWwzsMOsns8Y935u6YQjDBNaPlClTDJSm1V7aOnidxtAMPw==",
       "type": "package",
       "path": "pomelo.entityframeworkcore.mysql/2.1.2",
       "files": [
@@ -7893,7 +7893,7 @@
       ]
     },
     "Pomelo.JsonObject/2.0.0": {
-      "sha512": "5udTrGULDbHLx3Xb2DAqeeMTPxPu9TmeS6RAanMeRXOKZn3FRrBVd+Vg8TeTB0QIk1Q0su8mgsmN39O4iYca1Q==",
+      "sha512": "sMN9ETMoYfqCegOCVkOkOkfXK3ceH8nWkSeZPgLwfnx6UnqVXTl/ScIZs+x5Q8qgiPmYYCPmtolxNQ0QrcU97g==",
       "type": "package",
       "path": "pomelo.jsonobject/2.0.0",
       "files": [
@@ -12761,23 +12761,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\goshe\\.nuget\\packages\\": {},
+    "C:\\Users\\Shayne Maravillo\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\goshe\\Documents\\Personal\\CSM.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite.csproj",
+      "projectUniqueName": "C:\\Users\\Shayne Maravillo\\Desktop\\Github\\CSM.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite.csproj",
       "projectName": "CSM.Bataan.School.WebSite",
-      "projectPath": "C:\\Users\\goshe\\Documents\\Personal\\CSM.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite.csproj",
-      "packagesPath": "C:\\Users\\goshe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\goshe\\Documents\\Personal\\CSM.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite\\obj\\",
+      "projectPath": "C:\\Users\\Shayne Maravillo\\Desktop\\Github\\CSM.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite.csproj",
+      "packagesPath": "C:\\Users\\Shayne Maravillo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Shayne Maravillo\\Desktop\\Github\\CSM.School.WebSite\\CSM.Bataan.School.WebSite\\CSM.Bataan.School.WebSite\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\goshe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Shayne Maravillo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
