@@ -410,10 +410,10 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
         private string GetFullFilePath(string filename)
         {
-            var dirPath = _env.WebRootPath + "/users/" + filename;
+            var dirPath = _env.WebRootPath + "/images/users/" + filename;
             if (!System.IO.File.Exists(dirPath))
             {
-                return _env.WebRootPath + "/users/default.png";
+                return _env.WebRootPath + "/images/users/default.png";
             }
 
             return dirPath;

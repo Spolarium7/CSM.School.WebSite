@@ -31,7 +31,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             var dirPath = _env.WebRootPath + "/" + contentType.ToLower() + "/" + contentId + "/" + type + ".png";
             if (!System.IO.File.Exists(dirPath))
             {
-                return _env.WebRootPath + "/" + contentType + "/" + type + "_default.png";
+                return _env.WebRootPath + "/images/" + contentType + "/" + type + "_default.png";
             }
 
             return dirPath;
