@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BCrypt;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -953,7 +954,71 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 );
             }
 
+            //Initialize Certifications
+            if (this._context.Certifications.Count() < 1)
+            {
+                this._context.Certifications.Add(
+                    new Certification()
+                    {
+                        Id = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c801"),
+                        Description = "Get your Microsoft Office Specialist - Word certification from College of Subic Montessori - Authorized Certiport Testing Center.",
+                        StartDate = DateTime.UtcNow.AddMonths(3).AddHours(8),
+                        EndDate = DateTime.UtcNow.AddMonths(3).AddHours(13),
+                        IsPublished = true,
+                        Limit = 20,
+                        PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                        Title = "Microsoft Office Specialist - Word",
+                        Type = CertType.Assessment
+                    }
+                );
 
+                this._context.Certifications.Add(
+                    new Certification()
+                    {
+                        Id = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c802"),
+                        Description = "Get your Microsoft Office Specialist - Excel certification from College of Subic Montessori - Authorized Certiport Testing Center.",
+                        StartDate = DateTime.UtcNow.AddMonths(3).AddDays(5).AddHours(8),
+                        EndDate = DateTime.UtcNow.AddMonths(3).AddDays(5).AddHours(13),
+                        IsPublished = true,
+                        Limit = 20,
+                        PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(6),
+                        Title = "Microsoft Office Specialist - Excel",
+                        Type = CertType.Assessment
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f27"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c801")
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f29"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c801")
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f27"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c802")
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f29"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c802")
+                    }
+                );
+            }
 
             this._context.SaveChanges();
             return "OK";
