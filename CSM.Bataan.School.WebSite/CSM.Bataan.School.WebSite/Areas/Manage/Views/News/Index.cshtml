@@ -35,6 +35,7 @@
                 <th></th>
                 <th>Title</th>
                 <th>Author</th>
+                <th>Expires</th>
                 <th></th>
             </tr>
         </thead>
@@ -46,6 +47,7 @@
                         <td><img src="/images/news/@news.Id/@Guid.NewGuid()/thumbnail.png" style="width:75px;height:75px;" /></td>
                         <td>@news.Title</td>
                         <td>@news.UserName</td>
+                        <td>@news.PostExpiry.ToString("MMM dd yyyy")</td>
                         <td>
                             @{
                                 if (news.IsPublished)
@@ -58,11 +60,10 @@
                                 }
                             }
                             <a href="~/manage/news/update-content/@news.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a>
-                            <a href="~/manage/news/update-title/@news.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-bookmark"></i></button></a>
+                            <a href="#" title="Update Title" onclick="showUpdateTitle('@news.Id','@news.Title','@news.Description')"><button class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
                             <a href="#" title="Update Banner Image" onclick="showUpdateBannerModal('@news.Id','@news.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a>
                             <a href="#" title="Update Thumbnail Image" onclick="showUpdateThumbnailModal('@news.Id','@news.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-file-image"></i></button></a>
-                            <a href="~/manage/news/update/@news.Id" title="Update News"><button type="button" class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
-                            <a href="~/manage/news-groups/@news.Id" title="News Groups"><button type="button" class="btn-success form-control-sm"><i class="fas fa-users"></i></button></a>
+                            <a href="~/manage/news/news-groups/@news.Id" title="News Groups"><button type="button" class="btn-success form-control-sm"><i class="fas fa-users"></i></button></a>
 
                         </td>
                     </tr>
@@ -130,6 +131,41 @@ else
         </div>
     </div>
 
+    <div class="modal" tabindex="-1" role="dialog" id="modal-update-title">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update News Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/news/update-title" method="post" style="padding:15px;">
+                    <input type="hidden" name="Id" id="modal-update-title-id" />
+                    <input type="hidden" name="Filters" value="pageIndex=@Model.News.PageIndex&pageSize=@Model.News.PageSize&keyword=@Model.News.Keyword" />
+                    <div class="form-group">
+                        <label for="">Title</label>
+                        <input type="text" id="modal-update-title-title" name="Title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Desscription</label>
+                            <textarea id="modal-update-title-desc" class="form-control" name="Description">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="modal-update-title-postExpiry" name="PostExpiry" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="modal" tabindex="-1" role="dialog" id="modal-update-news-thumbnail">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -191,6 +227,12 @@ else
 
 @section pageScripts{
     <script type="text/javascript">
+        $(function () {
+            $('#modal-update-title-postExpiry').datepicker({
+                format: "MM/dd/yyyy"
+            });
+        });
+
         function showUpdateThumbnailModal(newsId, newsTitle) {
             $("#modal-update-news-thumbnail-news-id").val(newsId);
             $("#modal-update-news-thumbnail-title").html(newsTitle);
@@ -219,6 +261,13 @@ else
             $(".modal-change-publish-status-verb").html("publish");
             $("#modal-change-publish-status-ispublished").val(true);
             $("#modal-change-publish-status").modal("show");
+        }
+
+        function showUpdateTitle(newsId, newsTitle, newsDesc) {
+            $("#modal-update-title-id").val(newsId);
+            $("#modal-update-title-title").val(newsTitle);
+            $("#modal-update-title-desc").html(newsDesc);
+            $("#modal-update-title").modal("show");
         }
 
         $("#searchKeyword").keyup(function (event) {

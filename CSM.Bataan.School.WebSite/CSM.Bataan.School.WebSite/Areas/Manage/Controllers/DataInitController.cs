@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BCrypt;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -803,6 +804,27 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.News.Add(
                     new Infrastructure.Data.Models.NewsItem()
                     {
+                        Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf209"),
+                        Description = "CSM Bataan - School Feature",
+                        Title = "CSM Bataan at a Glance",
+                        Content = "<h2>Feature article for CSM Bataan school<h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019"),
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f24")
+                    }
+                );
+
+                this._context.NewsGroups.Add(
+                    new Infrastructure.Data.Models.NewsGroup()
+                    {
+                        GroupId = Guid.Parse("bcc412a8-9169-489b-b579-301186947a19"),
+                        NewsItemId = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf209")
+                    }
+                );
+
+                this._context.News.Add(
+                    new Infrastructure.Data.Models.NewsItem()
+                    {
                         Id = Guid.Parse("8d8a4146-86dd-4cd9-a2f4-e65d6f0bf210"),
                         Description = "CSM Bataan launches its official website.",
                         Title = "CSM Bataan WebSite Launched",
@@ -932,7 +954,71 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 );
             }
 
+            //Initialize Certifications
+            if (this._context.Certifications.Count() < 1)
+            {
+                this._context.Certifications.Add(
+                    new Certification()
+                    {
+                        Id = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c801"),
+                        Description = "Get your Microsoft Office Specialist - Word certification from College of Subic Montessori - Authorized Certiport Testing Center.",
+                        StartDate = DateTime.UtcNow.AddMonths(3).AddHours(8),
+                        EndDate = DateTime.UtcNow.AddMonths(3).AddHours(13),
+                        IsPublished = true,
+                        Limit = 20,
+                        PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                        Title = "Microsoft Office Specialist - Word",
+                        Type = CertType.Assessment
+                    }
+                );
 
+                this._context.Certifications.Add(
+                    new Certification()
+                    {
+                        Id = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c802"),
+                        Description = "Get your Microsoft Office Specialist - Excel certification from College of Subic Montessori - Authorized Certiport Testing Center.",
+                        StartDate = DateTime.UtcNow.AddMonths(3).AddDays(5).AddHours(8),
+                        EndDate = DateTime.UtcNow.AddMonths(3).AddDays(5).AddHours(13),
+                        IsPublished = true,
+                        Limit = 20,
+                        PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(6),
+                        Title = "Microsoft Office Specialist - Excel",
+                        Type = CertType.Assessment
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f27"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c801")
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f29"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c801")
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f27"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c802")
+                    }
+                );
+
+                this._context.CertificationRegistrations.Add(
+                    new CertificationRegistration()
+                    {
+                        UserId = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f29"),
+                        CertificationId = Guid.Parse("a774bd51-07d4-4bc6-9f14-230811e0c802")
+                    }
+                );
+            }
 
             this._context.SaveChanges();
             return "OK";

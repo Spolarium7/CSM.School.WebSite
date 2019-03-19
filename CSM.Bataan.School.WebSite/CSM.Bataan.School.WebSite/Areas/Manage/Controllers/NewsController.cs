@@ -8,6 +8,7 @@ using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Shared;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
@@ -28,6 +29,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpGet, Route("manage/news/index")]
         [HttpGet, Route("manage/news")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 2, string keyword = "")
@@ -59,13 +61,15 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             int skip = (int)(pageSize * (pageIndex - 1));
             List<NewsItem> news = newsQuery.ToList();
 
+
             result.Items = news.Skip(skip).Take((int)pageSize).Select(n => new NewsFeedItem() {
                 Id = n.Id,
                 Description = n.Description,
                 Timestamp = n.Timestamp,
                 Title = n.Title,
                 UserId = n.UserId,
-                IsPublished = n.IsPublished
+                IsPublished = n.IsPublished,
+                PostExpiry = n.PostExpiry
             }).OrderByDescending(n => n.Timestamp).ToList();
             result.PageCount = pageCount;
             result.PageSize = pageSize;
@@ -74,7 +78,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             result.Keyword = keyword;
 
             //Get User Names
-            foreach(NewsFeedItem item in result.Items)
+            foreach (NewsFeedItem item in result.Items)
             {
                 var user = this._context.Users.FirstOrDefault(u => u.Id == item.UserId);
 
@@ -90,6 +94,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/update-{type}")]
         public async Task<IActionResult> UpdateImage(UpdateImageViewModel model, string type)
         {
@@ -128,10 +133,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     height = 150;
                     break;
             }
-            
+
             if (model.ImageFile.Length > 0)
             {
-                byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());             
+                byte[] bytes = await FileBytes(model.ImageFile.OpenReadStream());
                 using (Image<Rgba32> image = Image.Load(bytes))
                 {
                     image.Mutate(x => x.Resize(width, height));
@@ -155,6 +160,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
         }
 
+        [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/news/update-publish-status")]
         public IActionResult UpdatePublishStatus(PublishUnpublishViewModel model)
         {
@@ -171,5 +177,151 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             return RedirectPermanent("~/manage/news?" + model.Filters);
         }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpPost, Route("manage/news/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == model.Id);
+
+            if (newsItem != null)
+            {
+                newsItem.Title = model.Title;
+                newsItem.Description = model.Description;
+                newsItem.PostExpiry = model.PostExpiry;
+
+                this._context.News.Update(newsItem);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news?" + model.Filters);
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpGet, Route("manage/news/news-groups/{newsId}")]
+        public IActionResult NewsGroups(Guid? newsId)
+        {
+            IQueryable<Group> groupQuery = (IQueryable<Group>)this._context.Groups;
+
+            var groupIds = this._context.NewsGroups.Where(ng => ng.NewsItemId == newsId).Select(ng => ng.GroupId).ToList();
+
+            groupQuery = groupQuery.Where(g => groupIds.Contains(g.Id.Value));
+
+            long queryCount = groupQuery.Count();
+
+            List<Group> groups = groupQuery.ToList();
+
+            NewsItem news = this._context.News.FirstOrDefault(u => u.Id == newsId);
+
+            return View(new NewGroupsIndexViewModel()
+            {
+                NewsId = newsId,
+                NewsTitle = (news != null ? news.Title : ""),
+                Groups = groups
+            });
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpPost, Route("manage/news/news-groups/add")]
+        public IActionResult AddNewsGroups(AddRemoveGroupViewModel model)
+        {
+            var duplicate = this._context.NewsGroups.FirstOrDefault(ng => ng.GroupId == model.GroupId && ng.NewsItemId == model.Id);
+
+            if (duplicate == null)
+            {
+                var newsGroup = new NewsGroup()
+                {
+                    NewsItemId = model.Id,
+                    GroupId = model.GroupId
+                };
+
+                this._context.NewsGroups.Add(newsGroup);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpPost, Route("manage/news/news-groups/remove")]
+        public IActionResult RemoveNewsGroups(AddRemoveGroupViewModel model)
+        {
+            var newsGroup = this._context.NewsGroups.FirstOrDefault(ng => ng.GroupId == model.GroupId && ng.NewsItemId == model.Id);
+
+            if (newsGroup != null)
+            {
+                this._context.NewsGroups.Remove(newsGroup);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/news/news-groups/" + model.Id);
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpGet, Route("/manage/news/update-content/{newsId}")]
+        public IActionResult UpdateContent(Guid? newsId)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == newsId);
+            if (newsItem != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    Id = newsItem.Id,
+                    Title = newsItem.Title,
+                    Content = newsItem.Content
+                });
+            }
+            return RedirectToAction("index");
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpPost, Route("/manage/news/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var newsItem = this._context.News.FirstOrDefault(n => n.Id == model.Id);
+            if (newsItem != null)
+            {
+                newsItem.Content = model.Content;
+                newsItem.Timestamp = DateTime.UtcNow;
+                this._context.News.Update(newsItem);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("index");
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpGet, Route("manage/news/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpPost, Route("manage/news/create")]
+        public IActionResult Create(CreateContentViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            NewsItem newsItem = new NewsItem()
+            {
+                Id = Guid.NewGuid(),
+                Content = model.Content,
+                Description = model.Description,
+                IsPublished = false,
+                PostExpiry = model.PostExpiry,
+                Title = model.Title
+            };
+
+            this._context.News.Add(newsItem);
+            this._context.SaveChanges();
+
+            return View();
+        }
+
+
     }
 }

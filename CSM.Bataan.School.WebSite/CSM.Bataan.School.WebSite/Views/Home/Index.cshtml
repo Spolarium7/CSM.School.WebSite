@@ -1,4 +1,6 @@
-﻿@{
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
+@model CSM.Bataan.School.WebSite.ViewModels.Home.IndexViewModel
+@{
     Layout = "~/views/shared/_layout.cshtml";
 }
 
@@ -58,26 +60,23 @@
 <section class="news">
     <div class="container">
         <h2>Latest news</h2>
-        <article>
-            <div class="pic"><img src="images/1.png" alt=""></div>
-            <div class="info">
-                <h4>Omnis iste natus error sit voluptatem accusantium </h4>
-                <p class="date">14 APR 2014, Jason Bang</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores (...)</p>
-                <a class="more" href="#">Read more</a>
-            </div>
-        </article>
-        <article>
-            <div class="pic"><img src="images/1_1.png" alt=""></div>
-            <div class="info">
-                <h4>Omnis iste natus error sit voluptatem accusantium </h4>
-                <p class="date">14 APR 2014, Jason Bang</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores (...)</p>
-                <a class="more" href="#">Read more</a>
-            </div>
-        </article>
+        @{
+
+            foreach (NewsFeedItem newsItem in Model.PublicNews)
+            {
+                <article>
+                    <div class="pic"><img src="~/images/news/@newsItem.Id/@Guid.NewGuid()/thumbnail.png" alt="@newsItem.Title" style="width:112px;height:112px;"/></div>
+                    <div class="info">
+                        <h4>@newsItem.Title</h4>
+                        <p class="date">@newsItem.Timestamp.ToString("dd MMM yyyy"), @newsItem.UserName</p>
+                        <p>@newsItem.Description</p>
+                        <a class="more" href="~/news/@newsItem.Id">Read more</a>
+                    </div>
+                </article>
+            }
+        }
         <div class="btn-holder">
-            <a class="btn" href="#">See archival news</a>
+            <a class="btn" href="~/news/index">See more news</a>
         </div>
 
     </div>

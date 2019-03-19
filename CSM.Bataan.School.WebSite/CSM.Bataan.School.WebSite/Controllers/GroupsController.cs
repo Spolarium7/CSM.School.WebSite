@@ -61,5 +61,28 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
             return groups;
         }
+
+
+        [HttpGet, Route("groups")]
+        [HttpGet, Route("groups/add-group-to-news-look-up")]
+        public List<TextValuePair> AddGroupToNewsLookup(string keyword, int count = 5, Guid? newsId = null)
+        {
+            var groupIds = this._context.NewsGroups.Where(ng => ng.NewsItemId == newsId).Select(ng => ng.GroupId).ToList();
+
+            IQueryable<Group> groupQuery = (IQueryable<Group>)this._context.Groups.Where(g => !groupIds.Contains(g.Id.Value) && g.Status == Infrastructure.Data.Enums.Status.Active);
+
+            if (string.IsNullOrEmpty(keyword) == false)
+            {
+                groupQuery = groupQuery.Where(g => g.Name.ToLower().StartsWith(keyword.ToLower()));
+            }
+
+            var groups = groupQuery.Select(g => new TextValuePair() { Value = g.Id, Text = g.Name })
+                   .OrderBy(a => a.Text)
+                   .Take(count)
+                   .Distinct()
+                   .ToList();
+
+            return groups;
+        }
     }
 }

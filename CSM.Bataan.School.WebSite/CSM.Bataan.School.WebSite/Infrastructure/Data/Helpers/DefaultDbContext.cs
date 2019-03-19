@@ -27,6 +27,9 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers
 
         public DbSet<NewsItem> News { get; set; }
         public DbSet<NewsGroup> NewsGroups { get; set; }
+
+        public DbSet<Certification> Certifications { get; set; }
+        public DbSet<CertificationRegistration> CertificationRegistrations { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

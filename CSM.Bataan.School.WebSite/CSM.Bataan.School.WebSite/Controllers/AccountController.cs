@@ -7,11 +7,13 @@ using System.Net.Mail;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BCrypt;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using CSM.Bataan.School.WebSite.Infrastructure.Security;
 using CSM.Bataan.School.WebSite.ViewModels.Account;
+using CSM.Bataan.School.WebSite.ViewModels.Landing;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -212,7 +214,63 @@ namespace CSM.Bataan.School.WebSite.Controllers
         [HttpGet, Route("account/landing")]
         public IActionResult Landing()
         {
-            return View();
+            var myGroupIds = WebUser.Groups.Select(g => g.Id).ToList();
+
+            var newsList100 = this._context.News                
+                .Where(n => n.IsPublished == true && n.PostExpiry >= DateTime.UtcNow)
+                .OrderByDescending(n => n.Timestamp)
+                .Take(100)
+                .Select(n => new NewsFeedItem()
+                {
+                    Id = n.Id,
+                    Description = n.Description,
+                    Timestamp = n.Timestamp,
+                    Title = n.Title,
+                    UserId = n.UserId,
+                    IsPublished = n.IsPublished,
+                    PostExpiry = n.PostExpiry
+                }).ToList();
+
+            var newsList = new List<NewsFeedItem>();
+
+            foreach (NewsFeedItem newsItem in newsList100) {
+                var newsGroups = this._context.NewsGroups.Where(ng => ng.NewsItemId == newsItem.Id && myGroupIds.Contains(ng.GroupId));
+
+                if(newsGroups != null)
+                {
+                    if (newsGroups.Count() > 0)
+                    {
+                        var user = this._context.Users.FirstOrDefault(u => u.Id == newsItem.UserId);
+
+                        if (user != null)
+                        {
+                            newsItem.UserName = user.FullName;
+                        }
+
+                        List<string> groups = new List<string>();
+
+                        foreach (var newsGroup in newsGroups)
+                        {
+                            groups.Add(WebUser.Groups.FirstOrDefault(g => g.Id == newsGroup.GroupId).Name);
+                        }
+
+                        newsItem.Type = ContentType.News;
+                        newsItem.Groups = groups;
+                        newsList.Add(newsItem);
+
+                    }
+                }
+            }
+
+            ///Allan Polls here
+
+
+            var itemList = newsList.Take(10); // + pollList.Take(10) ;
+
+            return View(new LandingViewModel()
+            {
+                Items = itemList.OrderByDescending(i => i.Timestamp).Take(10).ToList()
+            });
         }
 
         [HttpGet, Route("account/forgot-password")]
@@ -352,10 +410,10 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
         private string GetFullFilePath(string filename)
         {
-            var dirPath = _env.WebRootPath + "/users/" + filename;
+            var dirPath = _env.WebRootPath + "/images/users/" + filename;
             if (!System.IO.File.Exists(dirPath))
             {
-                return _env.WebRootPath + "/users/default.png";
+                return _env.WebRootPath + "/images/users/default.png";
             }
 
             return dirPath;
