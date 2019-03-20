@@ -20,13 +20,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         {
             _context = context;
         }
-        
+
         [HttpGet, Route("manage/data-init/execute")]
         public string DataInit()
         {
             //Initialize Groups
             #region Groups
-            if(this._context.Groups.Count() < 1)
+            if (this._context.Groups.Count() < 1)
             {
                 this._context.Groups.Add(
                     new Infrastructure.Data.Models.Group()
@@ -135,9 +135,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             if (this._context.Users.Count() < 1)
             {
                 this._context.Users.Add(
-                    new Infrastructure.Data.Models.User() {
+                    new Infrastructure.Data.Models.User()
+                    {
                         Id = Guid.Parse("ba9054b6-225a-410c-b934-97844c778f21"),
-                        FirstName= "Jace",
+                        FirstName = "Jace",
                         LastName = "Beleren",
                         Gender = Gender.Male,
                         EmailAddress = "jbeleren@mailinator.com",
@@ -798,7 +799,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             #endregion
 
             //Initialize News
-            if(this._context.News.Count() < 1)
+            if (this._context.News.Count() < 1)
             {
                 //public news
                 this._context.News.Add(
@@ -1019,9 +1020,476 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     }
                 );
             }
+            //Initialize FAQS
+            if (this._context.Faqs.Count() < 1)
+            {
+                //public faqs 1
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("c77c4837-a204-431d-9002-18a32448ec41"),
+                        Description = 
+                        "1. CALL(047) 633-5531 or Email csm.bataan888@yahoo.com"+
+                        "2. For New Students Submit admission requirements at the Register's Office and proceed to advising of subjects OIC-Principal - Basic Education Dept. Dean/OIC - College Head - Higher Education Dept. For OLD Student : Duly Signed Clearance "+
+                        "3. For NEW/TRANSFEREES proceed to Guidance and Counseling Office for the Schedule of Assessment Exam, proceed to designated room for the measurement of uniform, For OLD Students proceed to Step 5 "+
+                        "4. proceed to Step 5  "+
+                        "5. Proceed to Finance Office for the assessment of Fees " + 
+                        "6. Payment of assesed Tuition and other fees "+
+                        "7. You are now officially ENROLLED (SPENDS A DAY AS A MONTESSORIAN!)",
+                        Question = "How to inquire ",
+                        Answer = "CSM Bataan Faqs - Inquire",   
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 2
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("c77c4837-a204-431d-9002-18a32448ec42"),
+                        Description = "CSM is College of Subic Montessori, INC",
+                        Question = "What is CSM",
+                        Answer = "CSM Bataan Faqs - CSM",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 3
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("36d5d91d-e9a4-49b0-8465-87a88db3b82a"),
+                        Description = " CSM is located at National Road Sta. Isabel,Dinalupihan, Bataan. In Front of Brgy. Sta.Isabel Court.",
+                        Question = "Where is CSM located",
+                        Answer = "CSM Bataan Faqs - CSM Location",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 4
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("069481b1-1251-4ecd-beea-ce63407e5f39"),
+                        Description = "Under Basic Education Curriculum:" +
+                        "<p>CASA Department</p> " +
+                        "Toddler 		2-3 yrs. old" +
+                        "Junior Casa	3-4 yrs. old " + 
+                        "Senior Casa	4-5 yrs. old"+
+                        "Advanced Casa	5-6 yrs. old"+
+                        "<p>Primary Department</p> "+ 
+                        "* Grade One,Grade Two"+
+                        "* Grade Three"+
+                        "<p>Middle School Department</p>"+
+                        "* Grade Four"+
+                        "* Grade Five"+
+                        "* Grade Six"+
+                        "<p>Junior High School Department</p>"+
+                        "* Grade Seven"+
+                        "* Grade Eight "+
+                        "* Grade Nine"+
+                        "* Grade Ten"+
+                        "<p>Senior High School Department</p>"+
+                        "* Grade Eleven"+
+                        "* Grade Twelve"+
+                        "Under Higher Education Department: "+
+                        "* Bachelor of Science in Business Administration"+
+                        "* Major in the following: "+
+                        "* Human Resource Development Management"+
+                        "* Financial Management"+
+                        "* Operations Management"+
+                        "* Marketing Management "+
+                        "* Bachelor of Science in Criminology"+
+                        "* Bachelor of Science in Customs Administration"+
+                        "* Bachelor of Science in Tourism Management"+
+                        "* Bachelor of Science in Information Systems"+
+                        "* Associate in Computer Technology"+
+                        "* Hotel and Restaurant Services"+
+                        "With the following Competencies: "+
+                        "* Food and Beverage Services NC II "+
+                        "* Front Office Services NC II "+
+                        "* Housekeeping NC II"+
+                        "* Computer Systems Servicing NC II"+
+                        "* Visual Graphic Design NC II",
+                        Question = "What programs does CSM offers",
+                        Answer = "CSM Bataan Faqs - CSM offers",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                
+
+                //public faqs 5
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("97cff192-be4f-4394-ad8e-0bc5676d643c"),
+                        Description = 
+                        "Complete Uniform"+
+                        "I.D Student"+
+                        "Short hair no color "+
+                        "No accessories"+
+                        "Gadget is ban in school",
+                        Question = "What are the rules of CSM",
+                        Answer = "CSM Bataan Faqs - Illegal Items",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 6
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("3d860447-7948-4e93-b8a1-9bec264722dd"),
+                        Description = "Applicants can visit our Admission Office from Monday to Saturday, 8am-5pm. Bring admission/ enrollment requirements",
+                        Question = "How can a student apply for admission",
+                        Answer = "CSM Bataan Faqs - apply for admission",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 7
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("a6444523-2ba9-4fdc-b76c-96c6338bdb70"),
+                        Description = "CSM accepts transferees on a case to case basis.",
+                        Question = "Does CSM accept transferees",
+                        Answer = "CSM Bataan Faqs - accept tranferees",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+
+                //public faqs 8
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("28520b43-07d8-45dd-b984-28978f85c87b"),
+                        Description = 
+                        "Long Brown Envelope" + 
+                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" + 
+                        "Medical Certificate" + 
+                        "Photocopy of PSA Birth Certificate.",
+
+                        Question = "What are the requirements for admission/ enrollment for CASA Student (New Student)",
+                        Answer = "CSM Bataan Faqs - admission/ enrollment for CASA Student (New Student)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 9
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("a9c85c69-3789-4444-9e96-44c3930190cb"),
+                        Description = "Duly Signed Clearance",
+                        Question = "What are the requirements for admission/ enrollment for CASA Student (Old Student)?",
+                        Answer = "CSM Bataan Faqs - admission/ enrollment for CASA Student (Old Student)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 10
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("4443bc5c-9715-4759-a642-42c0f9bf5610"),
+                        Description = 
+                        "Long Brown Envelope" + 
+                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" +
+                        "Medical Certificate" + 
+                        "Photocopy of PSA Birth Certificate" + 
+                        "Form 138/ Form 137" + 
+                        "Good Moral Certificate",
+
+                        Question = "What are the requirements for admission/ enrollment for Grade School,Junior High School and Senior High School Student (New Student)?",
+                        Answer = "CSM Bataan Faqs - admission/ enrollment for Grade School, Junior High School and Senior High School Student (New Student)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 11
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("89117bb3-46a0-42ba-8cee-40ffb1dc01b2"),
+                        Description = "Duly Signed Clearance",
+                        Question = "What are the requirements for admission/ enrollment for Grade School, Junior High School and Senior High School Student (Old Student)",
+                        Answer = "CSM Bataan Faqs - admission/ enrollment for Grade School, Junior High School and Senior High School Student (Old Student)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 12
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("0f243c0c-5fbc-4b16-8a30-4355060f637a"),
+                        Description = "Long Brown Envelope" + 
+                        "Long Plastic Envelope" + 
+                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" +
+                        "Photocopy of PSA Birth Certificate" + 
+                        "Form 138/ Form 137" + 
+                        "Good Moral Certificate" + 
+                        "Photocopy of Diploma",
+
+                        Question = "What are the requirements for admission/ enrollment for College Student (New Student/ Freshman)?",
+                        Answer = " admission/ enrollment for College Student (New Student/ Freshman)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 13
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("50a04b3c-f4ff-4a9b-a7e5-396e97ea55ed"),
+                        Description = 
+                        "Long Brown Envelope" + 
+                        "Long Plastic Envelope" + 
+                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" + 
+                        "Photocopy of PSA Birth Certificate" +
+                        "Honorable Dismissal" +
+                        "Certificate of Grades for Evaluation" +
+                        "Transcript of Records (if available)",
+
+                        Question = "What are the requirements for admission/ enrollment for College Student (Transferee)",
+                        Answer = " admission/ enrollment for College Student (Transferee)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 14
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("b47032ac-ae42-4238-8ea6-942dd170d636"),
+                        Description = "Duly Signed Clearance",
+                        Question = "What are the requirements for admission/ enrollment for College Student (Old Student)",
+                        Answer = "admission/ enrollment for College Student (Old Student)",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 15
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("5883f42f-65fc-4030-9f0d-4d0f86be3f55"),
+                        Description = "CSM is an Authorized Testing Center for Microsoft Office Specialist and Microsoft Technology Associate.",
+                        Question = "What other certification program does CSM offers",
+                        Answer = "other certification program does CSM offers",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+                //public faqs 16
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("c571709e-e086-4dce-b1d1-b9d6e822612d"),
+                        Description = 
+                        "CSM offers scholarship programs in Computer Systems Servicing NC II"+
+                        "Front Office Services NC II"+
+                        "Food and Beverage Services NC II"+
+                        "Housekeeping NC II " +
+                        "It is a free training under Training for Work Scholarship Program by Technical Education and Skills Development Authority (TESDA).",
+
+                        Question = "What TESDA Scholarship do CSM offers",
+                        Answer = "TESDA Scholarship do CSM offers",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+
+
+                //public faqs 17
+                this._context.Faqs.Add(
+                    new Infrastructure.Data.Models.Faq()
+                    {
+                        Id = Guid.Parse("4a2b0a6d-84d8-4b79-b53b-3a76dfbec134"),
+                        Description = "Various scholarships and service grants are available to deserving students.",
+                        Question = "What scholarships and grants are available to students under Junior High and Senior High Level",
+                        Answer = "scholarships and grants are available to students under Junior High and Senior High Level",
+                        IsPublished = true,
+                        PostExpiry = DateTime.Parse("December 30 2019")
+
+                    }
+                );
+                //public faqs 18
+                this._context.Faqs.Add(
+                   new Infrastructure.Data.Models.Faq()
+                   {
+                       Id = Guid.Parse("f5319415-4005-4fd6-b543-b49a0f5c0ed5"),
+                       Description = 
+                       "For CASA to Senior Highschool"+
+                       "1. Accountancy in business management "+
+                       "2. TVL(Technical Vocation Livelihood), ICT (Information & Communication Technology), HE (Home Economics)"+
+                       "3. HUMMS (Humanities & Social Science)<hr> GAS (General Academic Strand) "+
+                       "4. STEM (Sciences Technology,Enginnering & Mathematics",
+
+                       Question = "What are the requirements for STRAND/TRACK offered" + "(For CASA to Senior Highschool)",
+                       Answer = "CSM Bataan Faqs - STRAND/TRACK (CASA & SHS)",
+                       IsPublished = true,
+                       PostExpiry = DateTime.Parse("December 30 2019")
+
+                   }
+               );
+
+                //public faqs 19
+                this._context.Faqs.Add(
+                   new Infrastructure.Data.Models.Faq()
+                   {
+                       Id = Guid.Parse("1a1438e3-6e26-45e5-9d87-855340ebda96"),
+                       Description = 
+                       "COMPUTER SYSTEMS SERVICING NC II"+
+                       "FRONT OFFICE SERVICES NC II"+
+                       "FOOD & BEVERAGES SERVICES NC II "+
+                       "HOUSEKEEPING NC.",
+
+                       Question = "What are the TRAINING & ASSESSMENT CENTER of CSM ?",
+                       Answer = "CSM Bataan Faqs - TRAINING & ASSESSMENT CENTER",
+                       IsPublished = true,
+                       PostExpiry = DateTime.Parse("December 30 2019")
+
+                   }
+               );
+                //public faqs 20
+                this._context.Faqs.Add(
+                 new Infrastructure.Data.Models.Faq()
+                 {
+                     Id = Guid.Parse("f20efdc0-33ba-438c-877a-bd8c989385d4"),
+                     Description = "For CASA to Senior HighSchool"+
+                     "1. Duly signed Clearance"+
+                     "2.Report Card",
+
+                     Question = "What are the requirements for OLD STUDENT " + "(For CASA to Senior HighSchool )",
+                     Answer = "CSM Bataan Faqs - Requirement for OLD STUDENT ",
+                     IsPublished = true,
+                     PostExpiry = DateTime.Parse("December 30 2019")
+
+                 }
+             );
+
+
+                //public faqs 21
+                this._context.Faqs.Add(
+                new Infrastructure.Data.Models.Faq()
+                {
+                    Id = Guid.Parse("c71a4d05-c4e3-4221-886d-48119c86417d"),
+                    Description = "For CASA to Senior HighSchool"+
+                    "1. High School Report Card (F138 / F137A) "+
+                    "2.Diploma (Photocopy)"+
+                    "3.Good Moral Character Certification "+
+                    "4.NSO Birth Certificate (Photocopy) "+
+                    "5.Two(2)pcs. Long Brown Envelope with Plastic Cover"+
+                    "6.One(1)pc. 1x1 picture and 1 pcs. 2x2 picture "+
+                    "7. Medical Certificate 8. Must undergo an Assessment Examination. ",
+
+                    Question = "What are the requirements for NEW STUDENT  " + "(For CASA to Senior HighSchool )",
+                    Answer = "CSM Bataan Faqs - Requirement for NEW STUDENT ",
+                    IsPublished = true,
+                    PostExpiry = DateTime.Parse("December 30 2019")
+
+                }
+            );
+
+                //public faqs 22
+                this._context.Faqs.Add(
+                new Infrastructure.Data.Models.Faq()
+                {
+                    Id = Guid.Parse("2446aeba-3887-4b37-b0d7-b9ca6a8d06e5"),
+                    Description = 
+                    "For CASA to Senior HighSchool "+
+                    "1.Official Transcript of Records or Certification of Grades"+
+                    "2.Good Moral Character Certification"+
+                    "3.NSO Birth Certificate ( Photocopy) "+
+                    "4.Recommendation Form "+
+                    "5.Two (2)pcs. Long Brown Envelope with Plastic Cover"+
+                    "6.Medical Certificate"+
+                    "7.Must undergo an Assessment Examinantion. ",
+
+                    Question = "What are the requirements for TRANSFEREES",
+                    Answer = "CSM Bataan Faqs - Requirement for TRANSFEREES ",
+                    IsPublished = true,
+                    PostExpiry = DateTime.Parse("December 30 2019")
+
+                }
+            );
+
+                //public faqs 23
+                this._context.Faqs.Add(
+              new Infrastructure.Data.Models.Faq()
+              {
+                  Id = Guid.Parse("05246a02-f147-4b9b-9a4a-a8da369f8117"),
+                  Description = 
+                  "PRE-ELEMENTARY TODDLER - 2-3 yrs. old "+
+                  "JUNIOR CASA - 3-4yrs. old"+
+                  "SENIOR CASA - 4-5yrs.old"+
+                  "ADVANCED CASA - 5-6yrs.old "+
+                  "PRIMARY SCHOOL "+
+                  "* Grade One" +
+                  "* Grade Two" +
+                  "* Grade Three" +
+                  "MIDDLE SCHOOL"+
+                  "* Grade Four"+
+                  "* Grade Five" +
+                  "* GRADE Six"+
+                  "JUNIOR HIGH SCHOOL"+"" +
+                  "* GRADE Seven"+
+                  "* GRADE Eight"+
+                  "* GRADE Nine"+
+                  "* GRADE Ten"+
+                  "SENIOR HIGH SCHOOL"+
+                  "* GRADE Eleven"+
+                  "* GRADE Twelve",
+
+                  Question = "What are the BASIC EDUCATION PROGRAMS ",
+                  Answer = "CSM Bataan Faqs - BASIC EDUCATION PROGRAMS",
+                  IsPublished = true,
+                  PostExpiry = DateTime.Parse("December 30 2019")
+
+              }
+          );
+
+
+            }
 
             this._context.SaveChanges();
-            return "OK";
+                return "OK";
         }
+
     }
 }

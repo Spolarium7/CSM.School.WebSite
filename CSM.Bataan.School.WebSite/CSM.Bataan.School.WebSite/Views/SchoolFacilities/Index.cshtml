@@ -27,15 +27,16 @@ Welcome @WebUser.FullName
 
 
     }
-    
+
 
 </section>
 
 
 
-@section pageScripts{`
-    <script src="~/js/date_format.js"></script>
-    <script>
+
+    @section pageScripts{`
+        <script src="~/js/date_format.js"></script>
+        <script>
     var page = @("1");
     var calling = false;
     $(window).scroll(function () {
@@ -68,6 +69,14 @@ Welcome @WebUser.FullName
                 });
             }
         }
-    });
-    </script>
-}
+        });
+
+
+
+
+
+
+
+
+        </script>
+    }
