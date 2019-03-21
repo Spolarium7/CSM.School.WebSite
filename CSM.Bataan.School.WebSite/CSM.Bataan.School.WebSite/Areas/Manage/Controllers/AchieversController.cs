@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Achievers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
@@ -25,6 +26,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/achievers/index")]
         [HttpGet, Route("manage/achievers")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
@@ -67,13 +69,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/achievers/create")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/achievers/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -97,7 +99,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return View();
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/achievers/unpublish")]
         public IActionResult Unpublish(AchieverIdViewModel model)
         {
@@ -111,7 +113,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return null;
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/achievers/publish")]
         public IActionResult Publish(AchieverIdViewModel model)
         {
@@ -127,7 +129,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/achievers/update-title/{achieverId}")]
         public IActionResult UpdateTitle(Guid? achieverId)
         {
@@ -147,6 +149,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Create");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/achievers/update-title")]
         public IActionResult UpdateTitle(UpdateTitleViewModel model)
         {
@@ -168,6 +171,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/achievers/update-content/{achieverId}")]
         public IActionResult UpdateContent(Guid? achieverId)
         {
@@ -183,6 +187,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/achievers/update-content/")]
         public IActionResult UpdateContent(UpdateContentViewModel model)
         {
@@ -197,11 +202,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/achievers/update-banner/{achieverId}")]
         public IActionResult Banner(Guid? achieverId)
         {
             return View(new BannerViewModel() { AchieverId = achieverId });
         }
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/achievers/update-banner")]
         public async Task<IActionResult> Banner(BannerViewModel model)
         {
@@ -237,16 +244,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
 
 
-
-
-
-
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/achievers/update-thumbnail/{achieverId}")]
         public IActionResult Thumbnail(Guid? achieverId)
         {
             return View(new ThumbnailViewModel() { AchieverId = achieverId });
         }
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/achievers/update-thumbnail")]
         public async Task<IActionResult> Thumbnail(ThumbnailViewModel model)
         {
@@ -308,7 +312,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
 
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/achievers/attach-image")]
         public async Task<string> AttachImage(AttachImageViewModel model)
         {
