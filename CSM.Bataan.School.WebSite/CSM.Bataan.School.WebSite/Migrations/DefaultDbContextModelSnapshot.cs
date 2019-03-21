@@ -160,8 +160,6 @@ namespace CSM.Bataan.School.WebSite.Migrations
 
                     b.Property<DateTime>("PostExpiry");
 
-                    b.Property<string>("TemplateName");
-
                     b.Property<DateTime>("Timestamp");
 
                     b.Property<string>("Title");

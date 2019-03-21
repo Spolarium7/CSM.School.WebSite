@@ -1,0 +1,290 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Certifications.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+@section tableHead{
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="input-group mb-3">
+                <input type="text" id="searchKeyword" placeholder="search groups" class="form-control" aria-label="search groups" aria-describedby="basic-addon2" value="@Model.Certifications.Keyword">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2"><a href="#" onclick="searchTrigger()"><i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></a></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="table-responsive table--no-card m-b-30">
+                <a href="~/manage/certifications/create" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-plus"></i>&nbsp;
+                    <span>Create Certification</span>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Certifications.Items.Count > 0)
+{
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Expires</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (Certification certification in Model.Certifications.Items)
+                {
+                    <tr>
+                        <td><img src="/images/certifications/@certification.Id/@Guid.NewGuid()/thumbnail.png" style="width:75px;height:75px;" /></td>
+                        <td>@certification.Title</td>
+                        <td>@certification.PostExpiry.ToString("MMM dd yyyy")</td>
+                        <td>
+                            @{
+                                if (certification.IsPublished)
+                                {
+                                    <a href="#" title="Unpublish" onclick="confirmUnpublish('@certification.Id','@certification.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a>
+                                }
+                                else
+                                {
+                                    <a href="#" title="Publish" onclick="confirmPublish('@certification.Id','@certification.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a>
+                                }
+                            }
+                            <a href="#" title="Update" onclick="showUpdate('@certification.Id','@certification.Title','@certification.Description', @certification.Limit, '@certification.PostExpiry.ToString("MMMM/dd/yyyy")')"><button class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
+                            <a href="#" title="Update Banner Image" onclick="showUpdateBannerModal('@certification.Id','@certification.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a>
+                            <a href="#" title="Update Thumbnail Image" onclick="showUpdateThumbnailModal('@certification.Id','@certification.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-file-image"></i></button></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><span class="form-control-plaintext">Page&nbsp;&nbsp;&nbsp;</span></li>
+                            <li class="page-item"><input type="number" value="@Model.Certifications.PageIndex" class="form-control" style="width:50px;" onKeydown="javascript: if(event.keyCode == 13 && isNaN(parseInt($(this).val()))==false) window.location='/manage/certifications/index?pageIndex=' + (isNaN(parseInt($(this).val())) ? 1 : parseInt($(this).val())) + '&keyword=@(Model.Certifications.Keyword)" /></li>
+                            <li class="page-item"><span class="form-control-plaintext">&nbsp;&nbsp;&nbsp;of @Model.Certifications.PageCount&nbsp;&nbsp;&nbsp;</span></li>
+                            @{
+                                var prev = Model.Certifications.PageIndex - 1;
+                                if (prev > 0)
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/manage/certifications?keyword=@Model.Certifications.Keyword&pageSize=@Model.Certifications.PageSize&pageIndex=@prev"><span aria-hidden="true">&laquo;</span></a></li>
+                                }
+                            }
+                            <li class="page-item"><a class="page-link" href="#">@(Model.Certifications.PageIndex)</a></li>
+                            @{
+                                var next = Model.Certifications.PageIndex + 1;
+                                if (next <= Model.Certifications.PageCount)
+                                {
+                                    <li class="page-item"><a class="page-link" href="~/manage/certifications?keyword=@Model.Certifications.Keyword&pageSize=@Model.Certifications.PageSize&pageIndex=@next"><span aria-hidden="true">&raquo;</span></a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+}
+else
+{
+    <p>0 search results.</p>
+}
+
+@section extras{
+    <div class="modal" tabindex="-1" role="dialog" id="modal-change-publish-status">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><span class="modal-change-publish-status-verb"></span> Certifications</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/certifications/update-publish-status" method="post">
+                    <input type="hidden" name="Id" id="modal-change-publish-status-id" />
+                    <input type="hidden" name="Filters" value="pageIndex=@Model.Certifications.PageIndex&pageSize=@Model.Certifications.PageSize&keyword=@Model.Certifications.Keyword" />
+                    <input type="hidden" name="IsPublished" id="modal-change-publish-status-ispublished" />
+                    <div class="modal-body">
+                        <p>Are you sure you want to <span class="modal-change-publish-status-verb"></span> <span id="modal-change-publish-status-title"></span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-update">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Certification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/certifications/update" method="post" style="padding:15px;">
+                    <input type="hidden" name="Id" id="modal-update-id" />
+                    <input type="hidden" name="Filters" value="pageIndex=@Model.Certifications.PageIndex&pageSize=@Model.Certifications.PageSize&keyword=@Model.Certifications.Keyword" />
+                    <div class="form-group">
+                        <label for="">Title</label>
+                        <input type="text" id="modal-update-title" name="Title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="">Desscription</label>
+                            <textarea id="modal-update-desc" class="form-control" name="Description">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Limit</label>
+                        <input type="number" id="modal-update-limit" name="Limit" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="modal-update-postExpiry" name="PostExpiry" class="form-control" autocomplete="off">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-update-certifications-thumbnail">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Certifications Thumbnail Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/certifications/update-thumbnail" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="Id" id="modal-update-certifications-thumbnail-certifications-id" />
+                        <input type="hidden" name="Filters" value="pageIndex=@Model.Certifications.PageIndex&pageSize=@Model.Certifications.PageSize&keyword=@Model.Certifications.Keyword" />
+                        <p>Thumbnail for <strong><span id="modal-update-certifications-thumbnail-title"></span></strong></p>
+                        <div class="profile-image-container" style="margin-bottom:30px;">
+                            <img src="" class="img-thumbnail rounded mx-auto d-block" id="modal-update-certifications-thumbnail-image" style="width:100px;height:100px;" />
+                        </div>
+
+                        <input type="file" class="form-control" name="ImageFile" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modal-update-certifications-banner">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Certifications Banner Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="~/manage/certifications/update-banner" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="Id" id="modal-update-certifications-banner-certifications-id" />
+                        <input type="hidden" name="Filters" value="pageIndex=@Model.Certifications.PageIndex&pageSize=@Model.Certifications.PageSize&keyword=@Model.Certifications.Keyword" />
+                        <p>Banner for <strong><span id="modal-update-certifications-banner-title"></span></strong></p>
+                        <div class="profile-image-container" style="margin-bottom:30px;">
+                            <img src="" class="img-banner rounded mx-auto d-block" id="modal-update-certifications-banner-image" style="width:400px;height:120px;" />
+                        </div>
+
+                        <input type="file" class="form-control" name="ImageFile" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+@section pageScripts{
+    <script type="text/javascript">
+        $(function () {
+
+        });
+
+        function showUpdateThumbnailModal(certificationsId, certificationsTitle) {
+            $("#modal-update-certifications-thumbnail-certifications-id").val(certificationsId);
+            $("#modal-update-certifications-thumbnail-title").html(certificationsTitle);
+            $("#modal-update-certifications-thumbnail-image").attr("src", "/images/certifications/"+ certificationsId+"/@Guid.NewGuid()/thumbnail.png");
+            $("#modal-update-certifications-thumbnail").modal("show");
+        }
+
+        function showUpdateBannerModal(certificationsId, certificationsTitle) {
+            $("#modal-update-certifications-banner-certifications-id").val(certificationsId);
+            $("#modal-update-certifications-banner-title").html(certificationsTitle);
+            $("#modal-update-certifications-banner-image").attr("src", "/images/certifications/"+ certificationsId+"/@Guid.NewGuid()/banner.png");
+            $("#modal-update-certifications-banner").modal("show");
+        }
+
+        function confirmUnpublish(certificationsId, certificationsTitle) {
+            $("#modal-change-publish-status-id").val(certificationsId);
+            $("#modal-change-publish-status-title").html(certificationsTitle);
+            $(".modal-change-publish-status-verb").html("unpublish");
+            $("#modal-change-publish-status-ispublished").val(false);
+            $("#modal-change-publish-status").modal("show");
+        }
+
+        function confirmPublish(certificationsId, certificationsTitle) {
+            $("#modal-change-publish-status-id").val(certificationsId);
+            $("#modal-change-publish-status-title").html(certificationsTitle);
+            $(".modal-change-publish-status-verb").html("publish");
+            $("#modal-change-publish-status-ispublished").val(true);
+            $("#modal-change-publish-status").modal("show");
+        }
+
+        function showUpdate(certificationId, certificationTitle, certificationDesc, limit, postExpiry) {
+            $("#modal-update-id").val(certificationId);
+            $("#modal-update-title").val(certificationTitle);
+            $("#modal-update-desc").html(certificationDesc);
+
+            var expiry = new Date(postExpiry);
+            $('#modal-update-postExpiry').datepicker({
+                format: "MM/dd/yyyy",
+                todayHighlight: true,
+            });
+            $('#modal-update-postExpiry').val(postExpiry);
+
+
+            $("#modal-update-limit").val(limit);
+            $("#modal-update").modal("show");
+        }
+
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+
+        function searchTrigger() {
+            window.location = "/manage/certifications?pageIndex=1&keyword=" + $("#searchKeyword").val();
+        }
+    </script>
+}

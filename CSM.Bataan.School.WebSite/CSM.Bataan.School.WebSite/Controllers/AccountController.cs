@@ -113,6 +113,13 @@ namespace CSM.Bataan.School.WebSite.Controllers
             return RedirectToAction("verify");
         }
 
+        [HttpGet, Route("account/accessdenied")]
+        public IActionResult AccessDenied(string ReturnUrl)
+        {
+            ViewBag.ReturnUrl = ReturnUrl;
+            return View();
+        }
+
         [HttpGet, Route("account/login")]
         public IActionResult Login()
         {
