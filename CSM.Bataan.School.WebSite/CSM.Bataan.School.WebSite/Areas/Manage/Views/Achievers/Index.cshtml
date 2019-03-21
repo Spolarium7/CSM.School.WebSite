@@ -1,0 +1,45 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Achievers.IndexViewModel
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<div class="card-container col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input id="searchKeyword" type="text" class="form-control" value="@Model.Achievers.Keyword" placeholder="Search by title" aria-label="Search title" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="searchTrigger()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        if (Model.Achievers != null)
+        {
+            if (Model.Achievers.Items.Count > 0)
+            {
+                foreach (Achiever achiever in Model.Achievers.Items)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/achievers/@achiever.Id/thumbnail.png" style="width:150px;height:150px;" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>@achiever.Title</h4>
+                                    <p>@achiever.Content</p>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    }
+</div>
