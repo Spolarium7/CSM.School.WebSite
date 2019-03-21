@@ -36,16 +36,17 @@
 
                                     <ul class="list-inline">
                                         <li class="list-inline-item"><a href="~/manage/achievers/update-title/@achiever.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/achievers/update-content/@achiever.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
 
 
                                         @{
                                             if (achiever.IsPublished)
                                             {
-                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@achiever.Id','@achiever.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@achiever.Id','@achiever.Title')"><i class="fas fa-window-close"></i></a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="#" title="Publish" onclick="confirmPublish('@achiever.Id','@achiever.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                <li><a href="#" title="Publish" onclick="confirmPublish('@achiever.Id','@achiever.Title')"><i class="fas fa-check-square"></i></a></li>
                                             }
                                         }
                                     </ul>

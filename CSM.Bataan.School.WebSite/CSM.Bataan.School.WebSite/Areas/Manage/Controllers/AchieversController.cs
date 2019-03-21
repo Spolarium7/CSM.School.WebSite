@@ -164,5 +164,34 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet, Route("/manage/achievers/update-content/{achieverId}")]
+        public IActionResult UpdateContent(Guid? achieverId)
+        {
+            var achiever = this._context.Achievers.FirstOrDefault(t => t.Id == achieverId);
+            if (achiever != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    AchieverId = achiever.Id,
+                    Title = achiever.Title,
+                    Content = achiever.Content
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("/manage/achievers/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var achiever = this._context.Achievers.FirstOrDefault(t => t.Id == model.AchieverId);
+            if (achiever != null)
+            {
+
+                achiever.Content = model.Content;
+                achiever.Timestamp = DateTime.UtcNow;
+                this._context.Achievers.Update(achiever);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
