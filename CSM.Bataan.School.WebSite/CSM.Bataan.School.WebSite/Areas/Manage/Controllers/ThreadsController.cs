@@ -11,6 +11,7 @@ using System.IO;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.PixelFormats;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
@@ -27,6 +28,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/threads/index")]
         [HttpGet, Route("manage/threads")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
@@ -69,12 +71,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/threads/create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/threads/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -99,6 +103,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/threads/unpublish")]
         public IActionResult Unpublish(ThreadIdViewModel model)
         {
@@ -113,6 +118,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/threads/publish")]
         public IActionResult Publish(ThreadIdViewModel model)
         {
@@ -129,6 +135,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/threads/update-title/{threadId}")]
         public IActionResult UpdateTitle(Guid? threadId)
         {
@@ -149,6 +156,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Create");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/threads/update-title")]
         public IActionResult UpdateTitle(UpdateTitleViewModel model)
         {
@@ -172,6 +180,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/threads/update-content/{threadId}")]
         public IActionResult UpdateContent(Guid? threadId)
         {
@@ -187,6 +196,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/threads/update-content/")]
         public IActionResult UpdateContent(UpdateContentViewModel model)
         {
@@ -202,11 +213,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/threads/update-thumbnail/{threadId}")]
         public IActionResult Thumbnail(Guid? threadId)
         {
             return View(new ThumbnailViewModel() { ThreadId = threadId });
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/threads/update-thumbnail")]
         public async Task<IActionResult> Thumbnail(ThumbnailViewModel model)
         {
@@ -267,11 +281,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/threads/update-banner/{threadId}")]
         public IActionResult Banner(Guid? threadId)
         {
             return View(new BannerViewModel() { ThreadId = threadId });
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/threads/update-banner")]
         public async Task<IActionResult> Banner(BannerViewModel model)
         {

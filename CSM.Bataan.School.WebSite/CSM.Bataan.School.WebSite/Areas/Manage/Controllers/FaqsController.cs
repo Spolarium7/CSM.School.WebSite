@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Faqs;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
@@ -28,7 +29,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/faqs/index")]
         [HttpGet, Route("manage/faqs")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
@@ -71,13 +72,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/faqs/create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/faqs/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -102,6 +104,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/faqs/unpublish")]
         public IActionResult Unpublish(FaqsIdViewModel model)
         {
@@ -116,7 +119,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/faqs/publish")]
         public IActionResult Publish(FaqsIdViewModel model)
         {
@@ -132,6 +135,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/faqs/delete/{faqId}")]
         public IActionResult Delete(Guid? faqId)
         {
@@ -146,6 +150,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/faqs/update-question/{faqId}")]
         public IActionResult UpdateQuestion(Guid? faqId)
         {
@@ -164,6 +169,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/faqs/update-question")]
         public IActionResult UpdateQuestion(UpdateQuestionViewModel model)
         {
@@ -180,6 +187,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/faqs/update-content/{faqId}")]
         public IActionResult UpdateContent(Guid? faqId)
         {
@@ -197,6 +205,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/faqs/update-content")]
         public IActionResult UpdateContent(UpdateContentViewModel model)
         {
@@ -212,7 +222,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/faqs/attach-image")]
         public async Task<string> AttachImage(AttachImageViewModel model)
         {
