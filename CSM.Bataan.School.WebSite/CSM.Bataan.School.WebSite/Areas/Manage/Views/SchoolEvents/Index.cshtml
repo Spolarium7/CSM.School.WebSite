@@ -39,7 +39,7 @@
 
                                         <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @schoolevent.EventStart - @schoolevent.EventEnd</li>
                                         <li><a href="~/manage/schoolevents/update-title/@schoolevent.Id" title="Update Title"><i class="fas fa-file"></i></a></li>
-
+                                        <li><a href="~/manage/schoolevents/update-content/@schoolevent.Id" title="Update Content"><i class="fas fa-file"></i></a></li>
                                         @{
                                             if (schoolevent.IsPublished)
                                             {
@@ -99,7 +99,17 @@
 
 @section pageScripts{
     <script>
-    
+
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "/manage/schoolevents?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
         ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
         function confirmUnpublish(id, title) {
             $("#modal-unpublish-title").html(title);

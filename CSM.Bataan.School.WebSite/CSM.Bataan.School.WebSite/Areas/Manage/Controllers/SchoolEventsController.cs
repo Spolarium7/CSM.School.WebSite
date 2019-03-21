@@ -170,5 +170,38 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        [HttpGet, Route("/manage/schoolevents/update-content/{schooleventId}")]
+        public IActionResult UpdateContent(Guid? schooleventId)
+        {
+            var schoolevent = this._context.SchoolEvents.FirstOrDefault(t => t.Id == schooleventId);
+            if (schoolevent != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    SchoolEventId = schoolevent.Id,
+                    Title = schoolevent.Title,
+                    Content = schoolevent.Content
+
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("/manage/schoolevents/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var schoolevent = this._context.SchoolEvents.FirstOrDefault(t => t.Id == model.SchoolEventId);
+            if (schoolevent != null)
+            {
+                schoolevent.Content = model.Content;
+                schoolevent.Timestamp = DateTime.UtcNow;
+
+                this._context.SchoolEvents.Update(schoolevent);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }

@@ -135,7 +135,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
             WriteLiteral("                <article>\r\n                    <div class=\"pic\">");
             EndContext();
             BeginContext(2397, 125, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5d2b2c43c4b049dba38ecef774a53b38", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9d0ee9057bdb4053a348e49e02695423", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -215,7 +215,7 @@ AddHtmlAttributeValue("", 2470, newsItem.Title, 2470, 15, false);
             WriteLiteral("</p>\r\n                        ");
             EndContext();
             BeginContext(2807, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "221761ba1e2b4b028b79eab91532eb62", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "559b5233a4964628bd12c87f9c68e320", async() => {
                 BeginContext(2850, 9, true);
                 WriteLiteral("Read more");
                 EndContext();
@@ -253,7 +253,7 @@ AddHtmlAttributeValue("", 2836, newsItem.Id, 2836, 12, false);
             WriteLiteral("        <div class=\"btn-holder\">\r\n            ");
             EndContext();
             BeginContext(2993, 52, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d69bac84c444045a18725a8d54c669a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "61ab4a319b734886a27554e4e4b2468d", async() => {
                 BeginContext(3028, 13, true);
                 WriteLiteral("See more news");
                 EndContext();
