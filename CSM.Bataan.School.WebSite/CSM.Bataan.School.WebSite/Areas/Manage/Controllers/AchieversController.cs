@@ -93,5 +93,76 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return View();
         }
 
+
+        [HttpPost, Route("manage/achievers/unpublish")]
+        public IActionResult Unpublish(AchieverIdViewModel model)
+        {
+            var achiever = this._context.Achievers.FirstOrDefault(t => t.Id == model.Id);
+            if (achiever != null)
+            {
+                achiever.IsPublished = false;
+                this._context.Achievers.Update(achiever);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+        [HttpPost, Route("manage/achievers/publish")]
+        public IActionResult Publish(AchieverIdViewModel model)
+        {
+            var achiever = this._context.Achievers.FirstOrDefault(t => t.Id == model.Id);
+
+            if (achiever != null)
+            {
+                achiever.IsPublished = true;
+                this._context.Achievers.Update(achiever);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+
+        [HttpGet, Route("/manage/achievers/update-title/{achieverId}")]
+        public IActionResult UpdateTitle(Guid? achieverId)
+        {
+            var achiever = this._context.Achievers.FirstOrDefault(p => p.Id == achieverId);
+            if (achiever != null)
+            {
+                var model = new UpdateTitleViewModel()
+                {
+                    Id = achiever.Id,
+                    Title = achiever.Title,
+                    PostExpiry = achiever.PostExpiry,
+                  
+
+                };
+                return View(model);
+            }
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost, Route("/manage/achievers/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var achiever = this._context.Achievers.FirstOrDefault(p => p.Id == model.Id);
+
+            if (achiever != null)
+            {
+                achiever.PostExpiry = model.PostExpiry;
+                achiever.Title = model.Title;
+               
+
+                this._context.Achievers.Update(achiever);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

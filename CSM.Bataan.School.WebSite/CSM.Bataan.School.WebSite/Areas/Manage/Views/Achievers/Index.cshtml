@@ -33,7 +33,23 @@
                                     <h4>@achiever.Title</h4>
                                     <p>@achiever.Content</p>
 
-                                    
+
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a href="~/manage/achievers/update-title/@achiever.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+
+
+                                        @{
+                                            if (achiever.IsPublished)
+                                            {
+                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@achiever.Id','@achiever.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a href="#" title="Publish" onclick="confirmPublish('@achiever.Id','@achiever.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                            }
+                                        }
+                                    </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -43,3 +59,104 @@
         }
     }
 </div>
+
+
+
+
+
+
+<!--MODAL UNPUBLISH-->
+<div class="modal hide fade" id="modal-unpublish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Unpublish Alumni Post</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+<!--MODAL PUBLISH-->
+<div class="modal hide fade " id="modal-publish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Publish Alumni Post</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="modal-publish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@section pageScripts{
+    <script>
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "/manage/achievers?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+        ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+        function confirmUnpublish(id, title) {
+            $("#modal-unpublish-title").html(title);
+            $("#modal-unpublish-button").attr("onclick", "UnpublishAchiever('" + id + "')");
+            $("#modal-unpublish").modal("show");
+        }
+        function UnpublishAchiever(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/achievers/unpublish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+        //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+        function confirmPublish(id, title) {
+            $("#modal-publish-title").html(title);
+            $("#modal-publish-button").attr("onclick", "PublishAchiever('" + id + "')");
+            $("#modal-publish").modal("show");
+        }
+        function PublishAchiever(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/achievers/publish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}
