@@ -94,5 +94,81 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             this._context.SaveChanges();
             return View();
         }
+
+        [HttpPost, Route("manage/schoolevents/unpublish")]
+        public IActionResult Unpublish(SchoolEventIdViewModel model)
+        {
+            var schoolevent = this._context.SchoolEvents.FirstOrDefault(p => p.Id == model.Id);
+            if (schoolevent != null)
+            {
+                schoolevent.IsPublished = false;
+                this._context.SchoolEvents.Update(schoolevent);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+        [HttpPost, Route("manage/schoolevents/publish")]
+        public IActionResult Publish(SchoolEventIdViewModel model)
+        {
+            var schoolevent = this._context.SchoolEvents.FirstOrDefault(p => p.Id == model.Id);
+
+            if (schoolevent != null)
+            {
+                schoolevent.IsPublished = true;
+                this._context.SchoolEvents.Update(schoolevent);
+                this._context.SaveChanges();
+                return Ok();
+            }
+            return null;
+        }
+
+
+        [HttpGet, Route("/manage/schoolevents/update-title/{schooleventId}")]
+        public IActionResult UpdateTitle(Guid? schooleventId)
+        {
+            var schoolevent = this._context.SchoolEvents.FirstOrDefault(p => p.Id == schooleventId);
+            if (schoolevent != null)
+            {
+                var model = new UpdateTitleViewModel()
+                {
+                    Id = schoolevent.Id,
+                    Description = schoolevent.Description,
+                    Title = schoolevent.Title,
+                    PostExpiry = schoolevent.PostExpiry,
+                    EventStart = schoolevent.EventStart,
+                    EventEnd = schoolevent.EventEnd,
+                
+
+                };
+                return View(model);
+            }
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost, Route("/manage/schoolevents/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var schoolevent = this._context.SchoolEvents.FirstOrDefault(p => p.Id == model.Id);
+
+            if (schoolevent != null)
+            {
+                schoolevent.Title = model.Title;
+                schoolevent.Description = model.Description;
+                schoolevent.PostExpiry = model.PostExpiry;
+                schoolevent.EventStart = model.EventStart;
+                schoolevent.EventEnd = model.EventEnd;
+
+                this._context.SchoolEvents.Update(schoolevent);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
