@@ -5,10 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
     <Compile Remove="wwwroot\vendor\NewFolder\**" />
+    <Content Remove="Migrations\**" />
     <Content Remove="wwwroot\vendor\NewFolder\**" />
+    <EmbeddedResource Remove="Migrations\**" />
     <EmbeddedResource Remove="wwwroot\vendor\NewFolder\**" />
+    <None Remove="Migrations\**" />
     <None Remove="wwwroot\vendor\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20190321165842_init.cs" />
+    <Compile Include="Migrations\20190321165842_init.Designer.cs" />
+    <Compile Include="Migrations\DefaultDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>
