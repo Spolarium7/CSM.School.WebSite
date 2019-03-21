@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-3">
             <div class="table-responsive table--no-card m-b-30">
-                <a href="~/manage/groups/create" class="btn btn-lg btn-info btn-block">
+                <a href="~/manage/news/create" class="btn btn-lg btn-info btn-block">
                     <i class="fa fa-plus"></i>&nbsp;
                     <span>Create News</span>
                 </a>
@@ -60,7 +60,7 @@
                                 }
                             }
                             <a href="~/manage/news/update-content/@news.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a>
-                            <a href="#" title="Update Title" onclick="showUpdateTitle('@news.Id','@news.Title','@news.Description')"><button class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
+                            <a href="#" title="Update Title" onclick="showUpdateTitle('@news.Id','@news.Title','@news.Description','@news.PostExpiry.ToString("MMMM/dd/yyyy")')"><button class="btn-success form-control-sm"><i class="fas fa-pen-square"></i></button></a>
                             <a href="#" title="Update Banner Image" onclick="showUpdateBannerModal('@news.Id','@news.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a>
                             <a href="#" title="Update Thumbnail Image" onclick="showUpdateThumbnailModal('@news.Id','@news.Title')"><button type="button" class="btn-success form-control-sm"><i class="fas fa-file-image"></i></button></a>
                             <a href="~/manage/news/news-groups/@news.Id" title="News Groups"><button type="button" class="btn-success form-control-sm"><i class="fas fa-users"></i></button></a>
@@ -155,7 +155,7 @@ else
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="modal-update-title-postExpiry" name="PostExpiry" class="form-control">
+                        <input type="text" id="modal-update-title-postExpiry" name="PostExpiry" class="form-control" autocomplete="off">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -228,9 +228,7 @@ else
 @section pageScripts{
     <script type="text/javascript">
         $(function () {
-            $('#modal-update-title-postExpiry').datepicker({
-                format: "MM/dd/yyyy"
-            });
+
         });
 
         function showUpdateThumbnailModal(newsId, newsTitle) {
@@ -263,10 +261,19 @@ else
             $("#modal-change-publish-status").modal("show");
         }
 
-        function showUpdateTitle(newsId, newsTitle, newsDesc) {
+        function showUpdateTitle(newsId, newsTitle, newsDesc, postExpiry) {
             $("#modal-update-title-id").val(newsId);
             $("#modal-update-title-title").val(newsTitle);
             $("#modal-update-title-desc").html(newsDesc);
+
+
+            var expiry = new Date(postExpiry);
+            $('#modal-update-title-postExpiry').datepicker({
+                format: "MM/dd/yyyy",
+                todayHighlight: true,
+                defaultViewDate: expiry
+            });
+            $('#modal-update-title-postExpiry').val(postExpiry);
             $("#modal-update-title").modal("show");
         }
 
