@@ -41,6 +41,32 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     b.ToTable("Achievers");
                 });
 
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.AlumniProfile", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Company");
+
+                    b.Property<string>("Description");
+
+                    b.Property<DateTime>("FromDate");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<string>("Location");
+
+                    b.Property<string>("Position");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<DateTime>("ToDate");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AlumniProfiles");
+                });
+
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Certification", b =>
                 {
                     b.Property<Guid?>("Id")
