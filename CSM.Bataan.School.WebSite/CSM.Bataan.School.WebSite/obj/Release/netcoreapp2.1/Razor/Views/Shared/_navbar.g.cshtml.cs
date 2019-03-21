@@ -90,7 +90,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
                     ");
             EndContext();
             BeginContext(1054, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52350ea3f2c4404892993d6b0ceaba47", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "07671bab272d4044872107d5d9b86fed", async() => {
                 BeginContext(1101, 5, true);
                 WriteLiteral("Users");
                 EndContext();
@@ -112,7 +112,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1132, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ab04f656bce46e3ab341ec5fa15d641", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84177ae8abe645869edbd9a6afc70e2c", async() => {
                 BeginContext(1180, 6, true);
                 WriteLiteral("Groups");
                 EndContext();
@@ -165,7 +165,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
                     ");
             EndContext();
             BeginContext(2930, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "61dd00a84b6e4079b3f6966ecf33f2df", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "222f32f8ce8543f1b5cf94c4d8ca2273", async() => {
                 BeginContext(2976, 4, true);
                 WriteLiteral("News");
                 EndContext();
@@ -206,7 +206,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
             WriteLiteral("                    <li class=\"nav-item\">\r\n                        ");
             EndContext();
             BeginContext(3405, 52, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78dd22ad3ca54ca7b3b3177d5b5d3622", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f80b0910a52b42b28fa3754ca627794a", async() => {
                 BeginContext(3448, 5, true);
                 WriteLiteral("Login");
                 EndContext();
@@ -248,7 +248,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
             WriteLiteral("\r\n                        </a>\r\n                        <div class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"navbarDropdown\">\r\n                            ");
             EndContext();
             BeginContext(3980, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b4bc094f531446f2bc1bf97b2a0107f7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86572e90fb06448dbc9cf764aae5d328", async() => {
                 BeginContext(4037, 10, true);
                 WriteLiteral("My Profile");
                 EndContext();
@@ -270,7 +270,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
             WriteLiteral("\r\n                            ");
             EndContext();
             BeginContext(4081, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01a76de8d4c94ab2bc4e1ca3b50dc275", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8def67cb710b48e9a121d5a83aec3265", async() => {
                 BeginContext(4139, 15, true);
                 WriteLiteral("Change Password");
                 EndContext();
@@ -302,7 +302,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(4447, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8247434996884b04b2f65fcaf5729c8d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99f11bede0444b3fbc2936d7a2448052", async() => {
                 BeginContext(4497, 17, true);
                 WriteLiteral("My Alumni Profile");
                 EndContext();
@@ -333,7 +333,7 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Enums;
             WriteLiteral("                            <div class=\"dropdown-divider\"></div>\r\n                            ");
             EndContext();
             BeginContext(4680, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c68765b9ee6470fa1c80e781f0c0178", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc89a365825042d79cf2f33071274f38", async() => {
                 BeginContext(4729, 6, true);
                 WriteLiteral("Logout");
                 EndContext();
