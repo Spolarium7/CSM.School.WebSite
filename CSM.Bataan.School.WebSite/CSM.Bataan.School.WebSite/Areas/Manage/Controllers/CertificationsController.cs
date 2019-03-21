@@ -156,5 +156,26 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             return RedirectPermanent("~/manage/certifications?" + model.Filters);
         }
+
+        [Authorize(Policy = "AuthorizeContentAdmin")]
+        [HttpPost, Route("manage/certifications/update")]
+        public IActionResult UpdateTitle(UpdateViewModel model)
+        {
+            var certification = this._context.Certifications.FirstOrDefault(n => n.Id == model.Id);
+
+            if (certification != null)
+            {
+                certification.Title = model.Title;
+                certification.Description = model.Description;
+                certification.PostExpiry = model.PostExpiry;
+                certification.Limit = model.Limit;
+
+                this._context.Certifications.Update(certification);
+
+                this._context.SaveChanges();
+            }
+
+            return RedirectPermanent("~/manage/certifications?" + model.Filters);
+        }
     }
 }
