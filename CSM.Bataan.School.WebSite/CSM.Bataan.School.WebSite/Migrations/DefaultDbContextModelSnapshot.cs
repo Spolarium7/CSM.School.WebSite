@@ -143,6 +143,34 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.SchoolEvent", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Description");
+
+                    b.Property<DateTime>("EventEnd");
+
+                    b.Property<DateTime>("EventStart");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("PostExpiry");
+
+                    b.Property<string>("TemplateName");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SchoolEvents");
+                });
+
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.SchoolFacility", b =>
                 {
                     b.Property<Guid?>("Id")

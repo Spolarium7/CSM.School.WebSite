@@ -54,8 +54,6 @@ C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.We
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Groups\Index.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Groups\Update.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\SchoolFacilities\Index.g.cshtml.cs
-C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Shared\_forms.g.cshtml.cs
-C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Shared\_managelayout.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\UserGroups\GroupUserIndex.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\UserGroups\UserGroupIndex.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\UserRoles\Index.g.cshtml.cs
@@ -112,3 +110,8 @@ C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.We
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Certifications\Index.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\News\Index.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\News\News.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\SchoolEvents\Index.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Threads\Shared\_forms.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Threads\Shared\_managelayout.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Shared\_managelayout.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Shared\_forms.g.cshtml.cs

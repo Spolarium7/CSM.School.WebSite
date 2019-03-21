@@ -1,0 +1,52 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.SchoolEvents.IndexViewModel
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<h3>Index</h3>
+
+
+<div class="card-container col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input id="searchKeyword" type="text" class="form-control" value="@Model.SchoolEvents.Keyword" placeholder="Search by title" aria-label="Search title" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="searchTrigger()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        if (Model.SchoolEvents != null)
+        {
+            if (Model.SchoolEvents.Items.Count > 0)
+            {
+                foreach (SchoolEvent schoolevent in Model.SchoolEvents.Items)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/posts/@schoolevent.Id/thumbnail.png" style="width:150px;height:150px;" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>@schoolevent.Title</h4>
+                                    <p>@schoolevent.Description</p>
+                                    <ul>
+                                        
+                                        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @schoolevent.EventStart - @schoolevent.EventEnd</li>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    }
+</div>
+
