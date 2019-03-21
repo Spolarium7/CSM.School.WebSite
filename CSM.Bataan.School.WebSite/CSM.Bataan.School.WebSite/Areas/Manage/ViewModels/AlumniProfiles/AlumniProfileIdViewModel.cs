@@ -7,5 +7,6 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.AlumniProfiles
 {
     public class AlumniProfileIdViewModel
     {
+        public Guid? Id { get; set; }
     }
 }
