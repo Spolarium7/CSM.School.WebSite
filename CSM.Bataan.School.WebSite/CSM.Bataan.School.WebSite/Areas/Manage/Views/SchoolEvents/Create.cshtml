@@ -1,0 +1,50 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.SchoolEvents.CreateViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<h2>Create</h2>
+
+<div class="row">
+    <div class="hero-unit">
+        <form action="~/manage/schoolevents/create" method="post">
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label for="Title">Title:</label>
+                <input type="text" class="form-control" name="Title" />
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" rows="8" name="Description">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="Content">Content</label>
+                <textarea class="form-control" rows="8" name="Content">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="EventStart">Event Start:</label>
+                <input type="text" class="form-control" name="EventStart" id="EventStart" />
+            </div>
+            <div class="form-group">
+                <label for="EventEnd">Event End:</label>
+                <input type="text" class="form-control" name="EventEnd" id="EventStart" />
+            </div>
+            <div class="form-group">
+                <label for="PostExpiry">Post Expiry:</label>
+                <input type="text" class="form-control" name="PostExpiry" id="PostExpiry" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/schoolevents/index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+@section pageScripts{
+    <script>
+        $(function () {
+            $("#PostExpiry,#EventStart,#EventEnd").datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+    </script>
+}

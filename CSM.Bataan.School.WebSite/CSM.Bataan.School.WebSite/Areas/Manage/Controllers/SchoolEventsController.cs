@@ -63,5 +63,36 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 SchoolEvents = result
             });
         }
+
+        [HttpGet, Route("manage/schoolevents/create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("manage/schoolevents/create")]
+        public IActionResult Create(CreateViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            SchoolEvent schoolevent = new SchoolEvent()
+            {
+                Id = Guid.NewGuid(),
+                Title = model.Title,
+                Description = model.Description,
+                Content = model.Content,
+                PostExpiry = model.PostExpiry,
+                IsPublished = true,
+                EventStart = model.EventStart,
+                EventEnd = model.EventEnd
+
+
+
+
+            };
+            this._context.SchoolEvents.Add(schoolevent);
+            this._context.SaveChanges();
+            return View();
+        }
     }
 }
