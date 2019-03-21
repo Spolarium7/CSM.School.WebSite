@@ -50,6 +50,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
             {
                 return View(new ThreadViewModel()
                 {
+                    UserId = thread.UserId,
                     ThreadId = thread.Id,
                     Title = thread.Title,
                     Content = ParseBBCode(thread.Content)

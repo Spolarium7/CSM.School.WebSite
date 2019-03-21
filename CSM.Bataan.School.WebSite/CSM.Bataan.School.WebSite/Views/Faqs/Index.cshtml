@@ -13,74 +13,51 @@
     <div class="container">
         Welcome @WebUser.FullName
 
-        <div class="row">
-
+        <div class="accordion">
             @{
 
                 foreach (Faq faq in Model.Faqs)
                 {
 
-                    <div class="accordion" id="accordion_@faq.Id">
-                        <div class="accordion-item_@faq.Id">
+                    @*<div class="accordion" id="accordion_@faq.Id">
+                    <div class="accordion-item_@faq.Id accordion-item col-12">
+                        <a>@faq.Question</a>
+
+                        <div class="content">
+                            <p> @Html.Raw(faq.Description)</p>
+                        </div>
+                    </div>
+
+                </div>*@
+
+
+                        <div class="accordion-item">
                             <a>@faq.Question</a>
 
                             <div class="content">
-                                <p>@faq.Description</p>
+                                <p> @Html.Raw(faq.Description)</p>
                             </div>
                         </div>
-
-                    </div>
-
                 }
             }
-
-
         </div>
+
     </div>
+
 
 </section>
 
 
-<div class="container">
 
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="accordion">
-        <div class="accordion-item">
-            <a>Why is the moon sometimes out during the day?</a>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <a>Why is the sky blue?</a>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <a>Will we ever discover aliens?</a>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <a>How much does the Earth weigh?</a>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-            </div>
-        </div>
-        <div class="accordion-item">
-            <a>How do airplanes stay up?</a>
-            <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
-            </div>
-        </div>
-    </div>
-
-</div>
 <style>
+    @@font-face {
+        font-family: Ionicons;
+        src: url('/fonts/ionicons.ttf');
+    }
 
+    .accordion-item{
+        width:100%;
+    }
 
     *, *:before, *:after {
         -webkit-box-sizing: inherit;
@@ -92,10 +69,10 @@
     .container {
         margin: 0 auto;
         padding: 4rem;
-        width:  90%;
+        width:  75rem;
     }
 
-  
+
 
     .accordion a {
         position: relative;
@@ -111,7 +88,7 @@
         width: 100%;
         padding: 1rem 3rem 1rem 1rem;
         color: #7288a2;
-        font-size: 1.15rem;
+        font-size: 1rem;
         font-weight: 400;
         border-bottom: 1px solid #e5e5e5;
     }
@@ -120,7 +97,7 @@
         .accordion a:hover::after {
             cursor: pointer;
             color: #03b5d2;
-            
+
         }
 
             .accordion a:hover::after {

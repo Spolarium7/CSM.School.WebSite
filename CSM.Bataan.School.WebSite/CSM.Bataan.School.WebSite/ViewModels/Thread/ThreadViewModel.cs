@@ -7,6 +7,8 @@ namespace CSM.Bataan.School.WebSite.ViewModels.Thread
 {
     public class ThreadViewModel
     {
+        public Guid? UserId { get; set; }
+
         public Guid? ThreadId { get; set; }
 
         public string Title { get; set; }

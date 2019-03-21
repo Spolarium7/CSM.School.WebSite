@@ -3,5 +3,8 @@
     Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
 }
 
+<link class="hidden" id="@Model.UserId"/>
+
 <h2>@Model.Title</h2>
 @Html.Raw(Model.Content)
+

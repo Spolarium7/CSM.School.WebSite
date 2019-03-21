@@ -8,13 +8,7 @@
 
 
 <section id="thread-container">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                <!-- start article 1 -->
-                <article class="blog-post">
-                    <div class="post-heading">
-                        <h3><a href="#">Threads</a></h3>
+    <h3><a href="#">Threads</a></h3>
 
                         @{
 
@@ -22,27 +16,18 @@
                             {
 
                                 <div class="row">
-                                   
                                     <div class="span6">
                                         <div class="post-image">
-                                            <a href="#"><img src="~/threads/@thread.Id/thumbnail.png" style="height:450px; width:600px" alt="" /></a>
+                                            <a href="#"><img src="~/threads/@thread.Id/banner.png" style="height:350px; width:1200px;" alt="@thread.UserId" /></a>
                                         </div>
                                     </div>
                                     <div class="span6">
                                         <h3>@thread.Title</h3>
                                         <div class="clearfix">
                                         </div>
-
                                         <dl>
-
-                                            <dt>Description</dt>
-                                            <dd> @thread.Description</dd>
-
-                                            <dt>Update At</dt>
                                             <dd class="info-line"><span class="time">@thread.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></dd>
-
-
-
+                                            <dd> @thread.Description</dd>
 
                                         </dl>
                                         <a href="~/threads/@thread.Id"><button class="btn btn-primary">Read More </button></a>
@@ -87,15 +72,23 @@
                         calling = false;
                         $.each(rsp, function (index, item) {
                             var itemTimestamp = new Date(Date.parse(item.timestamp));
-                            var markup = "<article>";
-                            markup = markup + "<div class='info'>";
-                            markup = markup + "<img class='card-img-top' src='../threads/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
-                            markup = markup + "<h3>" + item.title +  "</h3>";
-                            markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
-                            markup = markup + "<p>" + item.description + "</p>";
-                            markup = markup + "<p><a href='~/threads/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";
+                            var markup = "<div class='row'>";
+                            markup = markup + "<div class='span6'>";
+                            markup = markup + "<div class='post-image'>";   
+                            markup = markup + "<a href='#'><img src='../threads/" + item.id + "/banner.png'  style='height:350px; width:1200px;' alt="+ item.id +"/></a>";
                             markup = markup + "</div>";
-                            markup = markup + "</article>";
+                            markup = markup + "</div>";
+                            markup = markup + " <div class='span6'>";
+                            markup = markup + "<h3>" + item.title + "</h3>";
+                            markup = markup + "  <div class='clearfix'>";
+                            markup = markup + "</div>";
+                            markup = markup + "<dl>";
+                            markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, dd MMMM yyyy hh:mm tt") + "</span></dd>";
+                            markup = markup + "<dd>" + item.description + "</dd>";
+                            markup = markup + "</dl>";
+                            markup = markup + "<a href='~/threads/" + item.Id + "><button class='btn btn-primary'>Read More</button></a>";
+                            markup = markup + "</div>";
+                            markup = markup + "</div>";
 
                             $("#thread-container").append(markup);
                         });
