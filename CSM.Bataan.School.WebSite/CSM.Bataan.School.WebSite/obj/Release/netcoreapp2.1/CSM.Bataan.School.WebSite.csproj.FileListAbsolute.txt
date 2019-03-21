@@ -135,5 +135,7 @@ C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.We
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\AlumniProfiles\UpdateTitle.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\AlumniProfiles\UpdateDescription.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Certifications\Index.g.cshtml.cs
-C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Certifications\Index_old.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Account\AccessDenied.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\AlumniProfiles\Thumbnail.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\AlumniProfiles\Index.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\AlumniProfiles\AlumniProfile.g.cshtml.cs

@@ -16,5 +16,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Shared
         public DateTime PostExpiry { get; set; }
 
         public string Filters { get; set; }
+
+        public int Limit { get; set; }
     }
 }

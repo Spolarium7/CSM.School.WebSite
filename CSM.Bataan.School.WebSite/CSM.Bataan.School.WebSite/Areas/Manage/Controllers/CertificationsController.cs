@@ -159,7 +159,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
         [Authorize(Policy = "AuthorizeContentAdmin")]
         [HttpPost, Route("manage/certifications/update")]
-        public IActionResult UpdateTitle(UpdateViewModel model)
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
         {
             var certification = this._context.Certifications.FirstOrDefault(n => n.Id == model.Id);
 
