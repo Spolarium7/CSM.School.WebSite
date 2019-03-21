@@ -35,13 +35,13 @@
                                 <div class="col-sm-9">
                                     <h4>@schoolevent.Title</h4>
                                     <p>@schoolevent.Description</p>
-                                    <ul>
+                                    <ul class="list-inline">
 
                                         <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @schoolevent.EventStart - @schoolevent.EventEnd</li>
-                                        <li><a href="~/manage/schoolevents/update-title/@schoolevent.Id" title="Update Title"><i class="fas fa-file"></i></a></li>
-                                        <li><a href="~/manage/schoolevents/update-content/@schoolevent.Id" title="Update Content"><i class="fas fa-file"></i></a></li>
-                                        <li><a href="~/manage/schoolevents/update-thumbnail/@schoolevent.Id" title="Update Thumbnail"><i class="fas fa-image"></i></a></li>
-                                        <li><a href="~/manage/schoolevents/update-banner/@schoolevent.Id" title="Update Banner"><i class="fas fa-image"></i></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/schoolevents/update-content/@schoolevent.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/schoolevents/update-title/@schoolevent.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/schoolevents/update-banner/@schoolevent.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/schoolevents/update-thumbnail/@schoolevent.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
 
                                         @{
                                             if (schoolevent.IsPublished)
