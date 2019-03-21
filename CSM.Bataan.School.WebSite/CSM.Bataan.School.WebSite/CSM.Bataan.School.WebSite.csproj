@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\vendor\NewFolder\**" />
+    <Content Remove="wwwroot\vendor\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\vendor\NewFolder\**" />
+    <None Remove="wwwroot\vendor\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt-Core" Version="2.0.0" />
     <PackageReference Include="CodeKicker.BBCode-NETStandard" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -17,10 +24,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\faqs\" />
+    <Folder Include="wwwroot\images\schoolevents\" />
     <Folder Include="wwwroot\images\threads\" />
     <Folder Include="wwwroot\images\users\" />
     <Folder Include="wwwroot\images\schoolfacilities\" />
-    <Folder Include="wwwroot\vendor\NewFolder\" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@
 }
 
 
-<h3>Index</h3>
+<h2>Index</h2>
 
 
 <div class="card-container col-md-8">
@@ -40,6 +40,9 @@
                                         <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @schoolevent.EventStart - @schoolevent.EventEnd</li>
                                         <li><a href="~/manage/schoolevents/update-title/@schoolevent.Id" title="Update Title"><i class="fas fa-file"></i></a></li>
                                         <li><a href="~/manage/schoolevents/update-content/@schoolevent.Id" title="Update Content"><i class="fas fa-file"></i></a></li>
+                                        <li><a href="~/manage/schoolevents/update-thumbnail/@schoolevent.Id" title="Update Thumbnail"><i class="fas fa-image"></i></a></li>
+                                        <li><a href="~/manage/schoolevents/update-banner/@schoolevent.Id" title="Update Banner"><i class="fas fa-image"></i></a></li>
+
                                         @{
                                             if (schoolevent.IsPublished)
                                             {
