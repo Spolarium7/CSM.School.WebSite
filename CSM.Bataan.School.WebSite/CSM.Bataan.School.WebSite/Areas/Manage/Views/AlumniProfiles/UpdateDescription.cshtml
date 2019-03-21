@@ -1,0 +1,25 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.AlumniProfiles.UpdateDescriptionViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="hero-unit">
+        <form action="~/manage/alumniprofiles/update-description" method="post">
+            @Html.ValidationSummary()
+            <input type="hidden" name="AlumniProfileId" value="@Model.AlumniProfileId" />
+
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea id="description" name="Description" >@Model.Description</textarea>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/alumniprofiles/Index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
