@@ -1,0 +1,217 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.AlumniProfiles.IndexViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+
+
+
+
+<a href="~/manage/alumniprofiles/create"><button type="button" class="btn btn-flat btn-primary">Create<i class="icon-1x icon-plus-sign"></i></button></a>
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                <form class="form-search">
+                    <input placeholder="Type Something.." value="@Model.AlumniProfiles.Keyword" type="text" class="input-medium search-query " />
+                    <button type="submit" class="btn btn-flat btn-primary">Search</button>
+                </form>
+
+                <h3><a href="#">Alumni Profile View</a></h3>
+                @{
+                    if (Model.AlumniProfiles != null)
+                    {
+                        if (Model.AlumniProfiles.Items.Count > 0)
+                        {
+                            foreach (AlumniProfile alumniprofile in Model.AlumniProfiles.Items)
+                            {
+                                <!-- start article 1 -->
+                                <article class="blog-post">
+                                    <div class="post-heading">
+                                        <div class="row">
+                                            <div class="span6">
+                                                <div class="post-image">
+                                                    <a href="#"><img src="~/alumniprofiles/@alumniprofile.Id/thumbnail.png" style="height:450px; width:600px" alt="" /></a>
+                                                </div>
+                                            </div>
+                                            <div class="span6">
+                                                <h3>@alumniprofile.Company</h3>
+                                                <div class="clearfix">
+                                                </div>
+
+                                                <dl>
+                                                    <dt>Position</dt>
+                                                    <dd> @alumniprofile.Position</dd>
+                                                    <dt>Location</dt>
+                                                    <dd> @alumniprofile.Location</dd>
+                                                    <dt>Description</dt>
+                                                    <dd> @alumniprofile.Description</dd>
+                                                    <dt>From Date</dt>
+                                                    <dd> @alumniprofile.FromDate</dd>
+
+                                                    <dt>To Date</dt>
+                                                    <dd> @alumniprofile.ToDate</dd>
+
+
+
+
+                                                </dl>
+                                                <div class="widget">
+                                                    <h4></h4>
+                                                    <ul class="social-links">
+                                                        <li><a href="~/manage/alumniprofiles/update-company/@alumniprofile.Id" title="Update Title"><i class="icon-rounded icon-32 icon-file"></i></a></li>
+                                                        <li><a href="~/manage/alumniprofiles/update-description/@alumniprofile.Id" title="Update Description"><i class="icon-rounded icon-32 icon-file-alt"></i></a></li>
+                                                        <li><a href="~/manage/alumniprofiles/update-thumbnail/@alumniprofile.Id" title="Update Thumbnail"><i class="icon-rounded icon-32 icon-picture"></i></a></li>
+                                                        <li><a href="~/manage/alumniprofiles/update-info/@alumniprofile.Id" title="Update Info"><i class="icon-rounded icon-32 icon-envelope"></i></a></li>
+                                                        @{
+                                                            if (alumniprofile.IsPublished)
+                                                            {
+                                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@alumniprofile.Id','@alumniprofile.Company')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li><a href="#" title="Publish" onclick="confirmPublish('@alumniprofile.Id','@alumniprofile.Company')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                                <!-- end article 1 -->
+                            }
+                            <div class="pagination">
+                                <ul>
+                                    <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=1">First</a></li>
+                                    @{ if (Model.AlumniProfiles.PageIndex > 1)
+                                        {
+                                            <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@(Model.AlumniProfiles.PageIndex - 1)">@(Model.AlumniProfiles.PageIndex - 1)</a></li>
+                                        }
+                                    }
+                                    <li class="page-item"><a class="page-link active" href="#">@(Model.AlumniProfiles.PageIndex)</a></li>
+                                    @{ if ((Model.AlumniProfiles.PageIndex + 1) <= Model.AlumniProfiles.PageCount)
+                                        {
+                                            <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@(Model.AlumniProfiles.PageIndex + 1)">@(Model.AlumniProfiles.PageIndex + 1)</a></li>
+                                        }
+                                    }
+                                    <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@Model.AlumniProfiles.PageCount">Last</a></li>
+                                </ul>
+                            </div>
+
+                        }
+                    }
+                }
+
+
+
+            </div>
+            <div class="span4">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--MODAL UNPUBLISH-->
+<div class="modal hide fade" id="modal-unpublish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Unpublish Alumni Post</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+<!--MODAL PUBLISH-->
+<div class="modal hide fade " id="modal-publish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Publish Alumni Post</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="modal-publish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+
+@section pageStyles{
+
+}
+
+
+
+@section pageScripts{
+    <script>
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "/manage/ads?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+        ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+        function confirmUnpublish(id, title) {
+            $("#modal-unpublish-title").html(title);
+            $("#modal-unpublish-button").attr("onclick", "UnpublishAds('" + id + "')");
+            $("#modal-unpublish").modal("show");
+        }
+        function UnpublishAds(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/ads/unpublish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+        //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+        function confirmPublish(id, title) {
+            $("#modal-publish-title").html(title);
+            $("#modal-publish-button").attr("onclick", "PublishAds('" + id + "')");
+            $("#modal-publish").modal("show");
+        }
+        function PublishAds(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/ads/publish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,36 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Achievers.UpdateTitleViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<h2>Update Title Achievers</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="~/manage/achievers/update-title" method="post">
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <label for="Title">Title:</label>
+                <input type="text" class="form-control" name="Title" value="@Model.Title" />
+            </div>
+            <div class="form-group">
+                <label for="PostExpiry">Post Expiry:</label>
+                <input type="text" class="form-control" name="PostExpiry" id="Post Expiry" value="@Model.PostExpiry" />
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="~/manage/achievers/Index" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section pageScripts{
+    <script>
+        $(function () {
+            $("#PostExpiry").datepicker({ dateFormat: 'dd/mm/yy' });
+        });
+    </script>
+}

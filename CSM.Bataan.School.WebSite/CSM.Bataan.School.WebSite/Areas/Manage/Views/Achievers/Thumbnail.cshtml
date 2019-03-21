@@ -1,0 +1,25 @@
+﻿@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Achievers.ThumbnailViewModel
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<h2>Achievers Thumbnail</h2>
+<div class="row">
+    <div class="col-md-6">
+        <form action="~/manage/achievers/update-thumbnail" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="hidden" name="AchieverId" value="@Model.AchieverId" />
+                <label for="Thumbnail">Thumbnail:</label><br />
+                <img src="~/achievers/@Model.AchieverId/thumbnail.png" style="width:150px;height:150px;" /></br></br>
+                <input type="file" class="form-control" name="thumbnail" />
+                @Html.ValidationSummary()
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Upload" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

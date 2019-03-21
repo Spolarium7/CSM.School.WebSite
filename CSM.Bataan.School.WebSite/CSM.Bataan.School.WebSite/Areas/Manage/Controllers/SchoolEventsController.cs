@@ -11,6 +11,7 @@ using System.IO;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
@@ -26,6 +27,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/schoolevents/index")]
         [HttpGet, Route("manage/schoolevents")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
@@ -68,12 +70,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/schoolevents/create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/schoolevents/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -99,6 +103,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return View();
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/schoolevents/unpublish")]
         public IActionResult Unpublish(SchoolEventIdViewModel model)
         {
@@ -113,6 +118,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/schoolevents/publish")]
         public IActionResult Publish(SchoolEventIdViewModel model)
         {
@@ -128,7 +134,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/schoolevents/update-title/{schooleventId}")]
         public IActionResult UpdateTitle(Guid? schooleventId)
         {
@@ -151,6 +157,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Create");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/schoolevents/update-title")]
         public IActionResult UpdateTitle(UpdateTitleViewModel model)
         {
@@ -175,7 +182,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/schoolevents/update-content/{schooleventId}")]
         public IActionResult UpdateContent(Guid? schooleventId)
         {
@@ -192,6 +199,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/schoolevents/update-content/")]
         public IActionResult UpdateContent(UpdateContentViewModel model)
         {
@@ -207,7 +216,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/schoolevents/attach-image")]
         public async Task<string> AttachImage(AttachImageViewModel model)
         {
@@ -244,12 +253,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return "OK:/schoolevents/" + model.SchoolEventId.ToString() + "/" + imgUrl;
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/schoolevents/update-thumbnail/{schooleventId}")]
         public IActionResult Thumbnail(Guid? schooleventId)
         {
             return View(new ThumbnailViewModel() { SchoolEventId = schooleventId });
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/schoolevents/update-thumbnail")]
         public async Task<IActionResult> Thumbnail(ThumbnailViewModel model)
         {
@@ -293,12 +304,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Thumbnail", new { SchoolEventId = model.SchoolEventId });
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/schoolevents/update-banner/{schooleventId}")]
         public IActionResult Banner(Guid? schooleventId)
         {
             return View(new BannerViewModel() { SchoolEventId = schooleventId });
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/schoolevents/update-banner")]
         public async Task<IActionResult> Banner(BannerViewModel model)
         {
