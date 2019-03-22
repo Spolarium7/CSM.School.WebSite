@@ -1,0 +1,68 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Ads.IndexViewModel
+@using CSM.Bataan.School.WebSite.Infrastructure.Security;
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+<section class="posts-con" id="post-container">
+
+    @{
+        foreach (Ad ads in Model.Ads)
+        {
+            <article>
+                <div class="info">
+                    <img class="card-img-top" src="~/ads/@ads.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">
+                    <p>@ads.Title</p>
+                    <p class="info-line"><span class="time">@ads.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
+                    <p>@ads.Description</p>
+                    <p><a href="~/ads/@ads.Id" class="btn btn-primary">Read More &rarr;</a></p>
+                </div>
+            </article>
+        }
+    }
+
+</section>
+
+
+
+@section pageScripts{`
+    <script src="~/js/date_format.js"></script>
+    <script>
+    var page = @("1");
+    var calling = false;
+    $(window).scroll(function () {
+        if (($(window).height() + $(window).scrollTop()) + 1
+            >= $(document).height()) {
+
+            if (calling == false) {
+                calling = true;
+                $.ajax({
+                    type: "GET",
+                    url: "/ads/feed?pageIndex=" + (page + 1),
+                    success: function (rsp) {
+                        page = page + 1;
+                        calling = false;
+                        $.each(rsp, function (index, item) {
+                            var itemTimestamp = new Date(Date.parse(item.timestamp));
+                            var markup = "<article>";
+                            markup = markup + "<div class='info'>";
+                            markup = markup + "<img class='card-img-top' src='../ads/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
+                            markup = markup + "<h3>" + item.title +  "</h3>";
+                            markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
+                            markup = markup + "<p>" + item.description + "</p>";
+                            markup = markup + "<p><a href='~/ads/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";
+                            markup = markup + "</div>";
+                            markup = markup + "</article>";
+
+                            $("#post-container").append(markup);
+                        });
+                    }
+                });
+            }
+        }
+    });
+    </script>
+}
