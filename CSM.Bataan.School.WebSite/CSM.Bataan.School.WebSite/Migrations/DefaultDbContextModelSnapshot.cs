@@ -41,6 +41,28 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     b.ToTable("Achievers");
                 });
 
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Ad", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("PostExpiry");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ads");
+                });
+
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.AlumniProfile", b =>
                 {
                     b.Property<Guid?>("Id")
@@ -109,6 +131,32 @@ namespace CSM.Bataan.School.WebSite.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CertificationRegistrations");
+                });
+
+            modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Course", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Content");
+
+                    b.Property<string>("CourseCode");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsPublished");
+
+                    b.Property<DateTime>("PostExpiry");
+
+                    b.Property<DateTime>("Timestamp");
+
+                    b.Property<string>("Title");
+
+                    b.Property<DateTime>("Year");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("CSM.Bataan.School.WebSite.Infrastructure.Data.Models.Faq", b =>

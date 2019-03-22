@@ -27,7 +27,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers
         public DbSet<SchoolEvent> SchoolEvents { get; set; }
         public DbSet<Achiever> Achievers { get; set; }
         public DbSet<AlumniProfile> AlumniProfiles { get; set; }
-
+        public DbSet<Ad> Ads { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         public DbSet<NewsItem> News { get; set; }
         public DbSet<NewsGroup> NewsGroups { get; set; }

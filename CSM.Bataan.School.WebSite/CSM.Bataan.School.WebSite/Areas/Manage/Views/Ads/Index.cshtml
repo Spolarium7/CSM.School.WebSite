@@ -1,0 +1,215 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Ads.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+
+
+
+<div class="card-container col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input id="searchKeyword" type="text" class="form-control" value="@Model.Ads.Keyword" placeholder="Search by title" aria-label="Search title" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="searchTrigger()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @{
+        if (Model.Ads != null)
+        {
+            if (Model.Ads.Items.Count > 0)
+            {
+                foreach (Ad ads in Model.Ads.Items)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/ads/@ads.Id/thumbnail.png" style="width:150px;height:150px;" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>@ads.Title</h4>
+                                    <p>@ads.Description</p>
+                                    <ul class="list-inline">
+
+
+                                        <li class="list-inline-item"><a href="~/manage/ads/update-content/@ads.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/ads/update-title/@ads.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/ads/update-banner/@ads.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/ads/update-thumbnail/@ads.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+
+                                        @{
+                                            if (ads.IsPublished)
+                                            {
+                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@ads.Id','@ads.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a href="#" title="Publish" onclick="confirmPublish('@ads.Id','@ads.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="pagination">
+                    <ul>
+                        <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=1">First</a></li>
+                        @{ if (Model.Ads.PageIndex > 1)
+                            {
+                                <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@(Model.Ads.PageIndex - 1)">@(Model.Ads.PageIndex - 1)</a></li>
+                            }
+                        }
+                        <li class="page-item"><a class="page-link active" href="#">@(Model.Ads.PageIndex)</a></li>
+                        @{ if ((Model.Ads.PageIndex + 1) <= Model.Ads.PageCount)
+                            {
+                                <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@(Model.Ads.PageIndex + 1)">@(Model.Ads.PageIndex + 1)</a></li>
+                            }
+                        }
+                        <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@Model.Ads.PageCount">Last</a></li>
+                    </ul>
+                </div>
+
+            }
+        }
+    }
+
+
+</div>
+
+
+
+
+
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-unpublish">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Unpublish Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-publish">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Publish Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-publish-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section pageStyles{
+    <style>
+        h2 {
+            margin-top: 30px;
+        }
+
+        .card-container {
+            margin-bottom: 30px;
+        }
+
+        .card {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+}
+
+
+@section pageScripts{
+    <script>
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "/manage/ads?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+        ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+        function confirmUnpublish(id, title) {
+            $("#modal-unpublish-title").html(title);
+            $("#modal-unpublish-button").attr("onclick", "UnpublishAds('" + id + "')");
+            $("#modal-unpublish").modal("show");
+        }
+        function UnpublishAds(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/ads/unpublish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+        //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+        function confirmPublish(id, title) {
+            $("#modal-publish-title").html(title);
+            $("#modal-publish-button").attr("onclick", "PublishAds('" + id + "')");
+            $("#modal-publish").modal("show");
+        }
+        function PublishAds(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/ads/publish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}
