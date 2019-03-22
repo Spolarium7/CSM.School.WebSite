@@ -1,0 +1,251 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Courses.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                <form class="form-search">
+                    <input placeholder="Type Something.." value="@Model.Courses.Keyword" type="text" class="input-medium search-query " />
+                    <button type="submit" class="btn btn-flat btn-primary">Search</button>
+                </form>
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Year</th>
+                                    <th>CourseCode</th>
+                                    <th>Content</th>
+                                    <th>Description</th>
+                                    <th>Post Expiry</th>
+                                    <th>Edit Info</th>
+
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Year</th>
+                                    <th>CourseCode</th>
+                                    <th>Content</th>
+                                    <th>Description</th>
+                                    <th>Post Expiry</th>
+                                    <th>Edit Info</th>
+
+                                </tr>
+                            </tfoot>
+                            @{
+                                if (Model.Courses != null)
+                                {
+                                    if (Model.Courses.Items.Count > 0)
+                                    {
+                                        foreach (Course course in Model.Courses.Items)
+                                        {
+
+                                            <tbody class="row">
+                                                <tr>
+
+                                                    <td>
+                                                        @course.Title
+                                                    </td>
+                                                    <td>
+                                                        @course.Year
+                                                    </td>
+                                                    <td>
+                                                        @course.CourseCode
+                                                    </td>
+
+                                                    <td>
+                                                        @course.Content
+                                                    </td>
+
+                                                    <td>
+                                                        @course.Description
+                                                    </td>
+
+                                                    <td>
+                                                        @course.PostExpiry
+                                                    </td>
+
+
+                                                    <td>
+                                                        <div class="widget">
+                                                            <h4></h4>
+                                                            <ul class="list-inline">
+
+
+                                                                <li class="list-inline-item"><a href="~/manage/courses/update-content/@course.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                                                <li class="list-inline-item"><a href="~/manage/courses/update-title/@course.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                                                <li class="list-inline-item"><a href="~/manage/courses/update-banner/@course.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                                                <li class="list-inline-item"><a href="~/manage/courses/update-thumbnail/@course.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+
+                                                                @{
+                                                                    if (course.IsPublished)
+                                                                    {
+                                                                        <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@course.Id','@course.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li><a href="#" title="Publish" onclick="confirmPublish('@course.Id','@course.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+
+
+                                                </tr>
+
+
+
+
+                                            </tbody>
+
+
+
+
+                                        }
+                                        <div class="pagination">
+                                            <ul>
+                                                <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=1">First</a></li>
+                                                @{ if (Model.Courses.PageIndex > 1)
+                                                    {
+                                                        <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@(Model.Courses.PageIndex - 1)">@(Model.Courses.PageIndex - 1)</a></li>
+                                                    }
+                                                }
+                                                <li class="page-item"><a class="page-link active" href="#">@(Model.Courses.PageIndex)</a></li>
+                                                @{ if ((Model.Courses.PageIndex + 1) <= Model.Courses.PageCount)
+                                                    {
+                                                        <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@(Model.Courses.PageIndex + 1)">@(Model.Courses.PageIndex + 1)</a></li>
+                                                    }
+                                                }
+                                                <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@Model.Courses.PageCount">Last</a></li>
+                                            </ul>
+                                        </div>
+
+                                    }
+                                }
+                            }
+
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </div>
+
+
+        </div>
+        <div class="span4">
+
+        </div>
+    </div>
+    </div>
+</section>
+
+<!--MODAL UNPUBLISH-->
+<div class="modal hide fade" id="modal-unpublish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Unpublish Alumni Post</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+<!--MODAL PUBLISH-->
+<div class="modal hide fade " id="modal-publish">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Publish Alumni Post</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="modal-publish-button">Yes</button>
+        <button type="button" class="btn" data-dismiss="modal">No</button>
+    </div>
+</div>
+
+
+
+@section pageStyles{
+
+}
+
+
+
+@section pageScripts{
+    <script>
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "/manage/courses?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+        ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+        function confirmUnpublish(id, title) {
+            $("#modal-unpublish-title").html(title);
+            $("#modal-unpublish-button").attr("onclick", "UnpublishCourses('" + id + "')");
+            $("#modal-unpublish").modal("show");
+        }
+        function UnpublishCourses(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/courses/unpublish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+        //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+        function confirmPublish(id, title) {
+            $("#modal-publish-title").html(title);
+            $("#modal-publish-button").attr("onclick", "PublishCourses('" + id + "')");
+            $("#modal-publish").modal("show");
+        }
+        function PublishCourses(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/courses/publish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+    </script>
+}
