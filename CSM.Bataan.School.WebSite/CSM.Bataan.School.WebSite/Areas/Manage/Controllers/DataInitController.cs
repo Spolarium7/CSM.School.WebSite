@@ -1028,16 +1028,16 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("c77c4837-a204-431d-9002-18a32448ec41"),
-                        Description = 
-                        "1. CALL(047) 633-5531 or Email csm.bataan888@yahoo.com"+
-                        "2. For New Students Submit admission requirements at the Register's Office and proceed to advising of subjects OIC-Principal - Basic Education Dept. Dean/OIC - College Head - Higher Education Dept. For OLD Student : Duly Signed Clearance "+
-                        "3. For NEW/TRANSFEREES proceed to Guidance and Counseling Office for the Schedule of Assessment Exam, proceed to designated room for the measurement of uniform, For OLD Students proceed to Step 5 "+
-                        "4. proceed to Step 5  "+
-                        "5. Proceed to Finance Office for the assessment of Fees " + 
-                        "6. Payment of assesed Tuition and other fees "+
+                        Description =
+                        "1. CALL(047) 633-5531 or Email csm.bataan888@yahoo.com" +
+                        "2. For New Students Submit admission requirements at the Register's Office and proceed to advising of subjects OIC-Principal - Basic Education Dept. Dean/OIC - College Head - Higher Education Dept. For OLD Student : Duly Signed Clearance " +
+                        "3. For NEW/TRANSFEREES proceed to Guidance and Counseling Office for the Schedule of Assessment Exam, proceed to designated room for the measurement of uniform, For OLD Students proceed to Step 5 " +
+                        "4. proceed to Step 5  " +
+                        "5. Proceed to Finance Office for the assessment of Fees " +
+                        "6. Payment of assesed Tuition and other fees " +
                         "7. You are now officially ENROLLED (SPENDS A DAY AS A MONTESSORIAN!)",
                         Question = "How to inquire ",
-                        Answer = "CSM Bataan Faqs - Inquire",   
+                        Answer = "CSM Bataan Faqs - Inquire",
                         IsPublished = true,
                         PostExpiry = DateTime.Parse("December 30 2019")
 
@@ -1080,42 +1080,42 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                         Description = "Under Basic Education Curriculum:" +
                         "<p>CASA Department</p> " +
                         "Toddler 		2-3 yrs. old" +
-                        "Junior Casa	3-4 yrs. old " + 
-                        "Senior Casa	4-5 yrs. old"+
-                        "Advanced Casa	5-6 yrs. old"+
-                        "<p>Primary Department</p> "+ 
-                        "* Grade One,Grade Two"+
-                        "* Grade Three"+
-                        "<p>Middle School Department</p>"+
-                        "* Grade Four"+
-                        "* Grade Five"+
-                        "* Grade Six"+
-                        "<p>Junior High School Department</p>"+
-                        "* Grade Seven"+
-                        "* Grade Eight "+
-                        "* Grade Nine"+
-                        "* Grade Ten"+
-                        "<p>Senior High School Department</p>"+
-                        "* Grade Eleven"+
-                        "* Grade Twelve"+
-                        "Under Higher Education Department: "+
-                        "* Bachelor of Science in Business Administration"+
-                        "* Major in the following: "+
-                        "* Human Resource Development Management"+
-                        "* Financial Management"+
-                        "* Operations Management"+
-                        "* Marketing Management "+
-                        "* Bachelor of Science in Criminology"+
-                        "* Bachelor of Science in Customs Administration"+
-                        "* Bachelor of Science in Tourism Management"+
-                        "* Bachelor of Science in Information Systems"+
-                        "* Associate in Computer Technology"+
-                        "* Hotel and Restaurant Services"+
-                        "With the following Competencies: "+
-                        "* Food and Beverage Services NC II "+
-                        "* Front Office Services NC II "+
-                        "* Housekeeping NC II"+
-                        "* Computer Systems Servicing NC II"+
+                        "Junior Casa	3-4 yrs. old " +
+                        "Senior Casa	4-5 yrs. old" +
+                        "Advanced Casa	5-6 yrs. old" +
+                        "<p>Primary Department</p> " +
+                        "* Grade One,Grade Two" +
+                        "* Grade Three" +
+                        "<p>Middle School Department</p>" +
+                        "* Grade Four" +
+                        "* Grade Five" +
+                        "* Grade Six" +
+                        "<p>Junior High School Department</p>" +
+                        "* Grade Seven" +
+                        "* Grade Eight " +
+                        "* Grade Nine" +
+                        "* Grade Ten" +
+                        "<p>Senior High School Department</p>" +
+                        "* Grade Eleven" +
+                        "* Grade Twelve" +
+                        "Under Higher Education Department: " +
+                        "* Bachelor of Science in Business Administration" +
+                        "* Major in the following: " +
+                        "* Human Resource Development Management" +
+                        "* Financial Management" +
+                        "* Operations Management" +
+                        "* Marketing Management " +
+                        "* Bachelor of Science in Criminology" +
+                        "* Bachelor of Science in Customs Administration" +
+                        "* Bachelor of Science in Tourism Management" +
+                        "* Bachelor of Science in Information Systems" +
+                        "* Associate in Computer Technology" +
+                        "* Hotel and Restaurant Services" +
+                        "With the following Competencies: " +
+                        "* Food and Beverage Services NC II " +
+                        "* Front Office Services NC II " +
+                        "* Housekeeping NC II" +
+                        "* Computer Systems Servicing NC II" +
                         "* Visual Graphic Design NC II",
                         Question = "What programs does CSM offers",
                         Answer = "CSM Bataan Faqs - CSM offers",
@@ -1125,18 +1125,18 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     }
                 );
 
-                
+
 
                 //public faqs 5
                 this._context.Faqs.Add(
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("97cff192-be4f-4394-ad8e-0bc5676d643c"),
-                        Description = 
-                        "Complete Uniform"+
-                        "I.D Student"+
-                        "Short hair no color "+
-                        "No accessories"+
+                        Description =
+                        "Complete Uniform" +
+                        "I.D Student" +
+                        "Short hair no color " +
+                        "No accessories" +
                         "Gadget is ban in school",
                         Question = "What are the rules of CSM",
                         Answer = "CSM Bataan Faqs - Illegal Items",
@@ -1180,10 +1180,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("28520b43-07d8-45dd-b984-28978f85c87b"),
-                        Description = 
-                        "Long Brown Envelope" + 
-                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" + 
-                        "Medical Certificate" + 
+                        Description =
+                        "Long Brown Envelope" +
+                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" +
+                        "Medical Certificate" +
                         "Photocopy of PSA Birth Certificate.",
 
                         Question = "What are the requirements for admission/ enrollment for CASA Student (New Student)",
@@ -1213,12 +1213,12 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("4443bc5c-9715-4759-a642-42c0f9bf5610"),
-                        Description = 
-                        "Long Brown Envelope" + 
+                        Description =
+                        "Long Brown Envelope" +
                         "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" +
-                        "Medical Certificate" + 
-                        "Photocopy of PSA Birth Certificate" + 
-                        "Form 138/ Form 137" + 
+                        "Medical Certificate" +
+                        "Photocopy of PSA Birth Certificate" +
+                        "Form 138/ Form 137" +
                         "Good Moral Certificate",
 
                         Question = "What are the requirements for admission/ enrollment for Grade School,Junior High School and Senior High School Student (New Student)?",
@@ -1248,12 +1248,12 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("0f243c0c-5fbc-4b16-8a30-4355060f637a"),
-                        Description = "Long Brown Envelope" + 
-                        "Long Plastic Envelope" + 
+                        Description = "Long Brown Envelope" +
+                        "Long Plastic Envelope" +
                         "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" +
-                        "Photocopy of PSA Birth Certificate" + 
-                        "Form 138/ Form 137" + 
-                        "Good Moral Certificate" + 
+                        "Photocopy of PSA Birth Certificate" +
+                        "Form 138/ Form 137" +
+                        "Good Moral Certificate" +
                         "Photocopy of Diploma",
 
                         Question = "What are the requirements for admission/ enrollment for College Student (New Student/ Freshman)?",
@@ -1269,10 +1269,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("50a04b3c-f4ff-4a9b-a7e5-396e97ea55ed"),
-                        Description = 
-                        "Long Brown Envelope" + 
-                        "Long Plastic Envelope" + 
-                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" + 
+                        Description =
+                        "Long Brown Envelope" +
+                        "Long Plastic Envelope" +
+                        "2x2 Pictures (1pc.) 1x1 Picture (2pcs.)" +
                         "Photocopy of PSA Birth Certificate" +
                         "Honorable Dismissal" +
                         "Certificate of Grades for Evaluation" +
@@ -1319,10 +1319,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     new Infrastructure.Data.Models.Faq()
                     {
                         Id = Guid.Parse("c571709e-e086-4dce-b1d1-b9d6e822612d"),
-                        Description = 
-                        "CSM offers scholarship programs in Computer Systems Servicing NC II"+
-                        "Front Office Services NC II"+
-                        "Food and Beverage Services NC II"+
+                        Description =
+                        "CSM offers scholarship programs in Computer Systems Servicing NC II" +
+                        "Front Office Services NC II" +
+                        "Food and Beverage Services NC II" +
                         "Housekeeping NC II " +
                         "It is a free training under Training for Work Scholarship Program by Technical Education and Skills Development Authority (TESDA).",
 
@@ -1353,11 +1353,11 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                    new Infrastructure.Data.Models.Faq()
                    {
                        Id = Guid.Parse("f5319415-4005-4fd6-b543-b49a0f5c0ed5"),
-                       Description = 
-                       "For CASA to Senior Highschool"+
-                       "1. Accountancy in business management "+
-                       "2. TVL(Technical Vocation Livelihood), ICT (Information & Communication Technology), HE (Home Economics)"+
-                       "3. HUMMS (Humanities & Social Science)<hr> GAS (General Academic Strand) "+
+                       Description =
+                       "For CASA to Senior Highschool" +
+                       "1. Accountancy in business management " +
+                       "2. TVL(Technical Vocation Livelihood), ICT (Information & Communication Technology), HE (Home Economics)" +
+                       "3. HUMMS (Humanities & Social Science)<hr> GAS (General Academic Strand) " +
                        "4. STEM (Sciences Technology,Enginnering & Mathematics",
 
                        Question = "What are the requirements for STRAND/TRACK offered" + "(For CASA to Senior Highschool)",
@@ -1373,10 +1373,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                    new Infrastructure.Data.Models.Faq()
                    {
                        Id = Guid.Parse("1a1438e3-6e26-45e5-9d87-855340ebda96"),
-                       Description = 
-                       "COMPUTER SYSTEMS SERVICING NC II"+
-                       "FRONT OFFICE SERVICES NC II"+
-                       "FOOD & BEVERAGES SERVICES NC II "+
+                       Description =
+                       "COMPUTER SYSTEMS SERVICING NC II" +
+                       "FRONT OFFICE SERVICES NC II" +
+                       "FOOD & BEVERAGES SERVICES NC II " +
                        "HOUSEKEEPING NC.",
 
                        Question = "What are the TRAINING & ASSESSMENT CENTER of CSM ?",
@@ -1391,8 +1391,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new Infrastructure.Data.Models.Faq()
                  {
                      Id = Guid.Parse("f20efdc0-33ba-438c-877a-bd8c989385d4"),
-                     Description = "For CASA to Senior HighSchool"+
-                     "1. Duly signed Clearance"+
+                     Description = "For CASA to Senior HighSchool" +
+                     "1. Duly signed Clearance" +
                      "2.Report Card",
 
                      Question = "What are the requirements for OLD STUDENT " + "(For CASA to Senior HighSchool )",
@@ -1409,13 +1409,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 new Infrastructure.Data.Models.Faq()
                 {
                     Id = Guid.Parse("c71a4d05-c4e3-4221-886d-48119c86417d"),
-                    Description = "For CASA to Senior HighSchool"+
-                    "1. High School Report Card (F138 / F137A) "+
-                    "2.Diploma (Photocopy)"+
-                    "3.Good Moral Character Certification "+
-                    "4.NSO Birth Certificate (Photocopy) "+
-                    "5.Two(2)pcs. Long Brown Envelope with Plastic Cover"+
-                    "6.One(1)pc. 1x1 picture and 1 pcs. 2x2 picture "+
+                    Description = "For CASA to Senior HighSchool " +
+                    "1. High School Report Card (F138 / F137A) " +
+                    "2.Diploma (Photocopy)" +
+                    "3.Good Moral Character Certification " +
+                    "4.NSO Birth Certificate (Photocopy) " +
+                    "5.Two(2)pcs. Long Brown Envelope with Plastic Cover" +
+                    "6.One(1)pc. 1x1 picture and 1 pcs. 2x2 picture " +
                     "7. Medical Certificate 8. Must undergo an Assessment Examination. ",
 
                     Question = "What are the requirements for NEW STUDENT  " + "(For CASA to Senior HighSchool )",
@@ -1431,14 +1431,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 new Infrastructure.Data.Models.Faq()
                 {
                     Id = Guid.Parse("2446aeba-3887-4b37-b0d7-b9ca6a8d06e5"),
-                    Description = 
-                    "For CASA to Senior HighSchool "+
-                    "1.Official Transcript of Records or Certification of Grades"+
-                    "2.Good Moral Character Certification"+
-                    "3.NSO Birth Certificate ( Photocopy) "+
-                    "4.Recommendation Form "+
-                    "5.Two (2)pcs. Long Brown Envelope with Plastic Cover"+
-                    "6.Medical Certificate"+
+                    Description =
+                    "For CASA to Senior HighSchool " +
+                    "1.Official Transcript of Records or Certification of Grades" +
+                    "2.Good Moral Character Certification" +
+                    "3.NSO Birth Certificate ( Photocopy) " +
+                    "4.Recommendation Form " +
+                    "5.Two (2)pcs. Long Brown Envelope with Plastic Cover" +
+                    "6.Medical Certificate" +
                     "7.Must undergo an Assessment Examinantion. ",
 
                     Question = "What are the requirements for TRANSFEREES",
@@ -1454,26 +1454,26 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
               new Infrastructure.Data.Models.Faq()
               {
                   Id = Guid.Parse("05246a02-f147-4b9b-9a4a-a8da369f8117"),
-                  Description = 
-                  "PRE-ELEMENTARY TODDLER - 2-3 yrs. old "+
-                  "JUNIOR CASA - 3-4yrs. old"+
-                  "SENIOR CASA - 4-5yrs.old"+
-                  "ADVANCED CASA - 5-6yrs.old "+
-                  "PRIMARY SCHOOL "+
+                  Description =
+                  "PRE-ELEMENTARY TODDLER - 2-3 yrs. old " +
+                  "JUNIOR CASA - 3-4yrs. old" +
+                  "SENIOR CASA - 4-5yrs.old" +
+                  "ADVANCED CASA - 5-6yrs.old " +
+                  "PRIMARY SCHOOL " +
                   "* Grade One" +
                   "* Grade Two" +
                   "* Grade Three" +
-                  "MIDDLE SCHOOL"+
-                  "* Grade Four"+
+                  "MIDDLE SCHOOL" +
+                  "* Grade Four" +
                   "* Grade Five" +
-                  "* GRADE Six"+
-                  "JUNIOR HIGH SCHOOL"+"" +
-                  "* GRADE Seven"+
-                  "* GRADE Eight"+
-                  "* GRADE Nine"+
-                  "* GRADE Ten"+
-                  "SENIOR HIGH SCHOOL"+
-                  "* GRADE Eleven"+
+                  "* GRADE Six" +
+                  "JUNIOR HIGH SCHOOL" + "" +
+                  "* GRADE Seven" +
+                  "* GRADE Eight" +
+                  "* GRADE Nine" +
+                  "* GRADE Ten" +
+                  "SENIOR HIGH SCHOOL" +
+                  "* GRADE Eleven" +
                   "* GRADE Twelve",
 
                   Question = "What are the BASIC EDUCATION PROGRAMS ",
@@ -1482,14 +1482,172 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   PostExpiry = DateTime.Parse("December 30 2019")
 
               }
-          );
-
-
+            );
             }
 
-            this._context.SaveChanges();
+
+                //Initialize SchoolFacility
+                if (this._context.SchoolFacilities.Count() < 1)
+                {
+                    //Initialize SchoolFacility 1
+                    this._context.SchoolFacilities.Add(
+                        new SchoolFacility()
+                        {
+                            Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                            Description = "The students use the VGD room for computer subjects like photo and logo design. It is also used for assessments. Lastly, BSIS students use it for their classes.",
+                            IsPublished = true,
+                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                            Title = "Visual, Graphic, Design Room",
+                        }
+                    );
+
+
+                    //Initialize SchoolFacility  2
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("e5bbc1c9-d90c-4ec1-a845-7594e2d81f8d"),
+                           Description = "CSM also have  a library for the students want to search about thier lecture,  sometimes library room use for meeting.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Library Room",
+                       }
+                   );
+
+                    //Initialize SchoolFacility 3
+                    this._context.SchoolFacilities.Add(
+                               new SchoolFacility()
+                               {
+                                   Id = Guid.Parse("39648aa6-f2d0-4b8d-a265-d6f66d80ae97"),
+                                   Description = "....",
+                                   IsPublished = true,
+                                   PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                                   Title = "CSD room",
+                               }
+                           );
+                    //Initialize SchoolFacility 4
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("f5265303-4558-4dfa-bb03-e60f2050feb3"),
+                           Description = "School canteen,  is very convenient. The middle and highschool students can put money on their  ID so when they want to buy food in the canteen they can just use their school ID to pay for it",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Canteen",
+                       }
+                   );
+                    //Initialize SchoolFacility 5
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("f12faa71-3d5a-434b-afbd-746c323211d5"),
+                           Description = "The registrar room is an office staffed with friendly employees who can help you with items such as enrollment requirements, what subjects are available, what course is open, how to get a diploma, a transcript of what a student studied and their grades, and how a student get a special exams for college.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Registrar Office",
+                       }
+                   );
+                    //Initialize SchoolFacility 6
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("0ba4b1c2-1371-4b31-899a-6799bd3511e4"),
+                           Description = "Our gymnasium is a mult-purpose hall that is used for aquitance parties, and various programs that require a large area. It is also used for physical activities like dancing, basketball and volleyball. The criminolgy students use it for their formations and physical activities.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Gymnasium",
+                       }
+
+                   );
+                    //Initialize SchoolFacility 7
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("76bd5a75-3314-4d42-8e39-b7bcdd6f35e9"),
+                           Description = "Our school also features a well-equipped clinic for students who are ill or need to rest. A professional nurse works there to provide medical treatment to those in need of first-aid.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "School Clinic",
+                       }
+                   );
+                    //Initialize SchoolFacility 8
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("23d5de16-b791-4ec9-bdae-90740fa923bd"),
+                           Description = "There is an accounting office called Window 1. There a student can get information about what they owe for things like school uniforms, paper, notebooks, tuition, uniforms and other fees. Window 2 is the cashier's office where the payment is actually made.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Window 1 Office & Window 2 Office",
+                       }
+                   );
+                    //Initialize SchoolFacility 9
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("0534aa2c-4b8b-4770-a6cb-ab12ca40f535"),
+                           Description = "In the guidance office students can receive counseling about problems they're having. They can also obtain guidance about what career options are available to them.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Guidance Office",
+                       }
+                   );
+                    //Initialize SchoolFacility 10
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("013525f8-6204-45fa-824b-80c007f79b1f"),
+                           Description = "An area equipped with all the needed tools and materials needed for smooth and efficient  FOOD AND BEVERAGE TRAINING.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Front office",
+                       }
+                   );
+                    //Initialize SchoolFacility 11
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("4ef0e59d-41d5-4005-80d5-204987688699"),
+                           Description = " The school also provides comfort rooms with comfortable toilets students can use at their convenience. The men's comfort rooms also features an urinal that many male like.   ",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Male and female comfort rooms",
+                       }
+                   );
+
+                    //Initialize SchoolFacility 12
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("a8a5fdf4-5c59-48b4-a625-7b1524689f0b"),
+                           Description = "Marketing Office is one of the busy office in our campus. We ensure that every client who comes to our school will received all the information they need to know with regards to our humble institution." +
+                           "Our marketing staffs are always busy the whole year round conducting a career orientations to every schools from basic education upto high school for proper endorsement of our school." +
+                           "We also keep on updating our clients with our events, class suspension, announcement, etc.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Marketing Office",
+                       }
+                   );
+                    //Initialize SchoolFacility 12
+                    this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("013752a0-3163-46a1-ba37-72af38460eb9"),
+                           Description = "...",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "Parking Area",
+                       }
+                   );
+
+                }
+
+
+                this._context.SaveChanges();
                 return "OK";
+            
         }
 
     }
 }
+
