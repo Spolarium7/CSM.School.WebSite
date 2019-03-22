@@ -8,160 +8,121 @@
 <!DOCTYPE html>
 
 
-<section id="maincontent">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
 
-                <form class="form-search">
-                    <input placeholder="Type Something.." value="@Model.Courses.Keyword" type="text" class="input-medium search-query " />
-                    <button type="submit" class="btn btn-flat btn-primary">Search</button>
-                </form>
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Course Name</th>
-                                    <th>Year</th>
-                                    <th>CourseCode</th>
-                                    <th>Content</th>
-                                    <th>Description</th>
-                                    <th>Post Expiry</th>
-                                    <th>Edit Info</th>
-
-                                </tr>
-                            </thead>
-                        
-                            @{
-                                if (Model.Courses != null)
-                                {
-                                    if (Model.Courses.Items.Count > 0)
-                                    {
-                                        foreach (Course course in Model.Courses.Items)
-                                        {
-
-                                            <tbody class="row">
-                                                <tr>
-
-                                                    <td>
-                                                        @course.Title
-                                                    </td>
-                                                    <td>
-                                                        @course.Year
-                                                    </td>
-                                                    <td>
-                                                        @course.CourseCode
-                                                    </td>
-
-                                                    <td>
-                                                        @course.Content
-                                                    </td>
-
-                                                    <td>
-                                                        @course.Description
-                                                    </td>
-
-                                                    <td>
-                                                        @course.PostExpiry
-                                                    </td>
-                                                    <td>
-                                                        <div class="widget">
-                                                            <h4></h4>
-                                                            <ul class="list-inline">
-
-
-                                                                <li class="list-inline-item"><a href="~/manage/courses/update-content/@course.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
-                                                                <li class="list-inline-item"><a href="~/manage/courses/update-title/@course.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
-                                                                <li class="list-inline-item"><a href="~/manage/courses/update-banner/@course.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
-                                                                <li class="list-inline-item"><a href="~/manage/courses/update-thumbnail/@course.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
-
-                                                                @{
-                                                                    if (course.IsPublished)
-                                                                    {
-                                                                        <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@course.Id','@course.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <li><a href="#" title="Publish" onclick="confirmPublish('@course.Id','@course.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
-                                                                    }
-                                                                }
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        }
-                                        <div class="pagination">
-                                            <ul>
-                                                <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=1">First</a></li>
-                                                @{ if (Model.Courses.PageIndex > 1)
-                                                    {
-                                                        <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@(Model.Courses.PageIndex - 1)">@(Model.Courses.PageIndex - 1)</a></li>
-                                                    }
-                                                }
-                                                <li class="page-item"><a class="page-link active" href="#">@(Model.Courses.PageIndex)</a></li>
-                                                @{ if ((Model.Courses.PageIndex + 1) <= Model.Courses.PageCount)
-                                                    {
-                                                        <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@(Model.Courses.PageIndex + 1)">@(Model.Courses.PageIndex + 1)</a></li>
-                                                    }
-                                                }
-                                                <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@Model.Courses.PageCount">Last</a></li>
-                                            </ul>
-                                        </div>
-
-                                    }
-                                }
-                            }
-
-                        </table>
-                    </div>
+<div class="card-container col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input id="searchKeyword" type="text" class="form-control" value="@Model.Courses.Keyword" placeholder="Search by title" aria-label="Search title" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="searchTrigger()">Search</button>
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
             </div>
-
-
-        </div>
-        <div class="span4">
-
         </div>
     </div>
-    </div>
-</section>
+    @{
+        if (Model.Courses != null)
+        {
+            if (Model.Courses.Items.Count > 0)
+            {
+                foreach (Course courses in Model.Courses.Items)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/courses/@courses.Id/thumbnail.png" style="width:150px;height:150px;" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>@courses.Title</h4>
+                                    <p>@courses.Description</p>
+                                    <ul class="list-inline">
 
-<!--MODAL UNPUBLISH-->
-<div class="modal hide fade" id="modal-unpublish">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Unpublish Alumni Post</h3>
-    </div>
-    <div class="modal-body">
-        <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
-        <button type="button" class="btn" data-dismiss="modal">No</button>
-    </div>
+
+                                        <li class="list-inline-item"><a href="~/manage/courses/update-content/@courses.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/courses/update-title/@courses.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/courses/update-banner/@courses.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/courses/update-thumbnail/@courses.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+
+                                        @{
+                                            if (courses.IsPublished)
+                                            {
+                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@courses.Id','@courses.Title')"><i class="fas fa-close"></i></a></li>
+                                            }
+                                            else
+                                            {
+                                                <li><a href="#" title="Publish" onclick="confirmPublish('@courses.Id','@courses.Title')"><i class="fas fa-square"></i></a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=1">First</a></li>
+                    @{ if (Model.Courses.PageIndex > 1)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@(Model.Courses.PageIndex - 1)">@(Model.Courses.PageIndex - 1)</a></li>
+                        }
+                    }
+                    <li class="page-item"><a class="page-link active" href="#">@(Model.Courses.PageIndex)</a></li>
+                    @{ if ((Model.Courses.PageIndex + 1) <= Model.Courses.PageCount)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@(Model.Courses.PageIndex + 1)">@(Model.Courses.PageIndex + 1)</a></li>
+                        }
+                    }
+                    <li class="page-item"><a class="page-link" href="~/manage/courses?pageIndex=@Model.Courses.PageCount">Last</a></li>
+                </ul>
+            }
+        }
+    }
 </div>
 
 
-<!--MODAL PUBLISH-->
-<div class="modal hide fade " id="modal-publish">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Publish Alumni Post</h3>
-    </div>
-    <div class="modal-body">
-        <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" id="modal-publish-button">Yes</button>
-        <button type="button" class="btn" data-dismiss="modal">No</button>
+
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-unpublish">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Unpublish Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
     </div>
 </div>
 
-
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-publish">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Publish Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-publish-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section pageStyles{
 
