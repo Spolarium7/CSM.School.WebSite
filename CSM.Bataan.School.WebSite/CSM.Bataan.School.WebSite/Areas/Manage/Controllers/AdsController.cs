@@ -123,5 +123,79 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return null;
         }
+
+
+        [HttpGet, Route("/manage/ads/update-title/{adId}")]
+        public IActionResult UpdateTitle(Guid? adId)
+        {
+            var ad = this._context.Ads.FirstOrDefault(p => p.Id == adId);
+            if (ad != null)
+            {
+                var model = new UpdateTitleViewModel()
+                {
+                    Id = ad.Id,
+                    Description = ad.Description,
+                    Title = ad.Title,
+                    PostExpiry = ad.PostExpiry,
+                  
+
+                };
+                return View(model);
+            }
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost, Route("/manage/ads/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var ad = this._context.Ads.FirstOrDefault(p => p.Id == model.Id);
+
+            if (ad != null)
+            {
+                ad.Title = model.Title;
+                ad.Description = model.Description;
+                ad.PostExpiry = model.PostExpiry;
+              
+
+                this._context.Ads.Update(ad);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpGet, Route("/manage/ads/update-content/{adId}")]
+        public IActionResult UpdateContent(Guid? adId)
+        {
+            var ad = this._context.Ads.FirstOrDefault(t => t.Id == adId);
+            if (ad != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    AdId = ad.Id,
+                    Title = ad.Title,
+                    Content = ad.Content
+                });
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost, Route("/manage/ads/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var ad = this._context.Ads.FirstOrDefault(t => t.Id == model.AdId);
+            if (ad != null)
+            {
+                ad.Content = model.Content;
+                ad.Timestamp = DateTime.UtcNow;
+                this._context.Ads.Update(ad);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
     }
 }
