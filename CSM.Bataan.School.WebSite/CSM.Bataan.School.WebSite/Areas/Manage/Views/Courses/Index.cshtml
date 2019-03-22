@@ -33,18 +33,7 @@
 
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Course Name</th>
-                                    <th>Year</th>
-                                    <th>CourseCode</th>
-                                    <th>Content</th>
-                                    <th>Description</th>
-                                    <th>Post Expiry</th>
-                                    <th>Edit Info</th>
-
-                                </tr>
-                            </tfoot>
+                        
                             @{
                                 if (Model.Courses != null)
                                 {
@@ -77,8 +66,6 @@
                                                     <td>
                                                         @course.PostExpiry
                                                     </td>
-
-
                                                     <td>
                                                         <div class="widget">
                                                             <h4></h4>
@@ -103,18 +90,8 @@
                                                             </ul>
                                                         </div>
                                                     </td>
-
-
                                                 </tr>
-
-
-
-
                                             </tbody>
-
-
-
-
                                         }
                                         <div class="pagination">
                                             <ul>

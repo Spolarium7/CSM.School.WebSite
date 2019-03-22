@@ -128,5 +128,85 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+
+        [HttpGet, Route("/manage/courses/update-title/{courseId}")]
+        public IActionResult UpdateTitle(Guid? courseId)
+        {
+            var course = this._context.Courses.FirstOrDefault(p => p.Id == courseId);
+            if (course != null)
+            {
+                var model = new UpdateTitleViewModel()
+                {
+                    Id = course.Id,
+                    Description = course.Description,
+                    Title = course.Title,
+                    PostExpiry = course.PostExpiry
+                
+
+                };
+                return View(model);
+            }
+            return RedirectToAction("Create");
+        }
+
+        [HttpPost, Route("/manage/courses/update-title")]
+        public IActionResult UpdateTitle(UpdateTitleViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var course = this._context.Courses.FirstOrDefault(p => p.Id == model.Id);
+
+            if (course != null)
+            {
+                course.Title = model.Title;
+                course.Description = model.Description;
+                course.PostExpiry = model.PostExpiry;
+           
+
+                this._context.Courses.Update(course);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
+        [HttpGet, Route("/manage/courses/update-content/{coursesId}")]
+        public IActionResult UpdateContent(Guid? coursesId)
+        {
+            var course = this._context.Courses.FirstOrDefault(p => p.Id == coursesId);
+
+            if (course != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    CourseId = course.Id,
+                    Title = course.Title,
+                    Content = course.Content
+                });
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, Route("/manage/courses/update-content/")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var course = this._context.Courses.FirstOrDefault(p => p.Id == model.CourseId);
+
+            if (course != null)
+            {
+                course.Content = model.Content;
+                course.Timestamp = DateTime.UtcNow;
+
+                this._context.Courses.Update(course);
+                this._context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
