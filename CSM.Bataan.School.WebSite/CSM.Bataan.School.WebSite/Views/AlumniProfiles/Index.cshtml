@@ -1,0 +1,71 @@
+﻿@model CSM.Bataan.School.WebSite.ViewModels.AlumniProfiles.IndexViewModel
+@using CSM.Bataan.School.WebSite.Infrastructure.Security;
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+<section id="maincontent">
+    <div class="container">
+
+
+
+        <div class="row">
+            <ul class="portfolio-area da-thumbs">
+                       @{
+                    
+                            foreach (AlumniProfile alumniprofile in Model.AlumniProfiles)
+                            {
+
+                                <li class="portfolio-item" data-id="@alumniprofile.Id" data-type="web">
+                                    <div class="span3">
+                                        <div class="thumbnail">
+                                            <div class="image-wrapp ">
+                                                <img src="~/alumniprofiles/@alumniprofile.Id/thumbnail.png" alt="@alumniprofile.Company" title="" />
+                                                <article class="da-animate da-slideFromRight">
+                                                    <a class="zoom" data-pretty="prettyPhoto " href="~/alumniprofiles/@alumniprofile.Id/thumbnail.png">
+                                                        <i class="icon-bg-light icon-zoom-in icon-circled icon-2x"></i>
+                                                    </a>
+                                                    <a href="~/home/detail/@alumniprofile.Id">
+                                                        <i class="icon-bg-light icon-link icon-circled icon-2x"></i>
+                                                    </a>
+                                                </article>
+                                            </div>
+                                            <div class="desc">
+                                                <h5><i class="icon-user"></i> <strong>@alumniprofile.Company</strong></h5>
+                                                <dl>
+                                                    <dt>From Date:</dt>
+                                                    <dd>@alumniprofile.FromDate</dd>
+                                                    <dt>To Date:</dt>
+                                                    <dd>@alumniprofile.FromDate</dd>
+                                                </dl>
+
+
+                                            </div>
+
+                                            <a href="~/alumniprofiles/detail/@alumniprofile.Id"><button class="btn-primary">View</button></a>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+
+
+
+
+
+
+
+                            }
+
+                        }
+                  
+
+            </ul>
+
+
+        </div>
+
+    </div>
+</section>
+
