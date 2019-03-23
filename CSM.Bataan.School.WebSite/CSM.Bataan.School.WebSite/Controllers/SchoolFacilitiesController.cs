@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CodeKicker.BBCode;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
+using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using CSM.Bataan.School.WebSite.ViewModels.SchoolFacility;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,18 @@ namespace CSM.Bataan.School.WebSite.Controllers
                 SchoolFacilities = this._context.SchoolFacilities.ToList()
             });
         }
+        [HttpGet, Route("schoolfacilities/feed")]
+        public List<SchoolFacility> Feed(int pageIndex)
+        {
+            int skip = (int)(3 * (pageIndex - 1));
+            return this._context.SchoolFacilities
+                                .Where(p => p.IsPublished == true)
+                                .OrderBy(p => p.Timestamp)
+                                .Skip(skip)
+                                .Take(30)
+                                .ToList();
+        }
+
 
         [HttpGet, Route("schoolfacilities/{schoolfacilityId}")]
         public IActionResult SchoolFacility(Guid? schoolfacilityId)
