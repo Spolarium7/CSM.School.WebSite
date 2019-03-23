@@ -1717,7 +1717,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                   new AlumniProfile()
                   {
-                      Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                      Id = Guid.Parse("75f70d2f-0362-4e9c-a117-3e15ead48aab"),
                       Description =
                       "<ul>" +
                       "<li>Name: Erza Alfonzo</li>" +
@@ -1739,7 +1739,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("eac64419-0a56-45c7-add0-1eb026351b4c"),
                      Description =
                      "<ul>" +
                      "<li>Name: Darlene Shane Santos</li>" +
@@ -1761,7 +1761,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("70ae75c5-e39a-4c8a-9f8a-238775ad6f43"),
                      Description =
                      "<ul>" +
                      "<li>Name: Almira S. Banzon</li>" +
@@ -1783,7 +1783,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("6b0512b5-39a5-415b-9845-b9ad465b0873"),
                      Description =
                      "<ul>" +
                      "<li>Name: John Paul C Pamintuan</li>" +
@@ -1805,7 +1805,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("74e7a1aa-bced-4b22-a6b6-a3f25f5f1e44"),
                      Description =
                      "<ul>" +
                      "<li>Name: Jessica Santos</ li>" +
@@ -1829,7 +1829,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("3b8c7209-6c9a-4c0a-83f5-f1ad51bdac0f"),
                      Description =
                      "<ul>" +
                      "<li>Name: MARY ANNE C. CALING</ li>" +
@@ -1853,7 +1853,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("09a476e7-d217-47e6-b172-be83d429a3a7"),
                      Description =
                      "<ul>" +
                      "<li>Name: Charlotte T. Lingad</ li>" +
@@ -1875,7 +1875,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("a422143f-4f3d-4192-ae45-204527d96566"),
                      Description =
                      "<ul>" +
                      "<li>Name: Denice Patricia C Poblete</ li>" +
@@ -1898,7 +1898,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("89497382-766e-43c1-a274-bc6c67c129c1"),
                      Description =
                      "<ul>" +
                      "<li>Name: MYLEN D. MAGALLANES</ li>" +
@@ -1922,7 +1922,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("4a8d5aeb-55db-4256-a3dc-e9d3e6da0e49"),
                      Description =
                      "<ul>" +
                      "<li>Name: Maricar M Naguiat</li>" +
@@ -1946,7 +1946,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("f0547387-5b67-4e28-bba7-92b378bf31c0"),
                      Description =
                      "<ul>" +
                      "<li>Name: Mark D. Javier</ li>" +
@@ -1970,7 +1970,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("8ca8fa5f-5de3-496d-813b-0a45c608d76f"),
                      Description =
                      "<ul>" +
                      "<li>Name: Rovilyn Cano</ li>" +
@@ -1995,7 +1995,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("5034489e-f54f-484d-b6af-d385d5cd922e"),
                      Description =
                      "<ul>" +
                      "<li>Name: Rica May C.Miranda</ li>" +
@@ -2019,7 +2019,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("14f36a9f-6921-4d30-ae18-8e4e92b57ce0"),
                      Description =
                      "<ul>" +
                      "<li>Name: Lois Mae Paguinto</li>" +
@@ -2043,7 +2043,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("ea8fea9e-8402-410d-bc64-1aea7e137a8b"),
                      Description =
                      "<ul>" +
                      "<li>Name: Rodel Tala</ li>" +
@@ -2065,7 +2065,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Id = Guid.Parse("830745c4-76de-42fb-a323-a461172f0711"),
                      Description =
                      "<ul>" +
                      "<li>Name: Jeannilyn Velasquez</ li>" +
@@ -2078,6 +2078,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                      Location = "Port Area Manila",
                      IsPublished = true,
                      Company = "MCPT Customs Brokerage",
+                     
                  }
 
                );

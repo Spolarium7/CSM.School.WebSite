@@ -218,7 +218,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             {
                 return "Error:Please upload a jpeg or png file for the attachment.";
             }
-            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            var dirPath = _env.WebRootPath + "/images/schoolfacilities/" + model.SchoolFacilityId.ToString();
             if (!Directory.Exists(dirPath))
             {
                 Directory.CreateDirectory(dirPath);
@@ -285,7 +285,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             //Formulate the directory where the file will be saved
             //create the directory if it does not exist
-            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            var dirPath = _env.WebRootPath + "/images/schoolfacilities/" + model.SchoolFacilityId.ToString();
             if (!Directory.Exists(dirPath))
             {
                 Directory.CreateDirectory(dirPath);
@@ -328,7 +328,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 ModelState.AddModelError("", "Please upload a jpeg or png file for the banner.");
                 return View(model);
             }
-            var dirPath = _env.WebRootPath + "/schoolfacilities/" + model.SchoolFacilityId.ToString();
+            var dirPath = _env.WebRootPath + "/images/schoolfacilities/" + model.SchoolFacilityId.ToString();
             if (!Directory.Exists(dirPath))
             {
                 Directory.CreateDirectory(dirPath);

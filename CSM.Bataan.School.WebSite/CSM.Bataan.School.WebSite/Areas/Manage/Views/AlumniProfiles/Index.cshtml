@@ -9,115 +9,96 @@
 
 
 
+<div class="card-container col-md-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <input id="searchKeyword" type="text" class="form-control" value="@Model.AlumniProfiles.Keyword" placeholder="Search by title" aria-label="Search title" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="searchTrigger()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<a href="~/manage/alumniprofiles/create"><button type="button" class="btn btn-flat btn-primary">Create<i class="icon-1x icon-plus-sign"></i></button></a>
-
-<section id="maincontent">
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-
-                <form class="form-search">
-                    <input placeholder="Type Something.." value="@Model.AlumniProfiles.Keyword" type="text" class="input-medium search-query " />
-                    <button type="submit" class="btn btn-flat btn-primary">Search</button>
-                </form>
-
-                <h3><a href="#">Alumni Profile View</a></h3>
-                @{
-                    if (Model.AlumniProfiles != null)
-                    {
-                        if (Model.AlumniProfiles.Items.Count > 0)
-                        {
-                            foreach (AlumniProfile alumniprofile in Model.AlumniProfiles.Items)
-                            {
-                                <!-- start article 1 -->
-                                <article class="blog-post">
-                                    <div class="post-heading">
-                                        <div class="row">
-                                            <div class="span6">
-                                                <div class="post-image">
-                                                    <a href="#"><img src="~/alumniprofiles/@alumniprofile.Id/thumbnail.png" style="height:450px; width:600px" alt="" /></a>
-                                                </div>
-                                            </div>
-                                            <div class="span6">
-                                                <h3>@alumniprofile.Company</h3>
-                                                <div class="clearfix">
-                                                </div>
-
-                                                <dl>
-                                                    <dt>Position</dt>
-                                                    <dd> @alumniprofile.Position</dd>
-                                                    <dt>Location</dt>
-                                                    <dd> @alumniprofile.Location</dd>
-                                                    <dt>Description</dt>
-                                                    <dd> @alumniprofile.Description</dd>
-                                                    <dt>From Date</dt>
-                                                    <dd> @alumniprofile.FromDate</dd>
-
-                                                    <dt>To Date</dt>
-                                                    <dd> @alumniprofile.ToDate</dd>
-
-
-
-
-                                                </dl>
-                                                    <ul class="list-inline">
-                                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-title/@alumniprofile.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
-                                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-description/@alumniprofile.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
-                                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-banner/@alumniprofile.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
-                                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-thumbnail/@alumniprofile.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
-
-                                                        @{
-                                                            if (alumniprofile.IsPublished)
-                                                            {
-                                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@alumniprofile.Id','@alumniprofile.Company')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
-                                                            }
-                                                            else
-                                                            {
-                                                                <li><a href="#" title="Publish" onclick="confirmPublish('@alumniprofile.Id','@alumniprofile.Company')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
-                                                            }
-                                                        }
-                                                    </ul>
-                                              
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                                <!-- end article 1 -->
-                            }
-                            <div class="pagination">
-                                <ul>
-                                    <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=1">First</a></li>
-                                    @{ if (Model.AlumniProfiles.PageIndex > 1)
-                                        {
-                                            <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@(Model.AlumniProfiles.PageIndex - 1)">@(Model.AlumniProfiles.PageIndex - 1)</a></li>
+    @{
+        if (Model.AlumniProfiles != null)
+        {
+            if (Model.AlumniProfiles.Items.Count > 0)
+            {
+                foreach (AlumniProfile alumniprofiles in Model.AlumniProfiles.Items)
+                {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="~/images/alumniprofiles/@alumniprofiles.Id/thumbnail.png" style="width:150px;height:150px;" />
+                                </div>
+                                <div class="col-sm-9">
+                                    <h4>@alumniprofiles.Company</h4>
+                                    <p>@alumniprofiles.Description</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-banner/@alumniprofiles.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-thumbnail/@alumniprofiles.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-file-image"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-content/@alumniprofiles.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        <li class="list-inline-item"><a href="~/manage/alumniprofiles/update-title/@alumniprofiles.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                        @{
+                                            if (alumniprofiles.IsPublished)
+                                            {
+                                                <li class="list-inline-item"><a href="#" title="Unpublish" onclick="confirmUnpublish('@alumniprofiles.Id','@alumniprofiles.Company')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a></li>
+                                            }
+                                            else
+                                            {
+                                                <li class="list-inline-item"><a href="#" title="Publish" onclick="confirmPublish('@alumniprofiles.Id','@alumniprofiles.Company')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a></li>
+                                            }
                                         }
-                                    }
-                                    <li class="page-item"><a class="page-link active" href="#">@(Model.AlumniProfiles.PageIndex)</a></li>
-                                    @{ if ((Model.AlumniProfiles.PageIndex + 1) <= Model.AlumniProfiles.PageCount)
-                                        {
-                                            <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@(Model.AlumniProfiles.PageIndex + 1)">@(Model.AlumniProfiles.PageIndex + 1)</a></li>
-                                        }
-                                    }
-                                    <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@Model.AlumniProfiles.PageCount">Last</a></li>
-                                </ul>
+                                    </ul>
+                                </div>
                             </div>
-
-                        }
-                    }
+                        </div>
+                    </div>
                 }
 
 
 
-            </div>
-            <div class="span4">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=1">First</a></li>
+                    @{ if (Model.AlumniProfiles.PageIndex > 1)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@(Model.AlumniProfiles.PageIndex - 1)">@(Model.AlumniProfiles.PageIndex - 1)</a></li>
+                        }
+                    }
+                    <li class="page-item"><a class="page-link active" href="#">@(Model.AlumniProfiles.PageIndex)</a></li>
+                    @{ if ((Model.AlumniProfiles.PageIndex + 1) <= Model.AlumniProfiles.PageCount)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@(Model.AlumniProfiles.PageIndex + 1)">@(Model.AlumniProfiles.PageIndex + 1)</a></li>
+                        }
+                    }
+                    <li class="page-item"><a class="page-link" href="~/manage/alumniprofiles?pageIndex=@Model.AlumniProfiles.PageCount">Last</a></li>
+                </ul>
+            }
+        }
+    }
 
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
+@*<dl>
+    <dt>Position</dt>
+    <dd> @alumniprofile.Position</dd>
+    <dt>Location</dt>
+    <dd> @alumniprofile.Location</dd>
+    <dt>Description</dt>
+    <dd> @alumniprofile.Description</dd>
+    <dt>From Date</dt>
+    <dd> @alumniprofile.FromDate</dd>
+
+    <dt>To Date</dt>
+    <dd> @alumniprofile.ToDate</dd>*@
+
+
+
+
+</dl>
 <!--MODAL UNPUBLISH-->
 <div class="modal hide fade" id="modal-unpublish">
     <div class="modal-header">
