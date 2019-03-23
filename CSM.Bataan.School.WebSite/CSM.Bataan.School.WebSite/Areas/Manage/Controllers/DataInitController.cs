@@ -1590,7 +1590,9 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                        {
                            Id = Guid.Parse("f12faa71-3d5a-434b-afbd-746c323211d5"),
                            Description = "The registrar room is an office..",
-                           Content = "The registrar room is an office staffed with friendly employees who can help you with items such as enrollment requirements, what subjects are available, what course is open, how to get a diploma, a transcript of what a student studied and their grades, and how a student get a special exams for college.",
+                           Content = "The registrar room is an office staffed with friendly employees who can help you with items such as enrollment requirements," +
+                           " what subjects are available, what course is open, how to get a diploma, a transcript of what a student studied and their grades," +
+                           " and how a student get a special exams for college.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                            Title = "Registrar Office",
@@ -1627,7 +1629,9 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                        {
                            Id = Guid.Parse("23d5de16-b791-4ec9-bdae-90740fa923bd"),
                            Description = "There is an accounting office called Window 1 & Window 2...",
-                           Content = "There is an accounting office called Window 1. There a student can get information about what they owe for things like school uniforms, paper, notebooks, tuition, uniforms and other fees. Window 2 is the cashier's office where the payment is actually made.",
+                           Content = "There is an accounting office called Window 1." +
+                           " There a student can get information about what they owe for things like school uniforms, paper, notebooks, tuition, uniforms and other fees. " +
+                           "Window 2 is the cashier's office where the payment is actually made.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                            Title = "Window 1 Office & Window 2 Office",
@@ -1639,7 +1643,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                        {
                            Id = Guid.Parse("0534aa2c-4b8b-4770-a6cb-ab12ca40f535"),
                            Description = "In the guidance office students can receive counseling about problems they're having...",
-                           Content = "In the guidance office students can receive counseling about problems they're having. They can also obtain guidance about what career options are available to them.",
+                           Content = "In the guidance office students can receive counseling about problems they're having. " +
+                           "They can also obtain guidance about what career options are available to them.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                            Title = "Guidance Office",
@@ -1699,6 +1704,384 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
                 }
 
+
+
+
+
+
+
+            //Initialize Alumni Profile Entries
+            if (this._context.AlumniProfiles.Count() < 1)
+            {
+                //Alumni Profile Entries 1
+                this._context.AlumniProfiles.Add(
+                  new AlumniProfile()
+                  {
+                      Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                      Description =
+                      "<ul>" +
+                      "<li>Name: Erza Alfonzo</li>" +
+                      "<li>Course: Bachelor of Science Criminology</li>" +
+                      "<li>Gender: Female</li>" +
+                      "<li>Email Address: erza.alfonso12@gmail.com</li>" +
+                      "<li>Latest work:Rescuer</li>" +
+                      "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                      "</ul>",
+                      Position = "Admin Aide IV",
+                      Location = "Burgos-Soliman, Hermosa, Bataan",
+                      IsPublished = true,
+                      Company = "Municipality of Hermosa - LGU Hermosa",
+                  }
+
+                );
+
+                //Alumni Profile Entries 2
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Darlene Shane Santos</li>" +
+                     "<li>Course: Bachelor of Science Custom Administration</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: dpserrano.toyota@gmail.com</li>" +
+                     "<li>Latest work: Sales</li>" +
+                     "<li>toyota company</li>" +
+                     "</ul>",
+                     Position = "Marketing Professional",
+                     Location = "balanga bataan",
+                     IsPublished = true,
+                     Company = "Toyota Bataan Inc.",
+                 }
+
+               );
+
+                //Alumni Profile Entries 3
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Almira S. Banzon</li>" +
+                     "<li>Course: Bachelor of Science Information Systems</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: almirabanzon1902@gmail.com</ li>" +
+                     "<li>Latest work:CSM Associate Registrar</li>" +
+                     "</ul>",
+                     Position = "Associate Registrar",
+                     Location = "Sta. Isabel, Dinalupihan, Bataan",
+                     IsPublished = true,
+                     Company = "College of Subic Montessori Inc.",
+                 }
+
+               );
+
+
+                //Alumni Profile Entries 4
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: John Paul C Pamintuan</li>" +
+                     "<li>Course: Bachelor of Science Business Administration(Marketing Management)</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address: John Paul C Pamintuan</li>" +
+                     "<li>Latest work:Professional Medical Representative</ li>" +
+                     "</ul>",
+                     Position = "territory Manager",
+                     Location = "4th Flr Jafer Building West Ave. Quezon City",
+                     IsPublished = true,
+                     Company = "Kaufmann Pharma Inc",
+                 }
+
+               );
+
+
+                //Alumni Profile Entries 5
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Jessica Santos</ li>" +
+                     "<li>Course: Bachelor of Science Business Administration(Marketing Management)</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: jls@sunrise-search.com</ li>" +
+                     "<li>Latest work: Overseas man power provider </ li>" +
+                     "<li>Description : Conduct initial interviews to applicants based on the standard requirement of the hiring company." +
+                     "Send complete file or pre qualified candidates for client Prepare necassary docs for POEA processing  and etc</li>" +
+                     "</ul>",
+                     Position = "Recruitment Specialist",
+                     Location = "4th Flr Chipeco building Meralco Ave.Corner Shaw Blrd Pasig City",
+                     IsPublished = true,
+                     Company = "Sunrise search & support INC",
+                 }
+
+               );
+
+
+                //Alumni Profile Entries 6
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: MARY ANNE C. CALING</ li>" +
+                     "<li>Course: Bachelor of Science Business Administration(HRDM)</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address:maryannecaling@gmail.com</ li>" +
+                     "<li>Latest work:HR Staff</ li>" +
+                     "<li>Description : Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.</li>" +
+                     "</ul>",
+                     Position = " Compensation and benefits (timekeeper)",
+                     Location = "Fab Mariveles,BATAAN",
+                     IsPublished = true,
+                     Company = "DLX BAGS PHILS INC",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 7
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Charlotte T. Lingad</ li>" +
+                     "<li>Course: Bachelor of Science Business Administration (Financial Management)</ li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: basalocharlotte@gmail.com</ li>" +
+                     "<li>Latest work:none</li>" +
+                     "</ul>",
+                     Position = "none",
+                     Location = "none",
+                     IsPublished = true,
+                     Company = "none",
+                 }
+
+               );
+
+
+                //Alumni Profile Entries 8
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Denice Patricia C Poblete</ li>" +
+                     "<li>Course:Bachelor of Science Business Administration (Human Resources Development Management)</ li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: denicepoblete_19@yahoo.com</ li>" +
+                     "<li>Latest work: I.T-Software Development </ li>" +
+                     "<li>Description : incharge with the overall facets of HR Department</li> " +
+                     "</ul>",
+                     Position = "Human Resource(HR)",
+                     Location = "Clark, Pampanga",
+                     IsPublished = true,
+                     Company = "Z Getcare Systems Inc.",
+                 }
+
+               );
+
+
+                //Alumni Profile Entries 9
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: MYLEN D. MAGALLANES</ li>" +
+                     "<li>Course:Bachelor of Science Business Management</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: mylen.magallanes@gmail.com</ li>" +
+                     "<li>Latest work:2ND MUCC/pension loan</li>" +
+                     "<li>Description : Micro Finance/Lending Institution<li>" +
+                     "</ul>",
+                     Position = "OIC",
+                     Location = "Dinalupihan, Bataan",
+                     IsPublished = true,
+                     Company = "2ND MUCC",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 10
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Maricar M Naguiat</li>" +
+                     "<li>Course: Bachelor of Science Criminology</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: maricarnaguiat01@gmail.com</ li>" +
+                     "<li>Latest work: Jail Officer</li>" +
+                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                     "</ul>",
+                     Position = "Jail Officer 1",
+                     Location = "San Jose Delmonte City Bulacan",
+                     IsPublished = true,
+                     Company = "Bureau of Jail Management and Penology",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 11
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Mark D. Javier</ li>" +
+                     "<li>Course: Bachelor of Science Custom Administration</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address: markjavier219@gmail.com </li>" +
+                     "<li>Latest work:Jiemei Agri Industrial corp</ li>" +
+                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                     "</ul>",
+                     Position = "Manager",
+                     Location = "Manila",
+                     IsPublished = true,
+                     Company = "...",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 12
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Rovilyn Cano</ li>" +
+                     "<li>Course: Bachelor of Science Customs Administration</ li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address:  rcano@nnrusa.com</ li>" +
+                     "<li>Latest work: International Freight Forwarder</li>" +
+                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                     "<li>Description : Manage and Updating http//nnr.WebCargo.net Systems. Preparing rates, adhocs within time frame. Preparing reports as per by our Boss in US, at the same assisting him.  </ li>" +
+                     "</ul>",
+                     Position = " US Tender-Data Analyst/Key Account administrator",
+                     Location = "Room 6, Skyfreight Building D. Skyfreight Center. Naia Avenue, Brgy. Sto Niño Parañaque City, Philippines",
+                     IsPublished = true,
+                     Company = "NNR Global Logistics Philippines Inc. (Global Accounts)",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 13
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Rica May C.Miranda</ li>" +
+                     "<li>Course:  Bachelor of Science in Travel Management </ li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address:  rmaemiranda02@gmail.com</ li>" +
+                     "<li>Latest work:Dining attendant </ li>" +
+                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                     "</ul>",
+                     Position = "...",
+                     Location = "Subic Bay Waterfrontroad Moon Bay Marina",
+                     IsPublished = true,
+                     Company = "Terrace hotel",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 14
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Lois Mae Paguinto</li>" +
+                     "<li>Course: Bachelor of Science in Travel Management </ li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: loismaep051296@yahoo.com</ li>" +
+                     "<li>Latest work:Billing Executive </ li>" +
+                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                     "</ul>",
+                     Position = "BPO SG Billing Executive",
+                     Location = "Paranaque City Philippines",
+                     IsPublished = true,
+                     Company = "Bollore Logistics Asia Support Services Inc.",
+                 }
+
+               );
+
+
+
+                //Alumni Profile Entries 15
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Rodel Tala</ li>" +
+                     "<li>Course: Bachelor of Science Customs Admistration</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address: rodeltala.customs@gmail.com</li>" +
+                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
+                     "</ul>",
+                     Position = "Air Import Operator",
+                     Location = "Parañaque Metro Manila",
+                     IsPublished = true,
+                     Company = "Bollore Logistics",
+                 }
+
+               );
+
+
+                //Alumni Profile Entries 16
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Jeannilyn Velasquez</ li>" +
+                     "<li>Course: Bachelor of Science Customs Administration</ li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address: jeannilynvelasquez@gmail.com</ li>" +
+                     "<li>Latest work: Customs processor</li>" +
+                     "</ul>",
+                     Position = "Customs Broker/ Customs Representative",
+                     Location = "Port Area Manila",
+                     IsPublished = true,
+                     Company = "MCPT Customs Brokerage",
+                 }
+
+               );
+            }
 
                 this._context.SaveChanges();
                 return "OK";
