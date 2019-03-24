@@ -25,6 +25,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\achievers\" />
     <Folder Include="wwwroot\images\ads\" />
+    <Folder Include="wwwroot\images\researches\" />
     <Folder Include="wwwroot\images\schoolevents\" />
     <Folder Include="wwwroot\images\threads\" />
     <Folder Include="wwwroot\images\users\" />

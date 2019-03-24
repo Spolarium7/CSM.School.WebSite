@@ -7,6 +7,11 @@ using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Researches;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 {
@@ -203,6 +208,71 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        [Authorize(Policy = "AuthorizeAdmin")]
+        [HttpPost, Route("/manage/researches/attach-image")]
+        public async Task<string> AttachImage(AttachImageViewModel model)
+        {
+            var fileSize = model.Image.Length;
+            if ((fileSize / 1048576.0) > 5)
+            {
+                return "Error:The file you uploaded is too large. Filesize limit is 5mb.";
+            }
+
+            if (model.Image.ContentType != "image/jpeg" && model.Image.ContentType != "image/png")
+            {
+                return "Error:Please upload a jpeg or png file for the attachment.";
+            }
+
+            var dirPath = _env.WebRootPath + "/images/researches/" + model.ResearchId.ToString();
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+
+            var imgUrl = "/answer_" + Guid.NewGuid().ToString() + ".png";
+            var filePath = dirPath + imgUrl;
+
+            if (model.Image.Length > 0)
+            {
+
+
+                byte[] bytes = await FileBytes(model.Image.OpenReadStream());
+
+                using (Image<Rgba32> image = Image.Load(bytes))
+                {
+
+                    //if image wider than 800 px scale to its aspect ratio
+                    if (image.Width > 800)
+                    {
+                        var ratio = 800 / image.Width;
+                        image.Mutate(x => x.Resize(800, Convert.ToInt32(image.Height * ratio)));
+                    }
+
+                    image.Save(filePath);
+                }
+            }
+
+            return "OK:/researches/" + model.ResearchId.ToString() + "/" + imgUrl;
+        }
+
+        //this method is used to load the file stream into 
+        //a byte array
+        public async Task<byte[]> FileBytes(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
 
     }
 }
