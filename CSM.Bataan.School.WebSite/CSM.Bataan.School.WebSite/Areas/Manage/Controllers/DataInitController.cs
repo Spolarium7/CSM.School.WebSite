@@ -2083,8 +2083,803 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
                );
             }
+            
 
-                this._context.SaveChanges();
+            //Initialize Courses
+            if (this._context.Courses.Count() < 1)
+            {
+
+
+                //Courses 1 Casa Department 
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("3f33a7dd-bacb-48b2-9a01-85a19dfc9331"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Casa Department </dt>" +
+                      "<dd> ( 2 to 3 years old.)" +
+                      "The toddler year are a time of great cognitive emotional and social development.</dd>" +
+                      "</dl>",
+                      Content = "Your Child is advancing from infancy toward and into the preschool years <hr>" +
+                      "during this time, his physical growth and motor development will slow, but expect to see some tremendous intellectual, social, and emotional changes.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Toddler",
+                  }
+
+                );
+
+                //Courses 2 Casa Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("b62dc20c-5805-4772-a2ec-e483f805fd95"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Casa Department </dt>" +
+                      "<dd>(3 to 4 years old) " +
+                      " The school helps the child develop his/her speech, order, coordination of movement and independence ," +
+                      "through self-care and care of the environment.<dd>" +
+                      "</dl>",
+                      Content = "there are hands-on learning materials covering various concepts and activities on cultural arts,language, mathematics. All subjects directly or inderectly help the child develop ares of his/her personal growth" +
+                      "physically,mentally, emotionally, socially and morally.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Junior Casa",
+                  }
+
+                );
+
+
+                //Courses 3 Casa Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("7e7f267b-0245-4020-b7a5-bf4e9d3793d8"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Casa Department</dt>" +
+                      "<dd>(4 to 5 years old.)" +
+                      " most of the children have attended previus levels and have acquired order, precision in movement, attention and concentration.</dd>" +
+                      "</dl>",
+                      Content = "there are hands-on learning materials covering various concepts and activities on cultural arts,language, mathematics. All subjects directly or inderectly help the child develop ares of his/her personal growth" +
+                      "physically,mentally, emotionally, socially and morally.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Senior Casa",
+                  }
+
+                );
+
+
+                //Courses 4 Casa Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("f23002f6-9c49-4d33-9e95-b396ce62ee20"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Casa Department </dt>" +
+                      "<dd>(5 to 6 years old.)" +
+                      "Children have acquired a higher level of maturity and therefore, are capable of accomplishing a great deal of mental work</dd>" +
+                      "</dl>",
+                      Content = "there are hands-on learning materials covering various concepts and activities on cultural arts,language, mathematics. All subjects directly or inderectly help the child develop ares of his/her personal growth" +
+                      "physically,mentally, emotionally, socially and morally.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Advanced Casa",
+                  }
+
+                );
+
+
+
+                //Courses 5 Primary Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("8daeb7ee-4e82-4f99-b956-d7dc69f59c6c"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Primary Department</dt>" +
+                      "<dl>(6 to 7 years old.)<hr>" +
+                      "The first school year after kindergarte.</   dl>" +
+                      "</dl>",
+                      Content = "Child will experience the fun of communicating, learning and expressing themselves. Students will see why words are important and how words can be used to create beautiful stories.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade One (1)",
+                  }
+
+                );
+
+
+
+
+                //Courses 6 Primary Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("c7d7b51f-fc9d-428f-bca5-c736402bc960"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Primary Department </dt>" +
+                      "<dl>(7 to 8 years old.)" +
+                      "The second layer of the foundation of a childs primary education.</dl>" +
+                      "</dl>",
+                      Content = "Students are taught subjects such as Math, Science, Geography and Social Studie.s",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Two (2)",
+                  }
+
+                );
+
+
+
+                //Courses 7 Primary Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("d8f269e8-7214-4ce5-a151-9252cb963710"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Primary Department </dt>" +
+                      "<dd>(8 to 9 years old.)" +
+                      "Student begin working more on text comprehension, Student also begin reading harder chapter books.</dd>" +
+                      "</dl>",
+                      Content = "Students are usually introduced to multiplication and division facts,place value to thousands or ten thousands, and estimation.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Three (3)",
+                  }
+
+                );
+
+
+
+
+                //Courses 8 Primary Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("f86a1dbb-3403-4fb8-a6b7-6ac2192009ce"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Primary Department </dt>" +
+                      "<dd>(9 to 10 years old.)" +
+                      " Students master and further their multiplication,division and general computation skills<dd>" +
+                      "</dl>",
+                      Content = "They learn how to solve real-life word problems using the four basic operation and larger numbers.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Four (4)",
+                  }
+
+                );
+
+
+
+
+                //Courses 9 Primary Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("8de1007c-ffe4-4f23-a489-ef5629eaceeb"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Primary Department </dt>" +
+                      "<dd>10 to 11 years old." +
+                      "Children word hard on projects and tasks.<dd>" +
+                      "</dl>",
+                      Content = "It requires them to draw on the skills and strategies they have been learning in elementary school.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Five (5)",
+                  }
+
+                );
+
+                //Courses 10 Primary Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("d45dc7ca-50d8-42b7-9718-59b233d3d4cb"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Primary Department </dt>" +
+                      "<dd>(11 to 12 years old.)" +
+                      "is a time for changes, a time to discover more about themselves and working with each other</dd>" +
+                      "</dl>",
+                      Content = "Develop the leadership skills, learn the importance of teamwork, discover the potential and grow in responsibility and confidence to make good choices.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Six (6)",
+                  }
+
+                );
+
+                //Courses 11 Junior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("c905f4af-c3c3-4f5f-9a05-54d3b2bdec6e"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Middle School Department </dt>" +
+                      "<dd>(12 to 13 years old.)" +
+                      "Students move steadily into early adolescence and two basic characteristics</dd>" +
+                      "</dl>",
+                      Content = " a strong desire for knowledge about the world and a budding capacity for self-reflection students develop capacity to recite alone and to give a short talks on a prepared topic.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Seven (7)",
+                  }
+
+                );
+
+                //Courses 12 Junior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("0a8db810-c1b1-4b58-b12c-6285bb9d0d0a"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Junior High School Department</dt>" +
+                      "<dd>(13 to 14 years old.)" +
+                      "students take six required subjects to learn more about themselves.</dd>" +
+                      "</dl>",
+                      Content = "These are English, Language arts, health and life skills,mathematics, physical education, science and social studies.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eight (8)",
+                  }
+
+                );
+
+
+                //Courses 13 Junior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("ab1da848-5dfd-420f-ba41-44813fbc0188"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Junior High School Department</dt>" +
+                      "<dd>(14 to 15 years old.)" +
+                      "Experience a challenging and stimulating style of school level curriculum.</dd>" +
+                      "</dl>",
+                      Content = "Student delve into classics, develop a more so sophisticated style of writing, and hone their public speaking skills.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Nine (9)",
+                  }
+
+                );
+
+
+                //Courses 14 Junior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("ec55ecff-8d67-4628-b7f9-2d1b692114a8"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Junior High School Department</dt>" +
+                      "<dd>(15 to 16 years old.)" +
+                      "Tenth year after the first introductory year upon entering compulsory schooling</dd>" +
+                      "</dl>",
+                      Content = "Students read and respond to historically or culturally significant works of literature that reflect and enhance their studies of history and socical science.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Ten (10)",
+                  }
+
+                );
+
+
+                //Courses 15 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("1c67997b-9701-42fc-aff5-caf58ff57abb"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd> ABM : Accountancy Business Management" +
+                      "pne of the tracks introduced by the  K to 12 program the accountancy, business and managements.</dd>" +
+                      "</dl>",
+                      Content = "Subjects are applied economics,business finance, fundamentals of accountancy, business and management, principles of marketing, business mathematics.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven (11)",
+                  }
+
+                );
+
+
+
+                //Courses 16 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("f2b5c9ff-395b-4759-bb6f-f4855326abda"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd> STEM : Science Technology,Engineering and Mathematics intertwining disciplines when applied in the real world. " +
+                      "</dd>" +
+                      "</dl>",
+                      Content = "Subjects are science, technology, engineering and mathematics. These are the foundations of the industrial and corporate world.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven (11)",
+                  }
+
+                );
+
+
+
+
+                //Courses 17 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("e6176b0f-1620-4900-a473-f377ea2fdd11"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>HUMSS : Humanities and Social Sciences</dd>" +
+                      "</dl>",
+                      Content = "This strand is for learners who aim to take up jounalism,communication arts, liberal arts, education and other social science related courses in college.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven (11)",
+                  }
+
+                );
+
+
+
+                //Courses 18 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("fb288ff2-1082-4b06-abd9-315fc0b02ff5"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>GAS : General Academic Strand</dd>" +
+                      "</dl>",
+                      Content = "is great for students who are still undecided on which tract to take.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(11)",
+                  }
+
+                );
+
+
+
+                //Courses 19 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("a33390f9-8ab5-4071-8b37-58baea4db388"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>ICT : Information Computer Technology</dd>" +
+                      "</dl>",
+                      Content = "is one of the stands offered in the Technical-Vocational-Livelihood Track in senior high school. it is designed to provide you with the technical skill and knowledge" +
+                      "in using tools and equipment that allows people to interact in the digital world.",
+                      IsPublished = true,
+                      Title = "Grade Eleven(11)",
+                  }
+
+                );
+
+
+
+                //Courses 20 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("e25a52da-ba8c-4151-88b8-ab69b6e9cf0b"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>HE : Home Economics</dd>" +
+                      "</dl>",
+                      Content = "This Framework compromises two seperate strands for students to have in depth study of a specific area under H.E. They could choose either the food" +
+                      "science and technology strand or the Fashion,Clothing and Textiles.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(11)",
+                  }
+
+                );
+
+
+
+                //Courses 21 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("bfb6ddf9-340e-4496-a3c8-82644272626d"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>ABM : Accountancy,Business and Management.</dd>" +
+                      "</dl>",
+                      Content = "Focus on the basic concepts of financial management. Business management corporate operations and all things that are accounted for.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(12)",
+                  }
+
+                );
+
+                //Courses 22 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("f8b604e0-b631-4437-a372-b8f5e31deda2"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>STEM : Science,Technology,Engineering and Mathematics.</dd>" +
+                      "</dl>",
+                      Content = "Focus on the curriculum is to provide practical learning experinces in order for students to understand the concepts beter through application controlled experiments,research and practice.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(12)",
+                  }
+
+                );
+
+
+                //Courses 23 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("c84491ce-ed34-4a16-890a-f70766760157"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>HUMSS : Humanities and Social Sciences.</dd>" +
+                      "</dl>",
+                      Content = "Focus for those who wonder what is on the other side of the wall. In other words, you are ready to take on the world and talk to a lot of people.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(12)",
+                  }
+
+                );
+
+                //Courses 24 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("604adbf5-734e-48ee-a9c1-3ed75157f71f"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>GAS : General Academic Strand.</dd>" +
+                      "</dl>",
+                      Content = "Strand is purposively designed for those students who are still indecisive of what course or degree they want to pursue in college.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(12)",
+                  }
+
+                );
+
+
+                //Courses 25 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("6e6e570c-1e0b-457a-bb67-e9d5d707e864"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>ICT : Information Communication Technology.</dd>" +
+                      "</dl>",
+                      Content = "Professions that can be considered after this strand are as a graphic designer, encoder web developer, and designer.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(12)",
+                  }
+
+                );
+
+
+                //Courses 26 Senior High School Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("f0689c6e-629d-4f5b-a818-3fb448d0f6ec"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Senior High School Department</dt>" +
+                      "<dd>H.E : Home Economics.</dd>" +
+                      "</dl>",
+                      Content = "Focuses on teaching you skills that can be useful in livelihood projects.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Grade Eleven(12)",
+                  }
+
+                );
+
+                //Courses 27 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("3942c27b-dd92-4c87-ae58-f4802bc5f805"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Bachelor of Science Criminolgy." +
+                      "Studentss tend to study and gain knowledge in areas related to  the prevention causes and control of criminal activities</dd>" +
+                      "</dl>",
+                      Content = "Programs offer studies in criminal and deviant behavior, as well as government response to such behavior. Students may learn theories, policies, practices and laws associated with criminal behavior." +
+                      "Students have the ability to learn about controvercial issues in criminal justice from experts in a variety of related fields, including policing,fraud or court systems.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College BSCRIM.",
+                  }
+
+                );
+
+
+
+                //Courses 28 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("f6d90270-e311-40bb-9bad-0c005aac2d16"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Bachelor of Science Information Technology." +
+                      "Program includes the study of application and effect of informatiion technology to organizations</dd>" +
+                      "</dl>",
+                      Content = "I.S a four year degree program that deal with the design and implementation of solutions that intergrate information technology with business" +
+                      "processes. The program teaches students all about hardware and software applications and how they can use them to collect,filter, process, create and distribute data.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College BSIS",
+                  }
+
+                );
+
+
+
+
+                //Courses 29 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("b8cbdb7b-89ec-4604-8a53-c0850f87bad9"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Bachelor of Science Customs Administrations." +
+                      "A degree course for individuals who wish to pursue a career in customs brokerage or in the field of transportation and supply chain managements.</dd>" +
+                      "</dl>",
+                      Content = "A four year degree program that will train you in handing import and export operations.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College BSCA",
+                  }
+
+                );
+
+
+
+
+
+                //Courses 30 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("84a396b2-613d-4986-9448-93d3cdbf76b2"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Bachelor of Science Travel Management." +
+                      "Covers various components related to the travel and tour industry</dd>" +
+                      "</dl>",
+                      Content = "It includes tour and travel operationsm, events management , allied services , entertainment and recreation, tourism research and education andd tourism planning and development.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College BSTM",
+                  }
+
+                );
+
+
+
+
+
+                //Courses 31 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("721294d3-7a25-4a66-b979-853b5c1de6b8"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Bachelor of Science Business Administration." +
+                      "Possess a familiarity of business operations and equip them with critical decision making skills.</dd>" +
+                      "</dl>",
+                      Content = "The program empowers students with a basic and clear understanding of the functions of every division, be it in marketing, finance , operations human resourses and office management.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College BSBA",
+                  }
+
+                );
+
+
+
+
+                //Courses 32 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("bf872999-53ba-45d1-b065-a06d696319e9"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Associate in Computer Technology." +
+                      "Provides knowledge and skills in the fundamental of computer programming and basic computation</dd>" +
+                      "</dl>",
+                      Content = "The program also includes topics related to data structures, network concepts, computer organization , database management system and system analysis and design.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College ACT",
+                  }
+
+                );
+
+                //Courses 33 College Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("71c93ed0-097c-4d0b-b8ed-2a9f3fe0468d"),
+                      Description =
+                      "<dl>" +
+                      "<dt>College Department</dt>" +
+                      "<dd>Hotel Restaurant Services." +
+                      "Its a two year program that designed to provide students with a through foundation on the skills required to begin a competetive career in the hotel and restaurant industry.</dd>" +
+                      "</dl>",
+                      Content = " Students will be prepared to earn national certificates on cookery , food and beverage services, bartending , front office and housekeeping.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "College HRS",
+                  }
+
+                );
+
+
+
+                //Courses 34 Tesda Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("efee4d6d-49ec-40c0-b1c0-2c8f776501fd"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Tesda Offers</dt>" +
+                      "<dd>Food and Beverage NC-II." +
+                      " Program prepares you to start can international career in the hotel, restaurant or bar business.</dd>" +
+                      "</dl>",
+                      Content = " Teachers guide you through the learning modules and combine theory with hands-on, practical training. You will be given the opportunity" +
+                      "to practice your skills with real customers in readiness for your transition into the job market.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Tesda Food and Beverage NC-II",
+                  }
+
+                );
+
+
+                //Courses 35 Tesda Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("7b788245-41b9-4470-9a6b-717173179e88"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Tesda Offers</dt>" +
+                      "<dd>Front Office NC-II." +
+                      " Responsible for handling front office reception and administration duties.</dd>" +
+                      "</dl>",
+                      Content = " Including greetings guests and offering them a beverage, answering phones , handing company inquiries, and sorting and distributing mail.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Tesda Front Office NC-II",
+                  }
+
+                );
+
+                //Courses 36 Tesda Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("6010c42c-ff01-4c21-bf06-c55bf29d71ce"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Tesda Offers</dt>" +
+                      "<dd>Housekeeping NC-II." +
+                      " Require cooking or food preparation and heavily cleaning.</dd>" +
+                      "</dl>",
+                      Content = "Train them how to be responsible for making sure all assigned areas of the home are clean, neat and tidy.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Tesda Housekeeping NC-II",
+                  }
+
+                );
+
+
+                //Courses 37 Tesda Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("ccec071a-2075-4aa9-b533-95357270e4fa"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Tesda Offers</dt>" +
+                      "<dd>Computer System Servicing NC-II." +
+                      " Designed to develop knowledge, skills and attitudes of a computer service technician in accordance with industry standards.</dd>" +
+                      "</dl>",
+                      Content = "It covers basic and commong competencies such as installing maintaining, configuring , and diagnosing computer systems and networks.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Tesda Computer System Servicing NC-II",
+                  }
+
+                );
+
+
+
+                //Courses 38 Tesda Department
+                this._context.Courses.Add(
+                  new Course()
+                  {
+                      Id = Guid.Parse("dbd0c36d-9e1f-4a4c-adaa-cdc775dc6b9d"),
+                      Description =
+                      "<dl>" +
+                      "<dt>Tesda Offer</dt>" +
+                      "<dd>Visual Graphic Design NC-II." +
+                      " Designed to develop knowledge, skill.</dd>" +
+                      "</dl>",
+                      Content = "Train to design and develop visual graphic designs for print media electronic media, product packaging and both and product/window display.",
+                      CourseCode = "",
+                      IsPublished = true,
+                      Title = "Tesda Visual Graphic Design NC-II",
+                  }
+
+                );
+
+
+
+
+
+
+
+
+
+            }
+
+
+
+            this._context.SaveChanges();
                 return "OK";
             
         }

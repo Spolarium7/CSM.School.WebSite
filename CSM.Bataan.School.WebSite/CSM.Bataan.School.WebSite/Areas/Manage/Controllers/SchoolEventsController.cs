@@ -27,7 +27,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
-        [Authorize(Policy = "AuthorizeAdmin")]
+       
         [HttpGet, Route("manage/schoolevents/index")]
         [HttpGet, Route("manage/schoolevents")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
@@ -70,14 +70,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-        [Authorize(Policy = "AuthorizeAdmin")]
+     
         [HttpGet, Route("manage/schoolevents/create")]
         public IActionResult Create()
         {
             return View();
         }
 
-        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/schoolevents/create")]
         public IActionResult Create(CreateViewModel model)
         {

@@ -16,9 +16,9 @@
             <article>
                 <div class="info">
                     <img class="card-img-top" src="~/courses/@courses.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">
-                    <p>@courses.Title</p>
+                    <h1>@courses.Title</h1>
                     <p class="info-line"><span class="time">@courses.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
-                    <p>@courses.Description</p>
+                    <pre>@Html.Raw(courses.Description)</pre>
                     <p><a href="~/courses/@courses.Id" class="btn btn-primary">Read More &rarr;</a></p>
                 </div>
             </article>
@@ -51,7 +51,7 @@
                             var markup = "<article>";
                             markup = markup + "<div class='info'>";
                             markup = markup + "<img class='card-img-top' src='../courses/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
-                            markup = markup + "<h3>" + item.title +  "</h3>";
+                            markup = markup + "<h1>" + item.title +  "</h1>";
                             markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
                             markup = markup + "<p>" + item.description + "</p>";
                             markup = markup + "<p><a href='~/courses/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";

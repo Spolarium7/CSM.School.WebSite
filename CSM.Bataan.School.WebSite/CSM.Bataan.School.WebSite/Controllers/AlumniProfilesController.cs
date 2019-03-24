@@ -46,21 +46,21 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
 
 
-        [HttpGet, Route("alumniprofiles/{alumniprofileId}")]
-        public IActionResult AlumniProfile(Guid? alumniprofileId)
+        [HttpGet, Route("alumniprofiles/{alumniprofilesId}")]
+        public IActionResult AlumniProfile(Guid? alumniprofilesId)
         {
-            var alumniprofile = this._context.AlumniProfiles.FirstOrDefault(p => p.Id == alumniprofileId);
-            if (alumniprofile != null)
+            var alumniprofiles = this._context.AlumniProfiles.FirstOrDefault(p => p.Id == alumniprofilesId);
+            if (alumniprofiles != null)
             {
                 return View(new AlumniProfileViewModel()
                 {
-                    AlumniProfileId = alumniprofile.Id,
-                    Company = alumniprofile.Company,
-                    Description = ParseBBCode(alumniprofile.Description),
-                    Position = alumniprofile.Position,
-                    Location = alumniprofile.Location,
-                    FromDate = alumniprofile.FromDate,
-                    ToDate = alumniprofile.ToDate
+                    AlumniProfileId = alumniprofiles.Id,
+                    Company = alumniprofiles.Company,
+                    Description = ParseBBCode(alumniprofiles.Description),
+                    Position = alumniprofiles.Position,
+                    Location = alumniprofiles.Location,
+                    FromDate = alumniprofiles.FromDate,
+                    ToDate = alumniprofiles.ToDate
 
                 });
             }
