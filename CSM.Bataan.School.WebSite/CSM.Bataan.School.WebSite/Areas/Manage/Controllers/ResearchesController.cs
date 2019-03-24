@@ -132,6 +132,76 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
 
 
+        [HttpGet, Route("manage/researches/update-title/{researchId}")]
+        public IActionResult UpdateTitle(Guid? researchId)
+        {
+            var research = this._context.Researches.FirstOrDefault(f => f.Id == researchId);
+            if (research != null)
+            {
+                return View(new UpdateTitleViewModel()
+                {
+                    Id = research.Id,
+                    Title = research.Title,
+                    PostExpiry = research.PostExpiry
+
+                });
+            }
+            return RedirectToAction("Index");
+        }
+
+       
+        [HttpPost, Route("manage/researches/update-title")]
+        public IActionResult UpdateQuestion(UpdateTitleViewModel model)
+        {
+            var research = this._context.Researches.FirstOrDefault(f => f.Id == model.Id);
+            if (research != null)
+            {
+                research.Title = model.Title;
+              
+                research.PostExpiry = model.PostExpiry;
+                research.Timestamp = DateTime.UtcNow;
+                this._context.Researches.Update(research);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
+
+        [HttpGet, Route("manage/researches/update-content/{researchId}")]
+        public IActionResult UpdateContent(Guid? researchId)
+        {
+            var research = this._context.Researches.FirstOrDefault(f => f.Id == researchId);
+            if (research != null)
+            {
+                return View(new UpdateContentViewModel()
+                {
+                    ResearchId = research.Id,
+                    Title = research.Title,
+                    Content = research.Content
+
+
+                });
+            }
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost, Route("manage/researches/update-content")]
+        public IActionResult UpdateContent(UpdateContentViewModel model)
+        {
+            var research = this._context.Researches.FirstOrDefault(f => f.Id == model.ResearchId);
+            if (research != null)
+            {
+
+                research.Content = model.Content;
+                research.Timestamp = DateTime.UtcNow;
+                this._context.Researches.Update(research);
+                this._context.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
 
 
     }

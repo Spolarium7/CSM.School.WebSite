@@ -127,7 +127,7 @@ using CSM.Bataan.School.WebSite;
             WriteLiteral(" <strong>");
             EndContext();
             BeginContext(2785, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59d7f02cc8574d1da9b0a2f8ab3bd2b5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be548e041ae14596b6aa540bfcbdf554", async() => {
                 BeginContext(2803, 63, true);
                 WriteLiteral("  COLLEGE OF SUBIC MONTESSORI - DINALUPIHAN - LINCOLN HEIGHTS  ");
                 EndContext();
@@ -148,7 +148,7 @@ using CSM.Bataan.School.WebSite;
             WriteLiteral("</strong> All rights reserved.</p>\r\n    </div>\r\n    <!-- / container -->\r\n</footer>\r\n<!-- / footer -->\r\n\r\n<div id=\"fancy\">\r\n    <h2>Request information</h2>\r\n    ");
             EndContext();
             BeginContext(3032, 699, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2790f4dcb8454bb2821e2bcc069cde0f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ec07972cd5b94662a173aa90d8dc9aee", async() => {
                 BeginContext(3049, 263, true);
                 WriteLiteral(@"
         <div class=""left"">
@@ -157,7 +157,7 @@ using CSM.Bataan.School.WebSite;
             <fieldset class=""subject""><select>");
                 EndContext();
                 BeginContext(3312, 34, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f1812c85ed6400c8fae887a7bff66fb", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1fc67d410cb049aba5610c42c03d625f", async() => {
                     BeginContext(3320, 17, true);
                     WriteLiteral("Choose subject...");
                     EndContext();
@@ -174,7 +174,7 @@ using CSM.Bataan.School.WebSite;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
                 BeginContext(3346, 34, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2058e2c3f6eb4ee8854f8b7cd5e19c99", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "105ee7d67527440db29efff76cad01e0", async() => {
                     BeginContext(3354, 17, true);
                     WriteLiteral("Choose subject...");
                     EndContext();
@@ -191,7 +191,7 @@ using CSM.Bataan.School.WebSite;
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 EndContext();
                 BeginContext(3380, 34, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0637a7bb071b412bae21392a48cbb23d", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ad6353958d748b1b93d9415672fe354", async() => {
                     BeginContext(3388, 17, true);
                     WriteLiteral("Choose subject...");
                     EndContext();

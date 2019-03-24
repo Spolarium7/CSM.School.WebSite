@@ -9,6 +9,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Researches
     {
         public Guid? ResearchId { get; set; }
 
+         public string Title { get; set; }
+        
         public string Content { get; set; }
     }
 }
