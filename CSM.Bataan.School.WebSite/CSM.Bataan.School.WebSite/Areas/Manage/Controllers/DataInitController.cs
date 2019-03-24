@@ -2033,6 +2033,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                      Location = "Paranaque City Philippines",
                      IsPublished = true,
                      Company = "Bollore Logistics Asia Support Services Inc.",
+                 
                  }
 
                );
@@ -2083,7 +2084,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
                );
             }
-            
+
 
             //Initialize Courses
             if (this._context.Courses.Count() < 1)
@@ -2866,9 +2867,6 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   }
 
                 );
-
-
-
 
 
 

@@ -1,0 +1,219 @@
+﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@model CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Researches.IndexViewModel
+
+@{
+    Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+
+
+
+
+<section id="maincontent">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+
+                <form class="form-search">
+                    <input id="searchKeyword" placeholder="Type Something.." value="@Model.Researches.Keyword" type="text" class="input-medium search-query " />
+                    <button type="submit" class="btn btn-flat btn-primary">Search</button>
+                </form>
+                <h3><a href="#">Research View</a></h3>
+
+                <div class="container">
+                    @{
+                        if (Model.Researches != null)
+                        {
+                            if (Model.Researches.Items.Count > 0)
+                            {
+                                foreach (Research researches in Model.Researches.Items)
+                                {
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    <h4>@researches.Title</h4>
+                                                    <p>@researches.Content</p>
+                                                    <ul class="list-inline">
+
+                                                        <li class="list-inline-item"><a href="~/manage/researches/update-content/@researches.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                                        <li class="list-inline-item"><a href="~/manage/researches/update-question/@researches.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
+                                                        <li class="list-inline-item"><a href="~/manage/researches/update-title/@researches.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
+                                                        @{
+                                                            if (researches.IsPublished)
+                                                            {
+                                                                <li class="list-inline-item"><a href="#" title="Unpublish" onclick="confirmUnpublish('@researches.Id','@researches.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a></li>
+                                                            }
+                                                            else
+                                                            {
+                                                                <li class="list-inline-item"><a href="#" title="Publish" onclick="confirmPublish('@researches.Id','@researches.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a></li>
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+
+
+                            }
+
+
+
+                            <ul class="pagination">
+                                <li class="page-item"><a class="page-link" href="~/manage/researches?pageIndex=1">First</a></li>
+                                @{ if (Model.Researches.PageIndex > 1)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="~/manage/researches?pageIndex=@(Model.Researches.PageIndex - 1)">@(Model.Researches.PageIndex - 1)</a></li>
+                                    }
+                                }
+                                <li class="page-item"><a class="page-link active" href="#">@(Model.Researches.PageIndex)</a></li>
+                                @{ if ((Model.Researches.PageIndex + 1) <= Model.Researches.PageCount)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="~/manage/researches?pageIndex=@(Model.Researches.PageIndex + 1)">@(Model.Researches.PageIndex + 1)</a></li>
+                                    }
+                                }
+                                <li class="page-item"><a class="page-link" href="~/manage/researches?pageIndex=@Model.Researches.PageCount">Last</a></li>
+                            </ul>
+                        }
+                    }
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="span4">
+
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-unpublish">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Unpublish Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to unpublish <span id="modal-unpublish-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-unpublish-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL-->
+<div class="modal" tabindex="-1" role="dialog" id="modal-publish">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Publish Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to publish <span id="modal-publish-title"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="modal-publish-button">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--MODAL DELETE-->
+<div class="modal hide fade " id="modal-delete-faq">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Delete FAQ</h3>
+    </div>
+    <div class="modal-body">
+        <p>Are you sure you want to delete <span id="modal-delete-faq"></span>?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" id="modal-delete-faq-confirm"><button type="button" class="btn btn-primary">Delete Faq</button></a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+</div>
+
+
+
+
+@section pageScripts{
+    <script>
+        //////////////////////SEARCH/////////////////////////////////////////////////////////////////
+        function searchTrigger() {
+            window.location = "~/manage/researches?pageIndex=1&keyword=" + $("#searchKeyword").val();
+
+        }
+        $("#searchKeyword").keyup(function (event) {
+            if (event.keyCode === 13) {
+                searchTrigger();
+            }
+        });
+        ////////////////////UNPUBLISH/////////////////////////////////////////////////////////////////
+        function confirmUnpublish(id, title) {
+            $("#modal-unpublish-title").html(title);
+            $("#modal-unpublish-button").attr("onclick", "UnPublishResearch('" + id + "')");
+            $("#modal-unpublish").modal("show");
+        }
+        function UnPublishResearch(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/researches/unpublish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+        //////////////////PUBLISH///////////////////////////////////////////////////////////////////////
+        function confirmPublish(id, title) {
+            $("#modal-publish-title").html(title);
+            $("#modal-publish-button").attr("onclick", "PublishResearch('" + id + "')");
+            $("#modal-publish").modal("show");
+        }
+        function PublishResearch(id) {
+            $.ajax({
+                type: "POST",
+                url: "/manage/researches/publish",
+                data: { id: id },
+                success: function (data) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    var response = JSON.parse(xhr.responseText);
+                    alert("Error Occured : " + response.errors[0]);
+                    location.reload();
+                }
+            });
+        }
+
+    </script>
+}

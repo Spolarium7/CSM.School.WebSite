@@ -53,7 +53,14 @@
                     <div class="column">
                         <div class="content">
                             <img src="~/images/alumniprofiles/@alumniprofile.Id/thumbnail.png" alt="@alumniprofile.Company" style="width:100%">
-                            <h6>@alumniprofile.FromDate,@alumniprofile.ToDate</h6>
+                            <dl>
+                                <dt>From Date:</dt>
+                                <dd>@alumniprofile.FromDate.ToString("dddd, dd MMMM yy")</dd>
+
+                                <dt>To Date:</dt>
+                                <dd>@alumniprofile.ToDate.ToString("dddd, dd MMMM yy")</dd>
+                            </dl>
+                           
                             <a href="~/alumniprofiles/@alumniprofile.Id"><button class="btn btn-primary">View</button></a>
                             <p></p>
                         </div>

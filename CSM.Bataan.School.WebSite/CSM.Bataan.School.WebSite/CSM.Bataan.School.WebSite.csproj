@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\alumniprofiles\" />
     <Folder Include="wwwroot\images\achievers\" />
     <Folder Include="wwwroot\images\ads\" />
     <Folder Include="wwwroot\images\schoolevents\" />
