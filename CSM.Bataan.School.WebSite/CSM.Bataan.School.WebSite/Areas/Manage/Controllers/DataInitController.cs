@@ -1020,6 +1020,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     }
                 );
             }
+
             //Initialize FAQS
             if (this._context.Faqs.Count() < 1)
             {
@@ -1529,16 +1530,15 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             );
             }
 
-
-                //Initialize SchoolFacility
-                if (this._context.SchoolFacilities.Count() < 1)
+            //Initialize SchoolFacility
+            if (this._context.SchoolFacilities.Count() < 1)
                 {
                     //Initialize SchoolFacility 1
                     this._context.SchoolFacilities.Add(
                         new SchoolFacility()
                         {
                             Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
-                            Description = "The students use the VGD room for computer subjects ",
+                            Description = "The students use the VGD room for computer subjects... ",
                             Content = "The students use the VGD room for computer subjects like photo and logo design. It is also used for assessments. Lastly, BSIS students use it for their classes.",
                             IsPublished = true,
                             PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
@@ -1565,8 +1565,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                                new SchoolFacility()
                                {
                                    Id = Guid.Parse("39648aa6-f2d0-4b8d-a265-d6f66d80ae97"),
-                                   Description = "....",
-                                   Content = "",
+                                   Description = "CSS rooms use for Tesda training for the Computer Systrem Servicing NC2 for college , senior  high school and Tesda scholars...",
+                                   Content = "Comlab1 allowed to the grade school for them to get familiarize  to the computer or laptop to perform basic activities using computer.",
                                    IsPublished = true,
                                    PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                                    Title = "CSD room",
@@ -1689,26 +1689,23 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                            Title = "Marketing Office",
                        }
                    );
-                    //Initialize SchoolFacility 12
+
+                    //Initialize SchoolFacility 13
                     this._context.SchoolFacilities.Add(
                        new SchoolFacility()
                        {
                            Id = Guid.Parse("013752a0-3163-46a1-ba37-72af38460eb9"),
                            Description = "Our school parking area",
-                           Content = "Available parking area for parents, visitors and employees",
+                           Content = "Available parking area for parents, visitors and employees , Parking Area School parking lot can accommodate fifteen vehicles together with the assistance of the security personnel.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                            Title = "Parking Area",
                        }
                    );
 
-                }
 
 
-
-
-
-
+            }
 
             //Initialize Alumni Profile Entries
             if (this._context.AlumniProfiles.Count() < 1)
@@ -2083,8 +2080,69 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  }
 
                );
-            }
 
+                //Alumni Profile Entries 17
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("d90abb98-8170-4f4c-aaa0-070ee67fba7b"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name:Rafael R. Capio</ li>" +
+                     "<li>Course: Bachelor of Science Business Administration(Human Resources Development Management)</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address:  rafaelcarpio122695@gmail.com</ li>" +
+                     "<li>Latest work: Overseas man power provider </ li>" +
+                     "<li>Description :Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country.</ li>" +
+                     "</ul>",
+                     Position = "Business Planner",
+                     Location = " JLT DUBAI UAE",
+                     IsPublished = true,
+                     Company = "Devisers Immigration Law Firm",
+                 }
+                    );
+
+                //Alumni Profile Entries 18
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("11da1a5e-b369-403e-aa9f-60a2a077d54c"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name:Sangalang Darwin M.</ li>" +
+                     "<li>Course: Bachelor of Science Customs Administration</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address:  darwinsangalang@ymail</ li>" +
+                     "<li>Latest work: Quality assurance </ li>",
+                     Position = "First Visual",
+                     Location = "Palihan",
+                     IsPublished = true,
+                     Company = "Sumi phil.",
+                 }
+                    );
+
+
+                //Alumni Profile Entries 19
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("33369ff4-0793-4fe9-b121-ab10820f8c33"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Brandon Michole Delos Santos </ li>" +
+                     "<li>Course: Hotel Restaurant Services</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address: anonymousvapersbrandon123@gmail.com</ li>" +
+                     "<li>Latest work:  CSM Position: SAFETY OFFICER </ li>" +
+                     "Description : to fulfill the safety measure within the school campus and the safety of all employees and students.",
+
+                     Position = "First Visual",
+                     Location = "Sta. Isabel highway,  Dinalupihan, bataan",
+                     IsPublished = true,
+                     Company = "AIM HIGH",
+                 }
+                    );
+            }
 
             //Initialize Courses
             if (this._context.Courses.Count() < 1)
@@ -2875,9 +2933,349 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             }
 
+            //Initialize Threads
+            if (this._context.Threads.Count() < 1)
+            {
 
 
-            this._context.SaveChanges();
+                //Threads 1 
+                this._context.Threads.Add(
+                  new Thread()
+                  {
+                      Id = Guid.Parse("4c716f6b-3a12-4b42-ab39-cb13d9a1c229"),
+                      Description = "CSM Education Offer & Requirements...",
+                      Content = 
+                      "<ul>" +
+                      "<li>PRE-ELEMENTARY TODDLER - 2-3 yrs. old </li>" +
+                      "<li>JUNIOR CASA - 3-4yrs. old</li>" +
+                      "<li>SENIOR CASA - 4-5yrs.old</li>" +
+                      "<li>ADVANCED CASA - 5-6yrs.old </li>" +
+                      "</ul>" +
+                      "<ul>" +
+                      "<li>PRIMARY SCHOOL <li>" +
+                      "<li> Grade One</li>" +
+                      "<li> Grade Two</li>" +
+                      "<li> Grade Three</li>" +
+                      "<li>MIDDLE SCHOOL<li>" +
+                      "<li>Grade Four<li>" +
+                      "<li> Grade Five<li>" +
+                      "<li> GRADE Six<li>" +
+                      "<li>JUNIOR HIGH SCHOOL</li>" + "" +
+                      "<li> GRADE Seven</li>" +
+                      "<li> GRADE Eight</li>" +
+                      "<li> GRADE Nine</li>" +
+                      "<li> GRADE Ten</li>" +
+                      "<li>SENIOR HIGH SCHOOL</li>" +
+                      "<li> GRADE Eleven</li>" +
+                      "<li> GRADE Twelve</li>",
+                      IsPublished = true,
+                      Title = "What are the BASIC EDUCATION PROGRAMS",
+                  }
+
+                );
+
+
+
+                //Threads 2 
+                this._context.Threads.Add(
+                  new Thread()
+                  {
+                      Id = Guid.Parse("ceaa51a9-5dd8-428d-9aec-9c307a3ca43d"),
+                      Description = "Requirements for NEW STUDENT",
+                    
+
+                      Content = 
+                      "<ul>" +
+                        "<li>For CASA to Senior HighSchool</li> " +
+                        "<li>1. High School Report Card (F138 / F137A)</li> " +
+                        "<li>2.Diploma (Photocopy)</li>" +
+                        "<li>3.Good Moral Character Certification</li> " +
+                        "<li>4.NSO Birth Certificate (Photocopy) </li>" +
+                        "<li>5.Two(2)pcs. Long Brown Envelope with Plastic Cover</li>" +
+                        "<li>6.One(1)pc. 1x1 picture and 1 pcs. 2x2 picture </li>" +
+                        "<li>7. Medical Certificate 8. Must undergo an Assessment Examination.</li>" +
+                      "</ul> ",
+                      IsPublished = true,
+                      Title = "What are the requirements for NEW STUDENT  " + "(For CASA to Senior HighSchool )",
+                  }
+
+                );
+
+
+                //Threads 3 
+                this._context.Threads.Add(
+                  new Thread()
+                  {
+                      Id = Guid.Parse("051002cd-22e5-4d05-a38a-2e0d46ec2cdc"),     
+                      Content = "<ul><li>1. CALL(047) 633-5531 or Email csm.bataan888@yahoo.com<li>" +
+                        "<li>2. For New Students Submit admission requirements at the Register's Office and proceed to advising of subjects OIC-Principal - Basic Education Dept. Dean/OIC - College Head - Higher Education Dept. For OLD Student : Duly Signed Clearance<li> " +
+                        "<li>3. For NEW/TRANSFEREES proceed to Guidance and Counseling Office for the Schedule of Assessment Exam, proceed to designated room for the measurement of uniform, For OLD Students proceed to Step 5<li>" +
+                        "<li>4. proceed to Step 5  <li>" +
+                        "<li>5. Proceed to Finance Office for the assessment of Fees<li> " +
+                        "<li>6. Payment of assesed Tuition and other fees<li> " +
+                        "<li>7. You are now officially ENROLLED (SPENDS A DAY AS A MONTESSORIAN!)</li></ul>",
+                      Description = "For New Students Submit admission requirement....",
+                      IsPublished = true,
+                      Title = "How to inquire in CSM?",
+                  }
+
+                );
+
+
+
+                //Threads 4 
+                this._context.Threads.Add(
+                  new Thread()
+                  {
+                      Id = Guid.Parse("f3a4e146-837e-40af-91cf-04e998cf596a"),    
+                      Content = "Under Basic Education Curriculum:" +
+                        "<p>CASA Department</p> " +
+                        "<ul>" +
+                        "<li>Toddler 		2-3 yrs. old </li>" +
+                        "<li>Junior Casa	3-4 yrs. old </li>" +
+                        "<li>Senior Casa	4-5 yrs. old </li>" +
+                        "<li>Advanced Casa	5-6 yrs. old </li>" +
+                        "</ul>" +
+                        "<p>Primary Department</p> " +
+                        "<ul>" +
+                        "<li>Grade One,Grade Two</li>" +
+                        "<li> Grade Three</li>" +
+                        "</ul>" +
+                        "<p>Middle School Department</p>" +
+                        "<ul>" +
+                        "<li>Grade Four<li>" +
+                        "<li>Grade Five</li>" +
+                        "<li>Grade Six</li>" +
+                        "</ul>" +
+                        "<p>Junior High School Department</p>" +
+                        "<ul>" +
+                        "<li>Grade Seven</li>" +
+                        "<li>Grade Eight</li> " +
+                        "<li> Grade Nine</li>" +
+                        "<li> Grade Ten</li>" +
+                        "<ul>" +
+                        "<p>Senior High School Department</p>" +
+                        "<ul>" +
+                        "<li> Grade Eleven</li>" +
+                        "<li>Grade Twelve</li>" +
+                        "<ul>" +
+                        "<p>Under Higher Education Department:<p> " +
+                        "<ul>" +
+                        "<li>Bachelor of Science in Business Administration<li>" +
+                        "<li>Major in the following:</li> " +
+                        "<li> Human Resource Development Management</li>" +
+                        "<li> Financial Management</li>" +
+                        "<li>Operations Management</li>" +
+                        "<li> Marketing Management</li> " +
+                        "<li> Bachelor of Science in Criminology</li>" +
+                        "<li>Bachelor of Science in Customs Administration</li>" +
+                        "<li>Bachelor of Science in Tourism Management</li>" +
+                        "<li>Bachelor of Science in Information Systems</li>" +
+                        "<li> Associate in Computer Technology</li>" +
+                        "<li> Hotel and Restaurant Services</li>" +
+                        "<ul>" +
+                        "<p>With the following Competencies:</p> " +
+                        "<ul>" +
+                        "<li>Food and Beverage Services NC II </li>" +
+                        "<li> Front Office Services NC II </li>" +
+                        "<li>Housekeeping NC II </li>" +
+                        "<li>Computer Systems Servicing NC II </li>" +
+                        "<li>Visual Graphic Design NC II </li></ul>",
+                      Description = "CSM Bataan - CSM offers",
+                      IsPublished = true,
+                      Title = "Colleges of Subic Montessori -  offers )",
+                  }
+
+                );
+
+
+
+
+                //Threads 5
+                this._context.Threads.Add(
+                  new Thread()
+                  {
+                      Id = Guid.Parse("5eadef3f-0d89-498e-b476-4d7da90539eb"),
+                      Description ="The rules or illegal items ",
+                       
+                      Content = "<ul>" +
+                        "<li>Complete Uniform</li>" +
+                        "<li>I.D Student</li>" +
+                        "<li>Short hair , no color</li> " +
+                        "<li>No accessories</li>" +
+                        "<li>Gadget is ban in school</li>" +
+                        "<li>No smoking in school </li>" +
+                        "<li>Outsider is ban </li>" +
+                        "</ul>",
+                      IsPublished = true,
+                      Title = "What are the rules of CSM & illegal items",
+                  }
+
+                );
+
+
+            }
+
+            //Initialize Researches
+            if (this._context.Researches.Count() < 1)
+            {
+
+
+                //Researches 1 
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("6fcffca5-42ee-4cf2-b5e1-4e0afd0ac9f8"),
+                      Content = "<h4>A System Analysis Development Project By:<hr>" +
+                      "Torio, Gellie P. and Ponce, Omar S. - ACT</h4>" +
+                      " Point of sale Inventory System is one of the essential components of a successful business." +
+                      " It is a modern replacement for the cash register in retail applications. " +
+                      "It can help to record securely all the sales and customer's orders, track products which are poor on business sales and course manage inventory. " +
+                      "This is particular system can improve the way, the small and mid-sized businesses do their inventory and sales transaction. It will aid some common problems facing by business industries, that in this era of modernization, still using a manual process inventory." +
+                      "Common problems like slow inventory process, lost records, inventory shortage, and high risk of errors can affect the whole business. A manual POS Inventory System can affect the whole business process in terms of sales and confidential document security because a manual process is not reliable enough. " +
+                      "Canteen POS System is a computer based way of checking and auditing of the sales of the company, it is faster and more reliable rather than doing manually. The system can lessen errors in editing and can be easily accessed ant time by the company. POS software records each sale when it happens, so your inventory records are always up-to-date." +
+                      " Better still, you get much more information about the sale than you could gather with a manual system. By running reports based on this information, you can make better decisions about ordering and merchandising.",
+                      IsPublished = true,
+                      Title = "Canteen Point of Sale System",
+                  }
+
+                );
+
+                //Researches 2 
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("ce8dc273-410a-4d4a-9651-3ea1bc704564"),
+                      Content = " <h4> A Capstone Project By: Aira Jane K. Garcia and Gellie P. Torio - BSIS</h4>" +
+                      " Advances in technology over the years play a huge part in event planning." +
+                      " It has undergone a remarkable evolution since the 90s. While it customary to reminisce the past, in reality, event planning today is much more efficient, reliable, flexible, and exciting than it ever has been." +
+                      " This study will address ways on how planning an event now differs from before. Using an application or software in planning changed a lot, back in the day everything is handwritten but now you can do it digitally which is more efficient and not time-consuming." +
+                      " Finding a place where to hold the event also changes, in the past there are no online maps to look for a suitable venue but now there are several apps to choose from." +
+                      " Accomplishing tasks is much easier also now; reminders can be set in the software or the app so every task in the to-do list will be checked. Substantially, advancement in technology helps us in many ways and this study will focus on some of those: the use of software in event planning, budgeting and management of task. " +
+                      "This study will provide evidence on how easy, uncomplicated, helpful and useful planning software or application is nowadays.",
+                      IsPublished = true,
+                      Title = "Event Planner with Budgeting and Task Management System",
+                  }
+
+                );
+
+                //Researches 3 
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("8bccece7-5574-401f-94a7-c59a80b31412"),
+                      Content = "<h4>A System Analysis Development- Capstone Project<hr>" +
+                      "Project By: Rachelle M. Macaspac, Geralyn Salenga, Mary Grace Maquesa and Harold Cabalbag- BSBA</h4>" +
+                      " Bank industry is widely recognized in the market. It became a huge part of human race." +
+                      "This study inspires its readers to take a closer look on banking world." +
+                      "In specific, researchers conducted this through researching the bank system of Zambales Rural Bank Inc. The study introduces banking world and states its relevance to the modern world. " +
+                      "It covers the background of study, statement of objective (General and Specific), Significance of the study and Scope Limitation. It also includes methodology of study whereby methods were explained as well as the data gathering and output." +
+                      "To do so, researcher needed to conduct a background check of the subject. They went to field collecting information through interviewing and observation. " +
+                      "By doing that they were able to familiarize themselves with the daily operation of the bank. For example at the end of this study we would to know that inside the bank is divided into departments." +
+                      "It has cash, loans and accounting department and that each of these departments use similar system but different access. " +
+                      "We would like know why it uses special software and what this software can do, how they maintain it and technical question as such." +
+                      "We would like know why it uses special software and what this software can do, how they maintain it and technical question as such.",
+                      IsPublished = true,
+                      Title = "A study Banking Management System of ZAMBALES RURAL BANK IN LUBAO BRANCH, LUBAO PAMPANGA",
+                  }
+
+                );
+
+
+                //Researches 4 
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("e4e569f7-9393-487b-bed7-8e67849a52f6"),
+                      Content = "<h4>A System Analysis Development Project By: April Joyce M. Jaraba, Jaymaric V. Mallari and Jelie Rose T. Pineda- BSBA</h4>" +
+                      "Points of Sale System is one of the most usable technologies fir the biggest company in the world." +
+                      " This system helps you to manage business transaction and loosen you from paperwork's as computation of the day's sale, and keeping the inventory automatically done." +
+                      " The design of point of sale will find great value and necessary asset in the company." +
+                      " The Personal Collection used this kind of system that helps them to improve their work by inputting data and information about the clients who purchase to them." +
+                      " They create this system for delivering some accurate results for computing the daily sales of the company and to know the amount of received items/stocks and quantity of the products." +
+                      " In addition, to prevent losing customer because of inaccurate computation. The proponent of this study will discuss the proposal of computerized sale system and the problem that encountered by the employees of PC.",
+                      IsPublished = true,
+                      Title = "POINTS OF SALE SYSTEM OF PERSONAL COLLECTION",
+                  }
+
+                );
+
+
+                //Researches 5
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("f4917e7a-276f-4e84-bb59-781679ab96dc"),
+                      Content = "<h4>Capstone Project By: Ryan Christian Soria and Bobby V. Reyes- BSIS</h4>" +
+                      "Today, population continually upgrades those results into a growing number of labor especially the Barangay Secretary, Barangay Treasurer, and Barangay Clerk. " +
+                      "Summarizing the procedures in the different barangay such as Barangay Del Pilar requiring immediate response to this scenario a possible solution is an efficient and effective Management Information System. " +
+                      "The Barangay Record Management System provides an online way of solving the problems faced by the public by saving time. " +
+                      "The objectives of the complaints management system is to make complaints easier to coordinate, monitor, track and resolve, and to provide company with an effective tool to identify and target problem areas, monitor complaints handling performance and make business improvements." +
+                      "Barangay Record Management System is a management technique foe assessing, analyzing and responding to customer complaints." +
+                      "Barangay complaints management software is used to record resolve and respond to customer complaints, request as well as facilitate any other feedback in every barangay. .",
+                      IsPublished = true,
+                      Title = "The Development of Dinalupihan Bataan Barangay Record Management System",
+                  }
+
+                );
+
+
+
+
+                //Researches 6
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("e9fba31b-e96b-4949-9801-1bfabff6ccf5"),
+                      Content = "<h4>A System Analysis Development Project By: April Anne P. Mabilanga<hr>" +
+                      "Trisha G. Dela Rosa and Arisa S. Manalansan- BSBA</h4>" +
+                      "This is the study about the inventory system of Fresh Options. It consist of scope and limitations of the system, the flow on how it works, the methods on how system develop," +
+                      "the problem that will encounter to the system and other information that related to the system. The inventory system can be entered using a username and password. " +
+                      "It is accessible either by supervisor or employee. They can also add data into the database. " +
+                      "The system is very user friendly. The system can track or see inventory levels, order, sale, and deliveries. It can be used for making the transaction easily and faster. .",
+                      IsPublished = true,
+                      Title = "A STUDY ON FRESH OPTIONS INVENTORY SYSTEM OF DINALUPIHAN, BATAAN",
+                  }
+
+                );
+
+
+                //Researches 7
+                this._context.Researches.Add(
+                  new Research()
+                  {
+                      Id = Guid.Parse("1c550ef1-a68a-4d21-b721-b7392992062c"),
+                      Content = "<h4>Basic Statistic and Thesis Writing By: Kheil M. Salenga, and Dior <hr>" +
+                      "Christian G. Datu- BSTM</h4>" +
+                      "This study will focus in the effectiveness of NCII tourism training schools in Bataan." +
+                      " This study was conducted to know more about the NCII trainings in terms of the Training environment," +
+                      " the perception of the students and trainees. And this study also intends the benefits of the program. .",
+                      IsPublished = true,
+                      Title = "The Effectiveness of NCII Trainings on Selected School in Bataan",
+                  }
+
+                );
+            }
+
+            //Initialize Achievers
+            if (this._context.Achievers.Count() < 1)
+            {
+
+
+                //Researches 1 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("bb39a11d-9504-482b-b6c0-71ab89fb6f8e"),
+                      Content = "",
+                      IsPublished = true,
+                      Title = "",
+                  }
+
+                );
+
+
+                this._context.SaveChanges();
                 return "OK";
             
         }

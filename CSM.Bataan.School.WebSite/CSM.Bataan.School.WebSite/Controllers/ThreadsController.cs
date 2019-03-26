@@ -54,7 +54,8 @@ namespace CSM.Bataan.School.WebSite.Controllers
                     ThreadId = thread.Id,
                     Title = thread.Title,
                     Content = ParseBBCode(thread.Content)
-               
+                   
+
 
 
                 });
