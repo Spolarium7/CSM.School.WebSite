@@ -11,7 +11,6 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Models
     {
         public string Title { get; set; }
 
-        [StringLength(200)]
         public string Content { get; set; }
 
         public string TemplateName { get; set; }

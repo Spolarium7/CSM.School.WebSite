@@ -1,8 +1,9 @@
-﻿@model CSM.Bataan.School.WebSite.ViewModels.Courses.CoursesViewModel
-
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Researches.ResearchViewModel
 @{
     Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
 }
+
+<!DOCTYPE html>
 
 
 
@@ -18,8 +19,6 @@
                     </div>
                     <div class="info">
                         <hr />
-                        @Model.Year
-                        @Model.CourseCode
                         @Html.Raw(Model.Content)
                     </div>
                 </article>
@@ -137,13 +136,13 @@
                 </div>
                 <div class="note">
                     <a href="~/schoolevents"><p class="upcoming-note">Upcoming event</p></a>
-                    <a href="#"><p class="archival-note">Archival event</p></a>
+                    <p class="archival-note">Archival event</p>
                 </div>
             </div>
             <div class="widget list">
                 <h2>Photo gallery</h2>
                 <ul>
-                    <li><a href="#"><img src="#" alt=""></a></li>
+                    <li><a href="#"><img src="images/4.png" alt=""></a></li>
                     <li><a href="#"><img src="images/4_2.png" alt=""></a></li>
                     <li><a href="#"><img src="images/4_3.png" alt=""></a></li>
                     <li><a href="#"><img src="images/4_4.png" alt=""></a></li>

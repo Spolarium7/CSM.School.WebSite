@@ -14,8 +14,8 @@
         {
             <article>
                 <div class="info">
-                    <img class="card-img-top" src="~/schoolevents/@schoolevent.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">
-                    <p>@schoolevent.Title</p>
+                    @*<img class="card-img-top" src="~/schoolevents/@schoolevent.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">*@
+                    <p><strong>@schoolevent.Title</strong></p>
                     <p class="info-line"><span class="time">@schoolevent.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
                     <p>@schoolevent.Description</p>
                     <p><a href="~/schoolevents/@schoolevent.Id" class="btn btn-primary">Read More &rarr;</a></p>
@@ -49,8 +49,7 @@
                             var itemTimestamp = new Date(Date.parse(item.timestamp));
                             var markup = "<article>";
                             markup = markup + "<div class='info'>";
-                            markup = markup + "<img class='card-img-top' src='../schoolevents/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
-                            markup = markup + "<h3>" + item.title +  "</h3>";
+                            //markup = markup + "<img class='card-img-top' src='../schoolevents/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
                             markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
                             markup = markup + "<p>" + item.description + "</p>";
                             markup = markup + "<p><a href='~/schoolevents/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";

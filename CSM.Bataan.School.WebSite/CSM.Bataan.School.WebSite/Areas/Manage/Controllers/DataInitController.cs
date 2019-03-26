@@ -2142,6 +2142,217 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                      Company = "AIM HIGH",
                  }
                     );
+
+
+
+
+
+                //Alumni Profile Entries 20
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("6d912ff6-df67-42e2-a089-1f0f755edec6"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: JOHN KING MANUEL ALVARO </ li>" +
+                     "<li>Course: Bachelor of Science Information System</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address: KINGALVARO25@GMAIL.COM  </ li>" +
+                     "<li>Latest work: CSM Faculty.  </ li>" +
+                     "Description :.",
+
+                     Position = "INSTRUCTOR/COSTODIAN",
+                     Location = "Sta.Isabel Dinalupihan, Bataan. ",
+                     IsPublished = true,
+                     Company = "College of Subic Montessori, INC.",
+                 }
+                    );
+
+
+                //Alumni Profile Entries 21
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("c9ed386d-424c-4c0f-9bfb-1a98c26c75fb"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Clarence D. Idio </ li>" +
+                     "<li>Course: Bachelor of Science Criminology</li>" +
+                     "<li>Gender: Male</li>" +
+                     "<li>Email Address: idioclarence1994@y.com </ li>" +
+                     "<li>Latest work:  </ li>" +
+                     "Description :.",
+
+                     Position = "Police Office 1",
+                     Location = "",
+                     IsPublished = true,
+                     Company = "PNP",
+                 }
+                    );
+
+
+                //Alumni Profile Entries 22
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("69f24d79-2670-43b8-a361-ac4c419b15b8"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Krizia Kaye C. Talaroc</ li>" +
+                     "<li>Course: Bachelor of Science Customs Administration</li>" +
+                     "<li>Gender: Female</li>" +
+                     "<li>Email Address:  khayetalaroc@gmail.com </ li>" +
+                     "<li>Latest work: School Registrar  </ li>" +
+                     "Description :.",
+
+                     Position = " Registrar Company: College of Subic Montessori - Lincoln Heights, Inc. ",
+                     Location = "Lincoln Heights, San Pablo, Dinalupihan, Bataan",
+                     IsPublished = true,
+                     Company = "College of Subic Montessori-Lincoln Heights, Inc. ",
+                 }
+                    );
+
+
+
+                //Alumni Profile Entries 23
+                this._context.AlumniProfiles.Add(
+                 new AlumniProfile()
+                 {
+                     Id = Guid.Parse("7dd5356d-9312-43f0-bdfb-a07aa71d7d82"),
+                     Description =
+                     "<ul>" +
+                     "<li>Name: Rafael R. Carpio </ li>" +
+                     "<li>Course:  Bachelor of Science Business Administration-Human Resouce Development Management</li>" +
+                     "<li>Gender: Male </li>" +
+                     "<li>Email Address: rafaelcarpio122695@gmail.com </ li>" +
+                     "<li>Latest work:  Business Planner</ li>" +
+                     "Description : Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country..",
+
+                     Position = "",
+                     Location = "LT DUBAI UAE",
+                     IsPublished = true,
+                     Company = " Devisers Immigration Law Firm",
+                 }
+                    );
+
+
+
+                ////Alumni Profile Entries 24
+                //this._context.AlumniProfiles.Add(
+                // new AlumniProfile()
+                // {
+                //     Id = Guid.Parse(""),
+                //     Description =
+                //     "<ul>" +
+                //     "<li>Name: </ li>" +
+                //     "<li>Course:</li>" +
+                //     "<li>Gender:</li>" +
+                //     "<li>Email Address: </ li>" +
+                //     "<li>Latest work:  </ li>" +
+                //     "Description :.",
+
+                //     Position = "",
+                //     Location = "",
+                //     IsPublished = true,
+                //     Company = "",
+                // }
+                //    );
+
+
+
+                ////Alumni Profile Entries 25
+                //this._context.AlumniProfiles.Add(
+                // new AlumniProfile()
+                // {
+                //     Id = Guid.Parse(""),
+                //     Description =
+                //     "<ul>" +
+                //     "<li>Name: </ li>" +
+                //     "<li>Course:</li>" +
+                //     "<li>Gender:</li>" +
+                //     "<li>Email Address: </ li>" +
+                //     "<li>Latest work:  </ li>" +
+                //     "Description :.",
+
+                //     Position = "",
+                //     Location = "",
+                //     IsPublished = true,
+                //     Company = "",
+                // }
+                //    );
+
+
+
+                ////Alumni Profile Entries 26
+                //this._context.AlumniProfiles.Add(
+                // new AlumniProfile()
+                // {
+                //     Id = Guid.Parse(""),
+                //     Description =
+                //     "<ul>" +
+                //     "<li>Name: </ li>" +
+                //     "<li>Course:</li>" +
+                //     "<li>Gender:</li>" +
+                //     "<li>Email Address: </ li>" +
+                //     "<li>Latest work:  </ li>" +
+                //     "Description :.",
+
+                //     Position = "",
+                //     Location = "",
+                //     IsPublished = true,
+                //     Company = "",
+                // }
+                //    );
+
+
+
+
+                ////Alumni Profile Entries 27
+                //this._context.AlumniProfiles.Add(
+                // new AlumniProfile()
+                // {
+                //     Id = Guid.Parse(""),
+                //     Description =
+                //     "<ul>" +
+                //     "<li>Name: </ li>" +
+                //     "<li>Course:</li>" +
+                //     "<li>Gender:</li>" +
+                //     "<li>Email Address: </ li>" +
+                //     "<li>Latest work:  </ li>" +
+                //     "Description :.",
+
+                //     Position = "",
+                //     Location = "",
+                //     IsPublished = true,
+                //     Company = "",
+                // }
+                //    );
+
+
+
+
+
+                ////Alumni Profile Entries 28
+                //this._context.AlumniProfiles.Add(
+                // new AlumniProfile()
+                // {
+                //     Id = Guid.Parse(""),
+                //     Description =
+                //     "<ul>" +
+                //     "<li>Name: </ li>" +
+                //     "<li>Course:</li>" +
+                //     "<li>Gender:</li>" +
+                //     "<li>Email Address: </ li>" +
+                //     "<li>Latest work:  </ li>" +
+                //     "Description :.",
+
+                //     Position = "",
+                //     Location = "",
+                //     IsPublished = true,
+                //     Company = "",
+                // }
+                //    );
+
             }
 
             //Initialize Courses
@@ -3131,7 +3342,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       " Point of sale Inventory System is one of the essential components of a successful business." +
                       " It is a modern replacement for the cash register in retail applications. " +
                       "It can help to record securely all the sales and customer's orders, track products which are poor on business sales and course manage inventory. " +
-                      "This is particular system can improve the way, the small and mid-sized businesses do their inventory and sales transaction. It will aid some common problems facing by business industries, that in this era of modernization, still using a manual process inventory." +
+                      "This is particular system can improve the way, the small and mid-sized businesses do their inventory and sales transaction. " +
+                      "It will aid some common problems facing by business industries, that in this era of modernization, still using a manual process inventory." +
                       "Common problems like slow inventory process, lost records, inventory shortage, and high risk of errors can affect the whole business. A manual POS Inventory System can affect the whole business process in terms of sales and confidential document security because a manual process is not reliable enough. " +
                       "Canteen POS System is a computer based way of checking and auditing of the sales of the company, it is faster and more reliable rather than doing manually. The system can lessen errors in editing and can be easily accessed ant time by the company. POS software records each sale when it happens, so your inventory records are always up-to-date." +
                       " Better still, you get much more information about the sale than you could gather with a manual system. By running reports based on this information, you can make better decisions about ordering and merchandising.",
@@ -3273,9 +3485,238 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   }
 
                 );
+            }
 
 
-                this._context.SaveChanges();
+            //Initialize School Events
+            if (this._context.SchoolEvents.Count() < 1)
+            {
+
+
+                // School Events 1 
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("fedbab28-fe87-434b-977a-758addd24bc1"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 1 2019"),
+                      EventEnd = DateTime.Parse("April 5 2019"),
+                      IsPublished = true,
+                      Title = "Celebration Learning All-Out Preparation & Practices",
+                  }
+
+                );
+
+
+                // School Events 2 
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("65e1df76-5fb4-4aa8-b6b8-dac1681a0c00"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 5 2019"),
+                      EventEnd = DateTime.Parse("April 5 2019"),
+                      IsPublished = true,
+                      Title = "Last day of Classes for SY 2018-2019",
+                  }
+
+                );
+
+
+
+
+                // School Events 3
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("fe34d554-cb15-4c7e-8315-30844ba30e7e"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 8 2019"),
+                      EventEnd = DateTime.Parse("April 8 2019"),
+                      IsPublished = true,
+                      Title = "2019 Eucharistic Celebration",
+                  }
+
+                );
+
+
+
+
+                // School Events 4
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("ea5e9963-4e4a-4f64-9fd9-ba25749dbe39"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 9 2019"),
+                      EventEnd = DateTime.Parse("April 9 2019"),
+                      IsPublished = true,
+                      Title = "2019 Recognition Rites (Undergraduates)",
+                  }
+
+                );
+
+
+                // School Events 5
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("ae0366c5-05ab-468d-8488-f9c0ec5ea0f2"),
+                      Content = "-SHS Recognition Rites",
+                      Description = "Other Event..",
+                      EventStart = DateTime.Parse("April 11 2019"),
+                      EventEnd = DateTime.Parse("April 11 2019"),
+                      IsPublished = true,
+                      Title = "Dinalupihan Campus Casa & Grade School Graduation & Recognition Rites",
+                  }
+
+                );
+
+                // School Events 6
+                this._context.SchoolEvents.Add(
+                 new SchoolEvent()
+                 {
+                     Id = Guid.Parse("0e0d243f-0853-4b03-8b24-b297cc334272"),
+                     Content = "-Grade 10 Completion Day",
+                     Description = "Other Event...",
+                     EventStart = DateTime.Parse("April 12 2019"),
+                     EventEnd = DateTime.Parse("April 12 2019"),
+                     IsPublished = true,
+                     Title = "Lincoln High Campus Graduation & Recognition Rites",
+                 }
+               );
+
+
+                // School Events 7
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("9f98f2ec-da95-4607-9027-91b1db3f6223"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 12 2019"),
+                      EventEnd = DateTime.Parse("April 12 2019"),
+                      IsPublished = true,
+                      Title = "15th Celebration of Learning",
+                  }
+
+                );
+
+                // School Events 8
+                this._context.SchoolEvents.Add(
+              new SchoolEvent()
+              {
+                  Id = Guid.Parse("42304740-b81c-4307-8fd3-efe61df336ab"),
+                  Content = "-Senior High Recognition Rites",
+                  Description = "Other Event...",
+                  EventStart = DateTime.Parse("April 15 2019"),
+                  EventEnd = DateTime.Parse("April 15 2019"),
+                  IsPublished = true,
+                  Title = "Senior High School Rites First Wave (ABM & TVL)",
+              }
+            );
+
+
+                // School Events 9
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("a0f928c7-7e3c-4191-935e-f9fb07692fb6"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 15 2019"),
+                      EventEnd = DateTime.Parse("April 15 2019"),
+                      IsPublished = true,
+                      Title = "Start of Summer/Remedial Classes",
+                  }
+
+                );
+
+                // School Events 10
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("383497fe-61ff-4d26-810c-efbf4054490e"),
+                      Content = "... ",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 16 2019"),
+                      EventEnd = DateTime.Parse("April 16 2019"),
+                      IsPublished = true,
+                      Title = "Senior High School Rites Second Wave (HUMSS & GAS)",
+                  }
+                );
+
+                // School Events 11
+                this._context.SchoolEvents.Add(
+                 new SchoolEvent()
+                 {
+                     Id = Guid.Parse("e25f75cc-ba7e-4801-bc08-c67e68e3115e"),
+                     Content = "... ",
+                     Description = "...",
+                     EventStart = DateTime.Parse("April 17 2019"),
+                     EventEnd = DateTime.Parse("April 17 2019"),
+                     IsPublished = true,
+                     Title = "Higher Education Commercement Rites",
+                 }
+               );
+
+
+                // School Events 12
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("bb00ae9c-2da5-47f3-afda-e407ac501e2b"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("April 19 2019"),
+                      EventEnd = DateTime.Parse("April 19 2019"),
+                      IsPublished = true,
+                      Title = "Issuance of Report Cards",
+                  }
+
+                );
+
+
+
+                // School Events 13
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("bb39a11d-9504-482b-b6c0-71ab89fb6f8e"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("May 1 2019"),
+                      EventEnd = DateTime.Parse("May 1 2019"),
+                      IsPublished = true,
+                      Title = "Labor Day(Regular Holiday)",
+                  }
+
+                );
+
+
+                // School Events 14
+                this._context.SchoolEvents.Add(
+                  new SchoolEvent()
+                  {
+                      Id = Guid.Parse("242687ed-786f-46df-bd77-070611f6fb2a"),
+                      Content = "...",
+                      Description = "...",
+                      EventStart = DateTime.Parse("May 27 2019"),
+                      EventEnd = DateTime.Parse("May 27 2019"),
+                      IsPublished = true,
+                      Title = "End of Summer Classes",
+                  }
+
+                );
+
+
+            
+            }
+            this._context.SaveChanges();
                 return "OK";
             
         }

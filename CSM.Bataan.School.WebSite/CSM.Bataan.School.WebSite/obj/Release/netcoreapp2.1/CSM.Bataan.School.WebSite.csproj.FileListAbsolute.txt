@@ -158,3 +158,5 @@ C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.We
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Researches\Create.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Researches\UpdateTitle.g.cshtml.cs
 C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Areas\Manage\Views\Researches\UpdateContent.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Researches\Index.g.cshtml.cs
+C:\Users\Shayne Maravillo\Desktop\Github\CSM.School.WebSite\CSM.Bataan.School.WebSite\CSM.Bataan.School.WebSite\obj\Release\netcoreapp2.1\Razor\Views\Researches\Research.g.cshtml.cs

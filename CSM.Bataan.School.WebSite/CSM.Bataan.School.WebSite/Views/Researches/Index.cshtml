@@ -1,46 +1,40 @@
-﻿@model CSM.Bataan.School.WebSite.ViewModels.Thread.IndexViewModel
+﻿@model CSM.Bataan.School.WebSite.ViewModels.Researches.IndexViewModel
 @using CSM.Bataan.School.WebSite.Infrastructure.Security;
 @using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
-
 @{
     Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
 }
 
-
-<
-<section class="posts-con" id="post-container">
-    <h2>Threads</h2>
-    Welcome @WebUser.FullName
-
-    @{
-
-        foreach (Thread thread in Model.Threads)
-        {
-
-            <article>
-                <div class="info">
-                    <p><strong>@thread.Title</strong></p>
-                    <p class="info-line"><span class="time">@thread.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
-                    <p> @Html.Raw(thread.Description)</p>
-                    <p><a href="~/threads/@thread.Id" class="btn btn-primary">Read More &rarr;</a></p>
-                </div>
-            </article>
+<!--end: Accordion -->
+<h2>Abstract of Study</h2>
+Welcome @WebUser.FullName
 
 
-            <!-- end article 1 -->
+
+
+    <section class="posts-con" id="post-container">
+        @{
+
+            foreach (Research research in Model.Researches)
+            {
+                <article>
+                    <div class="info">
+                        <p><strong>@research.Title</strong></p>
+                        <p class="info-line"><span class="time">@research.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
+                        <p><a href="~/researches/@research.Id" class="btn btn-primary">Read More &rarr;</a></p>
+                    </div>
+                </article>
+
+            }
         }
+    </section>
 
 
 
-    }
 
-
-</section>
-
-
-@section pageScripts{`
-    <script src="~/js/date_format.js"></script>
-    <script>
+    @section pageScripts{`
+        <script src="~/js/date_format.js"></script>
+        <script>
     var page = @("1");
     var calling = false;
     $(window).scroll(function () {
@@ -51,7 +45,7 @@
                 calling = true;
                 $.ajax({
                     type: "GET",
-                    url: "/threads/feed?pageIndex=" + (page + 1),
+                    url: "/researches/feed?pageIndex=" + (page + 1),
                     success: function (rsp) {
                         page = page + 1;
                         calling = false;
@@ -61,7 +55,7 @@
                             markup = markup + "<div class='info'>";
                             markup = markup + "<p><strong>" + item.title +  "</strong></p>";
                             markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
-                            markup = markup + "<p><a href='~/threads/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";
+                            markup = markup + "<p><a href='~/researches/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";
                             markup = markup + "</div>";
                             markup = markup + "</article>";
 
@@ -72,5 +66,5 @@
             }
         }
     });
-    </script>
-}
+        </script>
+    }

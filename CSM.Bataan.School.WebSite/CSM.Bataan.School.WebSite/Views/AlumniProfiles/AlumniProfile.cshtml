@@ -6,61 +6,182 @@
 
 
 
-<div id="maincontent">
+
+
+<div class="content">
     <div class="container">
-        <div class="row">
-            <div class="span12">
 
+        <div class="main-content">
+            <h1>@Model.Company</h1>
+            <img src="~/images/alumniprofiles/@Model.AlumniProfileId/thumbnail.png" style="width:150px;height:150px;" />
+            <section class="posts-con">
                 <article>
-                    <div class="heading">
-                        <h3>Montessorians Alumni</h3>
+                    <div class="current-date">
                     </div>
-                    <div class="clearfix">
+                    <div class="info">
+                        <hr />
+                        <dl>
+                            <dt><strong>Position:</strong></dt>
+                            <dd>  @Model.Position</dd>
+                            <dt><strong>Location:</strong></dt>
+                            <dd>  @Model.Location</dd>
+                            <dt><strong>From Date:</strong></dt>
+                            <dd>  @Model.FromDate</dd>
+                            <dt><strong>To Date:</strong></dt>
+                            <dd>  @Model.ToDate</dd>
+                        </dl>
                     </div>
-
-                    <div class="row">
-                        <div class="span5">
-                            <!-- start flexslider -->
-                            <div class="container">
-                                <div class="row">
-
-                                    <div class="img">
-                                        <img src="~/images/alumniprofiles/@Model.AlumniProfileId/thumbnail.png" style="width:150px;height:150px;" />
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!-- end flexslider -->
-                            <div class="blank10"></div>
-                            <p>@Html.Raw(Model.Description)</p>
-                        </div>
-                        <div class="span7">
-                            <aside>
-                                <div class="container">
-                                    <h4>Alumni Graduates information</h4>
-
-                                    <ul class="project-detail">
-                                        <li><label>Company :</label> @Model.Company</li>
-                                        <li><label>Position :</label> @Model.Position</li>
-                                        <li><label>Location :</label> @Model.Location</li>
-                                        <li><label>From Date :</label>@Model.FromDate</li>
-                                        <li><label>To Date :</label>@Model.ToDate</li>
-                                      
-                                    </ul>
-                                </div>
-                            </aside>
-                        </div>
-                    </div>
-
-
-
-
                 </article>
-            </div>
-
+            </section>
         </div>
 
-    </div>
 
+        @*<img src="~/images/alumniprofiles/@Model.AlumniProfileId/thumbnail.png" style="width:150px;height:150px;" />
+
+            <li><label>Company :</label> @Model.Company</li>
+            <li><label>Position :</label> @Model.Position</li>
+            <li><label>Location :</label> @Model.Location</li>
+            <li><label>From Date :</label>@Model.FromDate</li>
+            <li><label>To Date :</label>@Model.ToDate</li>*@
+
+
+        <aside id="sidebar">
+            <div class="widget clearfix calendar">
+                <h2>Event calendar</h2>
+                <div class="head">
+                    <a class="prev" href="#"></a>
+                    <a class="next" href="#"></a>
+                    <h4>April 2014</h4>
+                </div>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th class="col-1">Mon</th>
+                            <th class="col-2">Tue</th>
+                            <th class="col-3">Wed</th>
+                            <th class="col-4">Thu</th>
+                            <th class="col-5">Fri</th>
+                            <th class="col-6">Sat</th>
+                            <th class="col-7">Sun</th>
+                        </tr>
+                        <tr>
+                            <td class="col-1 disable"><div>31</div></td>
+                            <td class="col-2"><div>1</div></td>
+                            <td class="col-3"><div>2</div></td>
+                            <td class="col-4"><div>3</div></td>
+                            <td class="col-5 archival"><div>4</div></td>
+                            <td class="col-6"><div>5</div></td>
+                            <td class="col-7"><div>6</div></td>
+                        </tr>
+                        <tr>
+                            <td class="col-1"><div>7</div></td>
+                            <td class="col-2"><div>8</div></td>
+                            <td class="col-3 archival"><div>9</div></td>
+                            <td class="col-4"><div>10</div></td>
+                            <td class="col-5"><div>11</div></td>
+                            <td class="col-6"><div>12</div></td>
+                            <td class="col-7"><div>13</div></td>
+                        </tr>
+                        <tr>
+                            <td class="col-1"><div>14</div></td>
+                            <td class="col-2 upcoming">
+                                <div>
+                                    <div class="tooltip">
+                                        <div class="holder">
+                                            <h4>Omnis iste natus error sit voluptatem dolor</h4>
+                                            <p class="info-line"><span class="time">10:30 AM</span><span class="place">Lincoln High School</span></p>
+                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
+                                        </div>
+                                    </div>15
+                                </div>
+                            </td>
+                            <td class="col-3"><div>16</div></td>
+                            <td class="col-4 upcoming">
+                                <div>
+                                    <div class="tooltip">
+                                        <div class="holder">
+                                            <h4>Omnis iste natus error sit voluptatem dolor</h4>
+                                            <p class="info-line"><span class="time">10:30 AM</span><span class="place">Lincoln High School</span></p>
+                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
+                                        </div>
+                                    </div>16
+                                </div>
+                            </td>
+                            <td class="col-5"><div>18</div></td>
+                            <td class="col-6"><div>19</div></td>
+                            <td class="col-7"><div>20</div></td>
+                        </tr>
+                        <tr>
+                            <td class="col-1"><div>21</div></td>
+                            <td class="col-2"><div>22</div></td>
+                            <td class="col-3"><div>23</div></td>
+                            <td class="col-4"><div>24</div></td>
+                            <td class="col-5 upcoming">
+                                <div>
+                                    <div class="tooltip">
+                                        <div class="holder">
+                                            <h4>Omnis iste natus error sit voluptatem dolor</h4>
+                                            <p class="info-line"><span class="time">10:30 AM</span><span class="place">Lincoln High School</span></p>
+                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
+                                        </div>
+                                    </div>25
+                                </div>
+                            </td>
+                            <td class="col-6"><div>26</div></td>
+                            <td class="col-7"><div>27</div></td>
+                        </tr>
+                        <tr>
+                            <td class="col-1"><div>28</div></td>
+                            <td class="col-2 upcoming">
+                                <div>
+                                    <div class="tooltip">
+                                        <div class="holder">
+                                            <h4>Omnis iste natus error sit voluptatem dolor</h4>
+                                            <p class="info-line"><span class="time">10:30 AM</span><span class="place">Lincoln High School</span></p>
+                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique.</p>
+                                        </div>
+                                    </div>29
+                                </div>
+                            </td>
+                            <td class="col-3"><div>30</div></td>
+                            <td class="col-4 disable"><div>1</div></td>
+                            <td class="col-5 disable"><div>2</div></td>
+                            <td class="col-6 disable"><div>3</div></td>
+                            <td class="col-7 disable"><div>4</div></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note">
+                    <a href="~/schoolevents"><p class="upcoming-note">Upcoming event</p></a>
+                    <p class="archival-note">Archival event</p>
+                </div>
+            </div>
+            <div class="widget list">
+                <h2>Photo gallery</h2>
+                <ul>
+                    <li><a href="#"><img src="images/4.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/4_2.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/4_3.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/4_4.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/4_5.png" alt=""></a></li>
+                    <li><a href="#"><img src="images/4_6.png" alt=""></a></li>
+                </ul>
+                <div class="btn-holder">
+                    <a class="btn blue" href="#">Show more photos</a>
+                </div>
+            </div>
+        </aside>
+        <!-- / sidebar -->
+    </div>
 </div>
-<!-- end article full post -->
+
+
+@section pageStyles{
+    <style>
+        .info-group-line {
+            font-size: small;
+            font-weight: bold;
+            margin-right: 17px;
+        }
+    </style>
+}        
