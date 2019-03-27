@@ -88,25 +88,39 @@
 </section>
 
 
-<section class="events">
+@*<section class="events">
     <div class="container">
         <div class="row">
 
-            @*@{
-                foreach (SchoolEvent schoolevents in Model.PublicEvents)
-                {
-                   
-                }
-
-            }*@
+          
             <div class="col-sm events-column">
                 <div class="current-date">
-                    <p></p>
-                    <p class="date">15</p>
+                    <p>May</p>
+                    <p class="date">27</p>
                 </div>
                 <div class="info">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a class="more" href="~/schoolevents">Read more</a>
+                    <p>End of Summer Classes</p>
+                    <a class="more" href="~/schoolevents/242687ed-786f-46df-bd77-070611f6fb2a">Read more</a>
+                </div>
+            </div>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>May</p>
+                    <p class="date">01</p>
+                </div>
+                <div class="info">
+                    <p>Labor Day(Regular Holiday).</p>
+                    <a class="more" href="~/schoolevents/bb39a11d-9504-482b-b6c0-71ab89fb6f8e">Read more</a>
+                </div>
+            </div>
+            <div class="col-sm events-column">
+                <div class="current-date">
+                    <p>April</p>
+                    <p class="date">19</p>
+                </div>
+                <div class="info">
+                    <p>Issuance of Report Cards.</p>
+                    <a class="more" href="~/schoolevents/bb00ae9c-2da5-47f3-afda-e407ac501e2b">Read more</a>
                 </div>
             </div>
             <div class="col-sm events-column">
@@ -115,28 +129,8 @@
                     <p class="date">17</p>
                 </div>
                 <div class="info">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a class="more" href="~/schoolevents">Read more</a>
-                </div>
-            </div>
-            <div class="col-sm events-column">
-                <div class="current-date">
-                    <p>April</p>
-                    <p class="date">25</p>
-                </div>
-                <div class="info">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a class="more" href="~/schoolevents">Read more</a>
-                </div>
-            </div>
-            <div class="col-sm events-column">
-                <div class="current-date">
-                    <p>April</p>
-                    <p class="date">29</p>
-                </div>
-                <div class="info">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
-                    <a class="more" href="~/schoolevents">Read more</a>
+                    <p>Higher Education Commercement Rites.</p>
+                    <a class="more" href="~/schoolevents/e25f75cc-ba7e-4801-bc08-c67e68e3115e">Read more</a>
                 </div>
             </div>
         </div>
@@ -144,35 +138,38 @@
         <div class="btn-holder">
             <a class="btn red" href="~/schoolevents">See all upcoming events</a>
         </div>
-        <!-- / container -->
+         / container 
     </div>
-</section>
+</section>*@
 
 
 
 <section class="montessorians">
     <div class="container">
-        <h2>Montessorians @@Larich and @@Hayna</h2>
-        <article>
-            <div class="pic"><img src="images/1.png" alt=""></div>
+        <h2>CSM Achiever and Alumni's</h2>
+        @*<article>
+            <div class="pic"><img src="~/images/alumniprofiles/thumbnail_default.png" style="width:150px;height:150px;" alt=""></div>
             <div class="info">
-                <h4>Featured Achiever @@Larich</h4>
-                <p class="date">14 APR 2014, Jason Bang</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores (...)</p>
-                <a class="more" href="#">Read more</a>
+                <h4>CSM Achievers</h4>
+                <p class="date">14 APR 2019,Larich Morales </p>
+                <p>Bachelor of Science Information Technology (...)</p>
+                <a class="more" href="~/achievers">Read more</a>
             </div>
+            <a class="btn" href="~/achievers">See All Achievers</a>
         </article>
-        <article>
-            <div class="pic"><img src="images/1_1.png" alt=""></div>
+        <article>*@
+            <div class="pic"><img src="~/images/alumniprofiles/f0547387-5b67-4e28-bba7-92b378bf31c0/thumbnail.png" alt=""></div>
             <div class="info">
-                <h4>Featured Alumnus @@Hayna</h4>
-                <p class="date">14 APR 2014, Jason Bang</p>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores (...)</p>
-                <a class="more" href="#">Read more</a>
+                <h4>CSM Alumni's</h4>
+                <p class="date">14 APR 2018, Mark Javier</p>
+                <p>Bachelor of Science Customs Administration (...)</p>
+                <a class="more" href="~/alumniprofiles/f0547387-5b67-4e28-bba7-92b378bf31c0">Read more</a>
             </div>
+            <a class="btn" href="~/alumniprofiles">See All Alumni's</a>
         </article>
         <div class="btn-holder">
-            <a class="btn" href="#">See archival news</a>
+         
+            
         </div>
     </div>
     <!-- / container -->
@@ -180,32 +177,33 @@
 
 <section class="facilities">
     <div class="container">
-        <h2>Facilities @@Shayne</h2>
+        <h2>CSM Facilities</h2>
         <div id="facilities-slider">
             <div>
                 <div class="row">
-                    <div class="col-6"><img width="500" src="images/comlab.png" alt=""></div>
+                    <div class="col-6"><img width="500" src="~/images/schoolfacilities/013525f8-6204-45fa-824b-80c007f79b1f/banner.png" style="width:500px;height:350px;" alt=""></div>
                     <div class="col-6">
-                        <h3>CSS Laboratory</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                        <a href="~/schoolfacilities/013525f8-6204-45fa-824b-80c007f79b1f"><h3>Front office</h3></a>
+                        <p>An area equipped with all the needed tools... </p>
                     </div>
                 </div>
             </div>
             <div>
                 <div class="row">
-                    <div class="col-6"><img width="500" src="images/comlab.png" alt=""></div>
+                    <div class="col-6"><img width="500" src="~/images/schoolfacilities/013752a0-3163-46a1-ba37-72af38460eb9/banner.png" style="width:500px;height:350px;" alt=""></div>
                     <div class="col-6">
-                        <h3>CSS Laboratory</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                        <a href="~/schoolfacilities/013752a0-3163-46a1-ba37-72af38460eb9"><h3>Parking Area</h3></a>
+                        <p>Our school parking area. </p>
                     </div>
                 </div>
             </div>
             <div>
                 <div class="row">
-                    <div class="col-6"><img width="500" src="images/comlab.png" alt=""></div>
+
+                    <div class="col-6"><img width="500" src="~/images/schoolfacilities/0534aa2c-4b8b-4770-a6cb-ab12ca40f535/banner.png" style="width:500px;height:350px;" alt=""></div>
                     <div class="col-6">
-                        <h3>CSS Laboratory</h3>
-                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                        <a href="~/schoolfacilities/0534aa2c-4b8b-4770-a6cb-ab12ca40f535"><h3>Guidance Office</h3></a>
+                        <p> In the guidance office students can receive counseling about . </p>
                     </div>
                 </div>
             </div>
