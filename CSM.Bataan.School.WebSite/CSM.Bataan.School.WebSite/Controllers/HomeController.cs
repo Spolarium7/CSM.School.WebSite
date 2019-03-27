@@ -28,6 +28,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
             //Take top 10 news according to Time posted
             var newsList10 = this._context.News
+       
                 .Where(n => n.IsPublished == true && n.PostExpiry >= DateTime.UtcNow)
                 .OrderByDescending(n => n.Timestamp)
                 .Take(10)
@@ -64,10 +65,20 @@ namespace CSM.Bataan.School.WebSite.Controllers
 
             return View(new IndexViewModel() {
                 PublicNews = publicNews.OrderByDescending(n => n.Timestamp).Take(2).ToList()
+                
             });
+
+            
         }
 
+
+
         public IActionResult News()
+        {
+            return View();
+        }
+        
+        public IActionResult SchoolEvent()
         {
             return View();
         }

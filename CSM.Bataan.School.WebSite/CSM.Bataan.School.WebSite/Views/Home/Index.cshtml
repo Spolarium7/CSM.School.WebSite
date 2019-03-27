@@ -1,5 +1,8 @@
 ﻿@using CSM.Bataan.School.WebSite.Infrastructure.Data.BusinessObjects;
+@using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+@using CSM.Bataan.School.WebSite.ViewModels;
 @model CSM.Bataan.School.WebSite.ViewModels.Home.IndexViewModel
+
 @{
     Layout = "~/views/shared/_layout.cshtml";
 }
@@ -60,12 +63,13 @@
 <section class="news">
     <div class="container">
         <h2>Latest news</h2>
+      
         @{
 
             foreach (NewsFeedItem newsItem in Model.PublicNews)
             {
                 <article>
-                    <div class="pic"><img src="~/images/news/@newsItem.Id/@Guid.NewGuid()/thumbnail.png" alt="@newsItem.Title" style="width:112px;height:112px;"/></div>
+                    <div class="pic"><img src="~/images/news/@newsItem.Id/@Guid.NewGuid()/thumbnail.png" alt="@newsItem.Title" style="width:112px;height:112px;" /></div>
                     <div class="info">
                         <h4>@newsItem.Title</h4>
                         <p class="date">@newsItem.Timestamp.ToString("dd MMM yyyy"), @newsItem.UserName</p>
@@ -83,19 +87,26 @@
     <!-- / container -->
 </section>
 
+
 <section class="events">
     <div class="container">
-        <h2>Upcoming events @@Jake</h2>
-
         <div class="row">
+
+            @*@{
+                foreach (SchoolEvent schoolevents in Model.PublicEvents)
+                {
+                   
+                }
+
+            }*@
             <div class="col-sm events-column">
                 <div class="current-date">
-                    <p>April</p>
+                    <p></p>
                     <p class="date">15</p>
                 </div>
                 <div class="info">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a class="more" href="#">Read more</a>
+                    <a class="more" href="~/schoolevents">Read more</a>
                 </div>
             </div>
             <div class="col-sm events-column">
@@ -105,7 +116,7 @@
                 </div>
                 <div class="info">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a class="more" href="#">Read more</a>
+                    <a class="more" href="~/schoolevents">Read more</a>
                 </div>
             </div>
             <div class="col-sm events-column">
@@ -115,7 +126,7 @@
                 </div>
                 <div class="info">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <a class="more" href="#">Read more</a>
+                    <a class="more" href="~/schoolevents">Read more</a>
                 </div>
             </div>
             <div class="col-sm events-column">
@@ -125,12 +136,13 @@
                 </div>
                 <div class="info">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
-                    <a class="more" href="#">Read more</a>
+                    <a class="more" href="~/schoolevents">Read more</a>
                 </div>
             </div>
         </div>
+
         <div class="btn-holder">
-            <a class="btn red" href="#">See all upcoming events</a>
+            <a class="btn red" href="~/schoolevents">See all upcoming events</a>
         </div>
         <!-- / container -->
     </div>
@@ -265,7 +277,7 @@
             <a class="btn red" href="#">See all Trainings and Assessments</a>
         </div>
     </div>
-            <!-- / container -->
+    <!-- / container -->
 </section>
 
 @Html.Partial("~/views/shared/_footer.cshtml")
