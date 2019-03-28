@@ -13,6 +13,9 @@ namespace CSM.Bataan.School.WebSite.ViewModels.Home
         public List<NewsFeedItem> PublicNews { get; set; }
 
         public List<SchoolEvent> PublicEvents { get; set; }
+
+        public List<Ad> PublicAds { get; set; }
+
     }
 
 }

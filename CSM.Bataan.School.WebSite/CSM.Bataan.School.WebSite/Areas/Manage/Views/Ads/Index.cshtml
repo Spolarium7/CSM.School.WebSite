@@ -45,15 +45,14 @@
                                         <li class="list-inline-item"><a href="~/manage/ads/update-title/@ads.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
                                         <li class="list-inline-item"><a href="~/manage/ads/update-banner/@ads.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
                                         <li class="list-inline-item"><a href="~/manage/ads/update-thumbnail/@ads.Id" title="Upload Thumbnail"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
-
                                         @{
                                             if (ads.IsPublished)
                                             {
-                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@ads.Id','@ads.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                <li class="list-inline-item"><a href="#" title="Unpublish" onclick="confirmUnpublish('@ads.Id','@ads.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="#" title="Publish" onclick="confirmPublish('@ads.Id','@ads.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                <li class="list-inline-item"><a href="#" title="Publish" onclick="confirmPublish('@ads.Id','@ads.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a></li>
                                             }
                                         }
                                     </ul>
@@ -62,23 +61,21 @@
                         </div>
                     </div>
                 }
-                <div class="pagination">
-                    <ul>
-                        <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=1">First</a></li>
-                        @{ if (Model.Ads.PageIndex > 1)
-                            {
-                                <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@(Model.Ads.PageIndex - 1)">@(Model.Ads.PageIndex - 1)</a></li>
-                            }
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=1">First</a></li>
+                    @{ if (Model.Ads.PageIndex > 1)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@(Model.Ads.PageIndex - 1)">@(Model.Ads.PageIndex - 1)</a></li>
                         }
-                        <li class="page-item"><a class="page-link active" href="#">@(Model.Ads.PageIndex)</a></li>
-                        @{ if ((Model.Ads.PageIndex + 1) <= Model.Ads.PageCount)
-                            {
-                                <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@(Model.Ads.PageIndex + 1)">@(Model.Ads.PageIndex + 1)</a></li>
-                            }
+                    }
+                    <li class="page-item"><a class="page-link active" href="#">@(Model.Ads.PageIndex)</a></li>
+                    @{ if ((Model.Ads.PageIndex + 1) <= Model.Ads.PageCount)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@(Model.Ads.PageIndex + 1)">@(Model.Ads.PageIndex + 1)</a></li>
                         }
-                        <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@Model.Ads.PageCount">Last</a></li>
-                    </ul>
-                </div>
+                    }
+                    <li class="page-item"><a class="page-link" href="~/manage/ads?pageIndex=@Model.Ads.PageCount">Last</a></li>
+                </ul>
 
             }
         }

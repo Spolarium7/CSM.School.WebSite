@@ -5,7 +5,7 @@
     Layout = "~/Areas/Manage/Views/Shared/_managelayout.cshtml";
 }
 
-
+ Welcome @WebUser.FullName
 
 <section class="posts-con" id="post-container">
 
@@ -14,10 +14,10 @@
         {
             <article>
                 <div class="info">
-                    <img class="card-img-top" src="~/ads/@ads.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">
+                    @*<img class="card-img-top" src="~/ads/@ads.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">*@
                     <p>@ads.Title</p>
                     <p class="info-line"><span class="time">@ads.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
-                    <p>@ads.Description</p>
+                    <p>@Html.Raw(ads.Description)</p>
                     <p><a href="~/ads/@ads.Id" class="btn btn-primary">Read More &rarr;</a></p>
                 </div>
             </article>
@@ -49,8 +49,8 @@
                             var itemTimestamp = new Date(Date.parse(item.timestamp));
                             var markup = "<article>";
                             markup = markup + "<div class='info'>";
-                            markup = markup + "<img class='card-img-top' src='../ads/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
-                            markup = markup + "<h3>" + item.title +  "</h3>";
+                            //markup = markup + "<img class='card-img-top' src='../ads/" + item.id + "/banner.png' alt='Card image cap' style='max-width:750px;max-height:300px;'>";
+                            markup = markup + "<p>" + item.title +  "</p>";
                             markup = markup + "<p class='info-line'><span class='time'>" + itemTimestamp.format("dddd, mmmm d, yyyy hh:MM TT") + "</span></p>";
                             markup = markup + "<p>" + item.description + "</p>";
                             markup = markup + "<p><a href='~/ads/" + item.Id + "' class='btn btn-primary'>Read More &rarr;</a></p>";

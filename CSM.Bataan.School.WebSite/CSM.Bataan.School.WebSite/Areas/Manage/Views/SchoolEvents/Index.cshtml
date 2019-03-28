@@ -37,7 +37,7 @@
                                     <p>@schoolevent.Description</p>
                                     <ul class="list-inline">
 
-                                        <li class="list-inline-item"><i class="fa fa-clock-o" aria-hidden="true"></i> @schoolevent.EventStart - @schoolevent.EventEnd</li>
+
                                         <li class="list-inline-item"><a href="~/manage/schoolevents/update-content/@schoolevent.Id" title="Update Content"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
                                         <li class="list-inline-item"><a href="~/manage/schoolevents/update-title/@schoolevent.Id" title="Update Title"><button class="btn-success form-control-sm"><i class="fas fa-file-alt"></i></button></a></li>
                                         <li class="list-inline-item"><a href="~/manage/schoolevents/update-banner/@schoolevent.Id" title="Upload Banner"><button class="btn-success form-control-sm"><i class="fas fa-image"></i></button></a></li>
@@ -46,11 +46,11 @@
                                         @{
                                             if (schoolevent.IsPublished)
                                             {
-                                                <li><a href="#" title="Unpublish" onclick="confirmUnpublish('@schoolevent.Id','@schoolevent.Title')"><i class="icon-rounded icon-32 icon-remove"></i></a></li>
+                                                <li class="list-inline-item"><a href="#" title="Unpublish" onclick="confirmUnpublish('@schoolevent.Id','@schoolevent.Title')"><button class="btn-danger form-control-sm"><i class="fas fa-window-close"></i></button></a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="#" title="Publish" onclick="confirmPublish('@schoolevent.Id','@schoolevent.Title')"><i class="icon-rounded icon-32 icon-check"></i></a></li>
+                                                <li class="list-inline-item"><a href="#" title="Publish" onclick="confirmPublish('@schoolevent.Id','@schoolevent.Title')"><button class="btn-success form-control-sm"><i class="fas fa-check-square"></i></button></a></li>
                                             }
                                         }
                                     </ul>
@@ -59,6 +59,21 @@
                         </div>
                     </div>
                 }
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="~/manage/schoolevents?pageIndex=1">First</a></li>
+                    @{ if (Model.SchoolEvents.PageIndex > 1)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/schoolevents?pageIndex=@(Model.SchoolEvents.PageIndex - 1)">@(Model.SchoolEvents.PageIndex - 1)</a></li>
+                        }
+                    }
+                    <li class="page-item"><a class="page-link active" href="#">@(Model.SchoolEvents.PageIndex)</a></li>
+                    @{ if ((Model.SchoolEvents.PageIndex + 1) <= Model.SchoolEvents.PageCount)
+                        {
+                            <li class="page-item"><a class="page-link" href="~/manage/schoolevents?pageIndex=@(Model.SchoolEvents.PageIndex + 1)">@(Model.SchoolEvents.PageIndex + 1)</a></li>
+                        }
+                    }
+                    <li class="page-item"><a class="page-link" href="~/manage/schoolevents?pageIndex=@Model.SchoolEvents.PageCount">Last</a></li>
+                </ul>
             }
         }
     }

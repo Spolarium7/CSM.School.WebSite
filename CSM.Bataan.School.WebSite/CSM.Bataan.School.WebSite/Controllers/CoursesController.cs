@@ -41,7 +41,7 @@ namespace CSM.Bataan.School.WebSite.Controllers
                                 .Where(p => p.IsPublished == true)
                                 .OrderBy(p => p.Timestamp)
                                 .Skip(skip)
-                                .Take(10)
+                                .Take(50)
                                 .ToList();
         }
 

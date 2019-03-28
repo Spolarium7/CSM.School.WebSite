@@ -3627,7 +3627,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       "LITTLE TEACHER" +
                       "MOTIVATOR OF THE YEAR",
                       IsPublished = true,
-                      Title = "PRINCESS MARIANNE D. CRUZ",
+                      Title = "PRINCESS MARIANNE  CRUZ",
                   }
 
                 );
@@ -3965,14 +3965,233 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.Ads.Add(
                   new Ad()
                   {
-                      Id = Guid.Parse("96235e38-ade8-497a-8a55-46491db594d6"),
-                      Content = "...",
-                      Description = "...",
+                      Id = Guid.Parse("0f4c91e9-cf0c-4313-9f3c-6348d2f78637"),
+                      Content = "<h3>SENIOR HIGH SCHOL</h3><br />" +
+                      "<strong><h4>GRADE ELEVEN & GRADE TWELVE</h4></strong><br />" +
+                      "<h5>ACADEMIC TRACK</h5><br />" +
+                      "<p>ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM)<br />" +
+                      "SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM)<br />" +
+                      "HUMANITIES & SOCIAL STUDIES(HUMSS)<br />" +
+                      "GENERAL ACADEMIC STRAND (GAS)</p>" +
+                      "<br />" +
+                      "<h5>TECHNICAL-VOCATIONAL LIVELIHOOD TRACK:</h5>" +
+                      "<p>HOME ECONOMICS<br />" +
+                      "FOOD AND BEVERAGE SERVICES NC II<br />" +
+                      "FRONT OFFICE SERVICES NC II <br />" +
+                      "HOUSEKEEPING NC II <br />" +
+                      "INFORMATION & COMMUNICATION TECHNOLOGY<br />" +
+                      "COMPUTER SYSTEMS SERVICING NC II<br />" +
+                      "PROGRAMMING(NET TECHNOLOGY) NC II</p>" +
+                      "<address><h4>FOR MORE INQUIRIES, CALL AND VISIT FOLLOWING:</h4><br />" +
+                      "<strong>TELEPHONE NO.:<strong> (047)633-5531 <br />" +
+                      "<strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <br />" +
+                      "<strong>GLOBE:</strong> 0915-306-6606 <br />" +
+                      "<strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <br />" +
+                      "<strong>FB PAGE:</strong> www.facebook.com/csmbataan <br />",
+                      Description =
+                      "COLLEGE OF SUBIC MONTESSORI,INC" +
+                      " BASIC EDUCATION PROGRAMS <br />" +
+                      " MONTESSORI CURRICULUM <br />" +
+                      "SENIOR HIGH SCHOOL <br />" +
+                      "<strong><h4>GRADE ELEVEN & GRADE TWELVE</h4></strong><br />" +
+                      "<h5>ACADEMIC TRACK</h5><br />" +
+                      "<p>ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM)<br />" +
+                      "SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM)<br />" +
+                      "HUMANITIES & SOCIAL STUDIES(HUMSS)<br />" +
+                      "GENERAL ACADEMIC STRAND (GAS)</p>"
+                      ,
                       IsPublished = true,
-                      Title = "Celebration Learning All-Out Preparation & Practices",
+                      Title = "K to 12 CURRICULUM",
                   }
 
+              );
+
+
+                // Ads 2 
+                this._context.Ads.Add(
+                  new Ad()
+                  {
+                      Id = Guid.Parse("42802934-fd23-4aa1-91db-4bed4b4e0fc1"),
+                      Content = "<h3>PROGRAM OFFERINGS</h3><br />" +
+                      "<strong><h4>CHED PROGRAMS</h4></strong><br />" +
+                      "<strong><p>BS IN BUSINESS ADMINISTRATION</p></strong><br />" +
+                      "<p>Major in Financial Management,</p><br />" +
+                      "<p>Operations Management, Marketing Management,</p><br />" +
+                      "<p>Human Resource Development Management,</p><br />" +
+                      "<strong><p>BS IN CRIMINOLOGY</p></strong><br />" +
+                      "<strong><p>BS IN TOURISM MANAGEMENT</p></strong><br />" +
+                      "<strong><p>BS IN INFORMATION SYSTEMS</p></strong><br />" +
+                      "<strong><p>ASSOCIATE IN COMPUTER TECHNOLOGY</p></strong><br />" +
+                      "<br />" +
+                      "<address><h4>FOR MORE INQUIRIES, CALL AND VISIT FOLLOWING:</h4><br />" +
+                      "<strong>TELEPHONE NO.:<strong> (047)633-5531 <br />" +
+                      "<strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <br />" +
+                      "<strong>GLOBE:</strong> 0915-306-6606 <br />" +
+                      "<strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <br />" +
+                      "<strong>FB PAGE:</strong> www.facebook.com/csmbataan",
+                      Description =
+                      "COLLEGE DEPARTMENT <br />" +
+                      "CHED PROGRAMS<br />" +
+                      "BSBA <br />" +
+                      "1.MFM <br />" +
+                      "2.OM,MM <br />" +
+                      "3.HRDM <br />" +
+                      "BSCRIM <br />" +
+                      "BSCA <br />" +
+                      "BSIS <br />" +
+                      "ACT <br />"
+                      ,
+                      IsPublished = true,
+                      Title = "CHED PROGRAMS",
+                  }
+
+
                 );
+
+
+                // Ads 3 
+                this._context.Ads.Add(
+                  new Ad()
+                  {
+                      Id = Guid.Parse("4909f1f3-46b3-42a4-99df-31962e8672e4"),
+                      Content = 
+                      "COMPUTER SYSTEMS SERVICING NC II <br />" +
+                      "FOOD & BEVERAGE SERVICES NC II < <br />" +
+                      "FRONT OFFICE SERVICES NC II <br />" +
+                      "HOUSEKEEPING NC II <br />" +
+                      "VISUAL GRAPHIC DESIGN NC III (ASSESSMENT CENTER)" +
+                      "< address >< h4 > FOR MORE INQUIRIES," +
+                      "CALL AND VISIT FOLLOWING:</ h4 >< br / > " +
+                      "<strong>TELEPHONE NO.:<strong> (047)633-5531 <br />" +
+                      "<strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <br />" +
+                      "<strong>GLOBE:</strong> 0915-306-6606 <br />" +
+                      "<strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <br />" +
+                      "<strong>FB PAGE:</strong> www.facebook.com/csmbataan <br />",
+                      
+                      Description =
+                      "COLLEGE DEPARTMENT <br />" +
+                      "TESDA PROGRAMS<br />" +
+                      "CSS NC II <br />" +
+                      "F&B NC II <br />" +
+                      "FOS NC II <br />" +
+                      "HK NC II <br />" +
+                      "VGD NC III (AC) <br />" +
+                      "BSCA <br />" +
+                      "BSIS <br />" +
+                      "ACT <br />"
+                      ,
+                      IsPublished = true,
+                      Title = "TESDA PROGRAMS",
+                  }
+
+
+                );
+
+                // Ads 4
+                this._context.Ads.Add(
+                  new Ad()
+                  {
+                      Id = Guid.Parse("0741fa51-f7a4-4e67-8455-e33b0297d31c"),
+                      Content =
+                      "Applicant must submit the following requirements upon application <br / >" +
+                      "*Copy of updated resume <br />" +
+                      "*Copy of grades in previous term <br />" +
+                      "*Certificate of good moral character <br />" +
+                      "<br/>" +
+                      "<p>Slots are limited and the screening process is very strict. the office of the AAAH(Academic Affairs and Administration Office)handles all applications for this program.",
+
+                      
+                      Description =
+                      "Requirements of CHED SCHOLARSHIPS <br />" +
+                      "Entrance scholaarship is granted to any incoming College Students"
+                      ,
+                      IsPublished = true,
+                      Title = "Deserved Student Assistant (DSA)",
+                  }
+
+
+                );
+
+                this._context.Ads.Add(
+                 new Ad()
+                 {
+                     Id = Guid.Parse("fe30f7a4-8bf0-4f28-8904-18e82b769dca"),
+                     Content =
+
+                     "<span>DOCUMENT CHECKLIST</span><br />" +
+                     "NAME                        GR SEC" +
+                     "picture1 1 (2x2) 2 (1x1) <br />" +
+                     "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
+                     "GOOD MORAL CERTIFICATE <br />" +
+                     "FORM 138/CARD <br />" +
+                     "FORM 137/TRANSCRIPT OF RECORD <br />" +
+                     "DIPLOMA (Photocopy) <br />" +
+                     "MEDICAL CERTIFICATE <br />",
+
+
+                     Description =
+                     "Requirements of CHED SCHOLARSHIPS"
+                     ,
+                     IsPublished = true,
+                     Title = "CHED SCHOLARSHIPS",
+                 }
+
+
+               );
+
+                    this._context.Ads.Add(
+                  new Ad()
+                  {
+                      Id = Guid.Parse("676589c8-a031-40c7-b8e1-1607dd83d094"),
+                      Content =
+
+                      "<span>DOCUMENT CHECKLIST</span><br />" +
+                      "NAME                        GRADE and SECTION" +
+                      "picture1 1 (2x2) 2 (1x1) <br />" +
+                      "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
+                      "GOOD MORAL CERTIFICATE <br />" +
+                      "FORM 138/CARD <br />" +
+                      "FORM 137/TRANSCRIPT OF RECORD <br />" +
+                      "DIPLOMA (Photocopy) <br />" +
+                      "MEDICAL CERTIFICATE <br />",
+
+
+                      Description =
+                      "Requirements of TESDA SCHOLARSHIPS"
+                      ,
+                      IsPublished = true,
+                      Title = "TESDA SCHOLARSHIPS",
+                  }
+
+
+                );
+
+                this._context.Ads.Add(
+                 new Ad()
+                 {
+                     Id = Guid.Parse("d890bcdb-a3fa-481d-b11a-2a0451c3630a"),
+                     Content =
+
+                     "<span>DOCUMENT CHECKLIST</span><br />" +
+                     "NAME                        GRADE and SECTION" +
+                     "picture1 1 (2x2) 2 (1x1) <br />" +
+                     "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
+                     "GOOD MORAL CERTIFICATE <br />" +
+                     "FORM 138/CARD <br />" +
+                     "FORM 137/TRANSCRIPT OF RECORD <br />" +
+                     "DIPLOMA (Photocopy) <br />" +
+                     "MEDICAL CERTIFICATE <br />",
+
+
+                     Description =
+                     "Requirements of SCHOLARSHIPS NG BAYAN"
+                     ,
+                     IsPublished = true,
+                     Title = "SCHOLARSHIPS NG BAYAN",
+                 }
+
+
+               );
             }
 
 

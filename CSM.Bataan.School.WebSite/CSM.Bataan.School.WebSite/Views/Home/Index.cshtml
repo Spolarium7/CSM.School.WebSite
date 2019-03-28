@@ -7,35 +7,103 @@
     Layout = "~/views/shared/_layout.cshtml";
 }
 
+
+@*<div class="info">
+    <h3>SENIOR HIGH SCHOL</h3><hr>
+    <h4>GRADE ELEVEN & GRADE TWELVE</h4><hr>
+    <h5>ACADEMIC TRACK</h5><hr>
+    <ul>
+        <li>ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM), </li>
+        <li> SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM),</li>
+        <li>  HUMANITIES & SOCIAL STUDIES(HUMSS),</li>
+        <li>GENERAL ACADEMIC STRAND (GAS)</li>
+    </ul>
+    <hr>
+    <h5>TECHNICAL-VOCATIONAL LIVELIHOOD TRACK:</h5>
+    <p>
+        HOME ECONOMICS<hr>
+        FOOD AND BEVERAGE SERVICES NC II<hr>
+        FRONT OFFICE SERVICES NC II <hr>
+        HOUSEKEEPING NC II <hr>
+        INFORMATION & COMMUNICATION TECHNOLOGY<hr>
+        COMPUTER SYSTEMS SERVICING NC II<hr>
+        PROGRAMMING(NET TECHNOLOGY) NC II
+    </p>
+    <address>
+        <h4>FOR MORE INQUIRIES, CALL AND VISIT FOLLOWING:</h4><hr>
+        <strong>
+            TELEPHONE NO.:<strong>
+                (047)633-5531 <hr>
+                <strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <hr>
+                <strong>GLOBE:</strong> 0915-306-6606 <hr>
+                <strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <hr>
+                <strong>FB PAGE:</strong> www.facebook.com/csmbataan <hr>
+
+    </address>*@
+    @*@{
+            foreach (Ad ads in Model.PublicAds)
+            {
+
+            }
+        }*@
 <div class="slider">
     <ul class="bxslider">
         <li>
             <div class="container">
                 <div class="info">
-                    <h2>Ad 1 here <br><span>@@Jane</span></h2>
-                    <a href="#">More</a>
+                    <h2>
+                        SENIOR HIGH SCHOOL TRACK <br>
+                    </h2>
+                    <p>
+                        Grade Eleven & Grade Twelve<br />
+                        <strong> Academic Tracks</strong> <br />
+                       ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM),<br />
+                         SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM),<br />
+                          HUMANITIES & SOCIAL STUDIES(HUMSS),<br />
+                        GENERAL ACADEMIC STRAND (GAS)<br />
+                    </p>
+                         <a href="~/ads/0f4c91e9-cf0c-4313-9f3c-6348d2f78637">More</a>
+</div>
                 </div>
+                <!-- / content -->
+            </li>
+    <li>
+        <div class="container">
+            <div class="info">
+                <h2>COLLEGE DEPARTMENT <br>
+                </h2>
+                <p>
+
+                    <strong>CHED PROGRAMS</strong><br />
+                    (COURSES)<br />
+                    BSBA<br />
+                    1.MFM<br />
+                    2.OM,MM<br />
+                    3.HRDM & etc.<br />
+                </p>
+                <a href="~/ads/42802934-fd23-4aa1-91db-4bed4b4e0fc1">More</a>
             </div>
-            <!-- / content -->
-        </li>
-        <li>
-            <div class="container">
-                <div class="info">
-                    <h2>Ad 2 here <br><span>@@Jane</span></h2>
-                    <a href="#">More</a>
-                </div>
+        </div>
+        <!-- / content -->
+    </li>
+    <li>
+        <div class="container">
+            <div class="info">
+                <h2>COLLEGE DEPARTMENT <br>
+                </h2>
+                <p>
+                    <strong>TESDA PROGRAMS</strong><br />
+                    CSS NC II<br />
+                    F&B NC II<br />
+                    FOS NC II<br />
+                    HK NC II<br />
+                    VGD NC III (AC)<br />
+                </p>
+                <a href="~ads/4909f1f3-46b3-42a4-99df-31962e8672e4">More</a>
             </div>
-            <!-- / content -->
-        </li>
-        <li>
-            <div class="container">
-                <div class="info">
-                    <h2>Ad 3 here <br><span>@@Jane</span></h2>
-                    <a href="#">More</a>
-                </div>
-            </div>
-            <!-- / content -->
-        </li>
+        </div>
+        <!-- / content -->
+    </li>
     </ul>
     <div class="bg-bottom"></div>
 </div>
@@ -46,14 +114,29 @@
             <div class="pic"><img width="121" src="images/2.png" alt=""></div>
             <div class="info">
                 <h3>MISSION</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+                <p>To provide out student the "prepared environment"<br />
+                 for learning and to equip them the need skills<br />
+                to live successfully on their own<br />
+                -"SEIPSUM FACIT PERSONA"
+                -"MAN MAKES HIMSELF"; geared towards the developments of a complete human being,<br />
+                oriented to the environment and society<br />
+                and adpted to hos time,place and culture:<br />
+                thus transforming them to be self-reliant<br />
+                independent,creative,competetive<br />
+                and productive individual.
+                </p>
             </div>
         </article>
         <article>
             <div class="pic"><img width="121" src="images/3.png" alt=""></div>
             <div class="info">
                 <h3>VISION</h3>
-                <p>Vero eos et accusamus et iusto odio dignissimos ducimus blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
+                <p>We envision and commit ourselves to<br />
+                the development of a complete human being<br />
+                geared towards the transformation of a <br />
+                highly reliant, independent,creative and <br />
+               productive individuals oriented<br />
+                environment and society.</p>
             </div>
         </article>
     </div>
@@ -63,7 +146,7 @@
 <section class="news">
     <div class="container">
         <h2>Latest news</h2>
-      
+
         @{
 
             foreach (NewsFeedItem newsItem in Model.PublicNews)
@@ -89,58 +172,58 @@
 
 
 @*<section class="events">
-    <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="row">
 
-          
-            <div class="col-sm events-column">
-                <div class="current-date">
-                    <p>May</p>
-                    <p class="date">27</p>
-                </div>
-                <div class="info">
-                    <p>End of Summer Classes</p>
-                    <a class="more" href="~/schoolevents/242687ed-786f-46df-bd77-070611f6fb2a">Read more</a>
-                </div>
-            </div>
-            <div class="col-sm events-column">
-                <div class="current-date">
-                    <p>May</p>
-                    <p class="date">01</p>
-                </div>
-                <div class="info">
-                    <p>Labor Day(Regular Holiday).</p>
-                    <a class="more" href="~/schoolevents/bb39a11d-9504-482b-b6c0-71ab89fb6f8e">Read more</a>
-                </div>
-            </div>
-            <div class="col-sm events-column">
-                <div class="current-date">
-                    <p>April</p>
-                    <p class="date">19</p>
-                </div>
-                <div class="info">
-                    <p>Issuance of Report Cards.</p>
-                    <a class="more" href="~/schoolevents/bb00ae9c-2da5-47f3-afda-e407ac501e2b">Read more</a>
-                </div>
-            </div>
-            <div class="col-sm events-column">
-                <div class="current-date">
-                    <p>April</p>
-                    <p class="date">17</p>
-                </div>
-                <div class="info">
-                    <p>Higher Education Commercement Rites.</p>
-                    <a class="more" href="~/schoolevents/e25f75cc-ba7e-4801-bc08-c67e68e3115e">Read more</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="btn-holder">
-            <a class="btn red" href="~/schoolevents">See all upcoming events</a>
+                <div class="col-sm events-column">
+                    <div class="current-date">
+                        <p>May</p>
+                        <p class="date">27</p>
+                    </div>
+                    <div class="info">
+                        <p>End of Summer Classes</p>
+                        <a class="more" href="~/schoolevents/242687ed-786f-46df-bd77-070611f6fb2a">Read more</a>
+                    </div>
+                </div>
+                <div class="col-sm events-column">
+                    <div class="current-date">
+                        <p>May</p>
+                        <p class="date">01</p>
+                    </div>
+                    <div class="info">
+                        <p>Labor Day(Regular Holiday).</p>
+                        <a class="more" href="~/schoolevents/bb39a11d-9504-482b-b6c0-71ab89fb6f8e">Read more</a>
+                    </div>
+                </div>
+                <div class="col-sm events-column">
+                    <div class="current-date">
+                        <p>April</p>
+                        <p class="date">19</p>
+                    </div>
+                    <div class="info">
+                        <p>Issuance of Report Cards.</p>
+                        <a class="more" href="~/schoolevents/bb00ae9c-2da5-47f3-afda-e407ac501e2b">Read more</a>
+                    </div>
+                </div>
+                <div class="col-sm events-column">
+                    <div class="current-date">
+                        <p>April</p>
+                        <p class="date">17</p>
+                    </div>
+                    <div class="info">
+                        <p>Higher Education Commercement Rites.</p>
+                        <a class="more" href="~/schoolevents/e25f75cc-ba7e-4801-bc08-c67e68e3115e">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-holder">
+                <a class="btn red" href="~/schoolevents">See all upcoming events</a>
+            </div>
+             / container
         </div>
-         / container 
-    </div>
-</section>*@
+    </section>*@
 
 
 
@@ -168,8 +251,8 @@
             <a class="btn" href="~/alumniprofiles">See All Alumni's</a>
         </article>
         <div class="btn-holder">
-         
-            
+
+
         </div>
     </div>
     <!-- / container -->
