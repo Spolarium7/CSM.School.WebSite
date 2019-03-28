@@ -36,9 +36,9 @@ namespace CSM.Bataan.School.WebSite.Controllers
             int skip = (int)(3 * (pageIndex - 1));
             return this._context.Achievers
                                 .Where(p => p.IsPublished == true)
-                                .OrderByDescending(p => p.Timestamp)
+                                .OrderBy(p => p.Timestamp)
                                 .Skip(skip)
-                                .Take(10)
+                                .Take(30)
                                 .ToList();
         }
 

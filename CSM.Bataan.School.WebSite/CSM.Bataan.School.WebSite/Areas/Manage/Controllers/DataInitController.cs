@@ -3698,6 +3698,33 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
                 );
 
+
+                //Achievers 16
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("68878678-eae2-4ecd-a796-a314836eaf7f"),
+                      Content = "Loyalty Awardee",
+                      IsPublished = true,
+                      Title = "Samiale Owen A. De Guzman",
+                  }
+
+                );
+
+
+
+                //Achievers 17 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("33405c01-1481-42ff-8e99-0b53122d969b"),
+                      Content = "With Honors, Loyalty,Sparkler",
+                      IsPublished = true,
+                      Title = "WU M. BAEK",
+                  }
+
+                );
+
             }
 
             //Initialize School Events
