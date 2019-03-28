@@ -3474,17 +3474,230 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             {
 
 
-                //Researches 1 
+                //Achievers 1 
                 this._context.Achievers.Add(
                   new Achiever()
                   {
-                      Id = Guid.Parse("bb39a11d-9504-482b-b6c0-71ab89fb6f8e"),
-                      Content = "",
+                      Id = Guid.Parse("9eb39581-3102-4e45-b257-a740bf4f5b25"),
+                      Content = "LOYALTY AWARDEE",
                       IsPublished = true,
-                      Title = "",
+                      Title = "SHAINA DEAN A. TANJI",
                   }
 
                 );
+
+
+
+
+                //Achievers 2
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("8a955b5f-8b7a-4741-81a5-36b136ddbbf9"),
+                      Content = "WITH HONORS",
+                      IsPublished = true,
+                      Title = "JAMIE ANN M. MUNGCAL",
+                  }
+
+                );
+
+
+
+
+                //Achievers 3 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("dc2fe60d-80ab-4f29-878d-4f49816edc1f"),
+                      Content = "WITH HONORS" +
+                      "HISTORIAN OF THE YEAR" +
+                      "BEST IN PE" +
+                      "DEPORTMENT" +
+                      "PERFECT ATTENDANCE",
+                      IsPublished = true,
+                      Title = "LALIESCA V. PAGUINTO",
+                  }
+
+                );
+
+
+
+                //Achievers 4 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("7f7d37d7-3f84-4f97-b360-56c3d1f712f9"),
+                      Content = "WITH HONORS" +
+                      "COLLABORATIVE LEARNER",
+                      IsPublished = true,
+                      Title = "GABRIELLE NIÑO D. QUEMADA",
+                  }
+
+                );
+
+                //Achievers 5 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("7c6b1cf2-4198-48f7-a229-cef1c692533c"),
+                      Content = "WITH HONORS" +
+                      "ENGLISH COMMUNICATOR OF THE YEAR" +
+                      "FILIPINO COMMUNICATOR OF THE YEAR" +
+                      "SCIENTIST OF THE YEAR " +
+                      "PRACTICUMER OF THE YEAR" +
+                      "PERFORMER OF THE YEAR" +
+                      "MATHEMATICIAN OF THE YEAR" +
+                      "LEADERSHIP, PERFECT ATTENDANCE",
+                      IsPublished = true,
+                      Title = "ROSEVI B. TORNO",
+                  }
+
+                );
+
+                //Achievers 6 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("9ed88bd8-1335-42ee-ac2d-a39f513b34a1"),
+                      Content = "GOLDEN HEART",
+                      IsPublished = true,
+                      Title = "SITTIE ASHIEA D. ABDUL MOJIEB",
+                  }
+
+                );
+
+
+
+
+                //Achievers 7
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("59f116d1-1f37-42db-8700-04040cf4b256"),
+                      Content = "WITH HONORS",
+                      IsPublished = true,
+                      Title = "LEWELL G. DACAYO",
+                  }
+
+                );
+
+
+
+                //Achievers 8 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("1f25e4b6-47de-4f56-8916-e80b612e11c2"),
+                      Content = "WITH HONORS" +
+                      "DETERMINED LEARNER",
+                      IsPublished = true,
+                      Title = "DENIELLE ANNALIESE L. MAGBANUA",
+                  }
+
+                );
+
+
+
+
+                //Achievers 9 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("3f9013d5-ab24-47d7-ac27-d9c00d0dccda"),
+                      Content = "WITH HONORS,  ENGLISH COMMUNICATOR OF THE YEAR" +
+                      "FILIPINO COMMUNICATOR OF THE YEAR" +
+                      "SCIENTIST  OF THE YEAR, MATHEMATICIAN  OF THE YEAR" +
+                      "HISTORIAN OF THE YEAR, PERFORMER  OF THE YEAR" +
+                      "BEST IN PE, RESEARCHER  OF THE YEAR" +
+                      "PRACTICUMER  OF THE YEAR",
+                      IsPublished = true,
+                      Title = "CHRISTINE JOY B. SILVA",
+                  }
+
+                );
+
+
+
+                //Achievers 10 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("79781dd6-d020-4e15-8710-a17402d1a0e2"),
+                      Content = "HAPPY HELPER" +
+                      "LITTLE TEACHER" +
+                      "MOTIVATOR OF THE YEAR",
+                      IsPublished = true,
+                      Title = "PRINCESS MARIANNE D. CRUZ",
+                  }
+
+                );
+
+                
+
+                //Achievers 11 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("c5de8a07-a1a5-4916-9058-d1dacea6001e"),
+                      Content = "WITH HONORS" +
+                      "PRACTICUMER OF THE YEAR",
+                      IsPublished = true,
+                      Title = "LEA JOYCE W. ESTONACTOC",
+                  }
+
+                );
+
+
+
+                //Achievers 12 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("d4ef8c06-3cfd-4d9b-a42f-88b31b916f26"),
+                      Content = "OUTSTANDING PUPIL," +
+                      "EAGER BEAVER" +
+                      "PRUDENT WORKER" +
+                      "LITTLE TEACHER",
+                      IsPublished = true,
+                      Title = "ALYSSA KATE V. AQUINO",
+                  }
+
+                );
+
+
+
+                //Achievers 13 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("c4399e27-a5d2-4009-8dd4-dd323d97f0e3"),
+                      Content = "COURTEOUS LEARNER" +
+                      "TENACIOUS STRIVER" +
+                      "AMBASSADOR",
+                      IsPublished = true,
+                      Title = "LUIS MIGUEL L. VITUG",
+                  }
+
+                );
+
+
+
+                //Achievers 14 
+                this._context.Achievers.Add(
+                  new Achiever()
+                  {
+                      Id = Guid.Parse("c59bf4f4-b2ad-487f-aef9-3e3dbb074d28"),
+                      Content = "MOST OUTSTANDING PUPIL, BOOKWORM" +
+                      "NUMBER SMART, YOUNG STAR (DANCE)" +
+                      "YOUNG STAR (SINGING), SPORTY KID" +
+                      "NATURE SMART, SELF-SMART, ARTISTIC HANDS" +
+                      "MONTESSORI, LITTLE TEACHER" ,
+                      IsPublished = true,
+                      Title = "KYLE CHRISTIAN D. SILVA",
+                  }
+
+                );
+
             }
 
 
@@ -3716,9 +3929,12 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
             
             }
-            this._context.SaveChanges();
+
+            
+                this._context.SaveChanges();
                 return "OK";
             
+
         }
 
     }

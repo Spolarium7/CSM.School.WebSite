@@ -6,26 +6,47 @@
 }
 Welcome @WebUser.FullName
 
+<h2>Responsive Image Gallery</h2>
+<h4>Resize the browser window to see the effect.</h4>
 <section class="posts-con" id="post-container">
     @{
         foreach (Achiever achiever in Model.Achievers)
         {
-
-            <article>
-                <div class="info">
-                    <img class="card-img-top" src="~/achievers/@achiever.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">
-                    <h3>@achiever.Title</h3>
-                    <p class="info-line"><span class="time">@achiever.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
-                    <p><a href="~/achievers/@achiever.Id" class="btn btn-primary">Read More &rarr;</a></p>
+            <div class="responsive">
+                <div class="gallery">
+                    <a target="_blank" href="~/achievers/@achiever.Id">
+                        <img src="~/achievers/@achiever.Id/thumbnail.png" alt="@achiever.Title" width="600" height="400">
+                    </a>
+                    <div class="desc"></div>
                 </div>
-            </article>
-
+            </div>
         }
     }
 
+
+
+    @*@{
+            foreach (Achiever achiever in Model.Achievers)
+            {
+
+                <article>
+                    <div class="info">
+                        <img class="card-img-top" src="~/achievers/@achiever.Id/banner.png" alt="Card image cap" style="max-width:750px;max-height:300px;">
+                        <h3>@achiever.Title</h3>
+                        <p class="info-line"><span class="time">@achiever.Timestamp.ToString("dddd, dd MMMM yyyy hh:mm tt")</span></p>
+                        <p><a href="~/achievers/@achiever.Id" class="btn btn-primary">Read More &rarr;</a></p>
+                    </div>
+                </article>
+
+            }
+        }*@
+
 </section>
-
-
+<div class="clearfix"></div>
+<div style="padding:6px;">
+    <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
+    <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
+</div>
 
 
 
@@ -68,3 +89,54 @@ Welcome @WebUser.FullName
     });
     </script>
 }
+
+
+
+<style>
+    div.gallery {
+        border: 1px solid #ccc;
+    }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+    }
+
+    @@media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @@media only screen and (max-width: 500px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
