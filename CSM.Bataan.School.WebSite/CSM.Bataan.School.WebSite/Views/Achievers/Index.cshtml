@@ -6,8 +6,7 @@
 }
 Welcome @WebUser.FullName
 
-<h2>Responsive Image Gallery</h2>
-<h4>Resize the browser window to see the effect.</h4>
+<h2>CSM ACHIEVERS</h2>
 <section class="posts-con" id="post-container">
     @{
         foreach (Achiever achiever in Model.Achievers)
@@ -15,9 +14,9 @@ Welcome @WebUser.FullName
             <div class="responsive">
                 <div class="gallery">
                     <a target="_blank" href="~/achievers/@achiever.Id">
-                        <img src="~/achievers/@achiever.Id/thumbnail.png" alt="@achiever.Title" width="600" height="400">
+                        <img src="~/images/achievers/@achiever.Id/thumbnail.png" alt="@achiever.Title" width="600" height="400">
                     </a>
-                    <div class="desc"></div>
+                    <a href="~/achievers/@achiever.Id"><div class="desc">@achiever.Title</div></a>
                 </div>
             </div>
         }
@@ -51,7 +50,7 @@ Welcome @WebUser.FullName
 
 
 
-@section pageScripts{`
+@*@section pageScripts{`
     <script src="~/js/date_format.js"></script>
     <script>
     var page = @("1");
@@ -88,7 +87,7 @@ Welcome @WebUser.FullName
         }
     });
     </script>
-}
+}*@
 
 
 

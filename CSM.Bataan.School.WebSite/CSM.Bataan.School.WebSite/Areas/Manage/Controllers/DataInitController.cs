@@ -3509,11 +3509,11 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Achiever()
                   {
                       Id = Guid.Parse("dc2fe60d-80ab-4f29-878d-4f49816edc1f"),
-                      Content = "WITH HONORS" +
-                      "HISTORIAN OF THE YEAR" +
-                      "BEST IN PE" +
-                      "DEPORTMENT" +
-                      "PERFECT ATTENDANCE",
+                      Content = "WITH HONORS," +
+                      ",HISTORIAN OF THE YEAR" +
+                      ",BEST IN PE" +
+                      ",DEPORTMENT" +
+                      ",PERFECT ATTENDANCE",
                       IsPublished = true,
                       Title = "LALIESCA V. PAGUINTO",
                   }
@@ -3699,7 +3699,6 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 );
 
             }
-
 
             //Initialize School Events
             if (this._context.SchoolEvents.Count() < 1)
@@ -3930,7 +3929,27 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             
             }
 
-            
+            //Initialize Ads
+            if (this._context.Ads.Count() < 1)
+            {
+
+
+                // Ads 1 
+                this._context.Ads.Add(
+                  new Ad()
+                  {
+                      Id = Guid.Parse("96235e38-ade8-497a-8a55-46491db594d6"),
+                      Content = "...",
+                      Description = "...",
+                      IsPublished = true,
+                      Title = "Celebration Learning All-Out Preparation & Practices",
+                  }
+
+                );
+            }
+
+
+
                 this._context.SaveChanges();
                 return "OK";
             
