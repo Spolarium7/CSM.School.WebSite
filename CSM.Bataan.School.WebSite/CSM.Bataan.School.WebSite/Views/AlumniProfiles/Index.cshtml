@@ -14,23 +14,30 @@
 
                 foreach (AlumniProfile alumniprofile in Model.AlumniProfiles)
                 {
-
-
-                    <div class="column">
-                        <div class="content">
-                            <img src="~/images/alumniprofiles/@alumniprofile.Id/thumbnail.png" alt="@alumniprofile.Company" style="width:100%">
-                            <dl>
-                                <dt>From Date:</dt>
-                                <dd>@alumniprofile.FromDate.ToString("dddd, dd MMMM yy")</dd>
-
-                                <dt>To Date:</dt>
-                                <dd>@alumniprofile.ToDate.ToString("dddd, dd MMMM yy")</dd>
-                            </dl>
-                           
-                            <a href="~/alumniprofiles/@alumniprofile.Id"><button class="btn btn-primary">View</button></a>
-                            <p></p>
+                    <div class="responsive">
+                        <div class="gallery">
+                            <a target="_blank" href="~/alumniprofiles/@alumniprofile.Id">
+                                <img src="~/images/alumniprofiles/@alumniprofile.Id/thumbnail.png" alt="@alumniprofile.Company" width="600" height="400">
+                            </a>
+                            <a href="~/alumniprofiles/@alumniprofile.Id"><div class="desc">@alumniprofile.Company</div></a>
                         </div>
                     </div>
+
+                    @*<div class="column">
+                            <div class="content">
+                                <img src="~/images/alumniprofiles/@alumniprofile.Id/thumbnail.png" alt="@alumniprofile.Company" style="width:100%">
+                                <dl>
+                                    <dt>From Date:</dt>
+                                    <dd>@alumniprofile.FromDate.ToString("dddd, dd MMMM yy")</dd>
+
+                                    <dt>To Date:</dt>
+                                    <dd>@alumniprofile.ToDate.ToString("dddd, dd MMMM yy")</dd>
+                                </dl>
+
+                                <a href="~/alumniprofiles/@alumniprofile.Id"><button class="btn btn-primary">View</button></a>
+                                <p></p>
+                            </div>
+                        </div>*@
                     <!-- END MAIN -->
                 }
             }
@@ -43,67 +50,50 @@
 
 
 <style>
+    div.gallery {
+        border: 1px solid #ccc;
+    }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+
     * {
         box-sizing: border-box;
     }
 
-    body {
-        background-color: #f1f1f1;
-        padding: 20px;
-        font-family: Arial;
-    }
-
-    /* Center website */
-    .main {
-        max-width: 1000px;
-        margin: auto;
-    }
-
-    h1 {
-        font-size: 50px;
-        word-break: break-all;
-    }
-
-    .row {
-        margin: 8px -16px;
-    }
-
-        /* Add padding BETWEEN each column */
-        .row,
-        .row > .column {
-            padding: 8px;
-        }
-
-    /* Create four equal columns that floats next to each other */
-    .column {
+    .responsive {
+        padding: 0 6px;
         float: left;
-        width: 25%;
+        width: 24.99999%;
     }
 
-    /* Clear floats after rows */
-    .row:after {
+    @@media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @@media only screen and (max-width: 500px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    .clearfix:after {
         content: "";
         display: table;
         clear: both;
-    }
-
-    /* Content */
-    .content {
-        background-color: white;
-        padding: 10px;
-    }
-
-    /* Responsive layout - makes a two column-layout instead of four columns */
-    @@media screen and (max-width: 900px) {
-        .column {
-            width: 50%;
-        }
-    }
-
-    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-    @@media screen and (max-width: 600px) {
-        .column {
-            width: 100%;
-        }
     }
 </style>
