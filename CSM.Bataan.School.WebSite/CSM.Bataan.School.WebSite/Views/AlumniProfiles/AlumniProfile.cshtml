@@ -21,16 +21,21 @@
                     <div class="info">
                         <hr />
                         <dl>
+                        
                             <dt><strong>Description:</strong></dt>
-                            <dd> @Html.Raw(Model.Description)</dd>
+                            <dd>@Html.Raw(@Model.Description)</dd>
                             <dt><strong>Position:</strong></dt>
                             <dd>  @Model.Position</dd>
                             <dt><strong>Location:</strong></dt>
                             <dd>  @Model.Location</dd>
                             <dt><strong>From Date:</strong></dt>
-                            <dd>  @Model.FromDate</dd>
+                            <dd> @Model.FromDate</dd>
                             <dt><strong>To Date:</strong></dt>
                             <dd>  @Model.ToDate</dd>
+
+
+
+
                         </dl>
                     </div>
                 </article>

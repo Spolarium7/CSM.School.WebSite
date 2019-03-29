@@ -1715,15 +1715,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new AlumniProfile()
                   {
                       Id = Guid.Parse("75f70d2f-0362-4e9c-a117-3e15ead48aab"),
-                      Description =
-                      "<ul>" +
-                      "<li>Name: Erza Alfonzo</li>" +
-                      "<li>Course: Bachelor of Science Criminology</li>" +
-                      "<li>Gender: Female</li>" +
-                      "<li>Email Address: erza.alfonso12@gmail.com</li>" +
-                      "<li>Latest work:Rescuer</li>" +
-                      "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                      "</ul>",
+                      Description = "She is Erza Alfonzo, she studied  Bachelor of Science Criminology. She's working as Rescuer at Department of Municipal Disaster Risk Reduction and Management Office(MDRRMO). ",    
                       Position = "Admin Aide IV",
                       Location = "Burgos-Soliman, Hermosa, Bataan",
                       IsPublished = true,
@@ -1738,14 +1730,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  {
                      Id = Guid.Parse("eac64419-0a56-45c7-add0-1eb026351b4c"),
                      Description =
-                     "<ul>" +
-                     "<li>Name: Darlene Shane Santos</li>" +
-                     "<li>Course: Bachelor of Science Custom Administration</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: dpserrano.toyota@gmail.com</li>" +
-                     "<li>Latest work: Sales</li>" +
-                     "<li>toyota company</li>" +
-                     "</ul>",
+                     "She is Darlene Shane Santos, she studied  Bachelor of Science Custom Administration. She's working as Sales Marketing Officer at toyota company",
                      Position = "Marketing Professional",
                      Location = "balanga bataan",
                      IsPublished = true,
@@ -1759,14 +1744,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("70ae75c5-e39a-4c8a-9f8a-238775ad6f43"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Almira S. Banzon</li>" +
-                     "<li>Course: Bachelor of Science Information Systems</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: almirabanzon1902@gmail.com</ li>" +
-                     "<li>Latest work:CSM Associate Registrar</li>" +
-                     "</ul>",
+                     Description = "She is Almira S. Banzon, she studied  Bachelor of Science Information Systems,She's also a Deserved Student Asssistant or a scholar of College Subic Montessori. She's  working as Associate Registrar at College of Subic Montessori Inc.",
                      Position = "Associate Registrar",
                      Location = "Sta. Isabel, Dinalupihan, Bataan",
                      IsPublished = true,
@@ -1781,14 +1759,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("6b0512b5-39a5-415b-9845-b9ad465b0873"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: John Paul C Pamintuan</li>" +
-                     "<li>Course: Bachelor of Science Business Administration(Marketing Management)</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address: John Paul C Pamintuan</li>" +
-                     "<li>Latest work:Professional Medical Representative</ li>" +
-                     "</ul>",
+                     Description = "He is John Paul C Pamintuan, she studied  Bachelor of Science Business Administration(Marketing Management). He's  working as Professional Medical Representative in Kaufmann Pharma Inc",
                      Position = "territory Manager",
                      Location = "4th Flr Jafer Building West Ave. Quezon City",
                      IsPublished = true,
@@ -1803,16 +1774,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("74e7a1aa-bced-4b22-a6b6-a3f25f5f1e44"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Jessica Santos</ li>" +
-                     "<li>Course: Bachelor of Science Business Administration(Marketing Management)</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: jls@sunrise-search.com</ li>" +
-                     "<li>Latest work: Overseas man power provider </ li>" +
-                     "<li>Description : Conduct initial interviews to applicants based on the standard requirement of the hiring company." +
-                     "Send complete file or pre qualified candidates for client Prepare necassary docs for POEA processing  and etc</li>" +
-                     "</ul>",
+                     Description = "She is Jessica Santos, she studied  Bachelor of Science Business Administration(Marketing Management).She's  working as Overseas man power provider in Sunrise search & support INC , Her work is  Conduct initial interviews to applicants based on the standard requirement of the hiring company." +
+                     "Send complete file or pre qualified candidates for client Prepare necassary docs for POEA processing  and etc ",
                      Position = "Recruitment Specialist",
                      Location = "4th Flr Chipeco building Meralco Ave.Corner Shaw Blrd Pasig City",
                      IsPublished = true,
@@ -1827,15 +1790,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("3b8c7209-6c9a-4c0a-83f5-f1ad51bdac0f"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: MARY ANNE C. CALING</ li>" +
-                     "<li>Course: Bachelor of Science Business Administration(HRDM)</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address:maryannecaling@gmail.com</ li>" +
-                     "<li>Latest work:HR Staff</ li>" +
-                     "<li>Description : Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.</li>" +
-                     "</ul>",
+                     Description = "She is MARY ANNE C. CALING, she studied  Bachelor of Science Business Administration(HRDM).She's  working as HR Staff in DLX BAGS PHILS INC , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Position = " Compensation and benefits (timekeeper)",
                      Location = "Fab Mariveles,BATAAN",
                      IsPublished = true,
@@ -1851,14 +1806,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("09a476e7-d217-47e6-b172-be83d429a3a7"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Charlotte T. Lingad</ li>" +
-                     "<li>Course: Bachelor of Science Business Administration (Financial Management)</ li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: basalocharlotte@gmail.com</ li>" +
-                     "<li>Latest work:none</li>" +
-                     "</ul>",
+                     Description = "She is Charlotte T. Lingad, she studied  Bachelor of Science Business Administration (Financial Management).",   
                      Position = "none",
                      Location = "none",
                      IsPublished = true,
@@ -1873,15 +1821,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("a422143f-4f3d-4192-ae45-204527d96566"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Denice Patricia C Poblete</ li>" +
-                     "<li>Course:Bachelor of Science Business Administration (Human Resources Development Management)</ li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: denicepoblete_19@yahoo.com</ li>" +
-                     "<li>Latest work: I.T-Software Development </ li>" +
-                     "<li>Description : incharge with the overall facets of HR Department</li> " +
-                     "</ul>",
+                     Description = "She is Denice Patricia C Poblete, she studied  Bachelor of Science Business Administration (Human Resources Development Management).She's  working as I.T-Software Development in Z Getcare Systems Inc. , Her work is  incharge with the overall facets of HR Department ",
                      Position = "Human Resource(HR)",
                      Location = "Clark, Pampanga",
                      IsPublished = true,
@@ -1896,15 +1836,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("89497382-766e-43c1-a274-bc6c67c129c1"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: MYLEN D. MAGALLANES</ li>" +
-                     "<li>Course:Bachelor of Science Business Management</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: mylen.magallanes@gmail.com</ li>" +
-                     "<li>Latest work:2ND MUCC/pension loan</li>" +
-                     "<li>Description : Micro Finance/Lending Institution<li>" +
-                     "</ul>",
+                     Description = "She is MYLEN D. MAGALLANES, she studied  Bachelor of Science Business Management.She's  working as 2ND MUCC/pension loan in 2ND MUCC , Her work is Micro Finance/Lending Institution",
                      Position = "OIC",
                      Location = "Dinalupihan, Bataan",
                      IsPublished = true,
@@ -1920,15 +1852,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("4a8d5aeb-55db-4256-a3dc-e9d3e6da0e49"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Maricar M Naguiat</li>" +
-                     "<li>Course: Bachelor of Science Criminology</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: maricarnaguiat01@gmail.com</ li>" +
-                     "<li>Latest work: Jail Officer</li>" +
-                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                     "</ul>",
+                     Description = "She is Maricar M Naguiat, she studied  Bachelor of Science Criminology.She's  working as Jail Officer in Bureau of Jail Management and Penology , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Position = "Jail Officer 1",
                      Location = "San Jose Delmonte City Bulacan",
                      IsPublished = true,
@@ -1944,19 +1868,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("f0547387-5b67-4e28-bba7-92b378bf31c0"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Mark D. Javier</ li>" +
-                     "<li>Course: Bachelor of Science Custom Administration</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address: markjavier219@gmail.com </li>" +
-                     "<li>Latest work:Jiemei Agri Industrial corp</ li>" +
-                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                     "</ul>",
-                     Position = "Manager",
+                     Description = "He is Mark D. Javier, she studied  Bachelor of Science Custom Administration.He's  working as Jiemei Agri Industrial corp in Jiemei Agri Industrial corp ",  Position = "Manager",
                      Location = "Manila",
                      IsPublished = true,
-                     Company = "...",
+                     Company = "Jiemei Agri Industrial corp",
                  }
 
                );
@@ -1968,16 +1883,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("8ca8fa5f-5de3-496d-813b-0a45c608d76f"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Rovilyn Cano</ li>" +
-                     "<li>Course: Bachelor of Science Customs Administration</ li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address:  rcano@nnrusa.com</ li>" +
-                     "<li>Latest work: International Freight Forwarder</li>" +
-                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                     "<li>Description : Manage and Updating http//nnr.WebCargo.net Systems. Preparing rates, adhocs within time frame. Preparing reports as per by our Boss in US, at the same assisting him.  </ li>" +
-                     "</ul>",
+                     Description = "She is Rovilyn Cano, she studied  Bachelor of Science Customs Administration.She's  working as International Freight Forwarder in NNR Global Logistics Philippines Inc. (Global Accounts) , Her work is   Manage and Updating http//nnr.WebCargo.net Systems. Preparing rates, adhocs within time frame. Preparing reports as per by our Boss in US, at the same assisting him. ", 
                      Position = " US Tender-Data Analyst/Key Account administrator",
                      Location = "Room 6, Skyfreight Building D. Skyfreight Center. Naia Avenue, Brgy. Sto Niño Parañaque City, Philippines",
                      IsPublished = true,
@@ -1993,16 +1899,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("5034489e-f54f-484d-b6af-d385d5cd922e"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Rica May C.Miranda</ li>" +
-                     "<li>Course:  Bachelor of Science in Travel Management </ li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address:  rmaemiranda02@gmail.com</ li>" +
-                     "<li>Latest work:Dining attendant </ li>" +
-                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                     "</ul>",
-                     Position = "...",
+                     Description = "She is Rica May C.Miranda, she studied  Bachelor of Science in Travel Management.She's  working as Dining attendant in Terrace hotel , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Location = "Subic Bay Waterfrontroad Moon Bay Marina",
                      IsPublished = true,
                      Company = "Terrace hotel",
@@ -2017,15 +1914,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("14f36a9f-6921-4d30-ae18-8e4e92b57ce0"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Lois Mae Paguinto</li>" +
-                     "<li>Course: Bachelor of Science in Travel Management </ li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: loismaep051296@yahoo.com</ li>" +
-                     "<li>Latest work:Billing Executive </ li>" +
-                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                     "</ul>",
+                     Description = "She is Lois Mae Paguinto, she studied Bachelor of Science in Travel Management.She's  working as Billing Executive in Bollore Logistics Asia Support Services Inc. , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Position = "BPO SG Billing Executive",
                      Location = "Paranaque City Philippines",
                      IsPublished = true,
@@ -2042,14 +1931,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("ea8fea9e-8402-410d-bc64-1aea7e137a8b"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Rodel Tala</ li>" +
-                     "<li>Course: Bachelor of Science Customs Admistration</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address: rodeltala.customs@gmail.com</li>" +
-                     "<li>Department: Municipal Disaster Risk Reduction and Management Office (MDRRMO)</li>" +
-                     "</ul>",
+                     Description = "He is Rodel Tala, she studied Bachelor of Science Customs Admistration.He's  working in Bollore Logistics",
                      Position = "Air Import Operator",
                      Location = "Parañaque Metro Manila",
                      IsPublished = true,
@@ -2064,14 +1946,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("830745c4-76de-42fb-a323-a461172f0711"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Jeannilyn Velasquez</ li>" +
-                     "<li>Course: Bachelor of Science Customs Administration</ li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address: jeannilynvelasquez@gmail.com</ li>" +
-                     "<li>Latest work: Customs processor</li>" +
-                     "</ul>",
+                     Description = "She is Jeannilyn Velasquez, she studied  Bachelor of Science Customs Administration.She's  working as Customs processor in MCPT Customs Brokerage ",
                      Position = "Customs Broker/ Customs Representative",
                      Location = "Port Area Manila",
                      IsPublished = true,
@@ -2086,15 +1961,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("d90abb98-8170-4f4c-aaa0-070ee67fba7b"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name:Rafael R. Capio</ li>" +
-                     "<li>Course: Bachelor of Science Business Administration(Human Resources Development Management)</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address:  rafaelcarpio122695@gmail.com</ li>" +
-                     "<li>Latest work: Overseas man power provider </ li>" +
-                     "<li>Description :Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country.</ li>" +
-                     "</ul>",
+                     Description = "He is Rafael R. Capio, he studied Bachelor of Science Business Administration(Human Resources Development Management).he's  working as  Overseas man power provider in Devisers Immigration Law Firm , He work is Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country.",
                      Position = "Business Planner",
                      Location = " JLT DUBAI UAE",
                      IsPublished = true,
@@ -2107,13 +1974,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("11da1a5e-b369-403e-aa9f-60a2a077d54c"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name:Sangalang Darwin M.</ li>" +
-                     "<li>Course: Bachelor of Science Customs Administration</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address:  darwinsangalang@ymail</ li>" +
-                     "<li>Latest work: Quality assurance </ li>",
+                     Description = "She is Sangalang Darwin M., she studied  Bachelor of Science Customs Administration.She's  working as Quality assurance in Sumi phil.",
                      Position = "First Visual",
                      Location = "Palihan",
                      IsPublished = true,
@@ -2127,15 +1988,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("33369ff4-0793-4fe9-b121-ab10820f8c33"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Brandon Michole Delos Santos </ li>" +
-                     "<li>Course: Hotel Restaurant Services</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address: anonymousvapersbrandon123@gmail.com</ li>" +
-                     "<li>Latest work:  CSM Position: SAFETY OFFICER </ li>" +
-                     "Description : to fulfill the safety measure within the school campus and the safety of all employees and students.",
-
+                     Description = "He is Brandon Michole Delos Santos he studied Hotel Restaurant Services).he's  working as CSM Position: SAFETY OFFICER in AIM HIGH , He work is  to fulfill the safety measure within the school campus and the safety of all employees and students.",
                      Position = "First Visual",
                      Location = "Sta. Isabel highway,  Dinalupihan, bataan",
                      IsPublished = true,
@@ -2152,15 +2005,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("6d912ff6-df67-42e2-a089-1f0f755edec6"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: JOHN KING MANUEL ALVARO </ li>" +
-                     "<li>Course: Bachelor of Science Information System</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address: KINGALVARO25@GMAIL.COM  </ li>" +
-                     "<li>Latest work: CSM Faculty.  </ li>" +
-                     "Description :.",
-
+                     Description = "He is JOHN KING MANUEL ALVARO , he studied Bachelor of Science Information System.he's  working as CSM Faculty in College of Subic Montessori, INC.",
                      Position = "INSTRUCTOR/COSTODIAN",
                      Location = "Sta.Isabel Dinalupihan, Bataan. ",
                      IsPublished = true,
@@ -2174,15 +2019,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("c9ed386d-424c-4c0f-9bfb-1a98c26c75fb"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Clarence D. Idio </ li>" +
-                     "<li>Course: Bachelor of Science Criminology</li>" +
-                     "<li>Gender: Male</li>" +
-                     "<li>Email Address: idioclarence1994@y.com </ li>" +
-                     "<li>Latest work:  </ li>" +
-                     "Description :.",
-
+                     Description = "He is  Clarence D. Idio , he studied Bachelor of Science Criminology.She's  working as Police Officer 1 in PNP.",
                      Position = "Police Office 1",
                      Location = "",
                      IsPublished = true,
@@ -2196,15 +2033,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("69f24d79-2670-43b8-a361-ac4c419b15b8"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Krizia Kaye C. Talaroc</ li>" +
-                     "<li>Course: Bachelor of Science Customs Administration</li>" +
-                     "<li>Gender: Female</li>" +
-                     "<li>Email Address:  khayetalaroc@gmail.com </ li>" +
-                     "<li>Latest work: School Registrar  </ li>" +
-                     "Description :.",
-
+                     Description = "She is Krizia Kaye C. Talaroc, she studied Bachelor of Science Customs Administration.She's  working as School Registrar in College of Subic Montessori-Lincoln Heights, Inc.",
                      Position = " Registrar Company: College of Subic Montessori - Lincoln Heights, Inc. ",
                      Location = "Lincoln Heights, San Pablo, Dinalupihan, Bataan",
                      IsPublished = true,
@@ -2219,15 +2048,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new AlumniProfile()
                  {
                      Id = Guid.Parse("7dd5356d-9312-43f0-bdfb-a07aa71d7d82"),
-                     Description =
-                     "<ul>" +
-                     "<li>Name: Rafael R. Carpio </ li>" +
-                     "<li>Course:  Bachelor of Science Business Administration-Human Resouce Development Management</li>" +
-                     "<li>Gender: Male </li>" +
-                     "<li>Email Address: rafaelcarpio122695@gmail.com </ li>" +
-                     "<li>Latest work:  Business Planner</ li>" +
-                     "Description : Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country..",
-
+                     Description = "He is Rafael R. Carpio , she studied   Bachelor of Science Business Administration-Human Resouce Development Management.he's  working as Business Planner in Devisers Immigration Law Firm , He work Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country.",
                      Position = "",
                      Location = "LT DUBAI UAE",
                      IsPublished = true,
