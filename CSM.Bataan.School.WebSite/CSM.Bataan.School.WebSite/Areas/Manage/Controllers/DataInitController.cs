@@ -1659,7 +1659,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                            Content = "An area equipped with all the needed tools and materials needed for smooth and efficient  FOOD AND BEVERAGE TRAINING.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Front office",
+                           Title = "Food and Beverages",
                        }
                    );
                     //Initialize SchoolFacility 11
@@ -3787,34 +3787,26 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Ad()
                   {
                       Id = Guid.Parse("0f4c91e9-cf0c-4313-9f3c-6348d2f78637"),
-                      Content = "<h3>SENIOR HIGH SCHOL</h3><br />" +
-                      "<strong><h4>GRADE ELEVEN & GRADE TWELVE</h4></strong><br />" +
-                      "<h5>ACADEMIC TRACK</h5><br />" +
-                      "<p>ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM)<br />" +
-                      "SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM)<br />" +
-                      "HUMANITIES & SOCIAL STUDIES(HUMSS)<br />" +
-                      "GENERAL ACADEMIC STRAND (GAS)</p>" +
-                      "<br />" +
-                      "<h5>TECHNICAL-VOCATIONAL LIVELIHOOD TRACK:</h5>" +
-                      "<p>HOME ECONOMICS<br />" +
-                      "FOOD AND BEVERAGE SERVICES NC II<br />" +
-                      "FRONT OFFICE SERVICES NC II <br />" +
-                      "HOUSEKEEPING NC II <br />" +
-                      "INFORMATION & COMMUNICATION TECHNOLOGY<br />" +
-                      "COMPUTER SYSTEMS SERVICING NC II<br />" +
-                      "PROGRAMMING(NET TECHNOLOGY) NC II</p>" +
-                      "<address><h4>FOR MORE INQUIRIES, CALL AND VISIT FOLLOWING:</h4><br />" +
-                      "<strong>TELEPHONE NO.:<strong> (047)633-5531 <br />" +
-                      "<strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <br />" +
-                      "<strong>GLOBE:</strong> 0915-306-6606 <br />" +
-                      "<strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <br />" +
-                      "<strong>FB PAGE:</strong> www.facebook.com/csmbataan <br />",
+                      Content = "GRADE ELEVEN & GRADE TWELVE offer Academic Strands" +
+                      "ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM)," +
+                      "SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM), " +
+                      "HUMANITIES & SOCIAL STUDIES(HUMSS)," +
+                      "GENERAL ACADEMIC STRAND (GAS)" +
+                      "and TECHNICAL-VOCATIONAL LIVELIHOOD TRACK offer" +
+                      "HOME ECONOMICS, " +
+                      "FOOD AND BEVERAGE SERVICES NC II, " +
+                      " FRONT OFFICE SERVICES NC II, " +
+                      "HOUSEKEEPING NC II ," +
+                      "INFORMATION & COMMUNICATION TECHNOLOGY , " +
+                      "COMPUTER SYSTEMS SERVICING NC II," +
+                      "PROGRAMMING(NET TECHNOLOGY) NC II," +
+                      "For more INQUIRIES, CALL AND VISIT FOLLOWING ( Telephone No. : (047)633-5531 , SMART : 0923-430-3906/ 0912-091-8401 , Globe : 0915-306-6606 , EMAIL ADDRESS: csm.bataan888@yahoo.com , FB PAGE:  www.facebook.com/csmbataan )",
                       Description =
                       "COLLEGE OF SUBIC MONTESSORI,INC" +
                       " BASIC EDUCATION PROGRAMS <br />" +
                       " MONTESSORI CURRICULUM <br />" +
                       "SENIOR HIGH SCHOOL <br />" +
-                      "<strong><h4>GRADE ELEVEN & GRADE TWELVE</h4></strong><br />" +
+                      "<h4>GRADE ELEVEN & GRADE TWELVE</h4><br />" +
                       "<h5>ACADEMIC TRACK</h5><br />" +
                       "<p>ACCOUNTANCY, BUSINESS & MANAGEMENT(ABM)<br />" +
                       "SCIENCE, TECHNOLOGY , ENGINEERING & MATHEMATICS (STEM)<br />" +
@@ -3833,35 +3825,23 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Ad()
                   {
                       Id = Guid.Parse("42802934-fd23-4aa1-91db-4bed4b4e0fc1"),
-                      Content = "<h3>PROGRAM OFFERINGS</h3><br />" +
-                      "<strong><h4>CHED PROGRAMS</h4></strong><br />" +
-                      "<strong><p>BS IN BUSINESS ADMINISTRATION</p></strong><br />" +
-                      "<p>Major in Financial Management,</p><br />" +
-                      "<p>Operations Management, Marketing Management,</p><br />" +
-                      "<p>Human Resource Development Management,</p><br />" +
-                      "<strong><p>BS IN CRIMINOLOGY</p></strong><br />" +
-                      "<strong><p>BS IN TOURISM MANAGEMENT</p></strong><br />" +
-                      "<strong><p>BS IN INFORMATION SYSTEMS</p></strong><br />" +
-                      "<strong><p>ASSOCIATE IN COMPUTER TECHNOLOGY</p></strong><br />" +
-                      "<br />" +
-                      "<address><h4>FOR MORE INQUIRIES, CALL AND VISIT FOLLOWING:</h4><br />" +
-                      "<strong>TELEPHONE NO.:<strong> (047)633-5531 <br />" +
-                      "<strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <br />" +
-                      "<strong>GLOBE:</strong> 0915-306-6606 <br />" +
-                      "<strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <br />" +
-                      "<strong>FB PAGE:</strong> www.facebook.com/csmbataan",
+                      Content = "CHED PROGRAMS offer courses BS IN BUSINESS ADMINISTRATION , Major in Financial Management, Operations Management, Marketing Management" +
+                      "Human Resource Development Management, BS IN CRIMINOLOGY , " +
+                      "BS IN TOURISM MANAGEMENT , BS IN INFORMATION SYSTEMS ," +
+                      " ASSOCIATE IN COMPUTER TECHNOLOGY. " +
+                      "For more INQUIRIES, CALL AND VISIT FOLLOWING ( Telephone No. : (047)633-5531 , SMART : 0923-430-3906/ 0912-091-8401 , Globe : 0915-306-6606 , EMAIL ADDRESS: csm.bataan888@yahoo.com , FB PAGE:  www.facebook.com/csmbataan )",
                       Description =
                       "COLLEGE DEPARTMENT <br />" +
                       "CHED PROGRAMS<br />" +
-                      "BSBA <br />" +
-                      "1.MFM <br />" +
-                      "2.OM,MM <br />" +
-                      "3.HRDM <br />" +
-                      "BSCRIM <br />" +
-                      "BSCA <br />" +
-                      "BSIS <br />" +
-                      "ACT <br />"
-                      ,
+                      "Bachelor of Science Business Administration <br />" +
+                      "1. Major in Financial Management <br />" +
+                      "2. Operations Management, Marketing Management <br />" +
+                      "3. Human Resource Development Management <br />" +
+                      "Bachelor of Science Business IN CRIMINOLOGY <br />" +
+                      "Bachelor of Science IN TOURISM MANAGEMENT <br />" +
+                      "Bachelor of Science IN Customs Administration <br />" +
+                      "Bachelor of Science IN Information Systems <br />" +
+                      "ASSOCIATE IN COMPUTER TECHNOLOGY",
                       IsPublished = true,
                       Title = "CHED PROGRAMS",
                   }
@@ -3875,31 +3855,24 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Ad()
                   {
                       Id = Guid.Parse("4909f1f3-46b3-42a4-99df-31962e8672e4"),
-                      Content = 
-                      "COMPUTER SYSTEMS SERVICING NC II <br />" +
-                      "FOOD & BEVERAGE SERVICES NC II < <br />" +
-                      "FRONT OFFICE SERVICES NC II <br />" +
-                      "HOUSEKEEPING NC II <br />" +
-                      "VISUAL GRAPHIC DESIGN NC III (ASSESSMENT CENTER)" +
-                      "< address >< h4 > FOR MORE INQUIRIES," +
-                      "CALL AND VISIT FOLLOWING:</ h4 >< br / > " +
-                      "<strong>TELEPHONE NO.:<strong> (047)633-5531 <br />" +
-                      "<strong>SMART:</strong> 0923-430-3906/ 0912-091-8401 <br />" +
-                      "<strong>GLOBE:</strong> 0915-306-6606 <br />" +
-                      "<strong>EMAIL ADDRESS:</strong> csm.bataan888@yahoo.com <br />" +
-                      "<strong>FB PAGE:</strong> www.facebook.com/csmbataan <br />",
-                      
+                      Content = "COLLEGE DEPARTMENT AND TESDA OFFER : " +
+                      "COMPUTER SYSTEMS SERVICING NC II, " +
+                      "FOOD & BEVERAGE SERVICES NC II ," +
+                      "FRONT OFFICE SERVICES NC II ," +
+                      "HOUSEKEEPING NC II ," +
+                      "VISUAL GRAPHIC DESIGN NC III (ASSESSMENT CENTER) ," + 
+                      "For more INQUIRIES, CALL AND VISIT FOLLOWING(Telephone No. : (047)633 - 5531, SMART: 0923 - 430 - 3906 / 0912 - 091 - 8401, Globe: 0915 - 306 - 6606, EMAIL ADDRESS: csm.bataan888@yahoo.com, FB PAGE: www.facebook.com / csmbataan)",                      
                       Description =
                       "COLLEGE DEPARTMENT <br />" +
                       "TESDA PROGRAMS<br />" +
-                      "CSS NC II <br />" +
-                      "F&B NC II <br />" +
-                      "FOS NC II <br />" +
-                      "HK NC II <br />" +
-                      "VGD NC III (AC) <br />" +
-                      "BSCA <br />" +
-                      "BSIS <br />" +
-                      "ACT <br />"
+                      "COMPUTER SYSTEMS SERVICING NC II <br />" +
+                      "FOOD & BEVERAGE SERVICES NC II <br />" +
+                      "FRONT OFFICE SERVICES NC II <br />" +
+                      "HOUSEKEEPING NC II <br />" +
+                      "VISUAL GRAPHIC DESIGN NC III (ASSESSMENT CENTER)<br />" +
+                      "Bachelo of Science in Customs Administration <br />" +
+                      "Bachelor of Science in Information Systems <br />" +
+                      "Associate Computer Technology <br />"
                       ,
                       IsPublished = true,
                       Title = "TESDA PROGRAMS",
@@ -3914,14 +3887,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   {
                       Id = Guid.Parse("0741fa51-f7a4-4e67-8455-e33b0297d31c"),
                       Content =
-                      "Applicant must submit the following requirements upon application <br / >" +
-                      "*Copy of updated resume <br />" +
-                      "*Copy of grades in previous term <br />" +
-                      "*Certificate of good moral character <br />" +
-                      "<br/>" +
-                      "<p>Slots are limited and the screening process is very strict. the office of the AAAH(Academic Affairs and Administration Office)handles all applications for this program.",
-
-                      
+                      "Applicant must submit the following requirements upon application : " +
+                      "Copy of updated resume , " +
+                      "Copy of grades in previous term ," +
+                      "Certificate of good moral character , Slots are limited and the screening process is very strict. the office of the AAAH(Academic Affairs and Administration Office)handles all applications for this program.",
                       Description =
                       "Requirements of CHED SCHOLARSHIPS <br />" +
                       "Entrance scholaarship is granted to any incoming College Students"
@@ -3937,9 +3906,10 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new Ad()
                  {
                      Id = Guid.Parse("fe30f7a4-8bf0-4f28-8904-18e82b769dca"),
-                     Content =
-
-                     "<span>DOCUMENT CHECKLIST</span><br />" +
+                     Content = "in short pass NSO",
+                     Description = 
+                     "Requirements of CHED SCHOLARSHIPS <br>" +
+                     "DOCUMENT CHECKLIST" +
                      "NAME                        GR SEC" +
                      "picture1 1 (2x2) 2 (1x1) <br />" +
                      "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
@@ -3948,11 +3918,6 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                      "FORM 137/TRANSCRIPT OF RECORD <br />" +
                      "DIPLOMA (Photocopy) <br />" +
                      "MEDICAL CERTIFICATE <br />",
-
-
-                     Description =
-                     "Requirements of CHED SCHOLARSHIPS"
-                     ,
                      IsPublished = true,
                      Title = "CHED SCHOLARSHIPS",
                  }
@@ -3964,21 +3929,18 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Ad()
                   {
                       Id = Guid.Parse("676589c8-a031-40c7-b8e1-1607dd83d094"),
-                      Content =
-
-                      "<span>DOCUMENT CHECKLIST</span><br />" +
-                      "NAME                        GRADE and SECTION" +
-                      "picture1 1 (2x2) 2 (1x1) <br />" +
-                      "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
-                      "GOOD MORAL CERTIFICATE <br />" +
-                      "FORM 138/CARD <br />" +
-                      "FORM 137/TRANSCRIPT OF RECORD <br />" +
-                      "DIPLOMA (Photocopy) <br />" +
-                      "MEDICAL CERTIFICATE <br />",
-
-
+                      Content = "in short pass NSO",
                       Description =
-                      "Requirements of TESDA SCHOLARSHIPS"
+                     "Requirements of TESDA SCHOLARSHIPS <br>" +
+                     "DOCUMENT CHECKLIST" +
+                     "NAME                        GR SEC" +
+                     "picture1 1 (2x2) 2 (1x1) <br />" +
+                     "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
+                     "GOOD MORAL CERTIFICATE <br />" +
+                     "FORM 138/CARD <br />" +
+                     "FORM 137/TRANSCRIPT OF RECORD <br />" +
+                     "DIPLOMA (Photocopy) <br />" +
+                     "MEDICAL CERTIFICATE <br />"
                       ,
                       IsPublished = true,
                       Title = "TESDA SCHOLARSHIPS",
@@ -3991,24 +3953,21 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                  new Ad()
                  {
                      Id = Guid.Parse("d890bcdb-a3fa-481d-b11a-2a0451c3630a"),
-                     Content =
-
-                     "<span>DOCUMENT CHECKLIST</span><br />" +
-                     "NAME                        GRADE and SECTION" +
+                     Content = "in short pass NSO",
+                     Description =
+                     "Requirements of ISKOLAR NG BATAAN <br>" +
+                     "DOCUMENT CHECKLIST" +
+                     "NAME                        GR SEC" +
                      "picture1 1 (2x2) 2 (1x1) <br />" +
                      "NSO/PSA BIRTH CERTIFICATE (Photocopy) <br />" +
                      "GOOD MORAL CERTIFICATE <br />" +
                      "FORM 138/CARD <br />" +
                      "FORM 137/TRANSCRIPT OF RECORD <br />" +
                      "DIPLOMA (Photocopy) <br />" +
-                     "MEDICAL CERTIFICATE <br />",
-
-
-                     Description =
-                     "Requirements of SCHOLARSHIPS NG BAYAN"
+                     "MEDICAL CERTIFICATE <br />"
                      ,
                      IsPublished = true,
-                     Title = "SCHOLARSHIPS NG BAYAN",
+                     Title = "ISKOLAR NG BATAAN",
                  }
 
 
