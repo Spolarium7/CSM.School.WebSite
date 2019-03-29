@@ -1533,176 +1533,201 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             //Initialize SchoolFacility
             if (this._context.SchoolFacilities.Count() < 1)
                 {
-                    //Initialize SchoolFacility 1
+
+                     //Initialize SchoolFacility 1
                     this._context.SchoolFacilities.Add(
+                       new SchoolFacility()
+                       {
+                           Id = Guid.Parse("000924ed-9f44-4646-bd1e-943adc34714d"),
+                           Description = "CSS rooms use for Tesda training for the Computer Systrem Servicing NC2 for college , senior  high school and Tesda scholars...",
+                           Content = "Comlab1 allowed to the grade school for them to get familiarize  to the computer or laptop to perform basic activities using computer.",
+                           IsPublished = true,
+                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                           Title = "CSD room",
+                          
+                       }
+                   );
+
+              
+                //Initialize SchoolFacility 2
+                this._context.SchoolFacilities.Add(
+                   new SchoolFacility()
+                   {
+                       Id = Guid.Parse("02a83712-6a73-4180-89bd-91dc7b64dd39"),
+                       Description = "Our school parking area",
+                       Content = "Available parking area for parents, visitors and employees , Parking Area School parking lot can accommodate fifteen vehicles together with the assistance of the security personnel.",
+                       IsPublished = true,
+                       PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                       Title = "Parking Area",
+                   }
+               );
+
+                //Initialize SchoolFacility 3
+                this._context.SchoolFacilities.Add(
+                   new SchoolFacility()
+                   {
+                       Id = Guid.Parse("0e87ae7a-f195-46ec-935f-98b85cc9c168"),
+                       Description = "The students use the VGD room for computer subjects... ",
+                       Content = "The students use the VGD room for computer subjects like photo and logo design. It is also used for assessments. Lastly, BSIS students use it for their classes.",
+                       IsPublished = true,
+                       PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                       Title = "Visual, Graphic Design Lab Room",
+                     
+                   }
+               );
+
+                //Initialize SchoolFacility 4
+                this._context.SchoolFacilities.Add(
+                   new SchoolFacility()
+                   {
+                       Id = Guid.Parse("06673746-33b3-49d7-ab03-1e6526233d45"),
+                       Description = "Our gymnasium is a mult-purpose hall..",
+                       Content = "Our gymnasium is a mult-purpose hall that is used for aquitance parties, and various programs that require a large area. It is also used for physical activities like dancing, basketball and volleyball. The criminolgy students use it for their formations and physical activities.",
+                       IsPublished = true,
+                       PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                       Title = "Gymnasium",
+                   }
+
+               );
+
+               // //Initialize SchoolFacility 5
+               // this._context.SchoolFacilities.Add(
+               //    new SchoolFacility()
+               //    {
+               //        Id = Guid.Parse("23d5de16-b791-4ec9-bdae-90740fa923bd"),
+               //        Description = "There is an accounting office called Window 1 & Window 2...",
+               //        Content = "There is an accounting office called Window 1." +
+               //        " There a student can get information about what they owe for things like school uniforms, paper, notebooks, tuition, uniforms and other fees. " +
+               //        "Window 2 is the cashier's office where the payment is actually made.",
+               //        IsPublished = true,
+               //        PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+               //        Title = "Window 1 Office & Window 2 Office",
+               //    }
+               //);
+
+                //Initialize SchoolFacility 6
+                this._context.SchoolFacilities.Add(
+                           new SchoolFacility()
+                           {
+                               Id = Guid.Parse("084bc29e-c46a-4513-8d33-b3d5dbf86687"),
+                               Description = "An area equipped with all the needed tools..",
+                               Content = "An area equipped with all the needed tools and materials needed for smooth and efficient  FOOD AND BEVERAGE TRAINING.",
+                               IsPublished = true,
+                               PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                               Title = "Food and Beverages",
+                           }
+                       );
+
+               // //Initialize SchoolFacility 7
+               // this._context.SchoolFacilities.Add(
+               //    new SchoolFacility()
+               //    {
+               //        Id = Guid.Parse("4ef0e59d-41d5-4005-80d5-204987688699"),
+               //        Description = " The school also provides comfort rooms ...",
+               //        Content = " The school also provides comfort rooms with comfortable toilets students can use at their convenience. The men's comfort rooms also features an urinal that many male like.",
+               //        IsPublished = true,
+               //        PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+               //        Title = "Male and female comfort rooms",
+               //    }
+               //);
+
+                //Initialize SchoolFacility 8
+                this._context.SchoolFacilities.Add(
+                   new SchoolFacility()
+                   {
+                       Id = Guid.Parse("732015d4-367f-47a5-b065-4a46481d9603"),
+                       Description = "CSM also have  a library for the students.. ",
+                       Content = "CSM also have  a library for the students want to search about thier lecture,  sometimes library room use for meeting.",
+                       IsPublished = true,
+                       PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                       Title = "Library Room",
+                      
+                   }
+               );
+
+                //Initialize SchoolFacility 9
+                this._context.SchoolFacilities.Add(
                         new SchoolFacility()
                         {
-                            Id = Guid.Parse("7fe5a275-0fa9-4c94-be94-f27fc6c06573"),
-                            Description = "The students use the VGD room for computer subjects... ",
-                            Content = "The students use the VGD room for computer subjects like photo and logo design. It is also used for assessments. Lastly, BSIS students use it for their classes.",
+                            Id = Guid.Parse("41c6ba19-4010-49c3-bf6e-4cbc17cb258a"),
+                            Description = "School canteen,  is very convenient..",
+                            Content = "School canteen,  is very convenient. The middle and highschool students can put money on their  ID so when they want to buy food in the canteen they can just use their school ID to pay for it",
                             IsPublished = true,
                             PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                            Title = "Visual, Graphic, Design Room",
+                            Title = "Canteen",
+                           
+
                         }
                     );
 
 
-                    //Initialize SchoolFacility  2
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("e5bbc1c9-d90c-4ec1-a845-7594e2d81f8d"),
-                           Description = "CSM also have  a library for the students.. ",
-                           Content = "CSM also have  a library for the students want to search about thier lecture,  sometimes library room use for meeting.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Library Room",
-                       }
-                   );
+                //Initialize SchoolFacility 10
+                this._context.SchoolFacilities.Add(
+                   new SchoolFacility()
+                   {
+                       Id = Guid.Parse("4986cb84-0fde-4da5-972c-5c285c32b7a8"),
+                       Description = "Marketing Office is one of the busy office in our campus...",
+                       Content = "Marketing Office is one of the busy office in our campus. We ensure that every client who comes to our school will received all the information they need to know with regards to our humble institution." +
+                       "Our marketing staffs are always busy the whole year round conducting a career orientations to every schools from basic education upto high school for proper endorsement of our school." +
+                       "We also keep on updating our clients with our events, class suspension, announcement, etc.",
+                       IsPublished = true,
+                       PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                       Title = "Marketing Office",
+                   }
+               );
 
-                    //Initialize SchoolFacility 3
-                    this._context.SchoolFacilities.Add(
-                               new SchoolFacility()
-                               {
-                                   Id = Guid.Parse("39648aa6-f2d0-4b8d-a265-d6f66d80ae97"),
-                                   Description = "CSS rooms use for Tesda training for the Computer Systrem Servicing NC2 for college , senior  high school and Tesda scholars...",
-                                   Content = "Comlab1 allowed to the grade school for them to get familiarize  to the computer or laptop to perform basic activities using computer.",
-                                   IsPublished = true,
-                                   PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                                   Title = "CSD room",
-                               }
-                           );
-                    //Initialize SchoolFacility 4
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("f5265303-4558-4dfa-bb03-e60f2050feb3"),
-                           Description = "School canteen,  is very convenient..",
-                           Content = "School canteen,  is very convenient. The middle and highschool students can put money on their  ID so when they want to buy food in the canteen they can just use their school ID to pay for it",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Canteen",
-                       }
-                   );
-                    //Initialize SchoolFacility 5
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("f12faa71-3d5a-434b-afbd-746c323211d5"),
-                           Description = "The registrar room is an office..",
-                           Content = "The registrar room is an office staffed with friendly employees who can help you with items such as enrollment requirements," +
-                           " what subjects are available, what course is open, how to get a diploma, a transcript of what a student studied and their grades," +
-                           " and how a student get a special exams for college.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Registrar Office",
-                       }
-                   );
-                    //Initialize SchoolFacility 6
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("0ba4b1c2-1371-4b31-899a-6799bd3511e4"),
-                           Description = "Our gymnasium is a mult-purpose hall..",
-                           Content = "Our gymnasium is a mult-purpose hall that is used for aquitance parties, and various programs that require a large area. It is also used for physical activities like dancing, basketball and volleyball. The criminolgy students use it for their formations and physical activities.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Gymnasium",
-                       }
 
-                   );
-                    //Initialize SchoolFacility 7
-                    this._context.SchoolFacilities.Add(
+
+                //Initialize SchoolFacility  11
+                this._context.SchoolFacilities.Add(
                        new SchoolFacility()
                        {
-                           Id = Guid.Parse("76bd5a75-3314-4d42-8e39-b7bcdd6f35e9"),
+                           Id = Guid.Parse("e8c95c34-26f5-4e1f-bfcb-e19a6808fd87"),
                            Description = "Our school also features a well-equipped clinic...",
                            Content = "Our school also features a well-equipped clinic for students who are ill or need to rest. A professional nurse works there to provide medical treatment to those in need of first-aid.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                            Title = "School Clinic",
+
                        }
                    );
-                    //Initialize SchoolFacility 8
-                    this._context.SchoolFacilities.Add(
+
+                //Initialize SchoolFacility 12
+                this._context.SchoolFacilities.Add(
+                   new SchoolFacility()
+                   {
+                       Id = Guid.Parse("da51b1f9-a7f7-481e-a60a-83251d1124de"),
+                       Description = "The registrar room is an office..",
+                       Content = "The registrar room is an office staffed with friendly employees who can help you with items such as enrollment requirements," +
+                       " what subjects are available, what course is open, how to get a diploma, a transcript of what a student studied and their grades," +
+                       " and how a student get a special exams for college.",
+                       IsPublished = true,
+                       PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
+                       Title = "Registrar Office",
+                   }
+               );
+
+
+                //Initialize SchoolFacility 13
+                this._context.SchoolFacilities.Add(
                        new SchoolFacility()
                        {
-                           Id = Guid.Parse("23d5de16-b791-4ec9-bdae-90740fa923bd"),
-                           Description = "There is an accounting office called Window 1 & Window 2...",
-                           Content = "There is an accounting office called Window 1." +
-                           " There a student can get information about what they owe for things like school uniforms, paper, notebooks, tuition, uniforms and other fees. " +
-                           "Window 2 is the cashier's office where the payment is actually made.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Window 1 Office & Window 2 Office",
-                       }
-                   );
-                    //Initialize SchoolFacility 9
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("0534aa2c-4b8b-4770-a6cb-ab12ca40f535"),
+                           Id = Guid.Parse("f25752f2-3b42-4e49-85a0-d6fa296b3ef3"),
                            Description = "In the guidance office students can receive counseling about problems they're having...",
                            Content = "In the guidance office students can receive counseling about problems they're having. " +
-                           "They can also obtain guidance about what career options are available to them.",
+                       "They can also obtain guidance about what career options are available to them.",
                            IsPublished = true,
                            PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
                            Title = "Guidance Office",
-                       }
-                   );
-                    //Initialize SchoolFacility 10
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("013525f8-6204-45fa-824b-80c007f79b1f"),
-                           Description = "An area equipped with all the needed tools..",
-                           Content = "An area equipped with all the needed tools and materials needed for smooth and efficient  FOOD AND BEVERAGE TRAINING.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Food and Beverages",
-                       }
-                   );
-                    //Initialize SchoolFacility 11
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("4ef0e59d-41d5-4005-80d5-204987688699"),
-                           Description = " The school also provides comfort rooms ...",
-                           Content = " The school also provides comfort rooms with comfortable toilets students can use at their convenience. The men's comfort rooms also features an urinal that many male like.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Male and female comfort rooms",
-                       }
-                   );
 
-                    //Initialize SchoolFacility 12
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("a8a5fdf4-5c59-48b4-a625-7b1524689f0b"),
-                           Description = "Marketing Office is one of the busy office in our campus...",
-                           Content = "Marketing Office is one of the busy office in our campus. We ensure that every client who comes to our school will received all the information they need to know with regards to our humble institution." +
-                           "Our marketing staffs are always busy the whole year round conducting a career orientations to every schools from basic education upto high school for proper endorsement of our school." +
-                           "We also keep on updating our clients with our events, class suspension, announcement, etc.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Marketing Office",
                        }
                    );
-
-                    //Initialize SchoolFacility 13
-                    this._context.SchoolFacilities.Add(
-                       new SchoolFacility()
-                       {
-                           Id = Guid.Parse("013752a0-3163-46a1-ba37-72af38460eb9"),
-                           Description = "Our school parking area",
-                           Content = "Available parking area for parents, visitors and employees , Parking Area School parking lot can accommodate fifteen vehicles together with the assistance of the security personnel.",
-                           IsPublished = true,
-                           PostExpiry = DateTime.UtcNow.AddMonths(3).AddDays(1),
-                           Title = "Parking Area",
-                       }
-                   );
-
+                   
+                 
+                   
+                  
+                 
+                    
 
 
             }
