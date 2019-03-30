@@ -1753,7 +1753,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("eac64419-0a56-45c7-add0-1eb026351b4c"),
+                     Id = Guid.Parse("c88c1338-4ac6-46a4-b062-60d7b66f9c87"),
                      Description =
                      "She is Darlene Shane Santos, she studied  Bachelor of Science Custom Administration. She's working as Sales Marketing Officer at toyota company",
                      Position = "Marketing Professional",
@@ -1783,7 +1783,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("6b0512b5-39a5-415b-9845-b9ad465b0873"),
+                     Id = Guid.Parse("0be14658-1bc3-4e56-9fa8-1ab573f04a38"),
                      Description = "He is John Paul C Pamintuan, she studied  Bachelor of Science Business Administration(Marketing Management). He's  working as Professional Medical Representative in Kaufmann Pharma Inc",
                      Position = "territory Manager",
                      Location = "4th Flr Jafer Building West Ave. Quezon City",
@@ -1814,7 +1814,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("3b8c7209-6c9a-4c0a-83f5-f1ad51bdac0f"),
+                     Id = Guid.Parse("7ffe6402-641c-4393-8d94-8470d2fa8a12"),
                      Description = "She is MARY ANNE C. CALING, she studied  Bachelor of Science Business Administration(HRDM).She's  working as HR Staff in DLX BAGS PHILS INC , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Position = " Compensation and benefits (timekeeper)",
                      Location = "Fab Mariveles,BATAAN",
@@ -1826,26 +1826,26 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
 
 
-                //Alumni Profile Entries 7
-                this._context.AlumniProfiles.Add(
-                 new AlumniProfile()
-                 {
-                     Id = Guid.Parse("09a476e7-d217-47e6-b172-be83d429a3a7"),
-                     Description = "She is Charlotte T. Lingad, she studied  Bachelor of Science Business Administration (Financial Management).",   
-                     Position = "none",
-                     Location = "none",
-                     IsPublished = true,
-                     Company = "none",
-                 }
+               // //Alumni Profile Entries 7
+               // this._context.AlumniProfiles.Add(
+               //  new AlumniProfile()
+               //  {
+               //      Id = Guid.Parse("09a476e7-d217-47e6-b172-be83d429a3a7"),
+               //      Description = "She is Charlotte T. Lingad, she studied  Bachelor of Science Business Administration (Financial Management).",   
+               //      Position = "none",
+               //      Location = "none",
+               //      IsPublished = true,
+               //      Company = "none",
+               //  }
 
-               );
+               //);
 
 
                 //Alumni Profile Entries 8
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("a422143f-4f3d-4192-ae45-204527d96566"),
+                     Id = Guid.Parse("49ac5067-2352-4d96-bda5-a984a40a248b"),
                      Description = "She is Denice Patricia C Poblete, she studied  Bachelor of Science Business Administration (Human Resources Development Management).She's  working as I.T-Software Development in Z Getcare Systems Inc. , Her work is  incharge with the overall facets of HR Department ",
                      Position = "Human Resource(HR)",
                      Location = "Clark, Pampanga",
@@ -1856,19 +1856,19 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                );
 
 
-                //Alumni Profile Entries 9
-                this._context.AlumniProfiles.Add(
-                 new AlumniProfile()
-                 {
-                     Id = Guid.Parse("89497382-766e-43c1-a274-bc6c67c129c1"),
-                     Description = "She is MYLEN D. MAGALLANES, she studied  Bachelor of Science Business Management.She's  working as 2ND MUCC/pension loan in 2ND MUCC , Her work is Micro Finance/Lending Institution",
-                     Position = "OIC",
-                     Location = "Dinalupihan, Bataan",
-                     IsPublished = true,
-                     Company = "2ND MUCC",
-                 }
+               // //Alumni Profile Entries 9
+               // this._context.AlumniProfiles.Add(
+               //  new AlumniProfile()
+               //  {
+               //      Id = Guid.Parse("bdfbca39-acd4-416a-a6dc-425a24aa57ad"),
+               //      Description = "She is MYLEN D. MAGALLANES, she studied  Bachelor of Science Business Management.She's  working as 2ND MUCC/pension loan in 2ND MUCC , Her work is Micro Finance/Lending Institution",
+               //      Position = "OIC",
+               //      Location = "Dinalupihan, Bataan",
+               //      IsPublished = true,
+               //      Company = "2ND MUCC",
+               //  }
 
-               );
+               //);
 
 
 
@@ -1876,7 +1876,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("4a8d5aeb-55db-4256-a3dc-e9d3e6da0e49"),
+                     Id = Guid.Parse("c4e01c61-379f-4606-8eff-9ce6b408e496"),
                      Description = "She is Maricar M Naguiat, she studied  Bachelor of Science Criminology.She's  working as Jail Officer in Bureau of Jail Management and Penology , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Position = "Jail Officer 1",
                      Location = "San Jose Delmonte City Bulacan",
@@ -1938,7 +1938,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("14f36a9f-6921-4d30-ae18-8e4e92b57ce0"),
+                     Id = Guid.Parse("3e32d1df-37c9-417a-abef-08625920675b"),
                      Description = "She is Lois Mae Paguinto, she studied Bachelor of Science in Travel Management.She's  working as Billing Executive in Bollore Logistics Asia Support Services Inc. , Her work is  Responsilbe for maintining, Updating and monitoring employee work schedule, Compile and submint data for payroll cut-off and analyzing the payroll queries of employees.",
                      Position = "BPO SG Billing Executive",
                      Location = "Paranaque City Philippines",
@@ -1985,7 +1985,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("d90abb98-8170-4f4c-aaa0-070ee67fba7b"),
+                     Id = Guid.Parse("749523ab-2a4c-4605-a977-7257e7962081"),
                      Description = "He is Rafael R. Capio, he studied Bachelor of Science Business Administration(Human Resources Development Management).he's  working as  Overseas man power provider in Devisers Immigration Law Firm , He work is Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country.",
                      Position = "Business Planner",
                      Location = " JLT DUBAI UAE",
@@ -1998,8 +1998,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("11da1a5e-b369-403e-aa9f-60a2a077d54c"),
-                     Description = "She is Sangalang Darwin M., she studied  Bachelor of Science Customs Administration.She's  working as Quality assurance in Sumi phil.",
+                     Id = Guid.Parse("558d4686-7e93-443d-b6de-a4de42a0d350"),
+                     Description = "he is Sangalang Darwin M., he studied  Bachelor of Science Customs Administration.he's  working as Quality assurance in Sumi phil.",
                      Position = "First Visual",
                      Location = "Palihan",
                      IsPublished = true,
@@ -2012,7 +2012,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("33369ff4-0793-4fe9-b121-ab10820f8c33"),
+                     Id = Guid.Parse("ad10bee8-38e1-453f-b0a4-e29dc59c941c"),
                      Description = "He is Brandon Michole Delos Santos he studied Hotel Restaurant Services).he's  working as CSM Position: SAFETY OFFICER in AIM HIGH , He work is  to fulfill the safety measure within the school campus and the safety of all employees and students.",
                      Position = "First Visual",
                      Location = "Sta. Isabel highway,  Dinalupihan, bataan",
@@ -2029,7 +2029,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("6d912ff6-df67-42e2-a089-1f0f755edec6"),
+                     Id = Guid.Parse("e907062d-31d5-40c0-b883-cbeac976c807"),
                      Description = "He is JOHN KING MANUEL ALVARO , he studied Bachelor of Science Information System.he's  working as CSM Faculty in College of Subic Montessori, INC.",
                      Position = "INSTRUCTOR/COSTODIAN",
                      Location = "Sta.Isabel Dinalupihan, Bataan. ",
@@ -2043,7 +2043,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("c9ed386d-424c-4c0f-9bfb-1a98c26c75fb"),
+                     Id = Guid.Parse("e6f33708-1aba-4c92-a829-48076571e1ed"),
                      Description = "He is  Clarence D. Idio , he studied Bachelor of Science Criminology.She's  working as Police Officer 1 in PNP.",
                      Position = "Police Office 1",
                      Location = "",
@@ -2057,7 +2057,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("69f24d79-2670-43b8-a361-ac4c419b15b8"),
+                     Id = Guid.Parse("e6a681a8-fd35-4371-85a4-922b58e08194"),
                      Description = "She is Krizia Kaye C. Talaroc, she studied Bachelor of Science Customs Administration.She's  working as School Registrar in College of Subic Montessori-Lincoln Heights, Inc.",
                      Position = " Registrar Company: College of Subic Montessori - Lincoln Heights, Inc. ",
                      Location = "Lincoln Heights, San Pablo, Dinalupihan, Bataan",
@@ -2072,7 +2072,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 this._context.AlumniProfiles.Add(
                  new AlumniProfile()
                  {
-                     Id = Guid.Parse("7dd5356d-9312-43f0-bdfb-a07aa71d7d82"),
+                     Id = Guid.Parse("7bab540c-c3a6-420a-b9b1-7030079609be"),
                      Description = "He is Rafael R. Carpio , she studied   Bachelor of Science Business Administration-Human Resouce Development Management.he's  working as Business Planner in Devisers Immigration Law Firm , He work Making a feasibility study and business plan to a certain company or individual who is trying to establish a business in the UK or trying to migrate in EUROPEAN country.",
                      Position = "",
                      Location = "LT DUBAI UAE",
@@ -3002,29 +3002,29 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       Id = Guid.Parse("4c716f6b-3a12-4b42-ab39-cb13d9a1c229"),
                       Description = "CSM Education Offer & Requirements...",
                       Content = 
+                      "" +
+                      "PRE-ELEMENTARY TODDLER - 2-3 yrs. old, " +
+                      " JUNIOR CASA - 3-4yrs. old," +
+                      "SENIOR CASA - 4-5yrs.old," +
+                      "ADVANCED CASA - 5-6yrs.old ," +
+                      "" +
                       "<ul>" +
-                      "<li>PRE-ELEMENTARY TODDLER - 2-3 yrs. old </li>" +
-                      "<li>JUNIOR CASA - 3-4yrs. old</li>" +
-                      "<li>SENIOR CASA - 4-5yrs.old</li>" +
-                      "<li>ADVANCED CASA - 5-6yrs.old </li>" +
-                      "</ul>" +
-                      "<ul>" +
-                      "<li>PRIMARY SCHOOL <li>" +
-                      "<li> Grade One</li>" +
-                      "<li> Grade Two</li>" +
-                      "<li> Grade Three</li>" +
-                      "<li>MIDDLE SCHOOL<li>" +
-                      "<li>Grade Four<li>" +
-                      "<li> Grade Five<li>" +
-                      "<li> GRADE Six<li>" +
-                      "<li>JUNIOR HIGH SCHOOL</li>" + "" +
-                      "<li> GRADE Seven</li>" +
-                      "<li> GRADE Eight</li>" +
-                      "<li> GRADE Nine</li>" +
-                      "<li> GRADE Ten</li>" +
-                      "<li>SENIOR HIGH SCHOOL</li>" +
-                      "<li> GRADE Eleven</li>" +
-                      "<li> GRADE Twelve</li>",
+                      "PRIMARY SCHOOL, " +
+                      " Grade One," +
+                      " Grade Two," +
+                      " Grade Three," +
+                      "MIDDLE SCHOOL," +
+                      "Grade Four," +
+                      " Grade Five," +
+                      "GRADE Six," +
+                      "JUNIOR HIGH SCHOOL," + "" +
+                      "GRADE Seven," +
+                      " GRADE Eight," +
+                      " GRADE Nine," +
+                      " GRADE Ten," +
+                      "SENIOR HIGH SCHOOL," +
+                      " GRADE Eleven," +
+                      " GRADE Twelve,",
                       IsPublished = true,
                       Title = "What are the BASIC EDUCATION PROGRAMS",
                   }
@@ -3042,16 +3042,16 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                     
 
                       Content = 
-                      "<ul>" +
-                        "<li>For CASA to Senior HighSchool</li> " +
-                        "<li>1. High School Report Card (F138 / F137A)</li> " +
-                        "<li>2.Diploma (Photocopy)</li>" +
-                        "<li>3.Good Moral Character Certification</li> " +
-                        "<li>4.NSO Birth Certificate (Photocopy) </li>" +
-                        "<li>5.Two(2)pcs. Long Brown Envelope with Plastic Cover</li>" +
-                        "<li>6.One(1)pc. 1x1 picture and 1 pcs. 2x2 picture </li>" +
-                        "<li>7. Medical Certificate 8. Must undergo an Assessment Examination.</li>" +
-                      "</ul> ",
+                      "" +
+                        "For CASA to Senior HighSchool ," +
+                        "1. High School Report Card (F138 / F137A), " +
+                        "2.Diploma (Photocopy)," +
+                        "3.Good Moral Character Certification, " +
+                        "4.NSO Birth Certificate (Photocopy)," +
+                        "5.Two(2)pcs. Long Brown Envelope with Plastic Cover," +
+                        "6.One(1)pc. 1x1 picture and 1 pcs. 2x2 picture ," +
+                        "7. Medical Certificate 8. Must undergo an Assessment Examination.," +
+                      " ",
                       IsPublished = true,
                       Title = "What are the requirements for NEW STUDENT  " + "(For CASA to Senior HighSchool )",
                   }
@@ -3064,13 +3064,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Thread()
                   {
                       Id = Guid.Parse("051002cd-22e5-4d05-a38a-2e0d46ec2cdc"),     
-                      Content = "<ul><li>1. CALL(047) 633-5531 or Email csm.bataan888@yahoo.com<li>" +
-                        "<li>2. For New Students Submit admission requirements at the Register's Office and proceed to advising of subjects OIC-Principal - Basic Education Dept. Dean/OIC - College Head - Higher Education Dept. For OLD Student : Duly Signed Clearance<li> " +
-                        "<li>3. For NEW/TRANSFEREES proceed to Guidance and Counseling Office for the Schedule of Assessment Exam, proceed to designated room for the measurement of uniform, For OLD Students proceed to Step 5<li>" +
-                        "<li>4. proceed to Step 5  <li>" +
-                        "<li>5. Proceed to Finance Office for the assessment of Fees<li> " +
-                        "<li>6. Payment of assesed Tuition and other fees<li> " +
-                        "<li>7. You are now officially ENROLLED (SPENDS A DAY AS A MONTESSORIAN!)</li></ul>",
+                      Content = "1. CALL(047) 633-5531 or Email csm.bataan888@yahoo.com" +
+                        "2. For New Students Submit admission requirements at the Register's Office and proceed to advising of subjects OIC-Principal - Basic Education Dept. Dean/OIC - College Head - Higher Education Dept. For OLD Student : Duly Signed Clearance, " +
+                        "3. For NEW/TRANSFEREES proceed to Guidance and Counseling Office for the Schedule of Assessment Exam, proceed to designated room for the measurement of uniform, For OLD Students proceed to Step 5," +
+                        "4. proceed to Step 5  ," +
+                        "5. Proceed to Finance Office for the assessment of Fees, " +
+                        "6. Payment of assesed Tuition and other fees ," +
+                        "7. You are now officially ENROLLED (SPENDS A DAY AS A MONTESSORIAN!)",
                       Description = "For New Students Submit admission requirement....",
                       IsPublished = true,
                       Title = "How to inquire in CSM?",
@@ -3080,70 +3080,70 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
 
 
-                //Threads 4 
-                this._context.Threads.Add(
-                  new Thread()
-                  {
-                      Id = Guid.Parse("f3a4e146-837e-40af-91cf-04e998cf596a"),    
-                      Content = "Under Basic Education Curriculum:" +
-                        "<p>CASA Department</p> " +
-                        "<ul>" +
-                        "<li>Toddler 		2-3 yrs. old </li>" +
-                        "<li>Junior Casa	3-4 yrs. old </li>" +
-                        "<li>Senior Casa	4-5 yrs. old </li>" +
-                        "<li>Advanced Casa	5-6 yrs. old </li>" +
-                        "</ul>" +
-                        "<p>Primary Department</p> " +
-                        "<ul>" +
-                        "<li>Grade One,Grade Two</li>" +
-                        "<li> Grade Three</li>" +
-                        "</ul>" +
-                        "<p>Middle School Department</p>" +
-                        "<ul>" +
-                        "<li>Grade Four<li>" +
-                        "<li>Grade Five</li>" +
-                        "<li>Grade Six</li>" +
-                        "</ul>" +
-                        "<p>Junior High School Department</p>" +
-                        "<ul>" +
-                        "<li>Grade Seven</li>" +
-                        "<li>Grade Eight</li> " +
-                        "<li> Grade Nine</li>" +
-                        "<li> Grade Ten</li>" +
-                        "<ul>" +
-                        "<p>Senior High School Department</p>" +
-                        "<ul>" +
-                        "<li> Grade Eleven</li>" +
-                        "<li>Grade Twelve</li>" +
-                        "<ul>" +
-                        "<p>Under Higher Education Department:<p> " +
-                        "<ul>" +
-                        "<li>Bachelor of Science in Business Administration<li>" +
-                        "<li>Major in the following:</li> " +
-                        "<li> Human Resource Development Management</li>" +
-                        "<li> Financial Management</li>" +
-                        "<li>Operations Management</li>" +
-                        "<li> Marketing Management</li> " +
-                        "<li> Bachelor of Science in Criminology</li>" +
-                        "<li>Bachelor of Science in Customs Administration</li>" +
-                        "<li>Bachelor of Science in Tourism Management</li>" +
-                        "<li>Bachelor of Science in Information Systems</li>" +
-                        "<li> Associate in Computer Technology</li>" +
-                        "<li> Hotel and Restaurant Services</li>" +
-                        "<ul>" +
-                        "<p>With the following Competencies:</p> " +
-                        "<ul>" +
-                        "<li>Food and Beverage Services NC II </li>" +
-                        "<li> Front Office Services NC II </li>" +
-                        "<li>Housekeeping NC II </li>" +
-                        "<li>Computer Systems Servicing NC II </li>" +
-                        "<li>Visual Graphic Design NC II </li></ul>",
-                      Description = "CSM Bataan - CSM offers",
-                      IsPublished = true,
-                      Title = "Colleges of Subic Montessori -  offers )",
-                  }
+                ////Threads 4 
+                //this._context.Threads.Add(
+                //  new Thread()
+                //  {
+                //      Id = Guid.Parse("f3a4e146-837e-40af-91cf-04e998cf596a"),    
+                //      Content = "Under Basic Education Curriculum:" +
+                //        "CASA Department</p> " +
+                //        "<ul>" +
+                //        "<li>Toddler 		2-3 yrs. old </li>" +
+                //        "<li>Junior Casa	3-4 yrs. old </li>" +
+                //        "<li>Senior Casa	4-5 yrs. old </li>" +
+                //        "<li>Advanced Casa	5-6 yrs. old </li>" +
+                //        "</ul>" +
+                //        "<p>Primary Department</p> " +
+                //        "<ul>" +
+                //        "<li>Grade One,Grade Two</li>" +
+                //        "<li> Grade Three</li>" +
+                //        "</ul>" +
+                //        "<p>Middle School Department</p>" +
+                //        "<ul>" +
+                //        "<li>Grade Four<li>" +
+                //        "<li>Grade Five</li>" +
+                //        "<li>Grade Six</li>" +
+                //        "</ul>" +
+                //        "<p>Junior High School Department</p>" +
+                //        "<ul>" +
+                //        "<li>Grade Seven</li>" +
+                //        "<li>Grade Eight</li> " +
+                //        "<li> Grade Nine</li>" +
+                //        "<li> Grade Ten</li>" +
+                //        "<ul>" +
+                //        "<p>Senior High School Department</p>" +
+                //        "<ul>" +
+                //        "<li> Grade Eleven</li>" +
+                //        "<li>Grade Twelve</li>" +
+                //        "<ul>" +
+                //        "<p>Under Higher Education Department:<p> " +
+                //        "<ul>" +
+                //        "<li>Bachelor of Science in Business Administration<li>" +
+                //        "<li>Major in the following:</li> " +
+                //        "<li> Human Resource Development Management</li>" +
+                //        "<li> Financial Management</li>" +
+                //        "<li>Operations Management</li>" +
+                //        "<li> Marketing Management</li> " +
+                //        "<li> Bachelor of Science in Criminology</li>" +
+                //        "<li>Bachelor of Science in Customs Administration</li>" +
+                //        "<li>Bachelor of Science in Tourism Management</li>" +
+                //        "<li>Bachelor of Science in Information Systems</li>" +
+                //        "<li> Associate in Computer Technology</li>" +
+                //        "<li> Hotel and Restaurant Services</li>" +
+                //        "<ul>" +
+                //        "<p>With the following Competencies:</p> " +
+                //        "<ul>" +
+                //        "<li>Food and Beverage Services NC II </li>" +
+                //        "<li> Front Office Services NC II </li>" +
+                //        "<li>Housekeeping NC II </li>" +
+                //        "<li>Computer Systems Servicing NC II </li>" +
+                //        "<li>Visual Graphic Design NC II </li></ul>",
+                //      Description = "CSM Bataan - CSM offers",
+                //      IsPublished = true,
+                //      Title = "Colleges of Subic Montessori -  offers )",
+                //  }
 
-                );
+                //);
 
 
 
@@ -3155,15 +3155,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       Id = Guid.Parse("5eadef3f-0d89-498e-b476-4d7da90539eb"),
                       Description ="The rules or illegal items ",
                        
-                      Content = "<ul>" +
-                        "<li>Complete Uniform</li>" +
-                        "<li>I.D Student</li>" +
-                        "<li>Short hair , no color</li> " +
-                        "<li>No accessories</li>" +
-                        "<li>Gadget is ban in school</li>" +
-                        "<li>No smoking in school </li>" +
-                        "<li>Outsider is ban </li>" +
-                        "</ul>",
+                      Content = "" +
+                        "Complete Uniform," +
+                        "I.D Student," +
+                        "Short hair , no color, " +
+                        "No accessories," +
+                        "Gadget is ban in school," +
+                        "No smoking in school," +
+                        "Outsider is ban,",
                       IsPublished = true,
                       Title = "What are the rules of CSM & illegal items",
                   }
@@ -3183,8 +3182,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Research()
                   {
                       Id = Guid.Parse("6fcffca5-42ee-4cf2-b5e1-4e0afd0ac9f8"),
-                      Content = "<h4>A System Analysis Development Project By:<hr>" +
-                      "Torio, Gellie P. and Ponce, Omar S. - ACT</h4>" +
+                      Content = "A System Analysis Development Project By:" +
+                      "Torio, Gellie P. and Ponce, Omar S. - ACT" +
                       " Point of sale Inventory System is one of the essential components of a successful business." +
                       " It is a modern replacement for the cash register in retail applications. " +
                       "It can help to record securely all the sales and customer's orders, track products which are poor on business sales and course manage inventory. " +
@@ -3204,7 +3203,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Research()
                   {
                       Id = Guid.Parse("ce8dc273-410a-4d4a-9651-3ea1bc704564"),
-                      Content = " <h4> A Capstone Project By: Aira Jane K. Garcia and Gellie P. Torio - BSIS</h4>" +
+                      Content = " A Capstone Project By: Aira Jane K. Garcia and Gellie P. Torio - BSIS" +
                       " Advances in technology over the years play a huge part in event planning." +
                       " It has undergone a remarkable evolution since the 90s. While it customary to reminisce the past, in reality, event planning today is much more efficient, reliable, flexible, and exciting than it ever has been." +
                       " This study will address ways on how planning an event now differs from before. Using an application or software in planning changed a lot, back in the day everything is handwritten but now you can do it digitally which is more efficient and not time-consuming." +
@@ -3222,8 +3221,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Research()
                   {
                       Id = Guid.Parse("8bccece7-5574-401f-94a7-c59a80b31412"),
-                      Content = "<h4>A System Analysis Development- Capstone Project<hr>" +
-                      "Project By: Rachelle M. Macaspac, Geralyn Salenga, Mary Grace Maquesa and Harold Cabalbag- BSBA</h4>" +
+                      Content = "A System Analysis Development- Capstone Project ," +
+                      "Project By: Rachelle M. Macaspac, Geralyn Salenga, Mary Grace Maquesa and Harold Cabalbag- BSBA" +
                       " Bank industry is widely recognized in the market. It became a huge part of human race." +
                       "This study inspires its readers to take a closer look on banking world." +
                       "In specific, researchers conducted this through researching the bank system of Zambales Rural Bank Inc. The study introduces banking world and states its relevance to the modern world. " +
@@ -3245,7 +3244,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Research()
                   {
                       Id = Guid.Parse("e4e569f7-9393-487b-bed7-8e67849a52f6"),
-                      Content = "<h4>A System Analysis Development Project By: April Joyce M. Jaraba, Jaymaric V. Mallari and Jelie Rose T. Pineda- BSBA</h4>" +
+                      Content = "A System Analysis Development Project By: April Joyce M. Jaraba, Jaymaric V. Mallari and Jelie Rose T. Pineda- BSBA" +
                       "Points of Sale System is one of the most usable technologies fir the biggest company in the world." +
                       " This system helps you to manage business transaction and loosen you from paperwork's as computation of the day's sale, and keeping the inventory automatically done." +
                       " The design of point of sale will find great value and necessary asset in the company." +
@@ -3264,7 +3263,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Research()
                   {
                       Id = Guid.Parse("f4917e7a-276f-4e84-bb59-781679ab96dc"),
-                      Content = "<h4>Capstone Project By: Ryan Christian Soria and Bobby V. Reyes- BSIS</h4>" +
+                      Content = "Capstone Project By: Ryan Christian Soria and Bobby V. Reyes- BSIS" +
                       "Today, population continually upgrades those results into a growing number of labor especially the Barangay Secretary, Barangay Treasurer, and Barangay Clerk. " +
                       "Summarizing the procedures in the different barangay such as Barangay Del Pilar requiring immediate response to this scenario a possible solution is an efficient and effective Management Information System. " +
                       "The Barangay Record Management System provides an online way of solving the problems faced by the public by saving time. " +
@@ -3285,12 +3284,12 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                   new Research()
                   {
                       Id = Guid.Parse("e9fba31b-e96b-4949-9801-1bfabff6ccf5"),
-                      Content = "<h4>A System Analysis Development Project By: April Anne P. Mabilanga<hr>" +
-                      "Trisha G. Dela Rosa and Arisa S. Manalansan- BSBA</h4>" +
+                      Content = "A System Analysis Development Project By: April Anne P. Mabilanga" +
+                      "Trisha G. Dela Rosa and Arisa S. Manalansan- BSBA" +
                       "This is the study about the inventory system of Fresh Options. It consist of scope and limitations of the system, the flow on how it works, the methods on how system develop," +
                       "the problem that will encounter to the system and other information that related to the system. The inventory system can be entered using a username and password. " +
                       "It is accessible either by supervisor or employee. They can also add data into the database. " +
-                      "The system is very user friendly. The system can track or see inventory levels, order, sale, and deliveries. It can be used for making the transaction easily and faster. .",
+                      "The system is very user friendly. The system can track or see inventory levels, order, sale, and deliveries. It can be used for making the transaction easily and faster.",
                       IsPublished = true,
                       Title = "A STUDY ON FRESH OPTIONS INVENTORY SYSTEM OF DINALUPIHAN, BATAAN",
                   }
