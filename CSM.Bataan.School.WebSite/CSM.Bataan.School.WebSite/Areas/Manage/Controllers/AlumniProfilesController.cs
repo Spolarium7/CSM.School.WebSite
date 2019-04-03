@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.AlumniProfiles;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers;
 using CSM.Bataan.School.WebSite.Infrastructure.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
@@ -27,6 +28,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             _env = env;
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/alumniprofiles/index")]
         [HttpGet, Route("manage/alumniprofiles")]
         public IActionResult Index(int pageIndex = 1, int pageSize = 5, string keyword = "")
@@ -71,13 +73,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/alumniprofiles/create")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/alumniprofiles/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -102,7 +104,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/alumniprofiles/unpublish")]
         public IActionResult Unpublish(AlumniProfileIdViewModel model)
         {
@@ -116,7 +118,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return null;
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/alumniprofiles/publish")]
         public IActionResult Publish(AlumniProfileIdViewModel model)
         {
@@ -132,7 +134,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/alumniprofiles/update-title/{alumniprofileId}")]
         public IActionResult UpdateTitle(Guid? alumniprofileId)
         {
@@ -152,6 +154,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Create");
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/alumniprofiles/update-title")]
         public IActionResult UpdateTitle(UpdateTitleViewModel model)
         {
@@ -172,6 +176,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
         }
 
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/alumniprofiles/update-description/{alumniprofileId}")]
         public IActionResult UpdateDescription(Guid? alumniprofileId)
         {
@@ -187,6 +192,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/alumniprofiles/update-description/")]
         public IActionResult UpdateDescription(UpdateDescriptionViewModel model)
         {
@@ -202,11 +209,14 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("/manage/alumniprofiles/update-thumbnail/{alumniprofileId}")]
         public IActionResult Thumbnail(Guid? alumniprofileId)
         {
             return View(new ThumbnailViewModel() { AlumniProfileId = alumniprofileId });
         }
+
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/alumniprofiles/update-thumbnail")]
         public async Task<IActionResult> Thumbnail(ThumbnailViewModel model)
         {
@@ -251,6 +261,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
         }
 
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("/manage/alumniprofiles/attach-image")]
         public async Task<string> AttachImage(AttachImageViewModel model)
         {

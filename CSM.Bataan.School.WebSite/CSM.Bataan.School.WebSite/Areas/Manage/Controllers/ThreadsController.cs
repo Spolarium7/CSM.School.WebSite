@@ -71,13 +71,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             });
         }
 
-       
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/threads/create")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/threads/create")]
         public IActionResult Create(CreateViewModel model)
         {
