@@ -29,7 +29,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 _env = env;
             }
 
-         
+            [Authorize(Policy = "AuthorizeAdmin")]
             [HttpGet, Route("manage/researches/index")]
             [HttpGet, Route("manage/researches")]
             public IActionResult Index(int pageIndex = 1, int pageSize = 10, string keyword = "")
@@ -73,13 +73,13 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             }
 
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/researches/create")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/researches/create")]
         public IActionResult Create(CreateViewModel model)
         {
@@ -90,6 +90,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Id = Guid.NewGuid(),
                 Title = model.Title,
                 Content = model.Content,
+                Year = model.Year,
                 PostExpiry = model.PostExpiry,
                 IsPublished = true
                
@@ -103,7 +104,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return View();
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/researches/unpublish")]
         public IActionResult Unpublish(ResearchesIdViewModel model)
         {
@@ -118,7 +119,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return null;
         }
 
-     
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/researches/publish")]
         public IActionResult Publish(ResearchesIdViewModel model)
         {
@@ -136,7 +137,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
 
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/researches/update-title/{researchId}")]
         public IActionResult UpdateTitle(Guid? researchId)
         {
@@ -154,7 +155,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
-       
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/researches/update-title")]
         public IActionResult UpdateQuestion(UpdateTitleViewModel model)
         {
@@ -173,7 +174,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
 
 
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpGet, Route("manage/researches/update-content/{researchId}")]
         public IActionResult UpdateContent(Guid? researchId)
         {
@@ -192,7 +193,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize(Policy = "AuthorizeAdmin")]
         [HttpPost, Route("manage/researches/update-content")]
         public IActionResult UpdateContent(UpdateContentViewModel model)
         {

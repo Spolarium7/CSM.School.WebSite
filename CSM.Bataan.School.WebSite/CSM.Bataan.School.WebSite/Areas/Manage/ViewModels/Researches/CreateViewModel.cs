@@ -15,6 +15,9 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Researches
         public string Content { get; set; }
 
         [Required]
+        public DateTime Year { get; set; }
+
+        [Required]
         public DateTime PostExpiry { get; set; }
     }
 }
