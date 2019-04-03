@@ -3194,6 +3194,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       " Better still, you get much more information about the sale than you could gather with a manual system. By running reports based on this information, you can make better decisions about ordering and merchandising.",
                       IsPublished = true,
                       Title = "Canteen Point of Sale System",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
@@ -3212,6 +3213,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       "This study will provide evidence on how easy, uncomplicated, helpful and useful planning software or application is nowadays.",
                       IsPublished = true,
                       Title = "Event Planner with Budgeting and Task Management System",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
@@ -3234,6 +3236,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       "We would like know why it uses special software and what this software can do, how they maintain it and technical question as such.",
                       IsPublished = true,
                       Title = "A study Banking Management System of ZAMBALES RURAL BANK IN LUBAO BRANCH, LUBAO PAMPANGA",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
@@ -3253,6 +3256,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       " In addition, to prevent losing customer because of inaccurate computation. The proponent of this study will discuss the proposal of computerized sale system and the problem that encountered by the employees of PC.",
                       IsPublished = true,
                       Title = "POINTS OF SALE SYSTEM OF PERSONAL COLLECTION",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
@@ -3272,6 +3276,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       "Barangay complaints management software is used to record resolve and respond to customer complaints, request as well as facilitate any other feedback in every barangay. .",
                       IsPublished = true,
                       Title = "The Development of Dinalupihan Bataan Barangay Record Management System",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
@@ -3292,6 +3297,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       "The system is very user friendly. The system can track or see inventory levels, order, sale, and deliveries. It can be used for making the transaction easily and faster.",
                       IsPublished = true,
                       Title = "A STUDY ON FRESH OPTIONS INVENTORY SYSTEM OF DINALUPIHAN, BATAAN",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
@@ -3309,6 +3315,7 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                       " the perception of the students and trainees. And this study also intends the benefits of the program. .",
                       IsPublished = true,
                       Title = "The Effectiveness of NCII Trainings on Selected School in Bataan",
+                      Year = DateTime.Parse("2017")
                   }
 
                 );
