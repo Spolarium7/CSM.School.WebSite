@@ -17,5 +17,11 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.ViewModels.Achievers
         [Required]
         public DateTime PostExpiry { get; set; }
 
+        [Required]
+        public DateTime BatchToYear { get; set; }
+
+        [Required]
+        public DateTime BatchFromYear { get; set; }
+
     }
 }

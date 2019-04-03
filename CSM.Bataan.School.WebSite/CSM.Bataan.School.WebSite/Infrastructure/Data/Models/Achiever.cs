@@ -18,6 +18,10 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Models
 
         public DateTime PostExpiry { get; set; }
 
+        public DateTime BatchToYear { get; set; }
+
+        public DateTime BatchFromYear { get; set; }
+
         public bool IsPublished { get; set; }
 
     }

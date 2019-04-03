@@ -16,6 +16,9 @@ namespace CSM.Bataan.School.WebSite.ViewModels.Achievers
 
         public string Content { get; set; }
 
+        public DateTime BatchToYear { get; set; }
+
+        public DateTime BatchFromYear { get; set; }
 
 
     }

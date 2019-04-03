@@ -87,6 +87,8 @@ namespace CSM.Bataan.School.WebSite.Areas.Manage.Controllers
                 Title = model.Title,
                 Content = model.Content,
                 PostExpiry = model.PostExpiry,
+                BatchToYear = model.BatchToYear,
+                BatchFromYear = model.BatchFromYear,
                 IsPublished = true,
                 TemplateName = "achiever1"
 
