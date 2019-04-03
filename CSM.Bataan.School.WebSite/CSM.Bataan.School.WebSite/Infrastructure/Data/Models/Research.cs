@@ -16,6 +16,8 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Models
         public string TemplateName { get; set; }
 
         public DateTime PostExpiry { get; set; }
+        
+        public DateTime Year { get; set; }
 
         public bool IsPublished { get; set; }
 

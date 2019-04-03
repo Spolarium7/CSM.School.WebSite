@@ -30,6 +30,7 @@ namespace CSM.Bataan.School.WebSite.Infrastructure.Data.Helpers
         public DbSet<Ad> Ads { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Research> Researches { get; set; }
+    
 
         public DbSet<NewsItem> News { get; set; }
         public DbSet<NewsGroup> NewsGroups { get; set; }

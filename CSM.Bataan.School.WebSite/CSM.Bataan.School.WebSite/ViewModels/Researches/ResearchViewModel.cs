@@ -13,6 +13,8 @@ namespace CSM.Bataan.School.WebSite.ViewModels.Researches
 
         public string Content { get; set; }
 
+        public DateTime Year { get; set; }
+
 
 
     }
