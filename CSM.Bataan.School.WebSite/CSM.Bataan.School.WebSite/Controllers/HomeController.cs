@@ -77,8 +77,9 @@ namespace CSM.Bataan.School.WebSite.Controllers
         {
             return View();
         }
-        
-        public IActionResult SchoolEvent()
+
+        [HttpGet, Route("schooldirectories")]
+        public IActionResult SchoolDirectories()
         {
             return View();
         }

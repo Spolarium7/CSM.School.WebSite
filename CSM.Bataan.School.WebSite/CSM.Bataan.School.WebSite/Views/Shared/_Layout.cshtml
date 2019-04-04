@@ -14,6 +14,11 @@
     <link href="~/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" media="all" href="~/css/style.css">
     <link rel="stylesheet" media="all" href="~/css/images.css">
+    <!--Orgchart-->
+    <link rel="stylesheet" href="~/vendor/orgchart/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/vendor/orgchart/css/jquery.orgchart.css">
+    <link rel="stylesheet" href="~/vendor/orgchart/css/style.css">
+
 
     <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,13 +32,18 @@
 
     @RenderBody()
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!-- Bootstrap JS-->
 
+    <!-- Bootstrap JS-->
     <script src="~/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="~/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <script>window.jQuery || document.write("<script src='js/jquery-1.11.1.min.js'>\x3C/script>")</script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/main.js"></script>
+
+    <!-- OrgChart Jquery-->
+
+    <script type="text/javascript" src="~/vendor/orgchart/js/jquery.orgchart.js"></script>
+
 
     @RenderSection("pageScripts", false)
 
