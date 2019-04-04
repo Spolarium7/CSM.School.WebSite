@@ -11,7 +11,7 @@
     <div class="orgchart">
         <table>
             <tr>
-                <td colspan="4">
+                <td colspan="2">
                     <div class="node" style="width:250px;">
                         <div class="title">
                             <i class=""></i>
@@ -23,12 +23,16 @@
                 </td>
             </tr>
             <tr class="lines">
-                <td colspan="4">
+                <td colspan="2">
                     <div class="downLine"></div>
                 </td>
             </tr>
+            <tr class="lines">
+                <td class="rightLine"></td>
+                <td class="leftLine"></td>
+            </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="2">
                     <div class="node" style="width:350px;">
                         <div class="title">
                             <i class="fa fa-users symbol"></i>
@@ -40,12 +44,16 @@
                 </td>
             </tr>
             <tr class="lines">
-                <td colspan="4">
+                <td colspan="2">
                     <div class="downLine"></div>
                 </td>
             </tr>
+            <tr class="lines">
+                <td class="rightLine"></td>
+                <td class="leftLine"></td>
+            </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="2">
                     <div class="node" style="width:350px;">
                         <div class="title">
                             <i class="fa fa-users symbol"></i>
@@ -57,12 +65,16 @@
                 </td>
             </tr>
             <tr class="lines">
-                <td colspan="4">
+                <td colspan="2">
                     <div class="downLine"></div>
                 </td>
             </tr>
+            <tr class="lines">
+                <td class="rightLine"></td>
+                <td class="leftLine"></td>
+            </tr>
             <tr>
-                <td colspan="4">
+                <td colspan="6">
                     <div class="node" style="width:350px;">
                         <div class="title">
                             <i class="fa fa-users symbol"></i>
@@ -72,11 +84,11 @@
                         <i class="edge verticalEdge bottomEdge fa"></i>
                     </div>
                 </td>
-            
+
             </tr>
-  
+
             <tr class="lines">
-                <td colspan="4">
+                <td colspan="6">
                     <div class="downLine"></div>
                 </td>
             </tr>
@@ -84,51 +96,23 @@
                 <td class="rightLine"></td>
                 <td class="leftLine topLine"></td>
                 <td class="rightLine topLine"></td>
+                <td class="leftLine topLine"></td>
+                <td class="rightLine topLine"></td> 
                 <td class="leftLine"></td>
             </tr>
-
+            @*3 boxes*@
             <tr class="nodes">
                 <td colspan="2">
                     <table>
                         <tr>
                             <td colspan="4">
-                                <div class="node middle-level" style="width:250px;">
-                                    <div class="title">
-                                        <i class=""></i>
-                                        HIGHER EDUCATION DEPARTMENT
-                                    </div>
-
-                                    <i class="edge verticalEdge topEdge fa"></i>
-                                    <i class="edge horizontalEdge rightEdge fa">
-                                    </i><i class="edge horizontalEdge leftEdge fa">
-                                    </i><i class="edge verticalEdge bottomEdge fa"></i>
-                                </div>
-
+                            <td class="node">
+                                <div class="title">1</div>
+                                <div class="content">below position title</div>
+                                <i class="edge verticalEdge topEdge fa"></i>
+                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                <i class="edge horizontalEdge leftEdge fa"></i>
                             </td>
-
-                        </tr>
-
-                        <tr class="lines">
-                            <td colspan="4">
-                                <div class="downLine"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <div class="node pipeline1" style="width:250px;">
-                                    <div class="title">
-                                        <i class="fa fa-users symbol"></i>
-                                        MA. THERESA S. JIMENEZ. MIT
-                                    </div>
-                                    <div class="content">OIC-COLLEGE HEAD</div>
-                                    <i class="edge verticalEdge topEdge fa"></i>
-                                    <i class="edge horizontalEdge rightEdge fa">
-                                    </i><i class="edge horizontalEdge leftEdge fa">
-                                    </i><i class="edge verticalEdge bottomEdge fa"></i>
-                                </div>
-
-                            </td>
-
                         </tr>
                         <tr class="lines">
                             <td colspan="4">
@@ -139,40 +123,17 @@
                             <td class="rightLine"></td>
                             <td class="leftLine topLine"></td>
                             <td class="rightLine topLine"></td>
-                            <td class="leftLine"></td>
+                            <td class="rightLine"></td>
                         </tr>
-                        <tr class="lines">
-                            <td colspan="2">
-                                <div class="downLine"></div>
-                            </td>
-                         
-                        </tr>                    
+                        @*2 boxes*@
                         <tr class="nodes">
-                            <td colspan="2" class="">
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <div class="node">
-                                                <div class="title">Deans</div>
-                                                <div class=""></div>
-                                                <i class="edge verticalEdge topEdge fa"></i>
-                                                <i class="edge horizontalEdge rightEdge fa"></i>
-                                                <i class="edge horizontalEdge leftEdge fa"></i>
-                                            </div>
-                                        </td>
-
-                                    </tr>
-                                </table>
-                            </td>
                             <td colspan="2">
                                 <table>
                                     <tr>
                                         <td colspan="6">
-                                            <div class="node product-dept">
-                                                <div class="title">
-                                                    <i class="fa fa-users symbol"></i>Li Xin
-                                                </div>
-                                                <div class="content">senior engineer</div>
+                                            <div class="node">
+                                                <div class="title">child of 1(1)</div>
+                                                <div class="content">below position title</div>
                                                 <i class="edge verticalEdge topEdge fa"></i>
                                                 <i class="edge horizontalEdge rightEdge fa"></i>
                                                 <i class="edge horizontalEdge leftEdge fa"></i>
@@ -180,7 +141,6 @@
                                             </div>
                                         </td>
                                     </tr>
-
                                     <tr class="lines">
                                         <td colspan="6">
                                             <div class="downLine"></div>
@@ -194,55 +154,117 @@
                                         <td class="rightLine topLine"></td>
                                         <td class="leftLine"></td>
                                     </tr>
-
+                                    @*3 boxes*@
                                     <tr class="nodes">
                                         <td colspan="2">
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <div class="node pipeline1">
-                                                            <div class="title">To To</div>
-                                                            <div class="content">engineer</div>
+                                                        <div class="node">
+                                                            <div class="title">child 3</div>
+                                                            <div class="content">bottom 3</div>
                                                             <i class="edge verticalEdge topEdge fa"></i>
                                                             <i class="edge horizontalEdge rightEdge fa"></i>
                                                             <i class="edge horizontalEdge leftEdge fa"></i>
+                                                          
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
-
                                         <td colspan="2">
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <div class="node pipeline1">
-                                                            <div class="title">Fei Fei</div>
-                                                            <div class="content">engineer</div>
+                                                        <div class="node">
+                                                            <div class="title">2</div>
+                                                            <div class="content">title</div>
                                                             <i class="edge verticalEdge topEdge fa"></i>
                                                             <i class="edge horizontalEdge rightEdge fa"></i>
                                                             <i class="edge horizontalEdge leftEdge fa"></i>
+
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
-
                                         <td colspan="2">
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <div class="node pipeline1">
-                                                            <div class="title">Xuan Xuan</div>
-                                                            <div class="content">engineer</div>
+                                                        <div class="node">
+                                                            <div class="title">123</div>
+                                                            <div class="content"></div>
                                                             <i class="edge verticalEdge topEdge fa"></i>
                                                             <i class="edge horizontalEdge rightEdge fa"></i>
                                                             <i class="edge horizontalEdge leftEdge fa"></i>
+
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td colspan="2">
+                                <table>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="node">
+                                                <div class="title">1</div>
+                                            </div>
+                                            <div class="content">below position title</div>
+                                            <i class="edge verticalEdge topEdge fa"></i>
+                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                        </td>
+                                    </tr>
+                                    <tr class="lines">
+                                        <td colspan="4">
+                                            <div class="downLine"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="lines">
+                                        <td class="rightLine"></td>
+                                        <td class="leftLine topLine"></td>
+                                        <td class="rightLine topLine"></td>
+                                        <td class="leftLine"></td>
+                                    </tr>
+                                    @*2 boxes*@
+                                    <tr class="nodes">
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="node">
+                                                            <div class="title">child 3</div>
+                                                            <div class="content">bottom 3</div>
+                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                            <i class="edge horizontalEdge leftEdge fa"></i>
 
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="node">
+                                                            <div class="title">2</div>
+                                                            <div class="content">title</div>
+                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </td>
                                     </tr>
                                 </table>
@@ -250,60 +272,41 @@
                         </tr>
                     </table>
                 </td>
+
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td colspan="4">
-                                <div class="node middle-level">
-                                    <div class="title">
-                                        <i class="fa fa-users symbol"></i>Su Miao
-                                    </div>
-                                    <div class="content">department manager</div>
+                            <td colspan="2">
+                                <div draggable="true" class="node">
+                                    <div class="title">11</div>
+                                    <div class="content">title</div>
                                     <i class="edge verticalEdge topEdge fa"></i>
                                     <i class="edge horizontalEdge rightEdge fa"></i>
                                     <i class="edge horizontalEdge leftEdge fa"></i>
                                     <i class="edge verticalEdge bottomEdge fa"></i>
+
                                 </div>
                             </td>
                         </tr>
-
                         <tr class="lines">
-                            <td colspan="4">
+                            <td colspan="2">
                                 <div class="downLine"></div>
                             </td>
                         </tr>
                         <tr class="lines">
                             <td class="rightLine"></td>
-                            <td class="leftLine topLine"></td>
-                            <td class="rightLine topLine"></td>
                             <td class="leftLine"></td>
+                            
                         </tr>
+                        @*1 box*@
                         <tr class="nodes">
                             <td colspan="2">
                                 <table>
                                     <tr>
-                                        <td>
-                                            <div class="node rd-dept">
-                                                <div class="title">Pang Pang</div>
-                                                <div class="content">senior engineer</div>
-                                                <i class="edge verticalEdge topEdge fa"></i>
-                                                <i class="edge horizontalEdge rightEdge fa"></i>
-                                                <i class="edge horizontalEdge leftEdge fa"></i>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-
-                            <td colspan="2">
-                                <table>
-                                    <tr>
-                                        <td colspan="6">
-                                            <div class="node rd-dept">
-                                                <div class="title">
-                                                    <i class="fa fa-users symbol"></i>Hei Hei
-                                                </div>
-                                                <div class="content">senior engineer</div>
+                                        <td colspan="4">
+                                            <div class="node">
+                                                <div class="title">1</div>
+                                                <div class="content">title</div>
                                                 <i class="edge verticalEdge topEdge fa"></i>
                                                 <i class="edge horizontalEdge rightEdge fa"></i>
                                                 <i class="edge horizontalEdge leftEdge fa"></i>
@@ -312,61 +315,501 @@
                                         </td>
                                     </tr>
                                     <tr class="lines">
-                                        <td colspan="6">
+                                        <td colspan="4">
                                             <div class="downLine"></div>
                                         </td>
+                                       
                                     </tr>
-
                                     <tr class="lines">
                                         <td class="rightLine"></td>
                                         <td class="leftLine topLine"></td>
                                         <td class="rightLine topLine"></td>
-                                        <td class="leftLine topLine"></td>
-                                        <td class="rightLine topLine"></td>
+                                        <td class="leftLine"></td>
+                                    </tr>
+                                    @*2 box*@
+                                    <tr class="nodes">
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="node">
+                                                            <div class="title">1</div>
+                                                            <div class="content">title</div>
+                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="lines">
+                                                    <td colspan="2"></td>
+                                                    <div class="downLine"></div>
+                                                </tr>
+                                                <tr class="line">
+                                                    <td class="rightLine"></td>
+                                                    <td class="leftLine"></td>
+                                                    
+                                                </tr>
+                                                @*1 box*@
+                                                <tr class="nodes">
+                                                    <td colspan="2">
+                                                        <table>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <div class="node">
+                                                                        <div class="title">1</div>
+                                                                        <div class="content">title</div>
+                                                                        <i class="edge verticalEdge topEdge fa"></i>
+                                                                        <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                        <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                        <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lines">
+                                                                <td colspan="2"></td>
+                                                                <div class="downLine"></div>
+                                                            </tr>
+                                                            <tr class="line">
+                                                                <td class="rightLine"></td>
+                                                                <td class="leftLine"></td>
+
+                                                            </tr>
+                                                            @*1 box*@
+                                                            <tr class="nodes">
+                                                                <td colspan="2">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <div class="node">
+                                                                                    <div class="title">1</div>
+                                                                                    <div class="content">title</div>
+                                                                                    <i class="edge verticalEdge topEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                    <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="lines">
+                                                                            <td colspan="2"></td>
+                                                                            <div class="downLine"></div>
+                                                                        </tr>
+                                                                        <tr class="line">
+                                                                            <td class="rightLine"></td>
+                                                                            <td class="leftLine"></td>
+
+                                                                        </tr>
+                                                                        @*1 box*@
+                                                                        <tr class="nodes">
+                                                                            <td colspan="2">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="node">
+                                                                                                <div class="title">1</div>
+                                                                                                <div class="content">title</div>
+                                                                                                <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="lines">
+                                                                                        <td colspan="2"></td>
+                                                                                        <div class="downLine"></div>
+                                                                                    </tr>
+                                                                                    <tr class="line">
+                                                                                        <td class="rightLine"></td>
+                                                                                        <td class="leftLine"></td>
+
+                                                                                    </tr>
+                                                                                     @*1 last box*@
+                                                                                    <tr class="nodes">
+                                                                                        <td colspan="2">
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="node">
+                                                                                                            <div class="title">1</div>
+                                                                                                            <div class="content">title</div>
+                                                                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                                        </div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td colspan="2"></td>
+                                                                                                    <div class="downLine"></div>
+                                                                                                </tr>
+                                                                                                <tr class="line">
+                                                                                                    <td class="rightLine"></td>
+                                                                                                    <td class="leftLine"></td>
+
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+
+                                                            </tr>
+                                                        </table>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="node">
+                                                            <div class="title">1</div>
+                                                            <div class="content">title</div>
+                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="lines">
+                                                    <td colspan="2"></td>
+                                                    <div class="downLine"></div>
+                                                </tr>
+                                                <tr class="line">
+                                                    <td class="rightLine"></td>
+                                                    <td class="leftLine"></td>
+
+                                                </tr>
+                                                @*1 box*@
+                                                <tr class="nodes">
+                                                    <td colspan="2">
+                                                        <table>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <div class="node">
+                                                                        <div class="title">1</div>
+                                                                        <div class="content">title</div>
+                                                                        <i class="edge verticalEdge topEdge fa"></i>
+                                                                        <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                        <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                        <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lines">
+                                                                <td colspan="2"></td>
+                                                                <div class="downLine"></div>
+                                                            </tr>
+                                                            <tr class="line">
+                                                                <td class="rightLine"></td>
+                                                                <td class="leftLine"></td>
+
+                                                            </tr>
+                                                            @*1 box*@
+                                                            <tr class="nodes">
+                                                                <td colspan="2">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <div class="node">
+                                                                                    <div class="title">1</div>
+                                                                                    <div class="content">title</div>
+                                                                                    <i class="edge verticalEdge topEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                    <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="lines">
+                                                                            <td colspan="2"></td>
+                                                                            <div class="downLine"></div>
+                                                                        </tr>
+                                                                        <tr class="line">
+                                                                            <td class="rightLine"></td>
+                                                                            <td class="leftLine"></td>
+
+                                                                        </tr>
+                                                                        @*1 last box*@
+                                                                        <tr class="nodes">
+                                                                            <td colspan="2">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="node">
+                                                                                                <div class="title">1</div>
+                                                                                                <div class="content">title</div>
+                                                                                                <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="lines">
+                                                                                        <td colspan="2"></td>
+                                                                                        <div class="downLine"></div>
+                                                                                    </tr>
+                                                                                    <tr class="line">
+                                                                                        <td class="rightLine"></td>
+                                                                                        <td class="leftLine"></td>
+
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+
+                                                </tr>
+                                            </table>
+                                            
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                            
+                        </tr>
+                    </table>
+                </td>
+
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td colspan="4">
+                                <div draggable="true" class="node">
+                                    <div class="title">11</div>
+                                    <div class="content">title</div>
+                                    <i class="edge verticalEdge topEdge fa"></i>
+                                    <i class="edge horizontalEdge rightEdge fa"></i>
+                                    <i class="edge horizontalEdge leftEdge fa"></i>
+                                    <i class="edge verticalEdge bottomEdge fa"></i>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="lines">
+                            <td colspan="4">
+                                <div class="downLine"></div>
+                            </td>
+                        </tr>
+                        <tr class="lines">
+                            <td class="rightLine"></td>
+                            <td class="rightLine topLine"></td>
+                            <td class="leftLine topLine"></td>
+                            <td class="leftLine"></td>
+
+                        </tr>
+                        <tr class="nodes">
+                            <td colspan="2">
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="node">
+                                                <div class="title">1</div>
+                                                <div class="content"></div>
+                                                <i class="edge verticalEdge topEdge fa"></i>
+                                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                                <i class="edge horizontalEdge leftEdge fa"></i>
+                                                <i class="edge verticalEdge bottomEdge fa"></i>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr class="lines">
+                                        <td colspan="2">
+                                            <div class="downLine"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="lines">
+                                        <td class="rightLine"></td>
                                         <td class="leftLine"></td>
                                     </tr>
                                     <tr class="nodes">
                                         <td colspan="2">
                                             <table>
                                                 <tr>
-                                                    <td>
-                                                        <div class="node frontend1">
-                                                            <div class="title">Xiang Xiang</div>
-                                                            <div class="content">UE engineer</div>
+                                                    <td colspan="2">
+                                                        <div class="node">
+                                                            <div class="title">1</div>
+                                                            <div class="content"></div>
                                                             <i class="edge verticalEdge topEdge fa"></i>
                                                             <i class="edge horizontalEdge rightEdge fa"></i>
                                                             <i class="edge horizontalEdge leftEdge fa"></i>
+                                                            <i class="edge verticalEdge bottomEdge fa"></i>
                                                         </div>
+
                                                     </td>
                                                 </tr>
-                                            </table>
-                                        </td>
-                                        <td colspan="2">
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <div class="node frontend1">
-                                                            <div class="title">Dan Dan</div>
-                                                            <div class="content">engineer</div>
-                                                            <i class="edge verticalEdge topEdge fa"></i>
-                                                            <i class="edge horizontalEdge rightEdge fa"></i>
-                                                            <i class="edge horizontalEdge leftEdge fa"></i>
-                                                        </div>
+                                                <tr class="lines">
+                                                    <td colspan="2">
+                                                        <div class="downLine"></div>
                                                     </td>
                                                 </tr>
-                                            </table>
-                                        </td>
-                                        <td colspan="2">
-                                            <table>
-                                                <tr>
-                                                    <td>
-                                                        <div class="node frontend1">
-                                                            <div class="title">Zai Zai</div>
-                                                            <div class="content">engineer</div>
-                                                            <i class="edge verticalEdge topEdge fa"></i>
-                                                            <i class="edge horizontalEdge rightEdge fa"></i>
-                                                            <i class="edge horizontalEdge leftEdge fa"></i>
-                                                        </div>
+                                                <tr class="lines">
+                                                    <td class="rightLine"></td>
+                                                    <td class="leftLine"></td>
+                                                </tr>
+                                                <tr class="nodes">
+                                                    <td colspan="2">
+                                                        <table>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <div class="node">
+                                                                        <div class="title">1</div>
+                                                                        <div class="content"></div>
+                                                                        <i class="edge verticalEdge topEdge fa"></i>
+                                                                        <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                        <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                        <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                    </div>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lines">
+                                                                <td colspan="2">
+                                                                    <div class="downLine"></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lines">
+                                                                <td class="leftLine"></td>
+                                                                <td class="rightLine"></td>
+                                                            </tr>
+                                                            <tr class="nodes">
+                                                                <td colspan="2">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <div class="node">
+                                                                                    <div class="title">1</div>
+                                                                                    <div class="content"></div>
+                                                                                    <i class="edge verticalEdge topEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                    <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="lines">
+                                                                            <td colspan="2">
+                                                                                <div class="downLine"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="lines">
+                                                                            <td class="leftLine"></td>
+                                                                            <td class="rightLine"></td>
+                                                                        </tr>
+                                                                        <tr class="nodes">
+                                                                            <td colspan="2">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td colspan="4">
+                                                                                            <div class="node">
+                                                                                                <div class="title">1</div>
+                                                                                                <div class="content"></div>
+                                                                                                <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                            </div>
+
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="lines">
+                                                                                        <td colspan="4">
+                                                                                            <div class="downLine"></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="lines">
+                                                                                        <td class="leftLine"></td>
+                                                                                        <td class="rightLine topLine"></td>
+                                                                                        <td class="leftLine topLine"></td>
+                                                                                        <td class="rightLine"></td>
+                                                                                    </tr>
+                                                                                    <tr class="nodes">
+                                                                                        <td colspan="2">
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="node">
+                                                                                                            <div class="title">1</div>
+                                                                                                            <div class="content"></div>
+                                                                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                                        </div>
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="downLine"></div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td class="leftLine"></td>
+                                                                                                    <td class="rightLine"></td>
+                                                                                                </tr>
+                                                                                                <tr class="nodes">
+                                                                                                    <td colspan="2">
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                        <td colspan="2">
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="node">
+                                                                                                            <div class="title">1</div>
+                                                                                                            <div class="content"></div>
+                                                                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                                        </div>
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="downLine"></div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td class="leftLine"></td>
+                                                                                                    <td class="rightLine"></td>
+                                                                                                </tr>
+                                                                                                <tr class="nodes">
+                                                                                                    <td colspan="2"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -374,11 +817,184 @@
                                     </tr>
                                 </table>
                             </td>
+                            <td colspan="2">
+                                <table>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="node">
+                                                <div class="title">1</div>
+                                                <div class="content"></div>
+                                                <i class="edge verticalEdge topEdge fa"></i>
+                                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                                <i class="edge horizontalEdge leftEdge fa"></i>
+                                                <i class="edge verticalEdge bottomEdge fa"></i>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr class="lines">
+                                        <td colspan="2">
+                                            <div class="downLine"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="lines">
+                                        <td class="rightLine"></td>
+                                        <td class="leftLine"></td>
+                                    </tr>
+                                    <tr class="nodes">
+                                        <td colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div class="node">
+                                                            <div class="title">1</div>
+                                                            <div class="content"></div>
+                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                                <tr class="lines">
+                                                    <td colspan="2">
+                                                        <div class="downLine"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="lines">
+                                                    <td class="rightLine"></td>
+                                                    <td class="leftLine"></td>
+                                                </tr>
+                                                <tr class="nodes">
+                                                    <td colspan="2">
+                                                        <table>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <div class="node">
+                                                                        <div class="title">1</div>
+                                                                        <div class="content"></div>
+                                                                        <i class="edge verticalEdge topEdge fa"></i>
+                                                                        <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                        <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                        <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                    </div>
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lines">
+                                                                <td colspan="2">
+                                                                    <div class="downLine"></div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="lines">
+                                                                <td class="leftLine"></td>
+                                                                <td class="rightLine"></td>
+                                                            </tr>
+                                                            <tr class="nodes">
+                                                                <td colspan="2">
+                                                                    <table>
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <div class="node">
+                                                                                    <div class="title">1</div>
+                                                                                    <div class="content"></div>
+                                                                                    <i class="edge verticalEdge topEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                    <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                    <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="lines">
+                                                                            <td colspan="2">
+                                                                                <div class="downLine"></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr class="lines">
+                                                                            <td class="leftLine"></td>
+                                                                            <td class="rightLine"></td>
+                                                                        </tr>
+                                                                        <tr class="nodes">
+                                                                            <td colspan="2">
+                                                                                <table>
+                                                                                    <tr>
+                                                                                        <td colspan="2">
+                                                                                            <div class="node">
+                                                                                                <div class="title">1</div>
+                                                                                                <div class="content"></div>
+                                                                                                <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                            </div>
+
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="lines">
+                                                                                        <td colspan="2">
+                                                                                            <div class="downLine"></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="lines">
+                                                                                        <td class="leftLine"></td>
+                                                                                        <td class="rightLine"></td>
+                                                                                    </tr>
+                                                                                    <tr class="nodes">
+                                                                                        <td colspan="2">
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="node">
+                                                                                                            <div class="title">1</div>
+                                                                                                            <div class="content"></div>
+                                                                                                            <i class="edge verticalEdge topEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge rightEdge fa"></i>
+                                                                                                            <i class="edge horizontalEdge leftEdge fa"></i>
+                                                                                                            <i class="edge verticalEdge bottomEdge fa"></i>
+                                                                                                        </div>
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td colspan="2">
+                                                                                                        <div class="downLine"></div>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr class="lines">
+                                                                                                    <td class="leftLine"></td>
+                                                                                                    <td class="rightLine"></td>
+                                                                                                </tr>
+                                                                                                <tr class="nodes">
+                                                                                                    <td colspan="2"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                       
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </td>
                         </tr>
                     </table>
                 </td>
+                
             </tr>
         </table>
+               
     </div>
 </div>
 
